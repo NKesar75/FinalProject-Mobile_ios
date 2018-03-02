@@ -1,0 +1,557 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C4AF45FA2049BE1500B9093F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AF45F92049BE1500B9093F /* AppDelegate.swift */; };
+		C4AF45FC2049BE1500B9093F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AF45FB2049BE1500B9093F /* ViewController.swift */; };
+		C4AF45FF2049BE1600B9093F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4AF45FD2049BE1600B9093F /* Main.storyboard */; };
+		C4AF46012049BE1600B9093F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4AF46002049BE1600B9093F /* Assets.xcassets */; };
+		C4AF46042049BE1600B9093F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4AF46022049BE1600B9093F /* LaunchScreen.storyboard */; };
+		C4AF460F2049BE1600B9093F /* Personal_AssistantTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AF460E2049BE1600B9093F /* Personal_AssistantTests.swift */; };
+		C4AF461A2049BE1600B9093F /* Personal_AssistantUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AF46192049BE1600B9093F /* Personal_AssistantUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C4AF460B2049BE1600B9093F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C4AF45EE2049BE1500B9093F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C4AF45F52049BE1500B9093F;
+			remoteInfo = "Personal Assistant";
+		};
+		C4AF46162049BE1600B9093F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C4AF45EE2049BE1500B9093F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C4AF45F52049BE1500B9093F;
+			remoteInfo = "Personal Assistant";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C4AF45F62049BE1500B9093F /* Personal Assistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Personal Assistant.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4AF45F92049BE1500B9093F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C4AF45FB2049BE1500B9093F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C4AF45FE2049BE1600B9093F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C4AF46002049BE1600B9093F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C4AF46032049BE1600B9093F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C4AF46052049BE1600B9093F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C4AF460A2049BE1600B9093F /* Personal AssistantTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Personal AssistantTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4AF460E2049BE1600B9093F /* Personal_AssistantTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Personal_AssistantTests.swift; sourceTree = "<group>"; };
+		C4AF46102049BE1600B9093F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C4AF46152049BE1600B9093F /* Personal AssistantUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Personal AssistantUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4AF46192049BE1600B9093F /* Personal_AssistantUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Personal_AssistantUITests.swift; sourceTree = "<group>"; };
+		C4AF461B2049BE1600B9093F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C4AF45F32049BE1500B9093F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C4AF46072049BE1600B9093F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C4AF46122049BE1600B9093F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C4AF45ED2049BE1500B9093F = {
+			isa = PBXGroup;
+			children = (
+				C4AF45F82049BE1500B9093F /* Personal Assistant */,
+				C4AF460D2049BE1600B9093F /* Personal AssistantTests */,
+				C4AF46182049BE1600B9093F /* Personal AssistantUITests */,
+				C4AF45F72049BE1500B9093F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C4AF45F72049BE1500B9093F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C4AF45F62049BE1500B9093F /* Personal Assistant.app */,
+				C4AF460A2049BE1600B9093F /* Personal AssistantTests.xctest */,
+				C4AF46152049BE1600B9093F /* Personal AssistantUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C4AF45F82049BE1500B9093F /* Personal Assistant */ = {
+			isa = PBXGroup;
+			children = (
+				C4AF45F92049BE1500B9093F /* AppDelegate.swift */,
+				C4AF45FB2049BE1500B9093F /* ViewController.swift */,
+				C4AF45FD2049BE1600B9093F /* Main.storyboard */,
+				C4AF46002049BE1600B9093F /* Assets.xcassets */,
+				C4AF46022049BE1600B9093F /* LaunchScreen.storyboard */,
+				C4AF46052049BE1600B9093F /* Info.plist */,
+			);
+			path = "Personal Assistant";
+			sourceTree = "<group>";
+		};
+		C4AF460D2049BE1600B9093F /* Personal AssistantTests */ = {
+			isa = PBXGroup;
+			children = (
+				C4AF460E2049BE1600B9093F /* Personal_AssistantTests.swift */,
+				C4AF46102049BE1600B9093F /* Info.plist */,
+			);
+			path = "Personal AssistantTests";
+			sourceTree = "<group>";
+		};
+		C4AF46182049BE1600B9093F /* Personal AssistantUITests */ = {
+			isa = PBXGroup;
+			children = (
+				C4AF46192049BE1600B9093F /* Personal_AssistantUITests.swift */,
+				C4AF461B2049BE1600B9093F /* Info.plist */,
+			);
+			path = "Personal AssistantUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C4AF45F52049BE1500B9093F /* Personal Assistant */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C4AF461E2049BE1600B9093F /* Build configuration list for PBXNativeTarget "Personal Assistant" */;
+			buildPhases = (
+				C4AF45F22049BE1500B9093F /* Sources */,
+				C4AF45F32049BE1500B9093F /* Frameworks */,
+				C4AF45F42049BE1500B9093F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Personal Assistant";
+			productName = "Personal Assistant";
+			productReference = C4AF45F62049BE1500B9093F /* Personal Assistant.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C4AF46092049BE1600B9093F /* Personal AssistantTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C4AF46212049BE1600B9093F /* Build configuration list for PBXNativeTarget "Personal AssistantTests" */;
+			buildPhases = (
+				C4AF46062049BE1600B9093F /* Sources */,
+				C4AF46072049BE1600B9093F /* Frameworks */,
+				C4AF46082049BE1600B9093F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C4AF460C2049BE1600B9093F /* PBXTargetDependency */,
+			);
+			name = "Personal AssistantTests";
+			productName = "Personal AssistantTests";
+			productReference = C4AF460A2049BE1600B9093F /* Personal AssistantTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		C4AF46142049BE1600B9093F /* Personal AssistantUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C4AF46242049BE1600B9093F /* Build configuration list for PBXNativeTarget "Personal AssistantUITests" */;
+			buildPhases = (
+				C4AF46112049BE1600B9093F /* Sources */,
+				C4AF46122049BE1600B9093F /* Frameworks */,
+				C4AF46132049BE1600B9093F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C4AF46172049BE1600B9093F /* PBXTargetDependency */,
+			);
+			name = "Personal AssistantUITests";
+			productName = "Personal AssistantUITests";
+			productReference = C4AF46152049BE1600B9093F /* Personal AssistantUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C4AF45EE2049BE1500B9093F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0910;
+				LastUpgradeCheck = 0910;
+				ORGANIZATIONNAME = "Final-Project";
+				TargetAttributes = {
+					C4AF45F52049BE1500B9093F = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+					};
+					C4AF46092049BE1600B9093F = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = C4AF45F52049BE1500B9093F;
+					};
+					C4AF46142049BE1600B9093F = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = C4AF45F52049BE1500B9093F;
+					};
+				};
+			};
+			buildConfigurationList = C4AF45F12049BE1500B9093F /* Build configuration list for PBXProject "Personal Assistant" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C4AF45ED2049BE1500B9093F;
+			productRefGroup = C4AF45F72049BE1500B9093F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C4AF45F52049BE1500B9093F /* Personal Assistant */,
+				C4AF46092049BE1600B9093F /* Personal AssistantTests */,
+				C4AF46142049BE1600B9093F /* Personal AssistantUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C4AF45F42049BE1500B9093F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4AF46042049BE1600B9093F /* LaunchScreen.storyboard in Resources */,
+				C4AF46012049BE1600B9093F /* Assets.xcassets in Resources */,
+				C4AF45FF2049BE1600B9093F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C4AF46082049BE1600B9093F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C4AF46132049BE1600B9093F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C4AF45F22049BE1500B9093F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4AF45FC2049BE1500B9093F /* ViewController.swift in Sources */,
+				C4AF45FA2049BE1500B9093F /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C4AF46062049BE1600B9093F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4AF460F2049BE1600B9093F /* Personal_AssistantTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C4AF46112049BE1600B9093F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4AF461A2049BE1600B9093F /* Personal_AssistantUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C4AF460C2049BE1600B9093F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C4AF45F52049BE1500B9093F /* Personal Assistant */;
+			targetProxy = C4AF460B2049BE1600B9093F /* PBXContainerItemProxy */;
+		};
+		C4AF46172049BE1600B9093F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C4AF45F52049BE1500B9093F /* Personal Assistant */;
+			targetProxy = C4AF46162049BE1600B9093F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C4AF45FD2049BE1600B9093F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C4AF45FE2049BE1600B9093F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C4AF46022049BE1600B9093F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C4AF46032049BE1600B9093F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C4AF461C2049BE1600B9093F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C4AF461D2049BE1600B9093F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C4AF461F2049BE1600B9093F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Personal Assistant/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "PA-Personal-Assistant.Personal-Assistant";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C4AF46202049BE1600B9093F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Personal Assistant/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "PA-Personal-Assistant.Personal-Assistant";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		C4AF46222049BE1600B9093F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Personal AssistantTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "PA-Personal-Assistant.Personal-AssistantTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Personal Assistant.app/Personal Assistant";
+			};
+			name = Debug;
+		};
+		C4AF46232049BE1600B9093F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Personal AssistantTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "PA-Personal-Assistant.Personal-AssistantTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Personal Assistant.app/Personal Assistant";
+			};
+			name = Release;
+		};
+		C4AF46252049BE1600B9093F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Personal AssistantUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "PA-Personal-Assistant.Personal-AssistantUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Personal Assistant";
+			};
+			name = Debug;
+		};
+		C4AF46262049BE1600B9093F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Personal AssistantUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "PA-Personal-Assistant.Personal-AssistantUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Personal Assistant";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C4AF45F12049BE1500B9093F /* Build configuration list for PBXProject "Personal Assistant" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C4AF461C2049BE1600B9093F /* Debug */,
+				C4AF461D2049BE1600B9093F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C4AF461E2049BE1600B9093F /* Build configuration list for PBXNativeTarget "Personal Assistant" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C4AF461F2049BE1600B9093F /* Debug */,
+				C4AF46202049BE1600B9093F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C4AF46212049BE1600B9093F /* Build configuration list for PBXNativeTarget "Personal AssistantTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C4AF46222049BE1600B9093F /* Debug */,
+				C4AF46232049BE1600B9093F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C4AF46242049BE1600B9093F /* Build configuration list for PBXNativeTarget "Personal AssistantUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C4AF46252049BE1600B9093F /* Debug */,
+				C4AF46262049BE1600B9093F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C4AF45EE2049BE1500B9093F /* Project object */;
+}
