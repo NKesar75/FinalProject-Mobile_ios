@@ -188,6 +188,9 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
 
         let voiceref = storageRef.child("ios_voice.amr")
         voiceref.putFile(from: url)
+        
+       //for right now
+         self.performSegue(withIdentifier: "Weather_seg", sender: nil)
     }
     
     // Path for saving/retreiving the audio file
