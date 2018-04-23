@@ -11,8 +11,9 @@ import Firebase
 import AVFoundation
 import CoreLocation
 import MapKit
+import Speech
 
-class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate, CLLocationManagerDelegate{
+class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate, CLLocationManagerDelegate, SFSpeechRecognizerDelegate{
 
     @IBOutlet weak var menubutton: UIButton!
     @IBOutlet weak var ViewConstarint: NSLayoutConstraint!
@@ -22,7 +23,7 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
     @IBOutlet weak var sideview: UIView!
     
     @IBOutlet weak var voice_button: UIButton!
-    var audioRecorder: AVAudioRecorder?
+    var audioRecorder: AVAudioRecorder!
     var player : AVAudioPlayer?
     var isRecording = false
     let locationManager:CLLocationManager = CLLocationManager()
@@ -30,7 +31,19 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
     var placemark: CLPlacemark?
     var city: String?
     var state: String?
+    let speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier: "en-US"))!
+    var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
+    var recognitionTask: SFSpeechRecognitionTask?
+    let audioEngine = AVAudioEngine()
+    static var stringtoserver: String?
+    @IBOutlet weak var imageview: UIImageView!
     
+    @IBOutlet weak var Locationlabel: UILabel!
+    @IBOutlet weak var Humidity: UILabel!
+    @IBOutlet weak var rainlabel: UILabel!
+    @IBOutlet weak var forcastlabel: UILabel!
+    @IBOutlet weak var templabel: UILabel!
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -42,6 +55,21 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
         
        ViewConstarint.constant = -175
         self.menubutton.isHidden = false
+        
+        speechRecognizer.delegate = self
+        SFSpeechRecognizer.requestAuthorization { authStatus in
+           
+                switch authStatus {
+                case .authorized:
+                    print("authorized")
+                case .denied:
+                     print("not authorized")
+                case .restricted:
+                    print("limted authorizion")
+                case .notDetermined:
+                     print("no choice yet authorizion")
+            }
+        }
         
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
@@ -94,6 +122,7 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
                 self.city = self.city!.replacingOccurrences(of: " ", with: "_", options: .literal, range: nil)
                 print(self.city)
                 print(self.state)
+                self.FetchJSON()
                 
             } else {
                 // add some more check's if for some reason location manager is nil
@@ -102,6 +131,69 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
             
         })
 
+    }
+    
+    
+    struct Weather: Decodable {
+        let key: String
+        let tempf: Double
+        let tempc: Double
+        let city: String
+        let state: String
+        let rain: Double
+        let forcast: String
+        let humidity: String
+        let forcastImage: String
+        
+        // swift 4.0
+        private enum CodingKeys: String, CodingKey {
+            case key = "key"
+            case tempf = "tempf"
+            case tempc = "tempc"
+            case city = "city"
+            case state = "state"
+            case rain = "precip"
+            case forcast = "condition"
+            case humidity = "humidity"
+            case forcastImage = "url"
+        }
+    }
+    
+    
+    fileprivate func FetchJSON() {
+        var temp = self.state! + "/" + self.city!
+        let urlString = "https://personalassistant-ec554.appspot.com/recognize/text_weather/" + temp
+        
+        guard let url = URL(string: urlString) else { return }
+        URLSession.shared.dataTask(with: url) { (data, _, err) in
+            DispatchQueue.main.async {
+                if let err = err {
+                    print("Failed to get data from url:", err)
+                    return
+                }
+                
+                guard let data = data else { return }
+                
+                do {
+                    // Swift 4.1
+                    //decoder.keyDecodingStrategy = .convertFromSnakeCase
+                    let Cweather = try JSONDecoder().decode(Weather.self, from: data)
+                    self.templabel.text = String(Cweather.tempf) + "°F"
+                    self.Locationlabel.text = Cweather.city + ", " + Cweather.state
+                    self.rainlabel.text = "Rain: " + String(Cweather.rain) + "%"
+                    self.forcastlabel.text = "Forcast: " + Cweather.forcast
+                    self.Humidity.text = "Humidity: " + Cweather.humidity
+                    let imageUrl:URL = URL(string: Cweather.forcastImage)!
+                    let imageData:NSData = NSData(contentsOf: imageUrl)!
+                    self.imageview.image = UIImage(data: imageData as Data)
+                    self.imageview.contentMode = UIViewContentMode.scaleAspectFit
+                    
+                    
+                } catch let jsonErr {
+                    print("Failed to decode:", jsonErr)
+                }
+            }
+            }.resume()
     }
     
     
@@ -126,15 +218,27 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
     }
     @IBAction func voicebutton(_ sender: UIButton) {
        
-        if isRecording {
-            finishRecording()
-        }else {
+        if audioEngine.isRunning {
+            audioEngine.stop()
+            recognitionRequest?.endAudio()
+            HomePage.stringtoserver = HomePage.stringtoserver!.replacingOccurrences(of: " ", with: "_", options: .literal, range: nil)
+            HomePage.stringtoserver = HomePage.stringtoserver!.replacingOccurrences(of: "\'", with: "", options: .literal, range: nil)
+            print(HomePage.stringtoserver)
+            performSegue(withIdentifier: "Weather_seg", sender: nil)
+            
+        } else {
             startRecording()
         }
     }
     
     
     func startRecording() {
+        
+        if let recognitionTask = recognitionTask {
+            recognitionTask.cancel()
+            self.recognitionTask = nil
+        }
+        
         //1. create the session
         let session = AVAudioSession.sharedInstance()
         
@@ -144,17 +248,58 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
             try session.setActive(true)
             // 3. set up a high-quality recording session
           
-            let settings = [
-                AVFormatIDKey : NSNumber.init(value: kAudioFormatAppleLossless),
-                AVSampleRateKey : NSNumber.init(value: 44100.0),
-                AVNumberOfChannelsKey : NSNumber.init(value: 2),
-                AVEncoderBitRateKey: NSNumber.init(value: 16),
-                AVEncoderAudioQualityKey : NSNumber.init(value: AVAudioQuality.high.rawValue)
-            ]
+//            let settings = [
+//                AVFormatIDKey : kAudioFormatLinearPCM,
+//                AVEncoderAudioQualityKey : AVAudioQuality.high.rawValue,
+//                AVEncoderBitRateKey: 8000,
+//                AVNumberOfChannelsKey : 1,
+//                AVSampleRateKey : 8000
+//            ] as [String : Any]
             // 4. create the audio recording, and assign ourselves as the delegate
-            audioRecorder = try AVAudioRecorder(url: getAudioFileUrl(), settings: settings)
-            audioRecorder?.delegate = self
-            audioRecorder?.record()
+//            audioRecorder = try AVAudioRecorder(url: getAudioFileUrl(), settings: settings)
+//            audioRecorder?.delegate = self
+//            audioRecorder?.record()
+            
+            recognitionRequest = SFSpeechAudioBufferRecognitionRequest()
+            
+             let inputNode = audioEngine.inputNode
+            
+            guard let recognitionRequest = recognitionRequest else {
+                fatalError("Unable to create an SFSpeechAudioBufferRecognitionRequest object")
+            }
+            
+            recognitionRequest.shouldReportPartialResults = true
+            
+            recognitionTask = speechRecognizer.recognitionTask(with: recognitionRequest, resultHandler: { (result, error) in
+                
+                var isFinal = false
+                
+                if result != nil {
+                    HomePage.stringtoserver = result?.bestTranscription.formattedString
+                    isFinal = (result?.isFinal)!
+                }
+                
+                if error != nil || isFinal {
+                    self.audioEngine.stop()
+                    inputNode.removeTap(onBus: 0)
+                    
+                    self.recognitionRequest = nil
+                    self.recognitionTask = nil
+                }
+            })
+            
+            let recordingFormat = inputNode.outputFormat(forBus: 0)
+            inputNode.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat) { (buffer, when) in
+                self.recognitionRequest?.append(buffer)
+            }
+            
+            audioEngine.prepare()
+            
+            do {
+                try audioEngine.start()
+            } catch {
+                print("audioEngine couldn't start because of an error.")
+            }
             
             //5. Changing recording bool to true
             isRecording = true
@@ -166,38 +311,35 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
     
     // Stop recording
     func finishRecording() {
-        audioRecorder?.stop()
-        isRecording = false
-        let url = getAudioFileUrl()
-        
-        do {
-            // AVAudioPlayer setting up with the saved file URL
-            let sound = try AVAudioPlayer(contentsOf: url)
-            self.player = sound
-            
-            // Here conforming to AVAudioPlayerDelegate
-            sound.delegate = self
-            sound.prepareToPlay()
-            sound.play()
-        } catch {
-            print("error loading file")
-            // couldn't load file :(
-        }
-        let storage = Storage.storage()
-        let storageRef = storage.reference()
-
-        let voiceref = storageRef.child("ios_voice.amr")
-        voiceref.putFile(from: url)
-        
-       //for right now
-         self.performSegue(withIdentifier: "Weather_seg", sender: nil)
+//        audioRecorder?.stop()
+//        isRecording = false
+//        let url = getAudioFileUrl()
+//        
+//        do {
+//            // AVAudioPlayer setting up with the saved file URL
+//            let sound = try AVAudioPlayer(contentsOf: url)
+//            self.player = sound
+//            
+//            // Here conforming to AVAudioPlayerDelegate
+//            sound.delegate = self
+//            sound.prepareToPlay()
+//            sound.play()
+//        } catch {
+//            print("error loading file")
+//            // couldn't load file :(
+//        }
+//        let storage = Storage.storage()
+//        let storageRef = storage.reference()
+//
+//        storageRef.child("ios_voice.amr")
+//
     }
     
     // Path for saving/retreiving the audio file
     func getAudioFileUrl() -> URL{
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         let docsDirect = paths[0]
-        let audioUrl = docsDirect.appendingPathComponent("recording.m4a")
+        let audioUrl = docsDirect.appendingPathComponent("recording.caf")
         return audioUrl
     }
     
@@ -252,14 +394,15 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
         
         
     }
+}
+}
+    
     //    @IBAction func Signout(_ sender: Any) {
-//        do {
-//            try Auth.auth().signOut()
-//            performSegue(withIdentifier: "Signout_seg", sender: nil)
-//        } catch {
-//            print(error)
-//        }
-//    }
-}
-}
+    //        do {
+    //            try Auth.auth().signOut()
+    //            performSegue(withIdentifier: "Signout_seg", sender: nil)
+    //        } catch {
+    //            print(error)
+    //        }
+    //    }
 }

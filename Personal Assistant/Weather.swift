@@ -77,7 +77,8 @@ class Weather: UIViewController, CLLocationManagerDelegate {
     
     fileprivate func FetchJSON() {
         var temp = self.state! + "/" + self.city!
-        let urlString = "https://personalassistant-ec554.appspot.com/recognize/" + temp
+        let urlString = "https://personalassistant-ec554.appspot.com/recognize/" + HomePage.stringtoserver! + "/" + temp
+        print(HomePage.stringtoserver!)
         guard let url = URL(string: urlString) else { return }
         URLSession.shared.dataTask(with: url) { (data, _, err) in
             DispatchQueue.main.async {
@@ -87,7 +88,6 @@ class Weather: UIViewController, CLLocationManagerDelegate {
                 }
                 
                 guard let data = data else { return }
-                
                 do {
                     // Swift 4.1
                     //decoder.keyDecodingStrategy = .convertFromSnakeCase
@@ -96,7 +96,7 @@ class Weather: UIViewController, CLLocationManagerDelegate {
                     self.CurrentCityDisplay.text = Cweather.city + ", " + Cweather.state
                     self.CurrentRainDisplay.text = "Rain: " + String(Cweather.rain) + "%"
                     self.CurrentForcastDisplay.text = "Forcast: " + Cweather.forcast
-                    self.CurrentHumdidityDisplay.text = "Humidity: " + Cweather.humidity + "%"
+                    self.CurrentHumdidityDisplay.text = "Humidity: " + Cweather.humidity
                     let imageUrl:URL = URL(string: Cweather.forcastImage)!
                     let imageData:NSData = NSData(contentsOf: imageUrl)!
                     self.currentforcastimagedisplay.image = UIImage(data: imageData as Data)
@@ -148,10 +148,7 @@ class Weather: UIViewController, CLLocationManagerDelegate {
             } else {
                 // add some more check's if for some reason location manager is nil
             }
-            
-            
         })
-        
     }
     @IBAction func weatherpressedonweather(_ sender: UIButton) {
         if View_Constraint.constant > -175 {

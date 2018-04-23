@@ -11,6 +11,7 @@
 		6C47A8472B860AE0DCC733C9 /* Pods_Personal_Assistant.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC2775E3BE5577CF25F94D85 /* Pods_Personal_Assistant.framework */; };
 		C4254B04207E97F500807AF4 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4254B03207E97F500807AF4 /* Weather.swift */; };
 		C4254B062084E4E500807AF4 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4254B052084E4E500807AF4 /* Map.swift */; };
+		C45426E0208781550052B531 /* Youtube.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45426DF208781550052B531 /* Youtube.swift */; };
 		C46EC51E206D5E2B000FDECD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C46EC51D206D5E2B000FDECD /* GoogleService-Info.plist */; };
 		C4AF45FA2049BE1500B9093F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AF45F92049BE1500B9093F /* AppDelegate.swift */; };
 		C4AF45FF2049BE1600B9093F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4AF45FD2049BE1600B9093F /* Main.storyboard */; };
@@ -52,6 +53,7 @@
 		BC2775E3BE5577CF25F94D85 /* Pods_Personal_Assistant.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Personal_Assistant.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4254B03207E97F500807AF4 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		C4254B052084E4E500807AF4 /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
+		C45426DF208781550052B531 /* Youtube.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Youtube.swift; sourceTree = "<group>"; };
 		C46EC51D206D5E2B000FDECD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C4AF45F62049BE1500B9093F /* Personal Assistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Personal Assistant.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4AF45F92049BE1500B9093F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 				C4AF45F92049BE1500B9093F /* AppDelegate.swift */,
 				C4CAD9582049E3A7007CC517 /* AlertController.swift */,
 				C4AF45FD2049BE1600B9093F /* Main.storyboard */,
+				C45426DF208781550052B531 /* Youtube.swift */,
 				C4AF46002049BE1600B9093F /* Assets.xcassets */,
 				C4AF46022049BE1600B9093F /* LaunchScreen.storyboard */,
 				C4AF46052049BE1600B9093F /* Info.plist */,
@@ -486,6 +489,7 @@
 				C4AF462A2049C05E00B9093F /* Login.swift in Sources */,
 				C4AF462E2049C2F700B9093F /* HomePage.swift in Sources */,
 				C4AF45FA2049BE1500B9093F /* AppDelegate.swift in Sources */,
+				C45426E0208781550052B531 /* Youtube.swift in Sources */,
 				C4254B062084E4E500807AF4 /* Map.swift in Sources */,
 				C4254B04207E97F500807AF4 /* Weather.swift in Sources */,
 			);
