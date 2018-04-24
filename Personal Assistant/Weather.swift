@@ -43,7 +43,10 @@ class Weather: UIViewController, CLLocationManagerDelegate {
         locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        
+        if (HomePage.stringtoserver == nil) {
+            HomePage.stringtoserver = "text_weather"
+        }
+        FetchJSON()
 
         //locationManager.stopUpdatingLocation()
         
@@ -143,7 +146,6 @@ class Weather: UIViewController, CLLocationManagerDelegate {
                 self.city = self.city!.replacingOccurrences(of: " ", with: "_", options: .literal, range: nil)
                 print(self.city)
                 print(self.state)
-                 self.FetchJSON()
                 
             } else {
                 // add some more check's if for some reason location manager is nil

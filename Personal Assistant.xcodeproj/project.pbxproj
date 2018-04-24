@@ -22,6 +22,7 @@
 		C4AF462A2049C05E00B9093F /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AF46292049C05E00B9093F /* Login.swift */; };
 		C4AF462E2049C2F700B9093F /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AF462D2049C2F700B9093F /* HomePage.swift */; };
 		C4CAD9592049E3A7007CC517 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CAD9582049E3A7007CC517 /* AlertController.swift */; };
+		C4DABCD0208F780700ED146C /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DABCCF208F780700ED146C /* Search.swift */; };
 		E0D9234314D9AFA9FF06F8D2 /* Pods_Personal_AssistantTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51A55A767F9E4B1C2CBDE9A6 /* Pods_Personal_AssistantTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +71,7 @@
 		C4AF46292049C05E00B9093F /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		C4AF462D2049C2F700B9093F /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
 		C4CAD9582049E3A7007CC517 /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
+		C4DABCCF208F780700ED146C /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		C6C58D33F7A0F81361BD7EFC /* Pods-Personal AssistantTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Personal AssistantTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Personal AssistantTests/Pods-Personal AssistantTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -148,6 +150,7 @@
 				C46EC51D206D5E2B000FDECD /* GoogleService-Info.plist */,
 				C4254B03207E97F500807AF4 /* Weather.swift */,
 				C4254B052084E4E500807AF4 /* Map.swift */,
+				C4DABCCF208F780700ED146C /* Search.swift */,
 			);
 			path = "Personal Assistant";
 			sourceTree = "<group>";
@@ -490,6 +493,7 @@
 				C4AF462E2049C2F700B9093F /* HomePage.swift in Sources */,
 				C4AF45FA2049BE1500B9093F /* AppDelegate.swift in Sources */,
 				C45426E0208781550052B531 /* Youtube.swift in Sources */,
+				C4DABCD0208F780700ED146C /* Search.swift in Sources */,
 				C4254B062084E4E500807AF4 /* Map.swift in Sources */,
 				C4254B04207E97F500807AF4 /* Weather.swift in Sources */,
 			);
