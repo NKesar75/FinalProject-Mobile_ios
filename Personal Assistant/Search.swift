@@ -8,10 +8,19 @@
 
 import UIKit
 import CoreLocation
+import SwiftyJSON
 
-class Search: UIViewController, CLLocationManagerDelegate {
-
+class Search: UIViewController, CLLocationManagerDelegate, UITableViewDataSource, UITableViewDelegate {
     
+    
+    struct googlesearchinfo{
+        var title : String
+        var snippet : String
+        var url : String
+    }
+    
+    
+    @IBOutlet weak var googlesearchtableview: UITableView!
     @IBOutlet weak var menu: UIButton!
     @IBOutlet weak var View_Constraint: NSLayoutConstraint!
     @IBOutlet weak var Sideview: UIView!
@@ -21,7 +30,7 @@ class Search: UIViewController, CLLocationManagerDelegate {
     var placemark: CLPlacemark?
     var city: String?
     var state: String?
-    
+    var googlesearches:[googlesearchinfo] = []
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -39,6 +48,9 @@ class Search: UIViewController, CLLocationManagerDelegate {
         locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        self.FetchPreviousCall()
+        googlesearchtableview.delegate = self
+        googlesearchtableview.dataSource = self
     }
 
     @IBAction func searchbuttonpressed(_ sender: UIButton) {
@@ -85,63 +97,100 @@ class Search: UIViewController, CLLocationManagerDelegate {
                 self.city = self.city!.replacingOccurrences(of: " ", with: "_", options: .literal, range: nil)
                 print(self.city)
                 print(self.state)
+                self.FetchJSON()
                 
             } else {
                 // add some more check's if for some reason location manager is nil
             }
         })
     }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
     
-    struct Search: Decodable {
-        let key: String
-        let tempf: Double
-        let tempc: Double
-        let city: String
-        let state: String
-        let rain: Double
-        let forcast: String
-        let humidity: String
-        let forcastImage: String
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        // swift 4.0
-        private enum CodingKeys: String, CodingKey {
-            case key = "key"
-            case tempf = "tempf"
-            case tempc = "tempc"
-            case city = "city"
-            case state = "state"
-            case rain = "precip"
-            case forcast = "condition"
-            case humidity = "humidity"
-            case forcastImage = "url"
+        let cell = googlesearchtableview.dequeueReusableCell(withIdentifier: "cell")
+        
+        cell?.textLabel?.text = googlesearches[indexPath.row].title
+        cell?.detailTextLabel?.text = googlesearches[indexPath.row].snippet
+        
+        
+        return cell!
+    }
+    
+    func FetchPreviousCall(){
+        if Servercalls.serverjson["key"].string != nil {
+            
+            googlesearches.append(googlesearchinfo(title: Servercalls.serverjson["results"][0]["title"].string!, snippet: Servercalls.serverjson["results"][0]["snippet"].string!, url: Servercalls.serverjson["results"][0]["url"].string!))
+            googlesearches.append(googlesearchinfo(title: Servercalls.serverjson["results"][1]["title"].string!, snippet: Servercalls.serverjson["results"][1]["snippet"].string!, url: Servercalls.serverjson["results"][1]["url"].string!))
+            googlesearches.append(googlesearchinfo(title: Servercalls.serverjson["results"][2]["title"].string!, snippet: Servercalls.serverjson["results"][2]["snippet"].string!, url: Servercalls.serverjson["results"][2]["url"].string!))
+            googlesearches.append(googlesearchinfo(title: Servercalls.serverjson["results"][3]["title"].string!, snippet: Servercalls.serverjson["results"][3]["snippet"].string!, url: Servercalls.serverjson["results"][3]["url"].string!))
+            googlesearches.append(googlesearchinfo(title: Servercalls.serverjson["results"][4]["title"].string!, snippet: Servercalls.serverjson["results"][4]["snippet"].string!, url: Servercalls.serverjson["results"][4]["url"].string!))
+            googlesearches.append(googlesearchinfo(title: Servercalls.serverjson["results"][5]["title"].string!, snippet: Servercalls.serverjson["results"][5]["snippet"].string!, url: Servercalls.serverjson["results"][5]["url"].string!))
+            googlesearches.append(googlesearchinfo(title: Servercalls.serverjson["results"][6]["title"].string!, snippet: Servercalls.serverjson["results"][6]["snippet"].string!, url: Servercalls.serverjson["results"][6]["url"].string!))
+            googlesearches.append(googlesearchinfo(title: Servercalls.serverjson["results"][7]["title"].string!, snippet: Servercalls.serverjson["results"][7]["snippet"].string!, url: Servercalls.serverjson["results"][7]["url"].string!))
+            googlesearches.append(googlesearchinfo(title: Servercalls.serverjson["results"][8]["title"].string!, snippet: Servercalls.serverjson["results"][8]["snippet"].string!, url: Servercalls.serverjson["results"][8]["url"].string!))
+            googlesearches.append(googlesearchinfo(title: Servercalls.serverjson["results"][9]["title"].string!, snippet: Servercalls.serverjson["results"][9]["snippet"].string!, url: Servercalls.serverjson["results"][9]["url"].string!))
+            
+//            googlesearches[0].title = Servercalls.serverjson["results"][0]["title"].string!
+//            googlesearches[0].snippet = Servercalls.serverjson["results"][0]["snippet"].string!
+//            googlesearches[0].url = Servercalls.serverjson["results"][0]["url"].string!
+//            googlesearches[1].title = Servercalls.serverjson["results"][1]["title"].string!
+//            googlesearches[1].snippet = Servercalls.serverjson["results"][1]["snippet"].string!
+//            googlesearches[1].url = Servercalls.serverjson["results"][1]["url"].string!
+//            googlesearches[2].title = Servercalls.serverjson["results"][2]["title"].string!
+//            googlesearches[2].snippet = Servercalls.serverjson["results"][2]["snippet"].string!
+//            googlesearches[2].url = Servercalls.serverjson["results"][2]["url"].string!
+//            googlesearches[3].title = Servercalls.serverjson["results"][3]["title"].string!
+//            googlesearches[3].snippet = Servercalls.serverjson["results"][3]["snippet"].string!
+//            googlesearches[3].url = Servercalls.serverjson["results"][3]["url"].string!
+//            googlesearches[4].title = Servercalls.serverjson["results"][4]["title"].string!
+//            googlesearches[4].snippet = Servercalls.serverjson["results"][4]["snippet"].string!
+//            googlesearches[4].url = Servercalls.serverjson["results"][4]["url"].string!
+//            googlesearches[5].title = Servercalls.serverjson["results"][5]["title"].string!
+//            googlesearches[5].snippet = Servercalls.serverjson["results"][5]["snippet"].string!
+//            googlesearches[5].url = Servercalls.serverjson["results"][5]["url"].string!
+//            googlesearches[6].title = Servercalls.serverjson["results"][6]["title"].string!
+//            googlesearches[6].snippet = Servercalls.serverjson["results"][6]["snippet"].string!
+//            googlesearches[6].url = Servercalls.serverjson["results"][6]["url"].string!
+//            googlesearches[7].title = Servercalls.serverjson["results"][7]["title"].string!
+//            googlesearches[7].snippet = Servercalls.serverjson["results"][7]["snippet"].string!
+//            googlesearches[7].url = Servercalls.serverjson["results"][7]["url"].string!
+//            googlesearches[8].title = Servercalls.serverjson["results"][8]["title"].string!
+//            googlesearches[8].snippet = Servercalls.serverjson["results"][8]["snippet"].string!
+//            googlesearches[8].url = Servercalls.serverjson["results"][8]["url"].string!
+//            googlesearches[9].title = Servercalls.serverjson["results"][9]["title"].string!
+//            googlesearches[9].snippet = Servercalls.serverjson["results"][9]["snippet"].string!
+//            googlesearches[9].url = Servercalls.serverjson["results"][9]["url"].string!
         }
     }
     
-    
-    fileprivate func FetchJSON() {
+     func FetchJSON() {
         var temp = self.state! + "/" + self.city!
-        let urlString = "https://personalassistant-ec554.appspot.com/recognize/" + HomePage.stringtoserver! + "/" + temp
-        print(HomePage.stringtoserver!)
+        let urlString = "https://personalassistant-ec554.appspot.com/recognize/search_for_unity/" + temp
         guard let url = URL(string: urlString) else { return }
-        URLSession.shared.dataTask(with: url) { (data, _, err) in
-            DispatchQueue.main.async {
-                if let err = err {
-                    print("Failed to get data from url:", err)
-                    return
-                }
+        
+        URLSession.shared.dataTask(with: url) { (data, reponse, err) in
                 
                 guard let data = data else { return }
+                
                 do {
-                    // Swift 4.1
-                    //decoder.keyDecodingStrategy = .convertFromSnakeCase
-                    let Csearch = try JSONDecoder().decode(Search.self, from: data)
-                 
                     
+//                    let dataAsString = String(data: data, encoding: .utf8)
+//                    print(dataAsString)
+                     let json = try JSON(data: data)
+                    print(json)
+                     let keyswitch = json["key"]
+                    print (keyswitch)
+//                    let searches = try JSONDecoder().decode(SearchArray.self, from: data)
+//                    print(searches.results[0].title, searches.results[0].url, searches.results[0].snippet, searches.key)
                     
+                  
                 } catch let jsonErr {
-                    print("Failed to decode:", jsonErr)
+                    print("Error serializing json:", jsonErr)
                 }
-            }
             }.resume()
     }
     

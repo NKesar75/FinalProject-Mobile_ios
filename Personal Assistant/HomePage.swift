@@ -12,7 +12,7 @@ import AVFoundation
 import CoreLocation
 import MapKit
 import Speech
-
+import SwiftyJSON
 class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate, CLLocationManagerDelegate, SFSpeechRecognizerDelegate{
 
     @IBOutlet weak var menubutton: UIButton!
@@ -35,14 +35,16 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
     var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
     var recognitionTask: SFSpeechRecognitionTask?
     let audioEngine = AVAudioEngine()
-    static var stringtoserver: String?
+    var voicequestion: Bool?
     @IBOutlet weak var imageview: UIImageView!
-    
     @IBOutlet weak var Locationlabel: UILabel!
     @IBOutlet weak var Humidity: UILabel!
     @IBOutlet weak var rainlabel: UILabel!
     @IBOutlet weak var forcastlabel: UILabel!
     @IBOutlet weak var templabel: UILabel!
+    
+
+    var stringtoserver: String?
  
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,9 +55,9 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
        sideview.layer.shadowOpacity = 0.8
        sideview.layer.shadowOffset = CGSize(width: 5, height: 0)
         
-       ViewConstarint.constant = -175
+        ViewConstarint.constant = -175
         self.menubutton.isHidden = false
-        
+        stringtoserver = "text_weather"
         speechRecognizer.delegate = self
         SFSpeechRecognizer.requestAuthorization { authStatus in
            
@@ -75,7 +77,7 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
         locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        
+        voicequestion = false
         AVAudioSession.sharedInstance().requestRecordPermission () {
              [unowned self] allowed in
             if allowed {
@@ -122,7 +124,8 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
                 self.city = self.city!.replacingOccurrences(of: " ", with: "_", options: .literal, range: nil)
                 print(self.city)
                 print(self.state)
-                self.FetchJSON()
+                print(self.stringtoserver)
+                    self.FetchJSON()
                 
             } else {
                 // add some more check's if for some reason location manager is nil
@@ -134,66 +137,37 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
     }
     
     
-    struct Weather: Decodable {
-        let key: String
-        let tempf: Double
-        let tempc: Double
-        let city: String
-        let state: String
-        let rain: Double
-        let forcast: String
-        let humidity: String
-        let forcastImage: String
-        
-        // swift 4.0
-        private enum CodingKeys: String, CodingKey {
-            case key = "key"
-            case tempf = "tempf"
-            case tempc = "tempc"
-            case city = "city"
-            case state = "state"
-            case rain = "precip"
-            case forcast = "condition"
-            case humidity = "humidity"
-            case forcastImage = "url"
-        }
-    }
-    
-    
-    fileprivate func FetchJSON() {
-        var temp = self.state! + "/" + self.city!
-        let urlString = "https://personalassistant-ec554.appspot.com/recognize/text_weather/" + temp
-        
-        guard let url = URL(string: urlString) else { return }
-        URLSession.shared.dataTask(with: url) { (data, _, err) in
-            DispatchQueue.main.async {
-                if let err = err {
-                    print("Failed to get data from url:", err)
-                    return
-                }
-                
-                guard let data = data else { return }
-                
-                do {
-                    // Swift 4.1
-                    //decoder.keyDecodingStrategy = .convertFromSnakeCase
-                    let Cweather = try JSONDecoder().decode(Weather.self, from: data)
-                    self.templabel.text = String(Cweather.tempf) + "°F"
-                    self.Locationlabel.text = Cweather.city + ", " + Cweather.state
-                    self.rainlabel.text = "Rain: " + String(Cweather.rain) + "%"
-                    self.forcastlabel.text = "Forcast: " + Cweather.forcast
-                    self.Humidity.text = "Humidity: " + Cweather.humidity
-                    let imageUrl:URL = URL(string: Cweather.forcastImage)!
+     func FetchJSON() {
+        let server = Servercalls()
+        server.apicall(city: city!, state: state!, voicecall: self.stringtoserver!)
+        print(Servercalls.serverjson)
+        if Servercalls.serverjson["key"].string != nil {
+            switch (Servercalls.serverjson["key"].string!){
+            case "weather":
+                if voicequestion == false{
+                    self.Locationlabel.text = Servercalls.serverjson["city"].string! + ", " + Servercalls.serverjson["state"].string!
+                    self.Humidity.text = "Humidity: " + Servercalls.serverjson["humidity"].string!
+                    self.rainlabel.text = "Rain: " + String(Servercalls.serverjson["precip"].double!) + "%"
+                    self.forcastlabel.text = "Forcast: " + Servercalls.serverjson["condition"].string!
+                    self.templabel.text = String(Servercalls.serverjson["tempf"].double!) + "°F"
+                    let imageUrl:URL = URL(string: Servercalls.serverjson["url"].string!)!
                     let imageData:NSData = NSData(contentsOf: imageUrl)!
                     self.imageview.image = UIImage(data: imageData as Data)
                     self.imageview.contentMode = UIViewContentMode.scaleAspectFit
-                    
-                    
-                } catch let jsonErr {
-                    print("Failed to decode:", jsonErr)
+                }else{
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "Weather_ID") as! Weather
+                    self.present(vc, animated: true, completion: nil)
                 }
+            case "youtube":
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: "Youtube_ID") as! Youtube
+                self.present(vc, animated: true, completion: nil)
+            case "google":
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: "Search_ID") as! Search
+                self.present(vc, animated: true, completion: nil)
+            default: break
             }
-            }.resume()
+        }
+        
     }
     
     
@@ -221,10 +195,11 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
         if audioEngine.isRunning {
             audioEngine.stop()
             recognitionRequest?.endAudio()
-            HomePage.stringtoserver = HomePage.stringtoserver!.replacingOccurrences(of: " ", with: "_", options: .literal, range: nil)
-            HomePage.stringtoserver = HomePage.stringtoserver!.replacingOccurrences(of: "\'", with: "", options: .literal, range: nil)
-            print(HomePage.stringtoserver)
-            performSegue(withIdentifier: "Weather_seg", sender: nil)
+            self.stringtoserver = self.stringtoserver!.replacingOccurrences(of: " ", with: "_", options: .literal, range: nil)
+            self.stringtoserver = self.stringtoserver!.replacingOccurrences(of: "\'", with: "", options: .literal, range: nil)
+            print(stringtoserver)
+            voicequestion = true
+            FetchJSON()
             
         } else {
             startRecording()
@@ -275,7 +250,7 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
                 var isFinal = false
                 
                 if result != nil {
-                    HomePage.stringtoserver = result?.bestTranscription.formattedString
+                    self.stringtoserver = result?.bestTranscription.formattedString
                     isFinal = (result?.isFinal)!
                 }
                 

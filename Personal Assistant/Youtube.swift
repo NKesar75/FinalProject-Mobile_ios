@@ -11,7 +11,7 @@ import WebKit
 import AVFoundation
 import CoreLocation
 import Speech
-
+import SwiftyJSON
 class Youtube: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate, CLLocationManagerDelegate, SFSpeechRecognizerDelegate {
 
     @IBOutlet weak var Sideview: UIView!
@@ -31,7 +31,7 @@ class Youtube: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate,
     var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
     var recognitionTask: SFSpeechRecognitionTask?
     let audioEngine = AVAudioEngine()
-    
+    var stringtoserver: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,6 +60,8 @@ class Youtube: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate,
             case .notDetermined:
                 print("no choice yet authorizion")
             }
+           self.FetchPreviousCall()
+            
         }
         
         locationManager.delegate = self
@@ -113,9 +115,9 @@ class Youtube: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate,
         if audioEngine.isRunning {
             audioEngine.stop()
             recognitionRequest?.endAudio()
-            HomePage.stringtoserver = HomePage.stringtoserver!.replacingOccurrences(of: " ", with: "_", options: .literal, range: nil)
-            HomePage.stringtoserver = HomePage.stringtoserver!.replacingOccurrences(of: "\'", with: "", options: .literal, range: nil)
-            print(HomePage.stringtoserver)
+            self.stringtoserver = self.stringtoserver!.replacingOccurrences(of: " ", with: "_", options: .literal, range: nil)
+            self.stringtoserver = self.stringtoserver!.replacingOccurrences(of: "\'", with: "", options: .literal, range: nil)
+            print(self.stringtoserver)
             FetchJSON()
             
         } else {
@@ -168,7 +170,7 @@ class Youtube: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate,
     var isFinal = false
     
     if result != nil {
-    HomePage.stringtoserver = result?.bestTranscription.formattedString
+    self.stringtoserver = result?.bestTranscription.formattedString
     isFinal = (result?.isFinal)!
     }
     
@@ -329,50 +331,34 @@ class Youtube: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate,
         
     }
     
-    
-    struct Youtube: Decodable {
-        let key: String
-        let id: String
-        let Descritpiton: String
-        
-        // swift 4.0
-        private enum CodingKeys: String, CodingKey {
-            case key = "key"
-            case id = "tempf"
-            case Descritpiton = "tempc"
+    func FetchPreviousCall(){
+        if Servercalls.serverjson["key"].string != nil {
+            setvideo(videoid: Servercalls.serverjson["id"].string!)
         }
     }
     
     
-    fileprivate func FetchJSON() {
-        var temp = self.state! + "/" + self.city!
-        let urlString = "https://personalassistant-ec554.appspot.com/recognize/play_" + HomePage.stringtoserver! + "/" + temp
-        
-        guard let url = URL(string: urlString) else { return }
-        URLSession.shared.dataTask(with: url) { (data, _, err) in
-            DispatchQueue.main.async {
-                if let err = err {
-                    print("Failed to get data from url:", err)
-                    return
-                }
-                
-                guard let data = data else { return }
-                
-                do {
-                    // Swift 4.1
-                    //decoder.keyDecodingStrategy = .convertFromSnakeCase
-                    let Cyoutube = try JSONDecoder().decode(Youtube.self, from: data)
-                   
-                    
-                    
-                } catch let jsonErr {
-                    print("Failed to decode:", jsonErr)
-                }
+     func FetchJSON() {
+
+        let server = Servercalls()
+        server.apicall(city: city!, state: state!, voicecall: self.stringtoserver!)
+        print(Servercalls.serverjson)
+        if Servercalls.serverjson["key"].string != nil {
+            switch (Servercalls.serverjson["key"].string!){
+            case "weather":
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "Weather_ID") as! Weather
+                    self.present(vc, animated: true, completion: nil)
+            case "youtube":
+               setvideo(videoid: Servercalls.serverjson["id"].string!)
+            case "google":
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: "Search_ID") as! Search
+                self.present(vc, animated: true, completion: nil)
+            default: break
             }
-            }.resume()
-    }
+        }
         
     }
+}
     
 
 

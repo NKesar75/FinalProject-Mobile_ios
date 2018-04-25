@@ -23,6 +23,7 @@
 		C4AF462E2049C2F700B9093F /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AF462D2049C2F700B9093F /* HomePage.swift */; };
 		C4CAD9592049E3A7007CC517 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CAD9582049E3A7007CC517 /* AlertController.swift */; };
 		C4DABCD0208F780700ED146C /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DABCCF208F780700ED146C /* Search.swift */; };
+		C4DABCD2208FA42500ED146C /* Servercalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DABCD1208FA42500ED146C /* Servercalls.swift */; };
 		E0D9234314D9AFA9FF06F8D2 /* Pods_Personal_AssistantTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51A55A767F9E4B1C2CBDE9A6 /* Pods_Personal_AssistantTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +73,7 @@
 		C4AF462D2049C2F700B9093F /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
 		C4CAD9582049E3A7007CC517 /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		C4DABCCF208F780700ED146C /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
+		C4DABCD1208FA42500ED146C /* Servercalls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Servercalls.swift; sourceTree = "<group>"; };
 		C6C58D33F7A0F81361BD7EFC /* Pods-Personal AssistantTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Personal AssistantTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Personal AssistantTests/Pods-Personal AssistantTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -138,11 +140,11 @@
 		C4AF45F82049BE1500B9093F /* Personal Assistant */ = {
 			isa = PBXGroup;
 			children = (
+				C4AF46002049BE1600B9093F /* Assets.xcassets */,
 				C4AF45F92049BE1500B9093F /* AppDelegate.swift */,
 				C4CAD9582049E3A7007CC517 /* AlertController.swift */,
 				C4AF45FD2049BE1600B9093F /* Main.storyboard */,
 				C45426DF208781550052B531 /* Youtube.swift */,
-				C4AF46002049BE1600B9093F /* Assets.xcassets */,
 				C4AF46022049BE1600B9093F /* LaunchScreen.storyboard */,
 				C4AF46052049BE1600B9093F /* Info.plist */,
 				C4AF46292049C05E00B9093F /* Login.swift */,
@@ -151,6 +153,7 @@
 				C4254B03207E97F500807AF4 /* Weather.swift */,
 				C4254B052084E4E500807AF4 /* Map.swift */,
 				C4DABCCF208F780700ED146C /* Search.swift */,
+				C4DABCD1208FA42500ED146C /* Servercalls.swift */,
 			);
 			path = "Personal Assistant";
 			sourceTree = "<group>";
@@ -351,6 +354,7 @@
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -359,6 +363,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -488,6 +493,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4DABCD2208FA42500ED146C /* Servercalls.swift in Sources */,
 				C4CAD9592049E3A7007CC517 /* AlertController.swift in Sources */,
 				C4AF462A2049C05E00B9093F /* Login.swift in Sources */,
 				C4AF462E2049C2F700B9093F /* HomePage.swift in Sources */,

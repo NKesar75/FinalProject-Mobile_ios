@@ -20,7 +20,7 @@ class Weather: UIViewController, CLLocationManagerDelegate {
     var placemark: CLPlacemark?
     var city: String?
     var state: String?
-    
+    var stringtoserver:String?
     @IBOutlet weak var CurrentWeatherDisplay: UILabel!
     @IBOutlet weak var CurrentCityDisplay: UILabel!
     @IBOutlet weak var CurrentRainDisplay: UILabel!
@@ -43,74 +43,51 @@ class Weather: UIViewController, CLLocationManagerDelegate {
         locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        if (HomePage.stringtoserver == nil) {
-            HomePage.stringtoserver = "text_weather"
-        }
-        FetchJSON()
 
         //locationManager.stopUpdatingLocation()
+        self.FetchPreviousCall()
         
     }
     
-    struct Weather: Decodable {
-        let key: String
-        let tempf: Double
-        let tempc: Double
-        let city: String
-        let state: String
-        let rain: Double
-        let forcast: String
-        let humidity: String
-        let forcastImage: String
-        
-        // swift 4.0
-        private enum CodingKeys: String, CodingKey {
-            case key = "key"
-            case tempf = "tempf"
-            case tempc = "tempc"
-            case city = "city"
-            case state = "state"
-            case rain = "precip"
-            case forcast = "condition"
-            case humidity = "humidity"
-            case forcastImage = "url"
+    func FetchPreviousCall(){
+    if Servercalls.serverjson["key"].string != nil {
+        self.CurrentCityDisplay.text = Servercalls.serverjson["city"].string! + ", " + Servercalls.serverjson["state"].string!
+        self.CurrentHumdidityDisplay.text = "Humidity: " + Servercalls.serverjson["humidity"].string!
+        self.CurrentRainDisplay.text = "Rain: " + String(Servercalls.serverjson["precip"].double!) + "%"
+        self.CurrentForcastDisplay.text = "Forcast: " + Servercalls.serverjson["condition"].string!
+        self.CurrentWeatherDisplay.text = String(Servercalls.serverjson["tempf"].double!) + "°F"
+        let imageUrl:URL = URL(string: Servercalls.serverjson["url"].string!)!
+        let imageData:NSData = NSData(contentsOf: imageUrl)!
+        self.currentforcastimagedisplay.image = UIImage(data: imageData as Data)
+        self.currentforcastimagedisplay.contentMode = UIViewContentMode.scaleAspectFit
         }
     }
     
-    
-    fileprivate func FetchJSON() {
-        var temp = self.state! + "/" + self.city!
-        let urlString = "https://personalassistant-ec554.appspot.com/recognize/" + HomePage.stringtoserver! + "/" + temp
-        print(HomePage.stringtoserver!)
-        guard let url = URL(string: urlString) else { return }
-        URLSession.shared.dataTask(with: url) { (data, _, err) in
-            DispatchQueue.main.async {
-                if let err = err {
-                    print("Failed to get data from url:", err)
-                    return
-                }
-                
-                guard let data = data else { return }
-                do {
-                    // Swift 4.1
-                    //decoder.keyDecodingStrategy = .convertFromSnakeCase
-                    let Cweather = try JSONDecoder().decode(Weather.self, from: data)
-                    self.CurrentWeatherDisplay.text = String(Cweather.tempf) + "°F"
-                    self.CurrentCityDisplay.text = Cweather.city + ", " + Cweather.state
-                    self.CurrentRainDisplay.text = "Rain: " + String(Cweather.rain) + "%"
-                    self.CurrentForcastDisplay.text = "Forcast: " + Cweather.forcast
-                    self.CurrentHumdidityDisplay.text = "Humidity: " + Cweather.humidity
-                    let imageUrl:URL = URL(string: Cweather.forcastImage)!
-                    let imageData:NSData = NSData(contentsOf: imageUrl)!
-                    self.currentforcastimagedisplay.image = UIImage(data: imageData as Data)
-                    self.currentforcastimagedisplay.contentMode = UIViewContentMode.scaleAspectFit
-                      
-                    
-                } catch let jsonErr {
-                    print("Failed to decode:", jsonErr)
-                }
+   func FetchJSON() {
+        let server = Servercalls()
+        server.apicall(city: city!, state: state!, voicecall: self.stringtoserver!)
+        print(Servercalls.serverjson)
+        if Servercalls.serverjson["key"].string != nil {
+            switch (Servercalls.serverjson["key"].string!){
+            case "weather":
+                self.CurrentCityDisplay.text = Servercalls.serverjson["city"].string! + ", " + Servercalls.serverjson["state"].string!
+                self.CurrentHumdidityDisplay.text = "Humidity: " + Servercalls.serverjson["humidity"].string!
+                self.CurrentRainDisplay.text = "Rain: " + String(Servercalls.serverjson["precip"].double!) + "%"
+                self.CurrentForcastDisplay.text = "Forcast: " + Servercalls.serverjson["condition"].string!
+                self.CurrentWeatherDisplay.text = String(Servercalls.serverjson["tempf"].double!) + "°F"
+                let imageUrl:URL = URL(string: Servercalls.serverjson["url"].string!)!
+                let imageData:NSData = NSData(contentsOf: imageUrl)!
+                self.currentforcastimagedisplay.image = UIImage(data: imageData as Data)
+                self.currentforcastimagedisplay.contentMode = UIViewContentMode.scaleAspectFit
+            case "youtube":
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: "Youtube_ID") as! Youtube
+                self.present(vc, animated: true, completion: nil)
+            case "google":
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: "Search_ID") as! Search
+                self.present(vc, animated: true, completion: nil)
+            default: break
             }
-            }.resume()
+        }
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

@@ -11,7 +11,7 @@ target 'Personal Assistant' do
   pod 'Firebase/Database'
   pod 'Firebase/Messaging'
   pod 'Firebase/Storage'
-
+  pod 'SwiftyJSON'
   target 'Personal AssistantTests' do
     inherit! :search_paths
     # Pods for testing
