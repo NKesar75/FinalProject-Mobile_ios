@@ -664,29 +664,65 @@
                                 <rect key="frame" x="0.0" y="70" width="375" height="597"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="fj2-8T-ZLu" detailTextLabel="Cny-eO-ZJg" style="IBUITableViewCellStyleValue1" id="YMy-qe-Gsx">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="customCell" rowHeight="220" id="YMy-qe-Gsx" customClass="CustomCellTableViewCell" customModule="Personal_Assistant" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="220"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YMy-qe-Gsx" id="fwr-0f-9Dv">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="219.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fj2-8T-ZLu">
-                                                    <rect key="frame" x="15" y="12" width="33.5" height="20.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Cny-eO-ZJg">
-                                                    <rect key="frame" x="316" y="12" width="44" height="20.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uhc-kU-tXU">
+                                                    <rect key="frame" x="5" y="5" width="365" height="209.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wikipedia" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dzh-kP-GaC">
+                                                            <rect key="frame" x="4" y="4" width="357" height="24"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="OMg-o4-Rar">
+                                                            <rect key="frame" x="5" y="33" width="355" height="148.5"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <string key="text">Apr 18, 2018 ... Africa's young entrepreneurs keep moving the needle. They are taking more risks \nthan ever before and building phenomenal businesses that are tackling problems \nand creating lots of jobs in the process. In its seventh year, this annual ranking of \nthe 30 Most Promising Young Entrepreneurs In Africa ...</string>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                        </textView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="URL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Uw-tJ-OH8">
+                                                            <rect key="frame" x="5" y="186.5" width="355" height="18"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="0.57248467209999998" green="0.57258617879999996" blue="0.57247823480000004" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstItem="dzh-kP-GaC" firstAttribute="leading" secondItem="Uhc-kU-tXU" secondAttribute="leading" constant="4" id="5g7-S8-IUs"/>
+                                                        <constraint firstAttribute="trailing" secondItem="dzh-kP-GaC" secondAttribute="trailing" constant="4" id="DN8-VU-0MS"/>
+                                                        <constraint firstItem="OMg-o4-Rar" firstAttribute="leading" secondItem="Uhc-kU-tXU" secondAttribute="leading" constant="5" id="LAB-hI-CQ7"/>
+                                                        <constraint firstItem="5Uw-tJ-OH8" firstAttribute="top" secondItem="OMg-o4-Rar" secondAttribute="bottom" constant="5" id="LxT-ws-GPl"/>
+                                                        <constraint firstItem="5Uw-tJ-OH8" firstAttribute="leading" secondItem="Uhc-kU-tXU" secondAttribute="leading" constant="5" id="MBb-xV-Vhw"/>
+                                                        <constraint firstItem="OMg-o4-Rar" firstAttribute="top" secondItem="dzh-kP-GaC" secondAttribute="bottom" constant="5" id="cF3-CD-B3s"/>
+                                                        <constraint firstAttribute="trailing" secondItem="5Uw-tJ-OH8" secondAttribute="trailing" constant="5" id="djO-rn-Vx6"/>
+                                                        <constraint firstAttribute="trailing" secondItem="OMg-o4-Rar" secondAttribute="trailing" constant="5" id="hKu-Mg-ltA"/>
+                                                        <constraint firstItem="dzh-kP-GaC" firstAttribute="top" secondItem="Uhc-kU-tXU" secondAttribute="top" constant="4" id="klT-7h-7Ov"/>
+                                                        <constraint firstAttribute="bottom" secondItem="5Uw-tJ-OH8" secondAttribute="bottom" constant="5" id="lP4-vh-gsb"/>
+                                                        <constraint firstItem="5Uw-tJ-OH8" firstAttribute="top" secondItem="OMg-o4-Rar" secondAttribute="bottom" constant="5" id="yyO-BL-Gun"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Uhc-kU-tXU" firstAttribute="top" secondItem="fwr-0f-9Dv" secondAttribute="top" constant="5" id="Lfj-Oc-50R"/>
+                                                <constraint firstItem="Uhc-kU-tXU" firstAttribute="leading" secondItem="fwr-0f-9Dv" secondAttribute="leading" constant="5" id="QhT-d1-PWV"/>
+                                                <constraint firstAttribute="bottom" secondItem="Uhc-kU-tXU" secondAttribute="bottom" constant="5" id="h8Q-Ot-SgZ"/>
+                                                <constraint firstAttribute="trailing" secondItem="Uhc-kU-tXU" secondAttribute="trailing" constant="5" id="pjf-HN-g9b"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="customcellsnippet" destination="OMg-o4-Rar" id="zfE-wh-pfa"/>
+                                            <outlet property="customcelltitle" destination="dzh-kP-GaC" id="wXn-NK-MXe"/>
+                                            <outlet property="customcellurl" destination="5Uw-tJ-OH8" id="QWe-ib-7q0"/>
+                                            <outlet property="customcellview" destination="Uhc-kU-tXU" id="Y2Q-3H-BMa"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>

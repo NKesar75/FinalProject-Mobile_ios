@@ -108,16 +108,18 @@ class Search: UIViewController, CLLocationManagerDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 10
     }
-    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 220
+    }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = googlesearchtableview.dequeueReusableCell(withIdentifier: "cell")
+        let cell = googlesearchtableview.dequeueReusableCell(withIdentifier: "customCell") as! CustomCellTableViewCell
         
-        cell?.textLabel?.text = googlesearches[indexPath.row].title
-        cell?.detailTextLabel?.text = googlesearches[indexPath.row].snippet
+        cell.customcelltitle.text = googlesearches[indexPath.row].title
+        cell.customcellsnippet.text = googlesearches[indexPath.row].snippet
+        cell.customcellurl.text = googlesearches[indexPath.row].url
         
-        
-        return cell!
+        return cell
     }
     
     func FetchPreviousCall(){
@@ -133,37 +135,7 @@ class Search: UIViewController, CLLocationManagerDelegate, UITableViewDataSource
             googlesearches.append(googlesearchinfo(title: Servercalls.serverjson["results"][7]["title"].string!, snippet: Servercalls.serverjson["results"][7]["snippet"].string!, url: Servercalls.serverjson["results"][7]["url"].string!))
             googlesearches.append(googlesearchinfo(title: Servercalls.serverjson["results"][8]["title"].string!, snippet: Servercalls.serverjson["results"][8]["snippet"].string!, url: Servercalls.serverjson["results"][8]["url"].string!))
             googlesearches.append(googlesearchinfo(title: Servercalls.serverjson["results"][9]["title"].string!, snippet: Servercalls.serverjson["results"][9]["snippet"].string!, url: Servercalls.serverjson["results"][9]["url"].string!))
-            
-//            googlesearches[0].title = Servercalls.serverjson["results"][0]["title"].string!
-//            googlesearches[0].snippet = Servercalls.serverjson["results"][0]["snippet"].string!
-//            googlesearches[0].url = Servercalls.serverjson["results"][0]["url"].string!
-//            googlesearches[1].title = Servercalls.serverjson["results"][1]["title"].string!
-//            googlesearches[1].snippet = Servercalls.serverjson["results"][1]["snippet"].string!
-//            googlesearches[1].url = Servercalls.serverjson["results"][1]["url"].string!
-//            googlesearches[2].title = Servercalls.serverjson["results"][2]["title"].string!
-//            googlesearches[2].snippet = Servercalls.serverjson["results"][2]["snippet"].string!
-//            googlesearches[2].url = Servercalls.serverjson["results"][2]["url"].string!
-//            googlesearches[3].title = Servercalls.serverjson["results"][3]["title"].string!
-//            googlesearches[3].snippet = Servercalls.serverjson["results"][3]["snippet"].string!
-//            googlesearches[3].url = Servercalls.serverjson["results"][3]["url"].string!
-//            googlesearches[4].title = Servercalls.serverjson["results"][4]["title"].string!
-//            googlesearches[4].snippet = Servercalls.serverjson["results"][4]["snippet"].string!
-//            googlesearches[4].url = Servercalls.serverjson["results"][4]["url"].string!
-//            googlesearches[5].title = Servercalls.serverjson["results"][5]["title"].string!
-//            googlesearches[5].snippet = Servercalls.serverjson["results"][5]["snippet"].string!
-//            googlesearches[5].url = Servercalls.serverjson["results"][5]["url"].string!
-//            googlesearches[6].title = Servercalls.serverjson["results"][6]["title"].string!
-//            googlesearches[6].snippet = Servercalls.serverjson["results"][6]["snippet"].string!
-//            googlesearches[6].url = Servercalls.serverjson["results"][6]["url"].string!
-//            googlesearches[7].title = Servercalls.serverjson["results"][7]["title"].string!
-//            googlesearches[7].snippet = Servercalls.serverjson["results"][7]["snippet"].string!
-//            googlesearches[7].url = Servercalls.serverjson["results"][7]["url"].string!
-//            googlesearches[8].title = Servercalls.serverjson["results"][8]["title"].string!
-//            googlesearches[8].snippet = Servercalls.serverjson["results"][8]["snippet"].string!
-//            googlesearches[8].url = Servercalls.serverjson["results"][8]["url"].string!
-//            googlesearches[9].title = Servercalls.serverjson["results"][9]["title"].string!
-//            googlesearches[9].snippet = Servercalls.serverjson["results"][9]["snippet"].string!
-//            googlesearches[9].url = Servercalls.serverjson["results"][9]["url"].string!
+  
         }
     }
     
