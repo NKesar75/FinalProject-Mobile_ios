@@ -14,10 +14,6 @@ import Speech
 import SwiftyJSON
 class Youtube: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate, CLLocationManagerDelegate, SFSpeechRecognizerDelegate {
 
-    @IBOutlet weak var Sideview: UIView!
-    @IBOutlet weak var menu: UIButton!
-    @IBOutlet weak var Blur_View: UIVisualEffectView!
-    @IBOutlet weak var View_Constarint: NSLayoutConstraint!
     @IBOutlet weak var youtubeview: WKWebView!
     var audioRecorder: AVAudioRecorder!
     var player : AVAudioPlayer?
@@ -35,16 +31,7 @@ class Youtube: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate,
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        Blur_View.layer.cornerRadius = 15
-        Sideview.layer.shadowColor = UIColor.black.cgColor
-        Sideview.layer.shadowOpacity = 0.8
-        Sideview.layer.shadowOffset = CGSize(width: 5, height: 0)
-        
-        View_Constarint.constant = -175
-        self.menu.isHidden = false
-        
+
         setvideo(videoid: "QrVjFfP4pak")
         
         speechRecognizer.delegate = self
@@ -88,28 +75,6 @@ class Youtube: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate,
     }
     
     
-    @IBAction func menupressed(_ sender: Any) {
-        
-        if View_Constarint.constant < 20 {
-            UIView.animate(withDuration: 0.2, animations: {
-                self.View_Constarint.constant = 0
-                self.view.layoutIfNeeded()
-                self.menu.isHidden = true
-            })
-        }
-    }
-    
-    @IBAction func Youtubepressed(_ sender: UIButton) {
-        if View_Constarint.constant > -175 {
-            UIView.animate(withDuration: 0.2, animations: {
-                self.View_Constarint.constant = -175
-                self.view.layoutIfNeeded()
-                self.menu.isHidden = false
-            })
-        }
-    }
-    
-    
     @IBAction func voicebuttonpressed(_ sender: UIButton) {
         
         if audioEngine.isRunning {
@@ -119,7 +84,6 @@ class Youtube: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate,
             self.stringtoserver = self.stringtoserver!.replacingOccurrences(of: "\'", with: "", options: .literal, range: nil)
             print(self.stringtoserver)
             FetchJSON()
-            
         } else {
             startRecording()
         }
@@ -254,42 +218,6 @@ class Youtube: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate,
         }
         
     }
-
-    @IBAction func panguesture(_ sender: UIPanGestureRecognizer) {
-        if sender.state == .began || sender.state == .changed{
-            let translation = sender.translation(in: self.view).x
-            if translation > 0 { // swipe right
-                if View_Constarint.constant < 20 {
-                    UIView.animate(withDuration: 0.2, animations: {
-                        self.View_Constarint.constant += translation / 10
-                        self.view.layoutIfNeeded()
-                        self.menu.isHidden = true
-                    })
-                }
-            }else{ //swipe left
-                if View_Constarint.constant > -175 {
-                    UIView.animate(withDuration: 0.2, animations: {
-                        self.View_Constarint.constant += translation / 10
-                        self.view.layoutIfNeeded()
-                    })
-                }
-            }
-        }else if sender.state == .ended{
-            if View_Constarint.constant < -100 {
-                UIView.animate(withDuration: 0.2, animations: {
-                    self.View_Constarint.constant = -175
-                    self.view.layoutIfNeeded()
-                    self.menu.isHidden = false
-                })
-            }else{
-                UIView.animate(withDuration: 0.2, animations: {
-                    self.View_Constarint.constant = 0
-                    self.view.layoutIfNeeded()
-                })
-            }
-        }
-    }
-    
     
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

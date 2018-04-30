@@ -15,10 +15,10 @@ class Servercalls: UIViewController {
     static var serverjson = JSON()
     
     func apicall(city: String, state: String, voicecall: String) {
+        print(voicecall)
     let urlString = "https://personalassistant-ec554.appspot.com/recognize/" + voicecall + "/" + state + "/" + city
         guard let url = URL(string: urlString) else { return }
         URLSession.shared.dataTask(with: url) { (data, reponse, err) in
-            sleep(3)
             guard let data = data else { return }
             do {
                 

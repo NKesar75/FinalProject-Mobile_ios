@@ -21,10 +21,6 @@ class Search: UIViewController, CLLocationManagerDelegate, UITableViewDataSource
     
     
     @IBOutlet weak var googlesearchtableview: UITableView!
-    @IBOutlet weak var menu: UIButton!
-    @IBOutlet weak var View_Constraint: NSLayoutConstraint!
-    @IBOutlet weak var Sideview: UIView!
-    @IBOutlet weak var Blur_View: UIVisualEffectView!
     let locationManager:CLLocationManager = CLLocationManager()
     let geocoder = CLGeocoder()
     var placemark: CLPlacemark?
@@ -33,15 +29,6 @@ class Search: UIViewController, CLLocationManagerDelegate, UITableViewDataSource
     var googlesearches:[googlesearchinfo] = []
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        Blur_View.layer.cornerRadius = 15
-        Sideview.layer.shadowColor = UIColor.black.cgColor
-        Sideview.layer.shadowOpacity = 0.8
-        Sideview.layer.shadowOffset = CGSize(width: 5, height: 0)
-        
-        View_Constraint.constant = -175
-        self.menu.isHidden = false
         
         // Do any additional setup after loading the view.
         locationManager.delegate = self
@@ -53,16 +40,6 @@ class Search: UIViewController, CLLocationManagerDelegate, UITableViewDataSource
         googlesearchtableview.dataSource = self
     }
 
-    @IBAction func searchbuttonpressed(_ sender: UIButton) {
-        if View_Constraint.constant > -175 {
-            UIView.animate(withDuration: 0.2, animations: {
-                self.View_Constraint.constant = -175
-                self.view.layoutIfNeeded()
-                self.menu.isHidden = false
-            })
-        }
-    
-    }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         var location = locations[0]
@@ -97,7 +74,7 @@ class Search: UIViewController, CLLocationManagerDelegate, UITableViewDataSource
                 self.city = self.city!.replacingOccurrences(of: " ", with: "_", options: .literal, range: nil)
                 print(self.city)
                 print(self.state)
-                self.FetchJSON()
+               // self.FetchJSON()
                 
             } else {
                 // add some more check's if for some reason location manager is nil
@@ -165,42 +142,4 @@ class Search: UIViewController, CLLocationManagerDelegate, UITableViewDataSource
                 }
             }.resume()
     }
-    
-    @IBAction func panguestuere(_ sender: UIPanGestureRecognizer) {
-        if sender.state == .began || sender.state == .changed{
-            let translation = sender.translation(in: self.view).x
-            if translation > 0 { // swipe right
-                if View_Constraint.constant < 20 {
-                    UIView.animate(withDuration: 0.2, animations: {
-                        self.View_Constraint.constant += translation / 10
-                        self.view.layoutIfNeeded()
-                        self.menu.isHidden = true
-                    })
-                }
-            }else{ //swipe left
-                if View_Constraint.constant > -175 {
-                    UIView.animate(withDuration: 0.2, animations: {
-                        self.View_Constraint.constant += translation / 10
-                        self.view.layoutIfNeeded()
-                    })
-                }
-            }
-        }else if sender.state == .ended{
-            if View_Constraint.constant < -100 {
-                UIView.animate(withDuration: 0.2, animations: {
-                    self.View_Constraint.constant = -175
-                    self.view.layoutIfNeeded()
-                    self.menu.isHidden = false
-                })
-            }else{
-                UIView.animate(withDuration: 0.2, animations: {
-                    self.View_Constraint.constant = 0
-                    self.view.layoutIfNeeded()
-                })
-            }
-        }
-        
-    }
-    
-
 }

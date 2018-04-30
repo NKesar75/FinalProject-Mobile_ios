@@ -15,14 +15,8 @@ import Speech
 import SwiftyJSON
 class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate, CLLocationManagerDelegate, SFSpeechRecognizerDelegate{
 
-    @IBOutlet weak var menubutton: UIButton!
-    @IBOutlet weak var ViewConstarint: NSLayoutConstraint!
-    
-    @IBOutlet weak var blurView: UIVisualEffectView!
-    
-    @IBOutlet weak var sideview: UIView!
-    
     @IBOutlet weak var voice_button: UIButton!
+    
     var audioRecorder: AVAudioRecorder!
     var player : AVAudioPlayer?
     var isRecording = false
@@ -36,28 +30,14 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
     var recognitionTask: SFSpeechRecognitionTask?
     let audioEngine = AVAudioEngine()
     var voicequestion: Bool?
-    @IBOutlet weak var imageview: UIImageView!
-    @IBOutlet weak var Locationlabel: UILabel!
-    @IBOutlet weak var Humidity: UILabel!
-    @IBOutlet weak var rainlabel: UILabel!
-    @IBOutlet weak var forcastlabel: UILabel!
-    @IBOutlet weak var templabel: UILabel!
+    var isfirsttimecall: Bool?
     
 
     var stringtoserver: String?
  
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
-       blurView.layer.cornerRadius = 15
-       sideview.layer.shadowColor = UIColor.black.cgColor
-       sideview.layer.shadowOpacity = 0.8
-       sideview.layer.shadowOffset = CGSize(width: 5, height: 0)
-        
-        ViewConstarint.constant = -175
-        self.menubutton.isHidden = false
-        stringtoserver = "text_weather"
         speechRecognizer.delegate = self
         SFSpeechRecognizer.requestAuthorization { authStatus in
            
@@ -78,6 +58,7 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
         locationManager.startUpdatingLocation()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         voicequestion = false
+        isfirsttimecall = true
         AVAudioSession.sharedInstance().requestRecordPermission () {
              [unowned self] allowed in
             if allowed {
@@ -120,44 +101,29 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
                     }
                     
                 }
-                
+                if self.city != nil && self.state != nil {
                 self.city = self.city!.replacingOccurrences(of: " ", with: "_", options: .literal, range: nil)
                 print(self.city)
                 print(self.state)
                 print(self.stringtoserver)
-                    self.FetchJSON()
+                }
                 
             } else {
                 // add some more check's if for some reason location manager is nil
             }
-            
-            
         })
-
     }
-    
     
      func FetchJSON() {
         let server = Servercalls()
         server.apicall(city: city!, state: state!, voicecall: self.stringtoserver!)
         print(Servercalls.serverjson)
+        sleep(2)
         if Servercalls.serverjson["key"].string != nil {
             switch (Servercalls.serverjson["key"].string!){
             case "weather":
-                if voicequestion == false{
-                    self.Locationlabel.text = Servercalls.serverjson["city"].string! + ", " + Servercalls.serverjson["state"].string!
-                    self.Humidity.text = "Humidity: " + Servercalls.serverjson["humidity"].string!
-                    self.rainlabel.text = "Rain: " + String(Servercalls.serverjson["precip"].double!) + "%"
-                    self.forcastlabel.text = "Forcast: " + Servercalls.serverjson["condition"].string!
-                    self.templabel.text = String(Servercalls.serverjson["tempf"].double!) + "°F"
-                    let imageUrl:URL = URL(string: Servercalls.serverjson["url"].string!)!
-                    let imageData:NSData = NSData(contentsOf: imageUrl)!
-                    self.imageview.image = UIImage(data: imageData as Data)
-                    self.imageview.contentMode = UIViewContentMode.scaleAspectFit
-                }else{
-                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "Weather_ID") as! Weather
-                    self.present(vc, animated: true, completion: nil)
-                }
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: "Weather_ID") as! Weather
+                self.present(vc, animated: true, completion: nil)
             case "youtube":
                 let vc = self.storyboard?.instantiateViewController(withIdentifier: "Youtube_ID") as! Youtube
                 self.present(vc, animated: true, completion: nil)
@@ -167,40 +133,20 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
             default: break
             }
         }
-        
     }
     
-    
-    @IBAction func HomepressedonHome(_ sender: UIButton) {
-        if ViewConstarint.constant > -175 {
-            UIView.animate(withDuration: 0.2, animations: {
-                self.ViewConstarint.constant = -175
-                self.view.layoutIfNeeded()
-                self.menubutton.isHidden = false
-            })
-        }
-    }
-    
-    @IBAction func menubuttonclicked(_ sender: UIButton) {
-        if ViewConstarint.constant < 20 {
-            UIView.animate(withDuration: 0.2, animations: {
-                self.ViewConstarint.constant = 0
-                 self.view.layoutIfNeeded()
-                self.menubutton.isHidden = true
-            })
-        }
-    }
     @IBAction func voicebutton(_ sender: UIButton) {
        
         if audioEngine.isRunning {
             audioEngine.stop()
             recognitionRequest?.endAudio()
+            if (self.stringtoserver != nil){
             self.stringtoserver = self.stringtoserver!.replacingOccurrences(of: " ", with: "_", options: .literal, range: nil)
             self.stringtoserver = self.stringtoserver!.replacingOccurrences(of: "\'", with: "", options: .literal, range: nil)
             print(stringtoserver)
             voicequestion = true
-            FetchJSON()
-            
+            self.FetchJSON()
+            }
         } else {
             startRecording()
         }
@@ -335,42 +281,6 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
        
     }
 
-    @IBAction func panguesture(_ sender: UIPanGestureRecognizer) {
-        if sender.state == .began || sender.state == .changed{
-            let translation = sender.translation(in: self.view).x
-            if translation > 0 { // swipe right
-                if ViewConstarint.constant < 20 {
-                    UIView.animate(withDuration: 0.2, animations: {
-                        self.ViewConstarint.constant += translation / 10
-                        self.view.layoutIfNeeded()
-                        self.menubutton.isHidden = true
-                    })
-                }
-            }else{ //swipe left
-                if ViewConstarint.constant > -175 {
-                    UIView.animate(withDuration: 0.2, animations: {
-                        self.ViewConstarint.constant += translation / 10
-                        self.view.layoutIfNeeded()
-                    })
-                }
-            }
-        }else if sender.state == .ended{
-            if ViewConstarint.constant < -100 {
-                UIView.animate(withDuration: 0.2, animations: {
-                    self.ViewConstarint.constant = -175
-                    self.view.layoutIfNeeded()
-                    self.menubutton.isHidden = false
-            })
-            }else{
-                UIView.animate(withDuration: 0.2, animations: {
-                    self.ViewConstarint.constant = 0
-                    self.view.layoutIfNeeded()
-            })
-        
-        
-    }
-}
-}
     
     //    @IBAction func Signout(_ sender: Any) {
     //        do {
