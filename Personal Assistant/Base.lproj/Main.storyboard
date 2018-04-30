@@ -406,7 +406,19 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EtQ-ZX-F0Q">
-                                                            <rect key="frame" x="0.0" y="114" width="337" height="21"/>
+                                                            <rect key="frame" x="0.0" y="114" width="160" height="21"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="160" id="sJC-zm-0Jc"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MM/DD/YY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ml3-Ul-k2h">
+                                                            <rect key="frame" x="214" y="114" width="120" height="21"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="120" id="Gor-4x-erB"/>
+                                                            </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -420,16 +432,16 @@
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.42821896079999999" green="0.69029945140000004" blue="0.91074007749999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="ml3-Ul-k2h" secondAttribute="bottom" constant="3" id="7h7-sC-S5h"/>
                                                         <constraint firstAttribute="bottom" secondItem="EtQ-ZX-F0Q" secondAttribute="bottom" constant="3" id="9Nz-ft-vSm"/>
                                                         <constraint firstItem="0W8-ZW-2jF" firstAttribute="leading" secondItem="tVH-15-r3l" secondAttribute="trailing" constant="8" id="BMG-e7-tW7"/>
                                                         <constraint firstAttribute="trailing" secondItem="QQ4-Ag-dZK" secondAttribute="trailing" constant="8" id="BT3-zZ-Txw"/>
-                                                        <constraint firstItem="EtQ-ZX-F0Q" firstAttribute="top" secondItem="0W8-ZW-2jF" secondAttribute="bottom" constant="6" id="Btc-Bc-jQp"/>
                                                         <constraint firstItem="yya-eo-S63" firstAttribute="top" secondItem="5eZ-aY-ezb" secondAttribute="top" id="Ezr-ed-AgM"/>
                                                         <constraint firstAttribute="trailing" secondItem="vSV-ON-SKH" secondAttribute="trailing" constant="8" id="JKz-gZ-gao"/>
                                                         <constraint firstItem="EtQ-ZX-F0Q" firstAttribute="top" secondItem="0W8-ZW-2jF" secondAttribute="bottom" constant="6" id="NAU-JP-9Ot"/>
-                                                        <constraint firstAttribute="trailing" secondItem="EtQ-ZX-F0Q" secondAttribute="trailing" constant="8" id="Oi5-ud-et8"/>
                                                         <constraint firstItem="yya-eo-S63" firstAttribute="leading" secondItem="tVH-15-r3l" secondAttribute="trailing" constant="8" id="Pvd-uv-KUO"/>
                                                         <constraint firstItem="vSV-ON-SKH" firstAttribute="leading" secondItem="tVH-15-r3l" secondAttribute="trailing" constant="8" id="Q5e-eL-1jC"/>
+                                                        <constraint firstItem="ml3-Ul-k2h" firstAttribute="leading" secondItem="EtQ-ZX-F0Q" secondAttribute="trailing" constant="54" id="Rf9-6v-5Rd"/>
                                                         <constraint firstItem="EtQ-ZX-F0Q" firstAttribute="leading" secondItem="5eZ-aY-ezb" secondAttribute="leading" id="XQr-tu-Dz2"/>
                                                         <constraint firstItem="tVH-15-r3l" firstAttribute="top" secondItem="5eZ-aY-ezb" secondAttribute="top" id="Zxa-Jf-jRk"/>
                                                         <constraint firstItem="QQ4-Ag-dZK" firstAttribute="top" secondItem="5eZ-aY-ezb" secondAttribute="top" id="cnh-Zl-c5X"/>
@@ -451,6 +463,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.42821896079999999" green="0.69029945140000004" blue="0.91074007749999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
+                                            <outlet property="Weatherdayoftheyear" destination="ml3-Ul-k2h" id="Vd7-0y-Mie"/>
                                             <outlet property="weatherforcast" destination="vSV-ON-SKH" id="46j-rb-Nff"/>
                                             <outlet property="weatherhumidty" destination="uW0-cy-lJC" id="ShT-Us-IC4"/>
                                             <outlet property="weatherimage" destination="tVH-15-r3l" id="way-pL-pwo"/>
