@@ -57,8 +57,10 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
         locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        
         voicequestion = false
         isfirsttimecall = true
+        
         AVAudioSession.sharedInstance().requestRecordPermission () {
              [unowned self] allowed in
             if allowed {
