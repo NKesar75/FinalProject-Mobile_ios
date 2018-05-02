@@ -13,6 +13,7 @@ import CoreLocation
 import MapKit
 import Speech
 import SwiftyJSON
+
 class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate, CLLocationManagerDelegate, SFSpeechRecognizerDelegate{
 
     @IBOutlet weak var voice_button: UIButton!
@@ -117,6 +118,7 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
     }
     
      func FetchJSON() {
+        
         let server = Servercalls()
         server.apicall(city: city!, state: state!, voicecall: self.stringtoserver!)
         print(Servercalls.serverjson)
@@ -144,7 +146,7 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
             recognitionRequest?.endAudio()
             if (self.stringtoserver != nil){
             self.stringtoserver = self.stringtoserver!.replacingOccurrences(of: " ", with: "_", options: .literal, range: nil)
-            self.stringtoserver = self.stringtoserver!.replacingOccurrences(of: "\'", with: "", options: .literal, range: nil)
+            //self.stringtoserver = self.stringtoserver!.replacingOccurrences(of: "\'", with: "", options: .literal, range: nil)
             print(stringtoserver)
             voicequestion = true
             self.FetchJSON()
@@ -154,6 +156,10 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
         }
     }
     
+    @IBAction func makealistbutton(_ sender: UIButton) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "Make_a_list_ID") as! Make_a_list
+        self.present(vc, animated: true, completion: nil)
+    }
     
     func startRecording() {
         

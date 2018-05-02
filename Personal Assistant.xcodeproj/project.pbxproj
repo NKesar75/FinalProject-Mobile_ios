@@ -11,10 +11,21 @@
 		6C47A8472B860AE0DCC733C9 /* Pods_Personal_Assistant.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC2775E3BE5577CF25F94D85 /* Pods_Personal_Assistant.framework */; };
 		C4254B04207E97F500807AF4 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4254B03207E97F500807AF4 /* Weather.swift */; };
 		C4254B062084E4E500807AF4 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4254B052084E4E500807AF4 /* Map.swift */; };
+		C4270B60209A4866009DC4DB /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4270B5E209A4866009DC4DB /* Interface.storyboard */; };
+		C4270B62209A4866009DC4DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4270B61209A4866009DC4DB /* Assets.xcassets */; };
+		C4270B69209A4866009DC4DB /* Personal-Assistant-Watch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C4270B68209A4866009DC4DB /* Personal-Assistant-Watch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C4270B6E209A4866009DC4DB /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4270B6D209A4866009DC4DB /* InterfaceController.swift */; };
+		C4270B70209A4866009DC4DB /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4270B6F209A4866009DC4DB /* ExtensionDelegate.swift */; };
+		C4270B72209A4866009DC4DB /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4270B71209A4866009DC4DB /* NotificationController.swift */; };
+		C4270B74209A4866009DC4DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4270B73209A4866009DC4DB /* Assets.xcassets */; };
+		C4270B79209A4866009DC4DB /* Personal-Assistant-Watch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = C4270B5C209A4866009DC4DB /* Personal-Assistant-Watch.app */; };
 		C42BF3422097664300E02910 /* WeatherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42BF3412097664300E02910 /* WeatherTableViewCell.swift */; };
 		C45426E0208781550052B531 /* Youtube.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45426DF208781550052B531 /* Youtube.swift */; };
 		C46EC51E206D5E2B000FDECD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C46EC51D206D5E2B000FDECD /* GoogleService-Info.plist */; };
 		C4764E4720921C120000E8E3 /* CustomCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4764E4620921C120000E8E3 /* CustomCellTableViewCell.swift */; };
+		C481A5C32099FBE7004DEFA5 /* Make_a_list.swift in Sources */ = {isa = PBXBuildFile; fileRef = C481A5C22099FBE7004DEFA5 /* Make_a_list.swift */; };
+		C481A5C5209A0D34004DEFA5 /* Listdata.swift in Sources */ = {isa = PBXBuildFile; fileRef = C481A5C4209A0D34004DEFA5 /* Listdata.swift */; };
+		C481A5C7209A424E004DEFA5 /* watchcontact.swift in Sources */ = {isa = PBXBuildFile; fileRef = C481A5C6209A424E004DEFA5 /* watchcontact.swift */; };
 		C4AF45FA2049BE1500B9093F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AF45F92049BE1500B9093F /* AppDelegate.swift */; };
 		C4AF45FF2049BE1600B9093F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4AF45FD2049BE1600B9093F /* Main.storyboard */; };
 		C4AF46012049BE1600B9093F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4AF46002049BE1600B9093F /* Assets.xcassets */; };
@@ -30,6 +41,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		C4270B6A209A4866009DC4DB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C4AF45EE2049BE1500B9093F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C4270B67209A4866009DC4DB;
+			remoteInfo = "Personal-Assistant-Watch Extension";
+		};
+		C4270B77209A4866009DC4DB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C4AF45EE2049BE1500B9093F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C4270B5B209A4866009DC4DB;
+			remoteInfo = "Personal-Assistant-Watch";
+		};
 		C4AF460B2049BE1600B9093F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C4AF45EE2049BE1500B9093F /* Project object */;
@@ -46,6 +71,31 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		C4270B7D209A4866009DC4DB /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				C4270B69209A4866009DC4DB /* Personal-Assistant-Watch Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C4270B81209A4866009DC4DB /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				C4270B79209A4866009DC4DB /* Personal-Assistant-Watch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		0B5020E3EAC6BC3E9111096B /* Pods-Personal AssistantTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Personal AssistantTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Personal AssistantTests/Pods-Personal AssistantTests.release.xcconfig"; sourceTree = "<group>"; };
 		12A31CD9ACB41A598AA925BA /* Pods_Personal_AssistantUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Personal_AssistantUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -57,10 +107,24 @@
 		BC2775E3BE5577CF25F94D85 /* Pods_Personal_Assistant.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Personal_Assistant.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4254B03207E97F500807AF4 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		C4254B052084E4E500807AF4 /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
+		C4270B5C209A4866009DC4DB /* Personal-Assistant-Watch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Personal-Assistant-Watch.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4270B5F209A4866009DC4DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		C4270B61209A4866009DC4DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C4270B63209A4866009DC4DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C4270B68209A4866009DC4DB /* Personal-Assistant-Watch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Personal-Assistant-Watch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4270B6D209A4866009DC4DB /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		C4270B6F209A4866009DC4DB /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		C4270B71209A4866009DC4DB /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		C4270B73209A4866009DC4DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C4270B75209A4866009DC4DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C4270B76209A4866009DC4DB /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		C42BF3412097664300E02910 /* WeatherTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherTableViewCell.swift; sourceTree = "<group>"; };
 		C45426DF208781550052B531 /* Youtube.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Youtube.swift; sourceTree = "<group>"; };
 		C46EC51D206D5E2B000FDECD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C4764E4620921C120000E8E3 /* CustomCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellTableViewCell.swift; sourceTree = "<group>"; };
+		C481A5C22099FBE7004DEFA5 /* Make_a_list.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Make_a_list.swift; sourceTree = "<group>"; };
+		C481A5C4209A0D34004DEFA5 /* Listdata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Listdata.swift; sourceTree = "<group>"; };
+		C481A5C6209A424E004DEFA5 /* watchcontact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = watchcontact.swift; sourceTree = "<group>"; };
 		C4AF45F62049BE1500B9093F /* Personal Assistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Personal Assistant.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4AF45F92049BE1500B9093F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C4AF45FE2049BE1600B9093F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -82,6 +146,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		C4270B65209A4866009DC4DB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C4AF45F32049BE1500B9093F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -119,12 +190,37 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C4270B5D209A4866009DC4DB /* Personal-Assistant-Watch */ = {
+			isa = PBXGroup;
+			children = (
+				C4270B5E209A4866009DC4DB /* Interface.storyboard */,
+				C4270B61209A4866009DC4DB /* Assets.xcassets */,
+				C4270B63209A4866009DC4DB /* Info.plist */,
+			);
+			path = "Personal-Assistant-Watch";
+			sourceTree = "<group>";
+		};
+		C4270B6C209A4866009DC4DB /* Personal-Assistant-Watch Extension */ = {
+			isa = PBXGroup;
+			children = (
+				C4270B6D209A4866009DC4DB /* InterfaceController.swift */,
+				C4270B6F209A4866009DC4DB /* ExtensionDelegate.swift */,
+				C4270B71209A4866009DC4DB /* NotificationController.swift */,
+				C4270B73209A4866009DC4DB /* Assets.xcassets */,
+				C4270B75209A4866009DC4DB /* Info.plist */,
+				C4270B76209A4866009DC4DB /* PushNotificationPayload.apns */,
+			);
+			path = "Personal-Assistant-Watch Extension";
+			sourceTree = "<group>";
+		};
 		C4AF45ED2049BE1500B9093F = {
 			isa = PBXGroup;
 			children = (
 				C4AF45F82049BE1500B9093F /* Personal Assistant */,
 				C4AF460D2049BE1600B9093F /* Personal AssistantTests */,
 				C4AF46182049BE1600B9093F /* Personal AssistantUITests */,
+				C4270B5D209A4866009DC4DB /* Personal-Assistant-Watch */,
+				C4270B6C209A4866009DC4DB /* Personal-Assistant-Watch Extension */,
 				C4AF45F72049BE1500B9093F /* Products */,
 				DAA86A8D80B9BA4440B0DB72 /* Pods */,
 				1138F315924EAD225D9E5C08 /* Frameworks */,
@@ -137,6 +233,8 @@
 				C4AF45F62049BE1500B9093F /* Personal Assistant.app */,
 				C4AF460A2049BE1600B9093F /* Personal AssistantTests.xctest */,
 				C4AF46152049BE1600B9093F /* Personal AssistantUITests.xctest */,
+				C4270B5C209A4866009DC4DB /* Personal-Assistant-Watch.app */,
+				C4270B68209A4866009DC4DB /* Personal-Assistant-Watch Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -160,6 +258,9 @@
 				C4DABCD1208FA42500ED146C /* Servercalls.swift */,
 				C4764E4620921C120000E8E3 /* CustomCellTableViewCell.swift */,
 				C42BF3412097664300E02910 /* WeatherTableViewCell.swift */,
+				C481A5C22099FBE7004DEFA5 /* Make_a_list.swift */,
+				C481A5C4209A0D34004DEFA5 /* Listdata.swift */,
+				C481A5C6209A424E004DEFA5 /* watchcontact.swift */,
 			);
 			path = "Personal Assistant";
 			sourceTree = "<group>";
@@ -198,6 +299,40 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		C4270B5B209A4866009DC4DB /* Personal-Assistant-Watch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C4270B7E209A4866009DC4DB /* Build configuration list for PBXNativeTarget "Personal-Assistant-Watch" */;
+			buildPhases = (
+				C4270B5A209A4866009DC4DB /* Resources */,
+				C4270B7D209A4866009DC4DB /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C4270B6B209A4866009DC4DB /* PBXTargetDependency */,
+			);
+			name = "Personal-Assistant-Watch";
+			productName = "Personal-Assistant-Watch";
+			productReference = C4270B5C209A4866009DC4DB /* Personal-Assistant-Watch.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		C4270B67209A4866009DC4DB /* Personal-Assistant-Watch Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C4270B7A209A4866009DC4DB /* Build configuration list for PBXNativeTarget "Personal-Assistant-Watch Extension" */;
+			buildPhases = (
+				C4270B64209A4866009DC4DB /* Sources */,
+				C4270B65209A4866009DC4DB /* Frameworks */,
+				C4270B66209A4866009DC4DB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Personal-Assistant-Watch Extension";
+			productName = "Personal-Assistant-Watch Extension";
+			productReference = C4270B68209A4866009DC4DB /* Personal-Assistant-Watch Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
 		C4AF45F52049BE1500B9093F /* Personal Assistant */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C4AF461E2049BE1600B9093F /* Build configuration list for PBXNativeTarget "Personal Assistant" */;
@@ -208,10 +343,12 @@
 				C4AF45F42049BE1500B9093F /* Resources */,
 				1BAAE7FF7BD6EA8DCFDA7F8F /* [CP] Embed Pods Frameworks */,
 				78B89FC00F4AAA0C2A54EF5E /* [CP] Copy Pods Resources */,
+				C4270B81209A4866009DC4DB /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				C4270B78209A4866009DC4DB /* PBXTargetDependency */,
 			);
 			name = "Personal Assistant";
 			productName = "Personal Assistant";
@@ -266,13 +403,21 @@
 		C4AF45EE2049BE1500B9093F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0910;
+				LastSwiftUpdateCheck = 0920;
 				LastUpgradeCheck = 0910;
 				ORGANIZATIONNAME = "Final-Project";
 				TargetAttributes = {
+					C4270B5B209A4866009DC4DB = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					C4270B67209A4866009DC4DB = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
 					C4AF45F52049BE1500B9093F = {
 						CreatedOnToolsVersion = 9.1;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					C4AF46092049BE1600B9093F = {
 						CreatedOnToolsVersion = 9.1;
@@ -302,11 +447,30 @@
 				C4AF45F52049BE1500B9093F /* Personal Assistant */,
 				C4AF46092049BE1600B9093F /* Personal AssistantTests */,
 				C4AF46142049BE1600B9093F /* Personal AssistantUITests */,
+				C4270B5B209A4866009DC4DB /* Personal-Assistant-Watch */,
+				C4270B67209A4866009DC4DB /* Personal-Assistant-Watch Extension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		C4270B5A209A4866009DC4DB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4270B62209A4866009DC4DB /* Assets.xcassets in Resources */,
+				C4270B60209A4866009DC4DB /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C4270B66209A4866009DC4DB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4270B74209A4866009DC4DB /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C4AF45F42049BE1500B9093F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -495,15 +659,28 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		C4270B64209A4866009DC4DB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4270B72209A4866009DC4DB /* NotificationController.swift in Sources */,
+				C4270B70209A4866009DC4DB /* ExtensionDelegate.swift in Sources */,
+				C4270B6E209A4866009DC4DB /* InterfaceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C4AF45F22049BE1500B9093F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C481A5C7209A424E004DEFA5 /* watchcontact.swift in Sources */,
+				C481A5C5209A0D34004DEFA5 /* Listdata.swift in Sources */,
 				C4DABCD2208FA42500ED146C /* Servercalls.swift in Sources */,
 				C4CAD9592049E3A7007CC517 /* AlertController.swift in Sources */,
 				C42BF3422097664300E02910 /* WeatherTableViewCell.swift in Sources */,
 				C4AF462A2049C05E00B9093F /* Login.swift in Sources */,
 				C4AF462E2049C2F700B9093F /* HomePage.swift in Sources */,
+				C481A5C32099FBE7004DEFA5 /* Make_a_list.swift in Sources */,
 				C4AF45FA2049BE1500B9093F /* AppDelegate.swift in Sources */,
 				C45426E0208781550052B531 /* Youtube.swift in Sources */,
 				C4DABCD0208F780700ED146C /* Search.swift in Sources */,
@@ -532,6 +709,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		C4270B6B209A4866009DC4DB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C4270B67209A4866009DC4DB /* Personal-Assistant-Watch Extension */;
+			targetProxy = C4270B6A209A4866009DC4DB /* PBXContainerItemProxy */;
+		};
+		C4270B78209A4866009DC4DB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C4270B5B209A4866009DC4DB /* Personal-Assistant-Watch */;
+			targetProxy = C4270B77209A4866009DC4DB /* PBXContainerItemProxy */;
+		};
 		C4AF460C2049BE1600B9093F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = C4AF45F52049BE1500B9093F /* Personal Assistant */;
@@ -545,6 +732,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		C4270B5E209A4866009DC4DB /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C4270B5F209A4866009DC4DB /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
 		C4AF45FD2049BE1600B9093F /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -564,6 +759,76 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		C4270B7B209A4866009DC4DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Personal-Assistant-Watch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "PA-Personal-Assistant.Personal-Assistant.watchkitapp.watchkitextension";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.2;
+			};
+			name = Debug;
+		};
+		C4270B7C209A4866009DC4DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Personal-Assistant-Watch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "PA-Personal-Assistant.Personal-Assistant.watchkitapp.watchkitextension";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.2;
+			};
+			name = Release;
+		};
+		C4270B7F209A4866009DC4DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				IBSC_MODULE = Personal_Assistant_Watch_Extension;
+				INFOPLIST_FILE = "Personal-Assistant-Watch/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "PA-Personal-Assistant.Personal-Assistant.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.2;
+			};
+			name = Debug;
+		};
+		C4270B80209A4866009DC4DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				IBSC_MODULE = Personal_Assistant_Watch_Extension;
+				INFOPLIST_FILE = "Personal-Assistant-Watch/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "PA-Personal-Assistant.Personal-Assistant.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.2;
+			};
+			name = Release;
+		};
 		C4AF461C2049BE1600B9093F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -676,11 +941,13 @@
 			baseConfigurationReference = 7791501C5E033DC5E60FDA23 /* Pods-Personal Assistant.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Personal Assistant/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "PA-Personal-Assistant.Personal-Assistant";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -691,11 +958,13 @@
 			baseConfigurationReference = 8AE000529B1F5A5D507B86DC /* Pods-Personal Assistant.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Personal Assistant/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "PA-Personal-Assistant.Personal-Assistant";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -770,6 +1039,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		C4270B7A209A4866009DC4DB /* Build configuration list for PBXNativeTarget "Personal-Assistant-Watch Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C4270B7B209A4866009DC4DB /* Debug */,
+				C4270B7C209A4866009DC4DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C4270B7E209A4866009DC4DB /* Build configuration list for PBXNativeTarget "Personal-Assistant-Watch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C4270B7F209A4866009DC4DB /* Debug */,
+				C4270B80209A4866009DC4DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C4AF45F12049BE1500B9093F /* Build configuration list for PBXProject "Personal Assistant" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
