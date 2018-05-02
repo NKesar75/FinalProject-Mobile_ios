@@ -35,9 +35,9 @@ class Search: UIViewController, CLLocationManagerDelegate, UITableViewDataSource
         locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        self.FetchPreviousCall()
         googlesearchtableview.delegate = self
         googlesearchtableview.dataSource = self
+        self.FetchPreviousCall()
     }
 
     
@@ -74,16 +74,20 @@ class Search: UIViewController, CLLocationManagerDelegate, UITableViewDataSource
                 self.city = self.city!.replacingOccurrences(of: " ", with: "_", options: .literal, range: nil)
                 print(self.city)
                 print(self.state)
-               // self.FetchJSON()
-                
             } else {
                 // add some more check's if for some reason location manager is nil
             }
         })
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let url = URL(string: googlesearches[indexPath.row].url) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
+    }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return googlesearches.count
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 220
