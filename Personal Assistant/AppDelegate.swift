@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import ApiAI
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,6 +19,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
+        let configuration: AIConfiguration = AIDefaultConfiguration()
+        configuration.clientAccessToken = "fb57e9c4edb34e31bfdd91ece7f5427c"
+        //you would find the client access token in settings section of your agent at Dialogflow
+        let apiai = ApiAI.shared()
+        apiai?.configuration = configuration
         return true
     }
 

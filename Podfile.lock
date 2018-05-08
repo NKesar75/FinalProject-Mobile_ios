@@ -1,4 +1,29 @@
 PODS:
+  - ApiAI (0.7.2):
+    - ApiAI/AudioFileConverter (= 0.7.2)
+    - ApiAI/Core (= 0.7.2)
+    - ApiAI/Events (= 0.7.2)
+    - ApiAI/ResponseMapping (= 0.7.2)
+    - ApiAI/UIKit (= 0.7.2)
+    - ApiAI/UserEntities (= 0.7.2)
+    - ApiAI/VoiceFileRequest (= 0.7.2)
+    - ApiAI/VoiceRequest (= 0.7.2)
+  - ApiAI/AudioFileConverter (0.7.2):
+    - ApiAI/Core
+  - ApiAI/Core (0.7.2)
+  - ApiAI/Events (0.7.2):
+    - ApiAI/Core
+  - ApiAI/ResponseMapping (0.7.2):
+    - ApiAI/Core
+  - ApiAI/UIKit (0.7.2):
+    - ApiAI/Core
+    - ApiAI/VoiceRequest
+  - ApiAI/UserEntities (0.7.2):
+    - ApiAI/Core
+  - ApiAI/VoiceFileRequest (0.7.2):
+    - ApiAI/Core
+  - ApiAI/VoiceRequest (0.7.2):
+    - ApiAI/Core
   - Firebase/Auth (4.9.0):
     - Firebase/Core
     - FirebaseAuth (= 4.4.3)
@@ -64,6 +89,7 @@ PODS:
   - SwiftyJSON (4.0.0)
 
 DEPENDENCIES:
+  - ApiAI
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
@@ -72,6 +98,7 @@ DEPENDENCIES:
   - SwiftyJSON
 
 SPEC CHECKSUMS:
+  ApiAI: d4b49d3736f33ce6f3ef66dc33c0e0fccb23579e
   Firebase: 632216af3ed7f31e3be34776947fdc7546cfb572
   FirebaseAnalytics: 388b630c15713f5dbf364071f5f3d6077fb52f4e
   FirebaseAuth: aaaf68d5064a6c8fec435758f83a43b8db26ccaa
@@ -87,6 +114,6 @@ SPEC CHECKSUMS:
   Protobuf: 8a9838fba8dae3389230e1b7f8c104aa32389c03
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
 
-PODFILE CHECKSUM: 66f29c2c1298e55f7ff799bf99657fc2f0f5e811
+PODFILE CHECKSUM: c2d94922184bef1a42e2600894f054d69a23a1fa
 
 COCOAPODS: 1.4.0

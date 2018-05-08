@@ -73,6 +73,7 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
             }
         }
         //locationManager.stopUpdatingLocation()
+    
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
