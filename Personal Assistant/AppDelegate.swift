@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         FirebaseApp.configure()
         let configuration: AIConfiguration = AIDefaultConfiguration()
-        configuration.clientAccessToken = "Your API Key here"
+        configuration.clientAccessToken = "fb57e9c4edb34e31bfdd91ece7f5427c"
         //you would find the client access token in settings section of your agent at Dialogflow
         let apiai = ApiAI.shared()
         apiai?.configuration = configuration

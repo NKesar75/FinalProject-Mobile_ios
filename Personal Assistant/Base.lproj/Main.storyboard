@@ -541,7 +541,7 @@
                                 <rect key="frame" x="0.0" y="60" width="375" height="607"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="listcell" textLabel="ycd-zM-1En" rowHeight="44" style="IBUITableViewCellStyleDefault" id="B3n-Jh-yNo">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" shouldIndentWhileEditing="NO" reuseIdentifier="listcell" textLabel="ycd-zM-1En" rowHeight="44" style="IBUITableViewCellStyleDefault" id="B3n-Jh-yNo">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="B3n-Jh-yNo" id="zjf-v2-0jy">
@@ -728,6 +728,6 @@
         <image name="Logo" width="120" height="120"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="uAJ-ja-XdC"/>
+        <segue reference="392-E5-acm"/>
     </inferredMetricsTieBreakers>
 </document>
