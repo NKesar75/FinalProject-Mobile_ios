@@ -18,7 +18,29 @@ class Listdata: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if Make_a_list.nameoftext != "New List" && Make_a_list.nameoftext != ""{
+            
+                // get a storage reference from the URL
+                listnamelabel.text = Make_a_list.nameoflist
+                let storage = Storage.storage()
+                print(Make_a_list.nameoftext)
+                let storageRef = storage.reference(forURL: Make_a_list.nameoftext)
+                // Download the data, assuming a max size of 1MB (you can change this as necessary)
 
+
+            storageRef.getData(maxSize: 2 * 1024 * 1024) { data, error in
+                if let error = error {
+                    // Uh-oh, an error occurred!
+                } else {
+                    // Data for "images/island.jpg" is returned
+                   self.listcontent.text = NSString(data: data!, encoding: String.Encoding.utf8.rawValue) as! String
+                }
+            }
+        
+            // define the string/text to be saved
+           
+        }//else do nothing
+    
         // Do any additional setup after loading the view.
     }
     
@@ -31,7 +53,7 @@ class Listdata: UIViewController {
         do {
                 // create the destination url for the text file to be saved
                 var filename : String = ""
-                if listnamelabel.text != nil{
+                if listnamelabel.text?.isEmpty != true{
                     filename = listnamelabel.text!
                 }else{
                     let dateFormatter : DateFormatter = DateFormatter()
@@ -39,6 +61,7 @@ class Listdata: UIViewController {
                     let date = Date()
                     var dateString = dateFormatter.string(from: date)
                     dateString = dateString.replacingOccurrences(of: " ", with: "_", options: .literal, range: nil)
+                    dateString = dateString.replacingOccurrences(of: ":", with: "_", options: .literal, range: nil)
                     filename = dateString
                 }
                 let nameoffile = filename
@@ -48,8 +71,8 @@ class Listdata: UIViewController {
                 let docsDirect = paths[0]
                 let fileURL = docsDirect.appendingPathComponent(filename)
                 // define the string/text to be saved
-                 let text = listcontent.text!
-                 try text.write(to: fileURL, atomically: false, encoding: .utf8)
+                let text = listcontent.text!
+                try text.write(to: fileURL, atomically: false, encoding: .utf8)
                 print("saving was successful")
             
                     let userID = Auth.auth().currentUser?.uid
