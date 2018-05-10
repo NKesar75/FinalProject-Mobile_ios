@@ -10,6 +10,7 @@
 		726736F3F0120AA44F91070A /* Pods_Personal_AssistantUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CA4C7160BEF7D70E114D560 /* Pods_Personal_AssistantUITests.framework */; };
 		80E1117A1F2CA71E87E8350F /* Pods_Personal_Assistant.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 736DF1855B2F5840B0621220 /* Pods_Personal_Assistant.framework */; };
 		91611DE8BAE4CA57FD941D03 /* Pods_Personal_AssistantTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04C8DF978E11686979D0A5E3 /* Pods_Personal_AssistantTests.framework */; };
+		C4158DAC20A494850080AC0E /* PopalertDelete.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4158DAB20A494850080AC0E /* PopalertDelete.swift */; };
 		C4254B04207E97F500807AF4 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4254B03207E97F500807AF4 /* Weather.swift */; };
 		C4254B062084E4E500807AF4 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4254B052084E4E500807AF4 /* Map.swift */; };
 		C4270B60209A4866009DC4DB /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4270B5E209A4866009DC4DB /* Interface.storyboard */; };
@@ -104,6 +105,7 @@
 		736DF1855B2F5840B0621220 /* Pods_Personal_Assistant.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Personal_Assistant.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		966DD512BBEAF57EF1CDCF60 /* Pods-Personal AssistantUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Personal AssistantUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Personal AssistantUITests/Pods-Personal AssistantUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9828BEE8EEBF92043151B30A /* Pods-Personal AssistantUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Personal AssistantUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Personal AssistantUITests/Pods-Personal AssistantUITests.release.xcconfig"; sourceTree = "<group>"; };
+		C4158DAB20A494850080AC0E /* PopalertDelete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopalertDelete.swift; sourceTree = "<group>"; };
 		C4254B03207E97F500807AF4 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		C4254B052084E4E500807AF4 /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
 		C4270B5C209A4866009DC4DB /* Personal-Assistant-Watch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Personal-Assistant-Watch.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -271,6 +273,7 @@
 				C481A5C22099FBE7004DEFA5 /* Make_a_list.swift */,
 				C481A5C4209A0D34004DEFA5 /* Listdata.swift */,
 				C481A5C6209A424E004DEFA5 /* watchcontact.swift */,
+				C4158DAB20A494850080AC0E /* PopalertDelete.swift */,
 			);
 			path = "Personal Assistant";
 			sourceTree = "<group>";
@@ -697,6 +700,7 @@
 				C4254B062084E4E500807AF4 /* Map.swift in Sources */,
 				C4764E4720921C120000E8E3 /* CustomCellTableViewCell.swift in Sources */,
 				C4254B04207E97F500807AF4 /* Weather.swift in Sources */,
+				C4158DAC20A494850080AC0E /* PopalertDelete.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
