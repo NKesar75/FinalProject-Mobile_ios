@@ -16,7 +16,11 @@ import SwiftyJSON
 
 class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate, CLLocationManagerDelegate, SFSpeechRecognizerDelegate{
 
+    @IBOutlet weak var menu: UIButton!
     @IBOutlet weak var voice_button: UIButton!
+    @IBOutlet weak var sideview: UIView!
+    @IBOutlet weak var blurview: UIVisualEffectView!
+    @IBOutlet weak var viewconstraint: NSLayoutConstraint!
     
     var audioRecorder: AVAudioRecorder!
     var player : AVAudioPlayer?
@@ -73,8 +77,85 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
             }
         }
         //locationManager.stopUpdatingLocation()
+        
+        blurview.layer.cornerRadius = 15
+        sideview.layer.shadowColor = UIColor.black.cgColor
+        sideview.layer.shadowOpacity = 0.8
+        sideview.layer.shadowOffset = CGSize(width: 5, height: 0)
+        
+        viewconstraint.constant = -175
     
     }
+
+    @IBAction func menubuttonpressed(_ sender: UIButton) {
+        if viewconstraint.constant < 20 {
+            UIView.animate(withDuration: 0.2, animations: {
+                self.viewconstraint.constant = 0
+                self.view.layoutIfNeeded()
+                self.menu.isHidden = true
+            })
+        }
+    }
+    
+    
+    @IBAction func Homebuttonpressed(_ sender: UIButton) {
+        if viewconstraint.constant > -175 {
+            UIView.animate(withDuration: 0.2, animations: {
+                self.viewconstraint.constant = -175
+                self.view.layoutIfNeeded()
+                self.menu.isHidden = false
+            })
+        }
+    }
+    
+
+    @IBAction func weatherbuttonpressed(_ sender: UIButton) {
+        let server = Servercalls()
+        server.apicall(city: city!, state: state!, voicecall: "Weather")
+        print(Servercalls.serverjson)
+        sleep(2)
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "Weather_ID") as! Weather
+        self.present(vc, animated: true, completion: nil)
+    }
+    
+    
+    
+    @IBAction func panguesture(_ sender: UIPanGestureRecognizer) {
+      
+        if sender.state == .began || sender.state == .changed{
+            let translation = sender.translation(in: self.view).x
+            if translation > 0 { // swipe right
+                if viewconstraint.constant < 20 {
+                    UIView.animate(withDuration: 0.2, animations: {
+                        self.viewconstraint.constant += translation / 10
+                        self.view.layoutIfNeeded()
+                        self.menu.isHidden = true
+                    })
+                }
+            }else{ //swipe left
+                if viewconstraint.constant > -175 {
+                    UIView.animate(withDuration: 0.2, animations: {
+                        self.viewconstraint.constant += translation / 10
+                        self.view.layoutIfNeeded()
+                    })
+                }
+            }
+        }else if sender.state == .ended{
+            if viewconstraint.constant < -100 {
+                UIView.animate(withDuration: 0.2, animations: {
+                    self.viewconstraint.constant = -175
+                    self.view.layoutIfNeeded()
+                })
+                 self.menu.isHidden = false
+            }else{
+                UIView.animate(withDuration: 0.2, animations: {
+                    self.viewconstraint.constant = 0
+                    self.view.layoutIfNeeded()
+                })
+            }
+        }
+    }
+    
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         var location = locations[0]
@@ -147,7 +228,6 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
             recognitionRequest?.endAudio()
             if (self.stringtoserver != nil){
             self.stringtoserver = self.stringtoserver!.replacingOccurrences(of: " ", with: "_", options: .literal, range: nil)
-            //self.stringtoserver = self.stringtoserver!.replacingOccurrences(of: "\'", with: "", options: .literal, range: nil)
             print(stringtoserver)
             voicequestion = true
             self.FetchJSON()
@@ -290,13 +370,13 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
        
     }
 
-    
-    //    @IBAction func Signout(_ sender: Any) {
-    //        do {
-    //            try Auth.auth().signOut()
-    //            performSegue(withIdentifier: "Signout_seg", sender: nil)
-    //        } catch {
-    //            print(error)
-    //        }
-    //    }
-}
+    @IBAction func Signout(_ sender: UIButton) {
+        do {
+                try Auth.auth().signOut()
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "Login_ID") as! Login
+            self.present(vc, animated: true, completion: nil)
+                    } catch {
+                        print(error)
+                    }
+            }
+        }
