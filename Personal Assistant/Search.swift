@@ -104,8 +104,7 @@ class Search: UIViewController, CLLocationManagerDelegate, UITableViewDataSource
     }
     
     func FetchPreviousCall(){
-        if Servercalls.serverjson["key"].string != nil {
-            
+        if Servercalls.serverjson["key"].string != nil && Servercalls.serverjson["key"] == "google" {
             googlesearches.append(googlesearchinfo(title: Servercalls.serverjson["results"][0]["title"].string!, snippet: Servercalls.serverjson["results"][0]["snippet"].string!, url: Servercalls.serverjson["results"][0]["url"].string!))
             googlesearches.append(googlesearchinfo(title: Servercalls.serverjson["results"][1]["title"].string!, snippet: Servercalls.serverjson["results"][1]["snippet"].string!, url: Servercalls.serverjson["results"][1]["url"].string!))
             googlesearches.append(googlesearchinfo(title: Servercalls.serverjson["results"][2]["title"].string!, snippet: Servercalls.serverjson["results"][2]["snippet"].string!, url: Servercalls.serverjson["results"][2]["url"].string!))
@@ -116,34 +115,7 @@ class Search: UIViewController, CLLocationManagerDelegate, UITableViewDataSource
             googlesearches.append(googlesearchinfo(title: Servercalls.serverjson["results"][7]["title"].string!, snippet: Servercalls.serverjson["results"][7]["snippet"].string!, url: Servercalls.serverjson["results"][7]["url"].string!))
             googlesearches.append(googlesearchinfo(title: Servercalls.serverjson["results"][8]["title"].string!, snippet: Servercalls.serverjson["results"][8]["snippet"].string!, url: Servercalls.serverjson["results"][8]["url"].string!))
             googlesearches.append(googlesearchinfo(title: Servercalls.serverjson["results"][9]["title"].string!, snippet: Servercalls.serverjson["results"][9]["snippet"].string!, url: Servercalls.serverjson["results"][9]["url"].string!))
-  
         }
     }
     
-     func FetchJSON() {
-        var temp = self.state! + "/" + self.city!
-        let urlString = "https://personalassistant-ec554.appspot.com/recognize/search_for_unity/" + temp
-        guard let url = URL(string: urlString) else { return }
-        
-        URLSession.shared.dataTask(with: url) { (data, reponse, err) in
-                
-                guard let data = data else { return }
-                
-                do {
-                    
-//                    let dataAsString = String(data: data, encoding: .utf8)
-//                    print(dataAsString)
-                     let json = try JSON(data: data)
-                    print(json)
-                     let keyswitch = json["key"]
-                    print (keyswitch)
-//                    let searches = try JSONDecoder().decode(SearchArray.self, from: data)
-//                    print(searches.results[0].title, searches.results[0].url, searches.results[0].snippet, searches.key)
-                    
-                  
-                } catch let jsonErr {
-                    print("Error serializing json:", jsonErr)
-                }
-            }.resume()
-    }
 }
