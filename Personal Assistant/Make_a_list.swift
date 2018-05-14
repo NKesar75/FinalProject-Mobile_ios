@@ -85,7 +85,7 @@ class Make_a_list: UIViewController, UITableViewDataSource, UITableViewDelegate 
         return Lcell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
+        return 75
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -106,8 +106,9 @@ class Make_a_list: UIViewController, UITableViewDataSource, UITableViewDelegate 
         
         if longPressGestureRecognizer.state == UIGestureRecognizerState.began {
             
-            let touchPoint = longPressGestureRecognizer.location(in: self.view)
+            let touchPoint = longPressGestureRecognizer.location(in: tablelist)
             if let indexPath = tablelist.indexPathForRow(at: touchPoint) {
+                print("touchpoint " ,touchPoint)
                 if listtitles[indexPath.row].key == "New List" {
                     Make_a_list.nameoflist = ""
                     Make_a_list.nameoftext = "New List"
