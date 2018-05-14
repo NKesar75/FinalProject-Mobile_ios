@@ -57,11 +57,11 @@ class Listdata: UIViewController {
                     filename = listnamelabel.text!
                 }else{
                     let dateFormatter : DateFormatter = DateFormatter()
-                    dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                    dateFormatter.dateFormat = "yyyy-MM-dd-HH-mm-ss"
                     let date = Date()
                     var dateString = dateFormatter.string(from: date)
-                    dateString = dateString.replacingOccurrences(of: " ", with: "_", options: .literal, range: nil)
-                    dateString = dateString.replacingOccurrences(of: ":", with: "_", options: .literal, range: nil)
+//                    dateString = dateString.replacingOccurrences(of: " ", with: "-", options: .literal, range: nil)
+//                    dateString = dateString.replacingOccurrences(of: ":", with: "-", options: .literal, range: nil)
                     filename = dateString
                 }
                 let nameoffile = filename
