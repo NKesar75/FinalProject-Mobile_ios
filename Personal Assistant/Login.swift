@@ -23,6 +23,12 @@ class Login: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(Login.dismissKeyboard))
+        
+        //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
+        tap.cancelsTouchesInView = false
+        
+        view.addGestureRecognizer(tap)
     }
     
     override func didReceiveMemoryWarning() {
@@ -41,7 +47,12 @@ class Login: UIViewController {
             submitbutton.setTitle("Register", for: .normal)
         }
     }
-    
+
+//Calls this function when the tap is recognized.
+    @objc func dismissKeyboard() {
+    //Causes the view (or one of its embedded text fields) to resign the first responder status.
+    view.endEditing(true)
+}
     @IBAction func Signinbuttonclicked(_ sender: Any) {
         if loginlabelbool {
             guard let email = Emailvalue.text,

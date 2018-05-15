@@ -20,7 +20,6 @@
 		C4270B70209A4866009DC4DB /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4270B6F209A4866009DC4DB /* ExtensionDelegate.swift */; };
 		C4270B72209A4866009DC4DB /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4270B71209A4866009DC4DB /* NotificationController.swift */; };
 		C4270B74209A4866009DC4DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4270B73209A4866009DC4DB /* Assets.xcassets */; };
-		C4270B79209A4866009DC4DB /* Personal-Assistant-Watch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = C4270B5C209A4866009DC4DB /* Personal-Assistant-Watch.app */; };
 		C42BF3422097664300E02910 /* WeatherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42BF3412097664300E02910 /* WeatherTableViewCell.swift */; };
 		C45426E0208781550052B531 /* Youtube.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45426DF208781550052B531 /* Youtube.swift */; };
 		C46EC51E206D5E2B000FDECD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C46EC51D206D5E2B000FDECD /* GoogleService-Info.plist */; };
@@ -49,13 +48,6 @@
 			remoteGlobalIDString = C4270B67209A4866009DC4DB;
 			remoteInfo = "Personal-Assistant-Watch Extension";
 		};
-		C4270B77209A4866009DC4DB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C4AF45EE2049BE1500B9093F /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = C4270B5B209A4866009DC4DB;
-			remoteInfo = "Personal-Assistant-Watch";
-		};
 		C4AF460B2049BE1600B9093F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C4AF45EE2049BE1500B9093F /* Project object */;
@@ -82,17 +74,6 @@
 				C4270B69209A4866009DC4DB /* Personal-Assistant-Watch Extension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C4270B81209A4866009DC4DB /* Embed Watch Content */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
-			dstSubfolderSpec = 16;
-			files = (
-				C4270B79209A4866009DC4DB /* Personal-Assistant-Watch.app in Embed Watch Content */,
-			);
-			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -352,14 +333,12 @@
 				C4AF45F22049BE1500B9093F /* Sources */,
 				C4AF45F32049BE1500B9093F /* Frameworks */,
 				C4AF45F42049BE1500B9093F /* Resources */,
-				C4270B81209A4866009DC4DB /* Embed Watch Content */,
 				39686FF75E9416D399B3EEF5 /* [CP] Embed Pods Frameworks */,
 				E9892A56AA60F58DAD953DED /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				C4270B78209A4866009DC4DB /* PBXTargetDependency */,
 			);
 			name = "Personal Assistant";
 			productName = "Personal Assistant";
@@ -428,7 +407,7 @@
 					};
 					C4AF45F52049BE1500B9093F = {
 						CreatedOnToolsVersion = 9.1;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 					C4AF46092049BE1600B9093F = {
 						CreatedOnToolsVersion = 9.1;
@@ -728,11 +707,6 @@
 			target = C4270B67209A4866009DC4DB /* Personal-Assistant-Watch Extension */;
 			targetProxy = C4270B6A209A4866009DC4DB /* PBXContainerItemProxy */;
 		};
-		C4270B78209A4866009DC4DB /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = C4270B5B209A4866009DC4DB /* Personal-Assistant-Watch */;
-			targetProxy = C4270B77209A4866009DC4DB /* PBXContainerItemProxy */;
-		};
 		C4AF460C2049BE1600B9093F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = C4AF45F52049BE1500B9093F /* Personal Assistant */;
@@ -875,6 +849,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -891,9 +866,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -932,6 +907,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -942,8 +918,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
@@ -955,15 +932,19 @@
 			baseConfigurationReference = F238866AC6DDCC665FA8BA8A /* Pods-Personal Assistant.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 279LK4S6S3;
 				INFOPLIST_FILE = "Personal Assistant/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "PA-Personal-Assistant.Personal-Assistant";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -972,15 +953,19 @@
 			baseConfigurationReference = 4265F3FD9592ABED40CDD1D6 /* Pods-Personal Assistant.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 279LK4S6S3;
 				INFOPLIST_FILE = "Personal Assistant/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "PA-Personal-Assistant.Personal-Assistant";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

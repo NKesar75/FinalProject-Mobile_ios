@@ -113,7 +113,7 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
         let server = Servercalls()
         server.apicall(city: city!, state: state!, voicecall: "Weather")
         print(Servercalls.serverjson)
-        sleep(2)
+        sleep(4)
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "Weather_ID") as! Weather
         self.present(vc, animated: true, completion: nil)
     }
@@ -204,7 +204,7 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
         let server = Servercalls()
         server.apicall(city: city!, state: state!, voicecall: self.stringtoserver!)
         print(Servercalls.serverjson)
-        sleep(2)
+        sleep(4)
         if Servercalls.serverjson["key"].string != nil {
             switch (Servercalls.serverjson["key"].string!){
             case "weather":
@@ -225,6 +225,7 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
        
         if audioEngine.isRunning {
             audioEngine.stop()
+            self.voice_button.titleLabel?.text = "Make a request!"
             recognitionRequest?.endAudio()
             if (self.stringtoserver != nil){
             self.stringtoserver = self.stringtoserver!.replacingOccurrences(of: " ", with: "_", options: .literal, range: nil)
@@ -307,6 +308,7 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
             
             do {
                 try audioEngine.start()
+                self.voice_button.titleLabel?.text = "Press me again After You Finsh Talking!"
             } catch {
                 print("audioEngine couldn't start because of an error.")
             }
