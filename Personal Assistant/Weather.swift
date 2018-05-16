@@ -35,6 +35,7 @@ class Weather: UIViewController, CLLocationManagerDelegate, UITableViewDataSourc
     var city: String?
     var state: String?
     var stringtoserver:String?
+    var activityindactor:UIActivityIndicatorView = UIActivityIndicatorView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,16 +68,26 @@ class Weather: UIViewController, CLLocationManagerDelegate, UITableViewDataSourc
     
     @IBAction func SearchForWeather(_ sender: UIButton) {
         if Searchweathertext.text != "" && Searchweathertext.text != " "{
+            activityindactor.center = self.view.center
+            activityindactor.hidesWhenStopped = true
+            activityindactor.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
+            view.addSubview(activityindactor)
+            activityindactor.startAnimating()
+            UIApplication.shared.beginIgnoringInteractionEvents()
             let server = Servercalls()
             var servermetod = "whats the weather in " + Searchweathertext.text!
             servermetod = servermetod.trimmingCharacters(in: .whitespacesAndNewlines)
             servermetod = servermetod.replacingOccurrences(of: " ", with: "_", options: .literal, range: nil)
             server.apicall(city: city!, state: state!, voicecall: servermetod)
             print(Servercalls.serverjson)
-            sleep(5)
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(7), execute: {
+              
+            UIApplication.shared.endIgnoringInteractionEvents()
+            self.activityindactor.removeFromSuperview()
             print(Servercalls.serverjson)
-            FetchPreviousCall()
+            self.FetchPreviousCall()
             self.weathertable.reloadData()
+            })
         }
     }
     
