@@ -14,6 +14,7 @@ import SwiftyJSON
 class Weather: UIViewController, CLLocationManagerDelegate, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var weathertable: UITableView!
+    @IBOutlet weak var Searchweathertext: UITextField!
     
     struct weatherinfo{
         var Location : String
@@ -47,14 +48,40 @@ class Weather: UIViewController, CLLocationManagerDelegate, UITableViewDataSourc
         weathertable.delegate = self
         weathertable.dataSource = self
         
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(Weather.dismissKeyboard))
+        
+        //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
+        tap.cancelsTouchesInView = false
+        
+        view.addGestureRecognizer(tap)
+        
         //locationManager.stopUpdatingLocation()
         self.FetchPreviousCall()
         
     }
     
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
+    
+    @IBAction func SearchForWeather(_ sender: UIButton) {
+        if Searchweathertext.text != "" && Searchweathertext.text != " "{
+            let server = Servercalls()
+            var servermetod = "whats the weather in " + Searchweathertext.text!
+            servermetod = servermetod.trimmingCharacters(in: .whitespacesAndNewlines)
+            servermetod = servermetod.replacingOccurrences(of: " ", with: "_", options: .literal, range: nil)
+            server.apicall(city: city!, state: state!, voicecall: servermetod)
+            print(Servercalls.serverjson)
+            sleep(5)
+            print(Servercalls.serverjson)
+            FetchPreviousCall()
+            self.weathertable.reloadData()
+        }
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 7
+        return weatherforcasts.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -80,6 +107,7 @@ class Weather: UIViewController, CLLocationManagerDelegate, UITableViewDataSourc
     
     func FetchPreviousCall(){
     if Servercalls.serverjson["key"].string != nil && Servercalls.serverjson["key"].string == "weather" {
+        weatherforcasts.removeAll()
         weatherforcasts.append(weatherinfo(Location: Servercalls.serverjson["city"].string! + ", " + Servercalls.serverjson["state"].string!,forcast: "Forcast: " + Servercalls.serverjson["results"][0]["condition"].string!,image:  Servercalls.serverjson["results"][0]["url"].string!,rain: "Rain: " + String(Servercalls.serverjson["results"][0]["precip"].double!) + "%", templow: "Low: " + Servercalls.serverjson["results"][0]["temp_lowf"].string! + "°F", temphigh: "High: " + Servercalls.serverjson["results"][0]["temp_highf"].string! + "°F",humidty: "Humidity: " + String(Servercalls.serverjson["results"][0]["humidity"].double!), date: String(Servercalls.serverjson["results"][0]["month"].int!) + "/" + String(Servercalls.serverjson["results"][0]["day"].int!) + "/" + String(Servercalls.serverjson["results"][0]["year"].int!)))
         
          weatherforcasts.append(weatherinfo(Location: Servercalls.serverjson["city"].string! + ", " + Servercalls.serverjson["state"].string!,forcast: "Forcast: " + Servercalls.serverjson["results"][1]["condition"].string!,image:  Servercalls.serverjson["results"][1]["url"].string!,rain: "Rain: " + String(Servercalls.serverjson["results"][1]["precip"].double!) + "%", templow: "Low: " + Servercalls.serverjson["results"][1]["temp_lowf"].string! + "°F", temphigh: "High: " + Servercalls.serverjson["results"][1]["temp_highf"].string! + "°F",humidty: "Humidity: " + String(Servercalls.serverjson["results"][1]["humidity"].double!), date: String(Servercalls.serverjson["results"][1]["month"].int!) + "/" + String(Servercalls.serverjson["results"][1]["day"].int!) + "/" + String(Servercalls.serverjson["results"][1]["year"].int!)))

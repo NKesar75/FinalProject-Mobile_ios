@@ -15,7 +15,7 @@ import Speech
 import SwiftyJSON
 
 class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate, CLLocationManagerDelegate, SFSpeechRecognizerDelegate{
-
+    
     @IBOutlet weak var menu: UIButton!
     @IBOutlet weak var voice_button: UIButton!
     @IBOutlet weak var sideview: UIView!
@@ -37,7 +37,8 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
     var voicequestion: Bool?
     var isfirsttimecall: Bool?
     
-
+    var activityindactor:UIActivityIndicatorView = UIActivityIndicatorView()
+    
     var stringtoserver: String?
  
     override func viewDidLoad() {
@@ -84,7 +85,6 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
         sideview.layer.shadowOffset = CGSize(width: 5, height: 0)
         
         viewconstraint.constant = -175
-    
     }
 
     @IBAction func menubuttonpressed(_ sender: UIButton) {
@@ -110,13 +110,27 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
     
 
     @IBAction func weatherbuttonpressed(_ sender: UIButton) {
+        
+        activityindactor.center = self.view.center
+        activityindactor.hidesWhenStopped = true
+        activityindactor.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
+        view.addSubview(activityindactor)
+        self.activityindactor.startAnimating()
+        UIApplication.shared.beginIgnoringInteractionEvents()
         let server = Servercalls()
         server.apicall(city: city!, state: state!, voicecall: "Weather")
         print(Servercalls.serverjson)
-        sleep(7)
+        
+       DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(7), execute: {
+        
+        UIApplication.shared.endIgnoringInteractionEvents()
+        self.activityindactor.removeFromSuperview()
+        
         print(Servercalls.serverjson)
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "Weather_ID") as! Weather
         self.present(vc, animated: true, completion: nil)
+        
+       })
     }
     
     
@@ -201,12 +215,14 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
     }
     
      func FetchJSON() {
-        
         let server = Servercalls()
         server.apicall(city: city!, state: state!, voicecall: self.stringtoserver!)
         print(Servercalls.serverjson)
-        sleep(5)
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(7), execute: {
         if Servercalls.serverjson["key"].string != nil {
+            //self.activityindactor.stopAnimating()
+            UIApplication.shared.endIgnoringInteractionEvents()
+            self.activityindactor.removeFromSuperview()
             switch (Servercalls.serverjson["key"].string!){
             case "weather":
                 let vc = self.storyboard?.instantiateViewController(withIdentifier: "Weather_ID") as! Weather
@@ -219,7 +235,12 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
                 self.present(vc, animated: true, completion: nil)
             default: break
             }
+        }else{
+//            self.activityindactor.stopAnimating()
+            UIApplication.shared.endIgnoringInteractionEvents()
+            self.activityindactor.removeFromSuperview()
         }
+            })
     }
     
     @IBAction func voicebutton(_ sender: UIButton) {
@@ -232,7 +253,16 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
             self.stringtoserver = self.stringtoserver!.replacingOccurrences(of: " ", with: "_", options: .literal, range: nil)
             print(stringtoserver)
             voicequestion = true
+                activityindactor.center = self.view.center
+                activityindactor.hidesWhenStopped = true
+                activityindactor.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
+                self.activityindactor.startAnimating()
+                view.addSubview(activityindactor)
+                UIApplication.shared.beginIgnoringInteractionEvents()
+            //self.activityindactor.startAnimating()
+            //UIApplication.shared.beginIgnoringInteractionEvents()
             self.FetchJSON()
+            
             }
         } else {
             startRecording()
