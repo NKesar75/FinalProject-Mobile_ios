@@ -19,7 +19,8 @@ class Search: UIViewController, CLLocationManagerDelegate, UITableViewDataSource
         var url : String
     }
     
-    
+    var activityindactor:UIActivityIndicatorView = UIActivityIndicatorView()
+    @IBOutlet weak var SearchText: UITextField!
     @IBOutlet weak var googlesearchtableview: UITableView!
     let locationManager:CLLocationManager = CLLocationManager()
     let geocoder = CLGeocoder()
@@ -80,6 +81,30 @@ class Search: UIViewController, CLLocationManagerDelegate, UITableViewDataSource
         })
     }
     
+    @IBAction func searchbuttonpressed(_ sender: UIButton) {
+        if SearchText.text != "" && SearchText.text != " "{
+            activityindactor.center = self.view.center
+            //activityindactor.center = googlesearchtableview.center
+            activityindactor.hidesWhenStopped = true
+            activityindactor.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
+            //activityindactor.color = UIColor.black
+            view.addSubview(activityindactor)
+            self.activityindactor.startAnimating()
+            UIApplication.shared.beginIgnoringInteractionEvents()
+            let server = Servercalls()
+            var servermetod = "Search for " + SearchText.text!
+            servermetod = servermetod.replacingOccurrences(of: " ", with: "_", options: .literal, range: nil)
+            server.apicall(city: city!, state: state!, voicecall: servermetod)
+            print(Servercalls.serverjson)
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(7), execute: {
+                
+                UIApplication.shared.endIgnoringInteractionEvents()
+                self.activityindactor.removeFromSuperview()
+                self.FetchPreviousCall()
+            })
+        }
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let url = URL(string: googlesearches[indexPath.row].url) {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
@@ -105,6 +130,7 @@ class Search: UIViewController, CLLocationManagerDelegate, UITableViewDataSource
     
     func FetchPreviousCall(){
         if Servercalls.serverjson["key"].string != nil && Servercalls.serverjson["key"] == "google" {
+            googlesearches.removeAll()
             googlesearches.append(googlesearchinfo(title: Servercalls.serverjson["results"][0]["title"].string!, snippet: Servercalls.serverjson["results"][0]["snippet"].string!, url: Servercalls.serverjson["results"][0]["url"].string!))
             googlesearches.append(googlesearchinfo(title: Servercalls.serverjson["results"][1]["title"].string!, snippet: Servercalls.serverjson["results"][1]["snippet"].string!, url: Servercalls.serverjson["results"][1]["url"].string!))
             googlesearches.append(googlesearchinfo(title: Servercalls.serverjson["results"][2]["title"].string!, snippet: Servercalls.serverjson["results"][2]["snippet"].string!, url: Servercalls.serverjson["results"][2]["url"].string!))
@@ -116,6 +142,7 @@ class Search: UIViewController, CLLocationManagerDelegate, UITableViewDataSource
             googlesearches.append(googlesearchinfo(title: Servercalls.serverjson["results"][8]["title"].string!, snippet: Servercalls.serverjson["results"][8]["snippet"].string!, url: Servercalls.serverjson["results"][8]["url"].string!))
             googlesearches.append(googlesearchinfo(title: Servercalls.serverjson["results"][9]["title"].string!, snippet: Servercalls.serverjson["results"][9]["snippet"].string!, url: Servercalls.serverjson["results"][9]["url"].string!))
         }
+        googlesearchtableview.reloadData()
     }
     
 }
