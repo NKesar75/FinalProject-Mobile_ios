@@ -33,6 +33,8 @@ class Youtube: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate,
     let audioEngine = AVAudioEngine()
     var stringtoserver: String?
     
+     var activityindactor:UIActivityIndicatorView = UIActivityIndicatorView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -64,14 +66,24 @@ class Youtube: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate,
     
     @IBAction func Searchfortextyoutube(_ sender: UIButton) {
         if Searchfortext.text != "" && Searchfortext.text != " "{
+       // activityindactor.center = self.view.center
+        activityindactor.frame.origin = CGPoint(x: self.view.center.x , y: self.view.center.y + 125 )
+        activityindactor.hidesWhenStopped = true
+        activityindactor.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
+        view.addSubview(activityindactor)
+        self.activityindactor.startAnimating()
+        UIApplication.shared.beginIgnoringInteractionEvents()
         let server = Servercalls()
         var servermetod = "play " + Searchfortext.text!
         servermetod = servermetod.replacingOccurrences(of: " ", with: "_", options: .literal, range: nil)
         server.apicall(city: city!, state: state!, voicecall: servermetod)
         print(Servercalls.serverjson)
-        sleep(5)
-        print(Servercalls.serverjson)
-        setvideo(videoid: Servercalls.serverjson["id"].string!, videotitle: Servercalls.serverjson["title"].string!)
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(7), execute: {
+                
+            UIApplication.shared.endIgnoringInteractionEvents()
+            self.activityindactor.removeFromSuperview()
+            self.setvideo(videoid: Servercalls.serverjson["id"].string!, videotitle: Servercalls.serverjson["title"].string!)
+        })
         }
     }
     
