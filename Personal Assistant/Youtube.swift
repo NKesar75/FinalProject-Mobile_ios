@@ -14,6 +14,10 @@ import Speech
 import SwiftyJSON
 class Youtube: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate, CLLocationManagerDelegate, SFSpeechRecognizerDelegate {
 
+    @IBOutlet weak var Titleofvideo: UILabel!
+    @IBOutlet weak var Searchfortext: UITextField!
+    
+    
     @IBOutlet weak var youtubeview: WKWebView!
     var audioRecorder: AVAudioRecorder!
     var player : AVAudioPlayer?
@@ -40,15 +44,30 @@ class Youtube: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate,
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
     }
     
-    func setvideo (videoid:String){
+    func setvideo (videoid:String, videotitle:String){
         let url = URL(string: "https://www.youtube.com/embed/\(videoid)")
         youtubeview.load(URLRequest(url: url!))
+        Titleofvideo.text = videotitle
     }
     
     
     @IBAction func voicebuttonpressed(_ sender: UIButton) {
     
     }
+    
+    @IBAction func Searchfortextyoutube(_ sender: UIButton) {
+        if Searchfortext.text != "" && Searchfortext.text != " "{
+        let server = Servercalls()
+        var servermetod = "play " + Searchfortext.text!
+        servermetod = servermetod.replacingOccurrences(of: " ", with: "_", options: .literal, range: nil)
+        server.apicall(city: city!, state: state!, voicecall: servermetod)
+        print(Servercalls.serverjson)
+        sleep(5)
+        print(Servercalls.serverjson)
+        setvideo(videoid: Servercalls.serverjson["id"].string!, videotitle: Servercalls.serverjson["title"].string!)
+        }
+    }
+    
     
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -91,7 +110,7 @@ class Youtube: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate,
     
     func FetchPreviousCall(){
         if Servercalls.serverjson["key"].string != nil && Servercalls.serverjson["key"] == "youtube" {
-            setvideo(videoid: Servercalls.serverjson["id"].string!)
+            setvideo(videoid: Servercalls.serverjson["id"].string!, videotitle: Servercalls.serverjson["title"].string!)
         }
     }
    

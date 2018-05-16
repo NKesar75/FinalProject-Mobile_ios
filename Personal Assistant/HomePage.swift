@@ -113,7 +113,8 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
         let server = Servercalls()
         server.apicall(city: city!, state: state!, voicecall: "Weather")
         print(Servercalls.serverjson)
-        sleep(4)
+        sleep(7)
+        print(Servercalls.serverjson)
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "Weather_ID") as! Weather
         self.present(vc, animated: true, completion: nil)
     }
@@ -204,7 +205,7 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
         let server = Servercalls()
         server.apicall(city: city!, state: state!, voicecall: self.stringtoserver!)
         print(Servercalls.serverjson)
-        sleep(4)
+        sleep(5)
         if Servercalls.serverjson["key"].string != nil {
             switch (Servercalls.serverjson["key"].string!){
             case "weather":
