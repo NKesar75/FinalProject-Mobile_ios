@@ -14,12 +14,18 @@ class Listdata: UIViewController {
     @IBOutlet weak var listcontent: UITextView!
     @IBOutlet weak var listnamelabel: UITextField!
     
-    
+    var activityindactor:UIActivityIndicatorView = UIActivityIndicatorView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         if Make_a_list.nameoftext != "New List" && Make_a_list.nameoftext != ""{
-            
+            activityindactor.center = self.view.center
+            activityindactor.hidesWhenStopped = true
+            activityindactor.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
+            activityindactor.color = UIColor.black
+            view.addSubview(activityindactor)
+            self.activityindactor.startAnimating()
+            UIApplication.shared.beginIgnoringInteractionEvents()
                 // get a storage reference from the URL
                 listnamelabel.text = Make_a_list.nameoflist
                 let storage = Storage.storage()
@@ -27,7 +33,7 @@ class Listdata: UIViewController {
                 let storageRef = storage.reference(forURL: Make_a_list.nameoftext)
                 // Download the data, assuming a max size of 1MB (you can change this as necessary)
 
-
+           
             storageRef.getData(maxSize: 2 * 1024 * 1024) { data, error in
                 if let error = error {
                     // Uh-oh, an error occurred!
@@ -36,6 +42,8 @@ class Listdata: UIViewController {
                    self.listcontent.text = NSString(data: data!, encoding: String.Encoding.utf8.rawValue) as! String
                 }
             }
+            UIApplication.shared.endIgnoringInteractionEvents()
+            self.activityindactor.removeFromSuperview()
         
             // define the string/text to be saved
            
@@ -50,6 +58,14 @@ class Listdata: UIViewController {
     }
     
     @IBAction func savebuttonpressed(_ sender: UIButton) {
+        activityindactor.center = self.view.center
+        activityindactor.hidesWhenStopped = true
+        activityindactor.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
+        activityindactor.color = UIColor.black
+        view.addSubview(activityindactor)
+        self.activityindactor.startAnimating()
+        UIApplication.shared.beginIgnoringInteractionEvents()
+        
         do {
                 // create the destination url for the text file to be saved
                 var filename : String = ""
@@ -90,6 +106,10 @@ class Listdata: UIViewController {
                                 let downloadURL = metaData!.downloadURL()!.absoluteString
                                 var ref: DatabaseReference! = Database.database().reference()
                                 ref.child("users").child(userID!).child("list").child(nameoffile).setValue(downloadURL)
+                               
+                                UIApplication.shared.endIgnoringInteractionEvents()
+                                self.activityindactor.removeFromSuperview()
+                                
                                 let vc = self.storyboard?.instantiateViewController(withIdentifier: "Make_a_list_ID") as! Make_a_list
                                 self.present(vc, animated: true, completion: nil)
                         }
