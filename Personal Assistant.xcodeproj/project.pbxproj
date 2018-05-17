@@ -17,12 +17,10 @@
 		C4270B69209A4866009DC4DB /* Personal-Assistant-Watch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C4270B68209A4866009DC4DB /* Personal-Assistant-Watch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		C4270B6E209A4866009DC4DB /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4270B6D209A4866009DC4DB /* InterfaceController.swift */; };
 		C4270B70209A4866009DC4DB /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4270B6F209A4866009DC4DB /* ExtensionDelegate.swift */; };
-		C4270B72209A4866009DC4DB /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4270B71209A4866009DC4DB /* NotificationController.swift */; };
 		C4270B74209A4866009DC4DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4270B73209A4866009DC4DB /* Assets.xcassets */; };
 		C4270B79209A4866009DC4DB /* Personal-Assistant-Watch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = C4270B5C209A4866009DC4DB /* Personal-Assistant-Watch.app */; };
 		C42BF3422097664300E02910 /* WeatherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42BF3412097664300E02910 /* WeatherTableViewCell.swift */; };
 		C45426E0208781550052B531 /* Youtube.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45426DF208781550052B531 /* Youtube.swift */; };
-		C46EC51E206D5E2B000FDECD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C46EC51D206D5E2B000FDECD /* GoogleService-Info.plist */; };
 		C4764E4720921C120000E8E3 /* CustomCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4764E4620921C120000E8E3 /* CustomCellTableViewCell.swift */; };
 		C481A5C32099FBE7004DEFA5 /* Make_a_list.swift in Sources */ = {isa = PBXBuildFile; fileRef = C481A5C22099FBE7004DEFA5 /* Make_a_list.swift */; };
 		C481A5C5209A0D34004DEFA5 /* Listdata.swift in Sources */ = {isa = PBXBuildFile; fileRef = C481A5C4209A0D34004DEFA5 /* Listdata.swift */; };
@@ -38,6 +36,11 @@
 		C4CAD9592049E3A7007CC517 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CAD9582049E3A7007CC517 /* AlertController.swift */; };
 		C4DABCD0208F780700ED146C /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DABCCF208F780700ED146C /* Search.swift */; };
 		C4DABCD2208FA42500ED146C /* Servercalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DABCD1208FA42500ED146C /* Servercalls.swift */; };
+		EDCE033920A1EF8700DD7F91 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EDCE033820A1EF8700DD7F91 /* GoogleService-Info.plist */; };
+		EDCE033A20A1EF8700DD7F91 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EDCE033820A1EF8700DD7F91 /* GoogleService-Info.plist */; };
+		EDCE033B20A1EF8700DD7F91 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EDCE033820A1EF8700DD7F91 /* GoogleService-Info.plist */; };
+		EDCE03A720A4845800DD7F91 /* WeatherRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCE03A620A4845800DD7F91 /* WeatherRowController.swift */; };
+		EDCE03A920A486E100DD7F91 /* Weather_IC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCE03A820A486E100DD7F91 /* Weather_IC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,13 +116,11 @@
 		C4270B68209A4866009DC4DB /* Personal-Assistant-Watch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Personal-Assistant-Watch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4270B6D209A4866009DC4DB /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
 		C4270B6F209A4866009DC4DB /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
-		C4270B71209A4866009DC4DB /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		C4270B73209A4866009DC4DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C4270B75209A4866009DC4DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C4270B76209A4866009DC4DB /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		C42BF3412097664300E02910 /* WeatherTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherTableViewCell.swift; sourceTree = "<group>"; };
 		C45426DF208781550052B531 /* Youtube.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Youtube.swift; sourceTree = "<group>"; };
-		C46EC51D206D5E2B000FDECD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C4764E4620921C120000E8E3 /* CustomCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellTableViewCell.swift; sourceTree = "<group>"; };
 		C481A5C22099FBE7004DEFA5 /* Make_a_list.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Make_a_list.swift; sourceTree = "<group>"; };
 		C481A5C4209A0D34004DEFA5 /* Listdata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Listdata.swift; sourceTree = "<group>"; };
@@ -142,6 +143,9 @@
 		C4DABCCF208F780700ED146C /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		C4DABCD1208FA42500ED146C /* Servercalls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Servercalls.swift; sourceTree = "<group>"; };
 		C63BBCC3F0C93F0639D91A7D /* Pods-Personal AssistantTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Personal AssistantTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Personal AssistantTests/Pods-Personal AssistantTests.release.xcconfig"; sourceTree = "<group>"; };
+		EDCE033820A1EF8700DD7F91 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		EDCE03A620A4845800DD7F91 /* WeatherRowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRowController.swift; sourceTree = "<group>"; };
+		EDCE03A820A486E100DD7F91 /* Weather_IC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather_IC.swift; sourceTree = "<group>"; };
 		F238866AC6DDCC665FA8BA8A /* Pods-Personal Assistant.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Personal Assistant.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Personal Assistant/Pods-Personal Assistant.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -215,10 +219,11 @@
 			children = (
 				C4270B6D209A4866009DC4DB /* InterfaceController.swift */,
 				C4270B6F209A4866009DC4DB /* ExtensionDelegate.swift */,
-				C4270B71209A4866009DC4DB /* NotificationController.swift */,
 				C4270B73209A4866009DC4DB /* Assets.xcassets */,
 				C4270B75209A4866009DC4DB /* Info.plist */,
 				C4270B76209A4866009DC4DB /* PushNotificationPayload.apns */,
+				EDCE03A620A4845800DD7F91 /* WeatherRowController.swift */,
+				EDCE03A820A486E100DD7F91 /* Weather_IC.swift */,
 			);
 			path = "Personal-Assistant-Watch Extension";
 			sourceTree = "<group>";
@@ -259,9 +264,9 @@
 				C45426DF208781550052B531 /* Youtube.swift */,
 				C4AF46022049BE1600B9093F /* LaunchScreen.storyboard */,
 				C4AF46052049BE1600B9093F /* Info.plist */,
+				EDCE033820A1EF8700DD7F91 /* GoogleService-Info.plist */,
 				C4AF46292049C05E00B9093F /* Login.swift */,
 				C4AF462D2049C2F700B9093F /* HomePage.swift */,
-				C46EC51D206D5E2B000FDECD /* GoogleService-Info.plist */,
 				C4254B03207E97F500807AF4 /* Weather.swift */,
 				C4254B052084E4E500807AF4 /* Map.swift */,
 				C4DABCCF208F780700ED146C /* Search.swift */,
@@ -468,6 +473,7 @@
 			files = (
 				C4270B62209A4866009DC4DB /* Assets.xcassets in Resources */,
 				C4270B60209A4866009DC4DB /* Interface.storyboard in Resources */,
+				EDCE033A20A1EF8700DD7F91 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -476,6 +482,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C4270B74209A4866009DC4DB /* Assets.xcassets in Resources */,
+				EDCE033B20A1EF8700DD7F91 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -484,7 +491,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C4AF46042049BE1600B9093F /* LaunchScreen.storyboard in Resources */,
-				C46EC51E206D5E2B000FDECD /* GoogleService-Info.plist in Resources */,
+				EDCE033920A1EF8700DD7F91 /* GoogleService-Info.plist in Resources */,
 				C4AF46012049BE1600B9093F /* Assets.xcassets in Resources */,
 				C4AF45FF2049BE1600B9093F /* Main.storyboard in Resources */,
 			);
@@ -673,8 +680,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C4270B72209A4866009DC4DB /* NotificationController.swift in Sources */,
+				EDCE03A920A486E100DD7F91 /* Weather_IC.swift in Sources */,
 				C4270B70209A4866009DC4DB /* ExtensionDelegate.swift in Sources */,
+				EDCE03A720A4845800DD7F91 /* WeatherRowController.swift in Sources */,
 				C4270B6E209A4866009DC4DB /* InterfaceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

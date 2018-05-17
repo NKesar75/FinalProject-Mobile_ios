@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="13771" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14109" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
     <device id="watch38" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="watchOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="13756"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14031"/>
     </dependencies>
     <scenes>
         <!--Interface Controller-->
@@ -26,30 +26,73 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="220" y="345"/>
+            <point key="canvasLocation" x="201" y="345"/>
         </scene>
-        <!--Static Notification Interface Controller-->
-        <scene sceneID="AEw-b0-oYE">
+        <!--WeatherIC-->
+        <scene sceneID="5vA-fj-WZa">
             <objects>
-                <notificationController id="YCC-NB-fut">
+                <controller id="c4Q-Fc-Lo8" customClass="Weather_IC" customModule="Personal_Assistant_Watch_Extension">
                     <items>
-                        <label alignment="left" text="Alert Label" id="IdU-wH-bcW"/>
+                        <table alignment="left" id="MxX-4V-G0O">
+                            <items>
+                                <tableRow selectable="NO" id="rdv-iF-h0S" customClass="WeatherRowController" customModule="Personal_Assistant_Watch_Extension">
+                                    <group key="rootItem" width="1" height="0.0" alignment="left" spacing="6" id="Olz-7i-sWo">
+                                        <items>
+                                            <separator height="1" heightAdjustment="-4" alignment="left" verticalAlignment="center" id="4yO-Qc-1kO">
+                                                <color key="color" red="0.0" green="0.6452265814" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </separator>
+                                            <imageView width="38" height="47" alignment="left" verticalAlignment="center" id="vUR-kV-hew"/>
+                                            <group alignment="left" layout="vertical" spacing="0.0" id="Vap-I2-1IR">
+                                                <items>
+                                                    <group width="1" alignment="left" id="x67-lL-YeI">
+                                                        <items>
+                                                            <label alignment="left" text="High" id="nKa-v7-aup"/>
+                                                            <label alignment="left" text="Low" id="qH9-lL-Unh"/>
+                                                        </items>
+                                                    </group>
+                                                    <group width="70" alignment="left" id="dYi-iO-wd6">
+                                                        <items>
+                                                            <label alignment="left" text="Forecast" id="QWI-Iw-yIb"/>
+                                                        </items>
+                                                    </group>
+                                                    <group width="70" alignment="left" id="g6B-BD-Kgu">
+                                                        <items>
+                                                            <label alignment="left" text="Rain" id="07x-4d-uLl"/>
+                                                        </items>
+                                                    </group>
+                                                    <group width="1" alignment="left" id="knG-9S-KKb">
+                                                        <items>
+                                                            <label alignment="left" text="Location" id="byc-rV-DXh"/>
+                                                        </items>
+                                                    </group>
+                                                    <group width="1" alignment="left" id="NBa-c5-NeD">
+                                                        <items>
+                                                            <label alignment="left" text="mm/dd" id="iVP-pt-343"/>
+                                                        </items>
+                                                    </group>
+                                                </items>
+                                            </group>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="weatherDate" destination="iVP-pt-343" id="0CP-nd-uOg"/>
+                                        <outlet property="weatherForecast" destination="QWI-Iw-yIb" id="DQ9-1I-WVn"/>
+                                        <outlet property="weatherHigh" destination="nKa-v7-aup" id="Mff-Jw-qI0"/>
+                                        <outlet property="weatherImg" destination="vUR-kV-hew" id="Fhs-nP-WvI"/>
+                                        <outlet property="weatherLocation" destination="byc-rV-DXh" id="TnD-oC-OfE"/>
+                                        <outlet property="weatherLow" destination="qH9-lL-Unh" id="J9g-is-t70"/>
+                                        <outlet property="weatherRain" destination="07x-4d-uLl" id="wIL-2y-cLI"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
                     </items>
-                    <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf"/>
                     <connections>
-                        <outlet property="notificationAlertLabel" destination="IdU-wH-bcW" id="JKC-fr-R95"/>
-                        <segue destination="4sK-HA-Art" kind="relationship" relationship="dynamicNotificationInterface" id="kXh-Jw-8B1"/>
+                        <outlet property="WeatherTableView" destination="MxX-4V-G0O" id="BS7-PQ-3Ac"/>
                     </connections>
-                </notificationController>
+                </controller>
             </objects>
-            <point key="canvasLocation" x="220" y="643"/>
-        </scene>
-        <!--Notification Controller-->
-        <scene sceneID="ZPc-GJ-vnh">
-            <objects>
-                <controller id="4sK-HA-Art" customClass="NotificationController" customModule="Personal_Assistant_Watch" customModuleProvider="target"/>
-            </objects>
-            <point key="canvasLocation" x="468" y="643"/>
+            <point key="canvasLocation" x="448" y="350"/>
         </scene>
     </scenes>
 </document>
