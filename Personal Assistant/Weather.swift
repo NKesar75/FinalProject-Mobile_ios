@@ -14,6 +14,7 @@ import SwiftyJSON
 class Weather: UIViewController, CLLocationManagerDelegate, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var weathertable: UITableView!
+    @IBOutlet weak var Searchweathertext: UITextField!
     
     struct weatherinfo{
         var Location : String
@@ -34,6 +35,7 @@ class Weather: UIViewController, CLLocationManagerDelegate, UITableViewDataSourc
     var city: String?
     var state: String?
     var stringtoserver:String?
+    var activityindactor:UIActivityIndicatorView = UIActivityIndicatorView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,14 +49,50 @@ class Weather: UIViewController, CLLocationManagerDelegate, UITableViewDataSourc
         weathertable.delegate = self
         weathertable.dataSource = self
         
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(Weather.dismissKeyboard))
+        
+        //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
+        tap.cancelsTouchesInView = false
+        
+        view.addGestureRecognizer(tap)
+        
         //locationManager.stopUpdatingLocation()
         self.FetchPreviousCall()
         
     }
     
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
+    
+    @IBAction func SearchForWeather(_ sender: UIButton) {
+        if Searchweathertext.text != "" && Searchweathertext.text != " "{
+            activityindactor.center = self.view.center
+            activityindactor.hidesWhenStopped = true
+            activityindactor.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
+            view.addSubview(activityindactor)
+            activityindactor.startAnimating()
+            UIApplication.shared.beginIgnoringInteractionEvents()
+            let server = Servercalls()
+            var servermetod = "whats the weather in " + Searchweathertext.text!
+            servermetod = servermetod.trimmingCharacters(in: .whitespacesAndNewlines)
+            servermetod = servermetod.replacingOccurrences(of: " ", with: "_", options: .literal, range: nil)
+            server.apicall(city: city!, state: state!, voicecall: servermetod)
+            print(Servercalls.serverjson)
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(7), execute: {
+              
+            UIApplication.shared.endIgnoringInteractionEvents()
+            self.activityindactor.removeFromSuperview()
+            print(Servercalls.serverjson)
+            self.FetchPreviousCall()
+            self.weathertable.reloadData()
+            })
+        }
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 7
+        return weatherforcasts.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -80,6 +118,7 @@ class Weather: UIViewController, CLLocationManagerDelegate, UITableViewDataSourc
     
     func FetchPreviousCall(){
     if Servercalls.serverjson["key"].string != nil && Servercalls.serverjson["key"].string == "weather" {
+        weatherforcasts.removeAll()
         weatherforcasts.append(weatherinfo(Location: Servercalls.serverjson["city"].string! + ", " + Servercalls.serverjson["state"].string!,forcast: "Forcast: " + Servercalls.serverjson["results"][0]["condition"].string!,image:  Servercalls.serverjson["results"][0]["url"].string!,rain: "Rain: " + String(Servercalls.serverjson["results"][0]["precip"].double!) + "%", templow: "Low: " + Servercalls.serverjson["results"][0]["temp_lowf"].string! + "°F", temphigh: "High: " + Servercalls.serverjson["results"][0]["temp_highf"].string! + "°F",humidty: "Humidity: " + String(Servercalls.serverjson["results"][0]["humidity"].double!), date: String(Servercalls.serverjson["results"][0]["month"].int!) + "/" + String(Servercalls.serverjson["results"][0]["day"].int!) + "/" + String(Servercalls.serverjson["results"][0]["year"].int!)))
         
          weatherforcasts.append(weatherinfo(Location: Servercalls.serverjson["city"].string! + ", " + Servercalls.serverjson["state"].string!,forcast: "Forcast: " + Servercalls.serverjson["results"][1]["condition"].string!,image:  Servercalls.serverjson["results"][1]["url"].string!,rain: "Rain: " + String(Servercalls.serverjson["results"][1]["precip"].double!) + "%", templow: "Low: " + Servercalls.serverjson["results"][1]["temp_lowf"].string! + "°F", temphigh: "High: " + Servercalls.serverjson["results"][1]["temp_highf"].string! + "°F",humidty: "Humidity: " + String(Servercalls.serverjson["results"][1]["humidity"].double!), date: String(Servercalls.serverjson["results"][1]["month"].int!) + "/" + String(Servercalls.serverjson["results"][1]["day"].int!) + "/" + String(Servercalls.serverjson["results"][1]["year"].int!)))
@@ -95,40 +134,6 @@ class Weather: UIViewController, CLLocationManagerDelegate, UITableViewDataSourc
         weatherforcasts.append(weatherinfo(Location: Servercalls.serverjson["city"].string! + ", " + Servercalls.serverjson["state"].string!,forcast: "Forcast: " + Servercalls.serverjson["results"][6]["condition"].string!,image:  Servercalls.serverjson["results"][6]["url"].string!,rain: "Rain: " + String(Servercalls.serverjson["results"][6]["precip"].double!) + "%", templow: "Low: " + Servercalls.serverjson["results"][6]["temp_lowf"].string! + "°F", temphigh: "High: " + Servercalls.serverjson["results"][6]["temp_highf"].string! + "°F",humidty: "Humidity: " + String(Servercalls.serverjson["results"][6]["humidity"].double!), date: String(Servercalls.serverjson["results"][6]["month"].int!) + "/" + String(Servercalls.serverjson["results"][6]["day"].int!) + "/" + String(Servercalls.serverjson["results"][6]["year"].int!)))
         }
     }
-    
-   func FetchJSON() {
-        let server = Servercalls()
-        server.apicall(city: city!, state: state!, voicecall: self.stringtoserver!)
-        print(Servercalls.serverjson)
-        if Servercalls.serverjson["key"].string != nil {
-            switch (Servercalls.serverjson["key"].string!){
-            case "weather":
-                weatherforcasts.append(weatherinfo(Location: Servercalls.serverjson["city"].string! + ", " + Servercalls.serverjson["state"].string!,forcast: "Forcast: " + Servercalls.serverjson["results"][0]["condition"].string!,image:  Servercalls.serverjson["results"][0]["url"].string!,rain: "Rain: " + String(Servercalls.serverjson["results"][0]["precip"].double!) + "%", templow: "Low: " + Servercalls.serverjson["results"][0]["temp_lowf"].string! + "°F", temphigh: "High: " + Servercalls.serverjson["results"][0]["temp_highf"].string! + "°F",humidty: "Humidity: " + String(Servercalls.serverjson["results"][0]["humidity"].double!), date: String(Servercalls.serverjson["results"][0]["month"].int!) + "/" + String(Servercalls.serverjson["results"][0]["day"].int!) + "/" + String(Servercalls.serverjson["results"][0]["year"].int!)))
-                
-                weatherforcasts.append(weatherinfo(Location: Servercalls.serverjson["city"].string! + ", " + Servercalls.serverjson["state"].string!,forcast: "Forcast: " + Servercalls.serverjson["results"][1]["condition"].string!,image:  Servercalls.serverjson["results"][1]["url"].string!,rain: "Rain: " + String(Servercalls.serverjson["results"][1]["precip"].double!) + "%", templow: "Low: " + Servercalls.serverjson["results"][1]["temp_lowf"].string! + "°F", temphigh: "High: " + Servercalls.serverjson["results"][1]["temp_highf"].string! + "°F",humidty: "Humidity: " + String(Servercalls.serverjson["results"][1]["humidity"].double!), date: String(Servercalls.serverjson["results"][1]["month"].int!) + "/" + String(Servercalls.serverjson["results"][1]["day"].int!) + "/" + String(Servercalls.serverjson["results"][1]["year"].int!)))
-                
-                weatherforcasts.append(weatherinfo(Location: Servercalls.serverjson["city"].string! + ", " + Servercalls.serverjson["state"].string!,forcast: "Forcast: " + Servercalls.serverjson["results"][2]["condition"].string!,image:  Servercalls.serverjson["results"][2]["url"].string!,rain: "Rain: " + String(Servercalls.serverjson["results"][2]["precip"].double!) + "%", templow: "Low: " + Servercalls.serverjson["results"][2]["temp_lowf"].string! + "°F", temphigh: "High: " + Servercalls.serverjson["results"][2]["temp_highf"].string! + "°F",humidty: "Humidity: " + String(Servercalls.serverjson["results"][2]["humidity"].double!), date: String(Servercalls.serverjson["results"][2]["month"].int!) + "/" + String(Servercalls.serverjson["results"][2]["day"].int!) + "/" + String(Servercalls.serverjson["results"][2]["year"].int!)))
-                
-                weatherforcasts.append(weatherinfo(Location: Servercalls.serverjson["city"].string! + ", " + Servercalls.serverjson["state"].string!,forcast: "Forcast: " + Servercalls.serverjson["results"][3]["condition"].string!,image:  Servercalls.serverjson["results"][3]["url"].string!,rain: "Rain: " + String(Servercalls.serverjson["results"][3]["precip"].double!) + "%", templow: "Low: " + Servercalls.serverjson["results"][3]["temp_lowf"].string! + "°F", temphigh: "High: " + Servercalls.serverjson["results"][3]["temp_highf"].string! + "°F",humidty: "Humidity: " + String(Servercalls.serverjson["results"][3]["humidity"].double!), date: String(Servercalls.serverjson["results"][3]["month"].int!) + "/" + String(Servercalls.serverjson["results"][3]["day"].int!) + "/" + String(Servercalls.serverjson["results"][3]["year"].int!)))
-                
-                weatherforcasts.append(weatherinfo(Location: Servercalls.serverjson["city"].string! + ", " + Servercalls.serverjson["state"].string!,forcast: "Forcast: " + Servercalls.serverjson["results"][4]["condition"].string!,image:  Servercalls.serverjson["results"][4]["url"].string!,rain: "Rain: " + String(Servercalls.serverjson["results"][4]["precip"].double!) + "%", templow: "Low: " + Servercalls.serverjson["results"][4]["temp_lowf"].string! + "°F", temphigh: "High: " + Servercalls.serverjson["results"][4]["temp_highf"].string! + "°F",humidty: "Humidity: " + String(Servercalls.serverjson["results"][4]["humidity"].double!), date: String(Servercalls.serverjson["results"][4]["month"].int!) + "/" + String(Servercalls.serverjson["results"][4]["day"].int!) + "/" + String(Servercalls.serverjson["results"][4]["year"].int!)))
-                
-                weatherforcasts.append(weatherinfo(Location: Servercalls.serverjson["city"].string! + ", " + Servercalls.serverjson["state"].string!,forcast: "Forcast: " + Servercalls.serverjson["results"][5]["condition"].string!,image:  Servercalls.serverjson["results"][5]["url"].string!,rain: "Rain: " + String(Servercalls.serverjson["results"][5]["precip"].double!) + "%", templow: "Low: " + Servercalls.serverjson["results"][5]["temp_lowf"].string! + "°F", temphigh: "High: " + Servercalls.serverjson["results"][5]["temp_highf"].string! + "°F",humidty: "Humidity: " + String(Servercalls.serverjson["results"][5]["humidity"].double!), date: String(Servercalls.serverjson["results"][5]["month"].int!)  + "/" + String(Servercalls.serverjson["results"][5]["day"].int!) + "/" + String(Servercalls.serverjson["results"][5]["year"].int!)))
-                
-                weatherforcasts.append(weatherinfo(Location: Servercalls.serverjson["city"].string! + ", " + Servercalls.serverjson["state"].string!,forcast: "Forcast: " + Servercalls.serverjson["results"][6]["condition"].string!,image:  Servercalls.serverjson["results"][6]["url"].string!,rain: "Rain: " + String(Servercalls.serverjson["results"][6]["precip"].double!) + "%", templow: "Low: " + Servercalls.serverjson["results"][6]["temp_lowf"].string! + "°F", temphigh: "High: " + Servercalls.serverjson["results"][6]["temp_highf"].string! + "°F",humidty: "Humidity: " + String(Servercalls.serverjson["results"][6]["humidity"].double!), date: String(Servercalls.serverjson["results"][6]["month"].int!) + "/" + String(Servercalls.serverjson["results"][6]["day"].int!) + "/" + String(Servercalls.serverjson["results"][6]["year"].int!)))
-                
-            case "youtube":
-                let vc = self.storyboard?.instantiateViewController(withIdentifier: "Youtube_ID") as! Youtube
-                self.present(vc, animated: true, completion: nil)
-            case "google":
-                let vc = self.storyboard?.instantiateViewController(withIdentifier: "Search_ID") as! Search
-                self.present(vc, animated: true, completion: nil)
-            default: break
-            }
-        }
-    }
-    
-   
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         var location = locations[0]

@@ -11,17 +11,65 @@ import Firebase
 
 class Make_a_list: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    
+    struct listitems{
+        var key:String
+        var value:String
+    }
+    
     @IBOutlet weak var tablelist: UITableView!
-    var listtitles:[String] = []
+    
+    var listtitles:[listitems] = []
     
     static var nameoftext = "New List"
+    static var nameoflist = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tablelist.delegate = self
         tablelist.dataSource = self
-        self.pullfromfirebase()
         
+        
+        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(Make_a_list.longPress(longPressGestureRecognizer:)))
+        self.tablelist.addGestureRecognizer(longPressRecognizer)
+        
+        let userID = Auth.auth().currentUser?.uid
+        let ref: DatabaseReference! = Database.database().reference().child("users").child(userID!).child("list")
+        listtitles.removeAll()
+        listtitles.append(listitems(key: "New List", value: "null"))
+        
+        
+//        ref.observeSingleEvent(of: .value, with: { (snapshot) in
+//                        for child in snapshot.children {
+//                            let snap = child as! DataSnapshot
+//                            let key = snap.key
+//                            let value = snap.value
+//                            //print("key = \(key)  value = \(value!)")
+//                           // print(key)
+//                            self.listtitles.append(listitems(key: String(describing: key), value: String(describing: value!)))
+//                            print(self.listtitles.count)
+//                        }
+//                        self.tablelist.reloadData()
+//                    })
+        
+        ref.observe(.childAdded, with: { (snapshot) -> Void in
+                let key = snapshot.key
+                let value = snapshot.value
+                //print("key = \(key)  value = \(value!)")
+                // print(key)
+                self.listtitles.append(listitems(key: String(describing: key), value: String(describing: value!)))
+            
+            print(snapshot)
+             self.tablelist.reloadData()
+        })
+        
+        // Listen for deleted comments in the Firebase database
+        ref.observe(.childRemoved, with: { (snapshot) -> Void in
+            
+        
+            self.listtitles.remove(at: self.listtitles.index(where: { $0.key == snapshot.key })!)
+            self.tablelist.reloadData()
+        })
         // Do any additional setup after loading the view.
     }
     
@@ -32,40 +80,70 @@ class Make_a_list: UIViewController, UITableViewDataSource, UITableViewDelegate 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let Lcell = tablelist.dequeueReusableCell(withIdentifier: "listcell") as! UITableViewCell
         
-        Lcell.textLabel?.text = self.listtitles[indexPath.row]
+        Lcell.textLabel?.text = self.listtitles[indexPath.row].key
         
         return Lcell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
+        return 75
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if listtitles[indexPath.row] == "New List" {
+        if listtitles[indexPath.row].key == "New List" {
+            Make_a_list.nameoflist = ""
             Make_a_list.nameoftext = "New List"
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "Listdata_ID") as! Listdata
             self.present(vc, animated: true, completion: nil)
         }else{
-            Make_a_list.nameoftext = listtitles[indexPath.row]
+            Make_a_list.nameoflist = listtitles[indexPath.row].key
+            Make_a_list.nameoftext = listtitles[indexPath.row].value
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "Listdata_ID") as! Listdata
             self.present(vc, animated: true, completion: nil)
         }
     }
     
-    func pullfromfirebase(){
-        listtitles.append("New List")
-        let userID = Auth.auth().currentUser?.uid
-        let ref: DatabaseReference! = Database.database().reference().child("users").child(userID!).child("list")
-        ref.observeSingleEvent(of: .value, with: { (snapshot) in
-            for child in snapshot.children {
-                let snap = child as! DataSnapshot
-                let key = snap.key
-                //let value = snap.value
-                //print("key = \(key)  value = \(value!)")
-               // print(key)
-                self.listtitles.append(String(key))
+    @objc func longPress(longPressGestureRecognizer: UILongPressGestureRecognizer) {
+        
+        if longPressGestureRecognizer.state == UIGestureRecognizerState.began {
+            
+            let touchPoint = longPressGestureRecognizer.location(in: tablelist)
+            if let indexPath = tablelist.indexPathForRow(at: touchPoint) {
+                print("touchpoint " ,touchPoint)
+                if listtitles[indexPath.row].key == "New List" {
+                    Make_a_list.nameoflist = ""
+                    Make_a_list.nameoftext = "New List"
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "Listdata_ID") as! Listdata
+                    self.present(vc, animated: true, completion: nil)
+                }else if listtitles[indexPath.row] != nil {
+                    Make_a_list.nameoflist = listtitles[indexPath.row].key
+                    Make_a_list.nameoftext = listtitles[indexPath.row].value
+                    let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Custompopup_ID") as! PopalertDelete
+                    self.addChildViewController(popOverVC)
+                    popOverVC.view.frame = self.view.frame
+                    self.view.addSubview(popOverVC.view)
+                    popOverVC.didMove(toParentViewController: self)
+                }
             }
-            self.tablelist.reloadData()
-        })
+        }
     }
+    
+//    func pullfromfirebase(){
+//        listtitles.removeAll()
+//        print(listtitles.count)
+//        listtitles.append(listitems(key: "New List", value: "null"))
+//        let userID = Auth.auth().currentUser?.uid
+//        let ref: DatabaseReference! = Database.database().reference().child("users").child(userID!).child("list")
+//        ref.observeSingleEvent(of: .value, with: { (snapshot) in
+//            for child in snapshot.children {
+//                let snap = child as! DataSnapshot
+//                let key = snap.key
+//                let value = snap.value
+//                //print("key = \(key)  value = \(value!)")
+//               // print(key)
+//                self.listtitles.append(listitems(key: String(describing: key), value: String(describing: value!)))
+//                print(self.listtitles.count)
+//            }
+//            self.tablelist.reloadData()
+//        })
+//    }
 }

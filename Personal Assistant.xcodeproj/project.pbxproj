@@ -10,6 +10,7 @@
 		726736F3F0120AA44F91070A /* Pods_Personal_AssistantUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CA4C7160BEF7D70E114D560 /* Pods_Personal_AssistantUITests.framework */; };
 		80E1117A1F2CA71E87E8350F /* Pods_Personal_Assistant.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 736DF1855B2F5840B0621220 /* Pods_Personal_Assistant.framework */; };
 		91611DE8BAE4CA57FD941D03 /* Pods_Personal_AssistantTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04C8DF978E11686979D0A5E3 /* Pods_Personal_AssistantTests.framework */; };
+		C4158DAC20A494850080AC0E /* PopalertDelete.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4158DAB20A494850080AC0E /* PopalertDelete.swift */; };
 		C4254B04207E97F500807AF4 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4254B03207E97F500807AF4 /* Weather.swift */; };
 		C4254B062084E4E500807AF4 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4254B052084E4E500807AF4 /* Map.swift */; };
 		C4270B60209A4866009DC4DB /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4270B5E209A4866009DC4DB /* Interface.storyboard */; };
@@ -18,7 +19,6 @@
 		C4270B6E209A4866009DC4DB /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4270B6D209A4866009DC4DB /* InterfaceController.swift */; };
 		C4270B70209A4866009DC4DB /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4270B6F209A4866009DC4DB /* ExtensionDelegate.swift */; };
 		C4270B74209A4866009DC4DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4270B73209A4866009DC4DB /* Assets.xcassets */; };
-		C4270B79209A4866009DC4DB /* Personal-Assistant-Watch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = C4270B5C209A4866009DC4DB /* Personal-Assistant-Watch.app */; };
 		C42BF3422097664300E02910 /* WeatherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42BF3412097664300E02910 /* WeatherTableViewCell.swift */; };
 		C45426E0208781550052B531 /* Youtube.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45426DF208781550052B531 /* Youtube.swift */; };
 		C4764E4720921C120000E8E3 /* CustomCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4764E4620921C120000E8E3 /* CustomCellTableViewCell.swift */; };
@@ -51,13 +51,6 @@
 			remoteGlobalIDString = C4270B67209A4866009DC4DB;
 			remoteInfo = "Personal-Assistant-Watch Extension";
 		};
-		C4270B77209A4866009DC4DB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C4AF45EE2049BE1500B9093F /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = C4270B5B209A4866009DC4DB;
-			remoteInfo = "Personal-Assistant-Watch";
-		};
 		C4AF460B2049BE1600B9093F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C4AF45EE2049BE1500B9093F /* Project object */;
@@ -86,17 +79,6 @@
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C4270B81209A4866009DC4DB /* Embed Watch Content */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
-			dstSubfolderSpec = 16;
-			files = (
-				C4270B79209A4866009DC4DB /* Personal-Assistant-Watch.app in Embed Watch Content */,
-			);
-			name = "Embed Watch Content";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -107,6 +89,7 @@
 		736DF1855B2F5840B0621220 /* Pods_Personal_Assistant.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Personal_Assistant.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		966DD512BBEAF57EF1CDCF60 /* Pods-Personal AssistantUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Personal AssistantUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Personal AssistantUITests/Pods-Personal AssistantUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9828BEE8EEBF92043151B30A /* Pods-Personal AssistantUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Personal AssistantUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Personal AssistantUITests/Pods-Personal AssistantUITests.release.xcconfig"; sourceTree = "<group>"; };
+		C4158DAB20A494850080AC0E /* PopalertDelete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopalertDelete.swift; sourceTree = "<group>"; };
 		C4254B03207E97F500807AF4 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		C4254B052084E4E500807AF4 /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
 		C4270B5C209A4866009DC4DB /* Personal-Assistant-Watch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Personal-Assistant-Watch.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -276,6 +259,7 @@
 				C481A5C22099FBE7004DEFA5 /* Make_a_list.swift */,
 				C481A5C4209A0D34004DEFA5 /* Listdata.swift */,
 				C481A5C6209A424E004DEFA5 /* watchcontact.swift */,
+				C4158DAB20A494850080AC0E /* PopalertDelete.swift */,
 			);
 			path = "Personal Assistant";
 			sourceTree = "<group>";
@@ -354,14 +338,12 @@
 				C4AF45F22049BE1500B9093F /* Sources */,
 				C4AF45F32049BE1500B9093F /* Frameworks */,
 				C4AF45F42049BE1500B9093F /* Resources */,
-				C4270B81209A4866009DC4DB /* Embed Watch Content */,
 				39686FF75E9416D399B3EEF5 /* [CP] Embed Pods Frameworks */,
 				E9892A56AA60F58DAD953DED /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				C4270B78209A4866009DC4DB /* PBXTargetDependency */,
 			);
 			name = "Personal Assistant";
 			productName = "Personal Assistant";
@@ -430,7 +412,7 @@
 					};
 					C4AF45F52049BE1500B9093F = {
 						CreatedOnToolsVersion = 9.1;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 					C4AF46092049BE1600B9093F = {
 						CreatedOnToolsVersion = 9.1;
@@ -705,6 +687,7 @@
 				C4254B062084E4E500807AF4 /* Map.swift in Sources */,
 				C4764E4720921C120000E8E3 /* CustomCellTableViewCell.swift in Sources */,
 				C4254B04207E97F500807AF4 /* Weather.swift in Sources */,
+				C4158DAC20A494850080AC0E /* PopalertDelete.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -731,11 +714,6 @@
 			isa = PBXTargetDependency;
 			target = C4270B67209A4866009DC4DB /* Personal-Assistant-Watch Extension */;
 			targetProxy = C4270B6A209A4866009DC4DB /* PBXContainerItemProxy */;
-		};
-		C4270B78209A4866009DC4DB /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = C4270B5B209A4866009DC4DB /* Personal-Assistant-Watch */;
-			targetProxy = C4270B77209A4866009DC4DB /* PBXContainerItemProxy */;
 		};
 		C4AF460C2049BE1600B9093F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -879,6 +857,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -895,9 +874,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -936,6 +915,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -946,8 +926,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
@@ -959,15 +940,19 @@
 			baseConfigurationReference = F238866AC6DDCC665FA8BA8A /* Pods-Personal Assistant.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 279LK4S6S3;
 				INFOPLIST_FILE = "Personal Assistant/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "PA-Personal-Assistant.Personal-Assistant";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -976,15 +961,19 @@
 			baseConfigurationReference = 4265F3FD9592ABED40CDD1D6 /* Pods-Personal Assistant.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 279LK4S6S3;
 				INFOPLIST_FILE = "Personal Assistant/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "PA-Personal-Assistant.Personal-Assistant";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

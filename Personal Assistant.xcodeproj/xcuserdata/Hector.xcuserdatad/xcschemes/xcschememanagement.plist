@@ -11,13 +11,40 @@
 		</dict>
 		<key>Personal-Assistant-Watch (Notification).xcscheme</key>
 		<dict>
+			<key>isShown</key>
+			<true/>
 			<key>orderHint</key>
 			<integer>12</integer>
 		</dict>
 		<key>Personal-Assistant-Watch.xcscheme</key>
 		<dict>
+			<key>isShown</key>
+			<true/>
 			<key>orderHint</key>
 			<integer>11</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>C4270B5B209A4866009DC4DB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C4AF45F52049BE1500B9093F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C4AF46092049BE1600B9093F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C4AF46142049BE1600B9093F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>
