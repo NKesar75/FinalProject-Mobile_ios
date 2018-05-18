@@ -216,7 +216,7 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
     
      func FetchJSON() {
         let server = Servercalls()
-        server.apicall(city: city!, state: state!, voicecall: self.stringtoserver!)
+        server.apicall(city: city!, state: state!, voicecall: self.stringtoserver!.lowercased())
         print(Servercalls.serverjson)
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(7), execute: {
         if Servercalls.serverjson["key"].string != nil {

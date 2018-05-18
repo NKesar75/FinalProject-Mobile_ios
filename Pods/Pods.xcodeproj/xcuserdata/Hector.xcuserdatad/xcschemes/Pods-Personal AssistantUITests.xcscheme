@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6A2E761ACA9EFFEFD4EAD3A518643C71"
+               BlueprintIdentifier = "97EABF4F58BB05560E8443DC5C1F12ED"
                BuildableName = "Pods_Personal_AssistantUITests.framework"
                BlueprintName = "Pods-Personal AssistantUITests"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -26,7 +26,6 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      language = ""
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
@@ -37,7 +36,6 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      language = ""
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"
@@ -47,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6A2E761ACA9EFFEFD4EAD3A518643C71"
+            BlueprintIdentifier = "97EABF4F58BB05560E8443DC5C1F12ED"
             BuildableName = "Pods_Personal_AssistantUITests.framework"
             BlueprintName = "Pods-Personal AssistantUITests"
             ReferencedContainer = "container:Pods.xcodeproj">
