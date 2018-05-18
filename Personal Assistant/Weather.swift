@@ -75,7 +75,7 @@ class Weather: UIViewController, CLLocationManagerDelegate, UITableViewDataSourc
             activityindactor.startAnimating()
             UIApplication.shared.beginIgnoringInteractionEvents()
             let server = Servercalls()
-            var servermetod = "whats the weather in " + Searchweathertext.text!
+            var servermetod = "whats the weather in " + Searchweathertext.text!.lowercased()
             servermetod = servermetod.trimmingCharacters(in: .whitespacesAndNewlines)
             servermetod = servermetod.replacingOccurrences(of: " ", with: "_", options: .literal, range: nil)
             server.apicall(city: city!, state: state!, voicecall: servermetod)

@@ -435,14 +435,25 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="6db0e8" translatesAutoresizingMaskIntoConstraints="NO" id="CYZ-Pr-Jba">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VPU-Va-8Vc">
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="EBf-RQ-Vrb">
                                 <rect key="frame" x="10" y="142" width="355" height="233"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <wkWebViewConfiguration key="configuration">
-                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" audio="YES" video="YES"/>
-                                    <wkPreferences key="preferences"/>
-                                </wkWebViewConfiguration>
-                            </wkWebView>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="tLN-42-dtG">
+                                        <rect key="frame" x="0.0" y="0.0" width="355" height="233"/>
+                                        <subviews>
+                                            <wkWebView contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VPU-Va-8Vc">
+                                                <rect key="frame" x="0.0" y="0.0" width="355" height="233"/>
+                                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <wkWebViewConfiguration key="configuration">
+                                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" audio="YES" video="YES"/>
+                                                    <wkPreferences key="preferences"/>
+                                                </wkWebViewConfiguration>
+                                            </wkWebView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Usi-g7-26W">
                                 <rect key="frame" x="10" y="30" width="60" height="40"/>
                                 <constraints>
@@ -497,16 +508,12 @@
                         <constraints>
                             <constraint firstItem="Usi-g7-26W" firstAttribute="top" secondItem="TXQ-iR-IKg" secondAttribute="top" constant="10" id="H1g-uf-vvp"/>
                             <constraint firstItem="CYZ-Pr-Jba" firstAttribute="top" secondItem="P7x-PI-INr" secondAttribute="top" id="Icd-ml-lFA"/>
-                            <constraint firstItem="VPU-Va-8Vc" firstAttribute="leading" secondItem="TXQ-iR-IKg" secondAttribute="leading" constant="10" id="Kin-3e-arN"/>
-                            <constraint firstItem="TXQ-iR-IKg" firstAttribute="bottom" secondItem="VPU-Va-8Vc" secondAttribute="bottom" constant="292" id="Pnf-L3-Y0Y"/>
                             <constraint firstItem="TXQ-iR-IKg" firstAttribute="bottom" secondItem="hHb-AV-FnK" secondAttribute="bottom" constant="20" id="Q6V-8S-qXR"/>
                             <constraint firstItem="Usi-g7-26W" firstAttribute="leading" secondItem="TXQ-iR-IKg" secondAttribute="leading" constant="10" id="RAV-z2-bRw"/>
                             <constraint firstItem="CYZ-Pr-Jba" firstAttribute="bottom" secondItem="TXQ-iR-IKg" secondAttribute="bottom" id="S7K-or-8gE"/>
                             <constraint firstItem="CYZ-Pr-Jba" firstAttribute="trailing" secondItem="TXQ-iR-IKg" secondAttribute="trailing" id="WNX-re-XhV"/>
                             <constraint firstItem="CYZ-Pr-Jba" firstAttribute="leading" secondItem="TXQ-iR-IKg" secondAttribute="leading" id="X3Q-dA-EpK"/>
-                            <constraint firstItem="TXQ-iR-IKg" firstAttribute="trailing" secondItem="VPU-Va-8Vc" secondAttribute="trailing" constant="10" id="chL-Hr-5OM"/>
                             <constraint firstItem="TXQ-iR-IKg" firstAttribute="trailing" secondItem="hHb-AV-FnK" secondAttribute="trailing" constant="30" id="h3e-Ox-ljG"/>
-                            <constraint firstItem="VPU-Va-8Vc" firstAttribute="top" secondItem="Usi-g7-26W" secondAttribute="bottom" constant="72" id="oFz-4b-NE8"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="TXQ-iR-IKg"/>
                         <connections>
@@ -2157,6 +2164,6 @@ Hv0r/S79O/1A/Uj9S/1Q/Vj9W/1t/XD9dQAAAAAAAAIBAAAAAAAAAFkAAAAAAAAAAAAAAAAAAP13A
         </image>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="392-E5-acm"/>
+        <segue reference="kcy-4g-Neh"/>
     </inferredMetricsTieBreakers>
 </document>
