@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A3760C1BE7F2FAA560631C321DD97F47"
-               BuildableName = "Pods-Personal AssistantTests"
+               BuildableName = "Pods_Personal_AssistantTests.framework"
                BlueprintName = "Pods-Personal AssistantTests"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
@@ -46,7 +46,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A3760C1BE7F2FAA560631C321DD97F47"
-            BuildableName = "Pods-Personal AssistantTests"
+            BuildableName = "Pods_Personal_AssistantTests.framework"
             BlueprintName = "Pods-Personal AssistantTests"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>

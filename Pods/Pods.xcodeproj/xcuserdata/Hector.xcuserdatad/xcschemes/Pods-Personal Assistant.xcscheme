@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "85C691C554412435413396CD60B502D8"
+               BlueprintIdentifier = "61902D569EBCDF967C11ADD3B844CEEC"
                BuildableName = "Pods_Personal_Assistant.framework"
                BlueprintName = "Pods-Personal Assistant"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "85C691C554412435413396CD60B502D8"
+            BlueprintIdentifier = "61902D569EBCDF967C11ADD3B844CEEC"
             BuildableName = "Pods_Personal_Assistant.framework"
             BlueprintName = "Pods-Personal Assistant"
             ReferencedContainer = "container:Pods.xcodeproj">
