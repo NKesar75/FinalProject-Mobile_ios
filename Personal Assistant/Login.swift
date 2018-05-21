@@ -7,7 +7,7 @@
 //
 
 import UIKit
-//import Firebase
+import Firebase
 
 class Login: UIViewController {
     
@@ -55,6 +55,7 @@ class Login: UIViewController {
 }
     @IBAction func Signinbuttonclicked(_ sender: Any) {
         if loginlabelbool {
+            
             guard let email = Emailvalue.text,
                 email != "",
                 let password = Passwordvalue.text,
@@ -64,15 +65,15 @@ class Login: UIViewController {
                     return
             }
                 Auth.auth().signIn(withEmail: email, password: password, completion: { (user, error) in
-                    guard error == nil else {
+                    if let error = error {
                         AlertController.showAlert(self, title: "Error", message: error!.localizedDescription)
-                        return
+                    } else {
+                        let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomePage_ID") as! HomePage
+                        self.present(vc, animated: true, completion: nil)
                     }
-                    guard let user = user else { return }
-                    //print(user.email ?? "MISSING EMAIL")
-                    //print(user.uid)
-                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomePage_ID") as! HomePage
-                    self.present(vc, animated: true, completion: nil)
+//                    guard let user = user else { return }
+//                    //print(user.email ?? "MISSING EMAIL")
+//                    //print(user.uid)
                 })
             
         }else{
@@ -85,15 +86,16 @@ class Login: UIViewController {
                     return
             }
                 Auth.auth().createUser(withEmail: email, password: password, completion: { (user,error ) in
-                    guard error == nil else {
+                   
+                    if let error = error {
                         AlertController.showAlert(self, title: "Error", message: error!.localizedDescription)
-                        return
+                    } else {
+                        let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomePage_ID") as! HomePage
+                        self.present(vc, animated: true, completion: nil)
                     }
-                    guard let user = user else { return }
+                    //guard let user = user else { return }
                     //print(user.email ?? "MISSING EMAIL")
                     //print(user.uid)
-                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomePage_ID") as! HomePage
-                    self.present(vc, animated: true, completion: nil)
                 })
         }
     }
