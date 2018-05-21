@@ -97,29 +97,35 @@ class Listdata: UIViewController {
                     let metaData = StorageMetadata()
                     metaData.contentType = "Text/Plain"
                     let fileref = storageRef.child("text-files")
-                     fileref.child(userID!).child(filename).putFile(from: fileURL, metadata: metaData){(metaData,error) in
+                    fileref.child(userID!).child(filename).putFile(from: fileURL, metadata: metaData){(metaData,error) in
                             if let error = error {
                                     print(error.localizedDescription)
                                 return
                             }else{
-                                //store downloadURL
-                                let downloadURL = metaData!.downloadURL()!.absoluteString
-                                var ref: DatabaseReference! = Database.database().reference()
-                                ref.child("users").child(userID!).child("list").child(nameoffile).setValue(downloadURL)
-                               
-                                UIApplication.shared.endIgnoringInteractionEvents()
-                                self.activityindactor.removeFromSuperview()
+                                fileref.child(userID!).child(filename).downloadURL(completion: { (url, error) in
+                                    if (error == nil) {
+                                        if let downloadUrl = url {
+                                            // Make you download string
+                                            let downloadString = downloadUrl.absoluteString
+                                            print("DownloadURL: ", downloadString)
+                                            var ref: DatabaseReference! = Database.database().reference()
+                                            ref.child("users").child(userID!).child("list").child(nameoffile).setValue(downloadString)
+                                            UIApplication.shared.endIgnoringInteractionEvents()
+                                            self.activityindactor.removeFromSuperview()
+                                            
+                                            let vc = self.storyboard?.instantiateViewController(withIdentifier: "Make_a_list_ID") as! Make_a_list
+                                            self.present(vc, animated: true, completion: nil)
+                                            
+                                        }
+                                    } else {
+                                        // Do something if error
+                                    }
+                                })
                                 
-                                let vc = self.storyboard?.instantiateViewController(withIdentifier: "Make_a_list_ID") as! Make_a_list
-                                self.present(vc, animated: true, completion: nil)
                         }
                     }
-            
             } catch {
                 print("error:", error)
             }
     }
-    
-
-
 }
