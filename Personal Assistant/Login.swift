@@ -66,7 +66,7 @@ class Login: UIViewController {
             }
                 Auth.auth().signIn(withEmail: email, password: password, completion: { (user, error) in
                     if let error = error {
-                        AlertController.showAlert(self, title: "Error", message: error!.localizedDescription)
+                        AlertController.showAlert(self, title: "Error", message: error.localizedDescription)
                     } else {
                         let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomePage_ID") as! HomePage
                         self.present(vc, animated: true, completion: nil)
@@ -88,7 +88,7 @@ class Login: UIViewController {
                 Auth.auth().createUser(withEmail: email, password: password, completion: { (user,error ) in
                    
                     if let error = error {
-                        AlertController.showAlert(self, title: "Error", message: error!.localizedDescription)
+                        AlertController.showAlert(self, title: "Error", message: error.localizedDescription)
                     } else {
                         let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomePage_ID") as! HomePage
                         self.present(vc, animated: true, completion: nil)
