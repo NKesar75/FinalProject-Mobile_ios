@@ -71,7 +71,8 @@ class Login: UIViewController {
                     guard let user = user else { return }
                     //print(user.email ?? "MISSING EMAIL")
                     //print(user.uid)
-                    self.performSegue(withIdentifier: "Signin_seg", sender: nil)
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomePage_ID") as! HomePage
+                    self.present(vc, animated: true, completion: nil)
                 })
             
         }else{
@@ -91,7 +92,8 @@ class Login: UIViewController {
                     guard let user = user else { return }
                     //print(user.email ?? "MISSING EMAIL")
                     //print(user.uid)
-                    self.performSegue(withIdentifier: "Signin_seg", sender: nil)
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomePage_ID") as! HomePage
+                    self.present(vc, animated: true, completion: nil)
                 })
         }
     }

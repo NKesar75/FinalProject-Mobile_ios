@@ -123,7 +123,6 @@
                                 <state key="normal" title="Login"/>
                                 <connections>
                                     <action selector="Signinbuttonclicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fqd-Ri-F0v"/>
-                                    <segue destination="edF-9K-KxK" kind="show" identifier="Signin_seg" id="NM7-uh-EpW"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Password:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BUy-zy-z88">
@@ -2164,6 +2163,7 @@ Hv0r/S79O/1A/Uj9S/1Q/Vj9W/1t/XD9dQAAAAAAAAIBAAAAAAAAAFkAAAAAAAAAAAAAAAAAAP13A
         </image>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="ykz-dk-IB6"/>
         <segue reference="kcy-4g-Neh"/>
     </inferredMetricsTieBreakers>
 </document>
