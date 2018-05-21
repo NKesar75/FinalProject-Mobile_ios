@@ -69,8 +69,8 @@ class Login: UIViewController {
                         return
                     }
                     guard let user = user else { return }
-                    print(user.email ?? "MISSING EMAIL")
-                    print(user.uid)
+                    //print(user.email ?? "MISSING EMAIL")
+                    //print(user.uid)
                     self.performSegue(withIdentifier: "Signin_seg", sender: nil)
                 })
             
@@ -89,8 +89,8 @@ class Login: UIViewController {
                         return
                     }
                     guard let user = user else { return }
-                    print(user.email ?? "MISSING EMAIL")
-                    print(user.uid)
+                    //print(user.email ?? "MISSING EMAIL")
+                    //print(user.uid)
                     self.performSegue(withIdentifier: "Signin_seg", sender: nil)
                 })
         }
