@@ -21,6 +21,8 @@
 		C4270B74209A4866009DC4DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4270B73209A4866009DC4DB /* Assets.xcassets */; };
 		C42BF3422097664300E02910 /* WeatherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42BF3412097664300E02910 /* WeatherTableViewCell.swift */; };
 		C45426E0208781550052B531 /* Youtube.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45426DF208781550052B531 /* Youtube.swift */; };
+		C46A259A20B451D4007A944F /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = C46A259920B451D4007A944F /* credentials.plist */; };
+		C46A259C20B453D2007A944F /* GoogleCalender.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46A259B20B453D2007A944F /* GoogleCalender.swift */; };
 		C4764E4720921C120000E8E3 /* CustomCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4764E4620921C120000E8E3 /* CustomCellTableViewCell.swift */; };
 		C481A5C32099FBE7004DEFA5 /* Make_a_list.swift in Sources */ = {isa = PBXBuildFile; fileRef = C481A5C22099FBE7004DEFA5 /* Make_a_list.swift */; };
 		C481A5C5209A0D34004DEFA5 /* Listdata.swift in Sources */ = {isa = PBXBuildFile; fileRef = C481A5C4209A0D34004DEFA5 /* Listdata.swift */; };
@@ -105,6 +107,8 @@
 		C4270B76209A4866009DC4DB /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		C42BF3412097664300E02910 /* WeatherTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherTableViewCell.swift; sourceTree = "<group>"; };
 		C45426DF208781550052B531 /* Youtube.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Youtube.swift; sourceTree = "<group>"; };
+		C46A259920B451D4007A944F /* credentials.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = credentials.plist; path = ../../../Downloads/credentials.plist; sourceTree = "<group>"; };
+		C46A259B20B453D2007A944F /* GoogleCalender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleCalender.swift; sourceTree = "<group>"; };
 		C4764E4620921C120000E8E3 /* CustomCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellTableViewCell.swift; sourceTree = "<group>"; };
 		C481A5C22099FBE7004DEFA5 /* Make_a_list.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Make_a_list.swift; sourceTree = "<group>"; };
 		C481A5C4209A0D34004DEFA5 /* Listdata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Listdata.swift; sourceTree = "<group>"; };
@@ -249,6 +253,7 @@
 				C4AF46022049BE1600B9093F /* LaunchScreen.storyboard */,
 				C4AF46052049BE1600B9093F /* Info.plist */,
 				EDCE033820A1EF8700DD7F91 /* GoogleService-Info.plist */,
+				C46A259920B451D4007A944F /* credentials.plist */,
 				C4AF46292049C05E00B9093F /* Login.swift */,
 				C4AF462D2049C2F700B9093F /* HomePage.swift */,
 				C4254B03207E97F500807AF4 /* Weather.swift */,
@@ -261,6 +266,7 @@
 				C481A5C4209A0D34004DEFA5 /* Listdata.swift */,
 				C481A5C6209A424E004DEFA5 /* watchcontact.swift */,
 				C4158DAB20A494850080AC0E /* PopalertDelete.swift */,
+				C46A259B20B453D2007A944F /* GoogleCalender.swift */,
 			);
 			path = "Personal Assistant";
 			sourceTree = "<group>";
@@ -471,6 +477,7 @@
 			files = (
 				C4AF46042049BE1600B9093F /* LaunchScreen.storyboard in Resources */,
 				EDCE033920A1EF8700DD7F91 /* GoogleService-Info.plist in Resources */,
+				C46A259A20B451D4007A944F /* credentials.plist in Resources */,
 				C4AF46012049BE1600B9093F /* Assets.xcassets in Resources */,
 				C4AF45FF2049BE1600B9093F /* Main.storyboard in Resources */,
 			);
@@ -605,6 +612,7 @@
 				C481A5C32099FBE7004DEFA5 /* Make_a_list.swift in Sources */,
 				C4AF45FA2049BE1500B9093F /* AppDelegate.swift in Sources */,
 				C45426E0208781550052B531 /* Youtube.swift in Sources */,
+				C46A259C20B453D2007A944F /* GoogleCalender.swift in Sources */,
 				C4DABCD0208F780700ED146C /* Search.swift in Sources */,
 				C4254B062084E4E500807AF4 /* Map.swift in Sources */,
 				C4764E4720921C120000E8E3 /* CustomCellTableViewCell.swift in Sources */,
