@@ -23,6 +23,8 @@
 		C45426E0208781550052B531 /* Youtube.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45426DF208781550052B531 /* Youtube.swift */; };
 		C46A259A20B451D4007A944F /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = C46A259920B451D4007A944F /* credentials.plist */; };
 		C46A259C20B453D2007A944F /* GoogleCalender.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46A259B20B453D2007A944F /* GoogleCalender.swift */; };
+		C46A259D20B45C7B007A944F /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C41A045420AF26F800D49E4E /* SwiftyJSON.framework */; };
+		C46A25A120B45FFF007A944F /* GoogleAPIClientForREST.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C46A25A020B45FFF007A944F /* GoogleAPIClientForREST.framework */; };
 		C4764E4720921C120000E8E3 /* CustomCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4764E4620921C120000E8E3 /* CustomCellTableViewCell.swift */; };
 		C481A5C32099FBE7004DEFA5 /* Make_a_list.swift in Sources */ = {isa = PBXBuildFile; fileRef = C481A5C22099FBE7004DEFA5 /* Make_a_list.swift */; };
 		C481A5C5209A0D34004DEFA5 /* Listdata.swift in Sources */ = {isa = PBXBuildFile; fileRef = C481A5C4209A0D34004DEFA5 /* Listdata.swift */; };
@@ -109,6 +111,9 @@
 		C45426DF208781550052B531 /* Youtube.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Youtube.swift; sourceTree = "<group>"; };
 		C46A259920B451D4007A944F /* credentials.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = credentials.plist; path = ../../../Downloads/credentials.plist; sourceTree = "<group>"; };
 		C46A259B20B453D2007A944F /* GoogleCalender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleCalender.swift; sourceTree = "<group>"; };
+		C46A259E20B45E93007A944F /* GTLRService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = GTLRService.m; path = Pods/GoogleAPIClientForREST/Source/Objects/GTLRService.m; sourceTree = "<group>"; };
+		C46A25A020B45FFF007A944F /* GoogleAPIClientForREST.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GoogleAPIClientForREST.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C46A25A220B4606A007A944F /* PersonalAssistant-Briding-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PersonalAssistant-Briding-Header.h"; sourceTree = "<group>"; };
 		C4764E4620921C120000E8E3 /* CustomCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellTableViewCell.swift; sourceTree = "<group>"; };
 		C481A5C22099FBE7004DEFA5 /* Make_a_list.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Make_a_list.swift; sourceTree = "<group>"; };
 		C481A5C4209A0D34004DEFA5 /* Listdata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Listdata.swift; sourceTree = "<group>"; };
@@ -156,6 +161,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C46A25A120B45FFF007A944F /* GoogleAPIClientForREST.framework in Frameworks */,
+				C46A259D20B45C7B007A944F /* SwiftyJSON.framework in Frameworks */,
 				29546D0F0372945425279372 /* Pods_Personal_Assistant.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -219,6 +226,7 @@
 		C4AF45ED2049BE1500B9093F = {
 			isa = PBXGroup;
 			children = (
+				C46A25A220B4606A007A944F /* PersonalAssistant-Briding-Header.h */,
 				C4AF45F82049BE1500B9093F /* Personal Assistant */,
 				C4AF460D2049BE1600B9093F /* Personal AssistantTests */,
 				C4AF46182049BE1600B9093F /* Personal AssistantUITests */,
@@ -292,6 +300,8 @@
 		DE94A9D74DBF0EB5966F40D1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C46A25A020B45FFF007A944F /* GoogleAPIClientForREST.framework */,
+				C46A259E20B45E93007A944F /* GTLRService.m */,
 				C41A045420AF26F800D49E4E /* SwiftyJSON.framework */,
 				21ECC3C9F0E1460F69AABAC8 /* Pods_Personal_Assistant.framework */,
 				968D9A34FC7DEC2F9D0359E7 /* Pods_Personal_AssistantTests.framework */,
@@ -347,6 +357,7 @@
 				C4AF45F32049BE1500B9093F /* Frameworks */,
 				C4AF45F42049BE1500B9093F /* Resources */,
 				3D1292D4949D1CE6C00B4F58 /* [CP] Embed Pods Frameworks */,
+				1B8B8741FE230A8849164543 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -518,6 +529,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		1B8B8741FE230A8849164543 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Personal Assistant/Pods-Personal Assistant-resources.sh",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Personal Assistant/Pods-Personal Assistant-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		3D1292D4949D1CE6C00B4F58 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -526,7 +555,9 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Personal Assistant/Pods-Personal Assistant-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ApiAI/ApiAI.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleAPIClientForREST/GoogleAPIClientForREST.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
@@ -536,7 +567,9 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ApiAI.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleAPIClientForREST.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
@@ -890,7 +923,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "#import <GTMSessionFetcher/GTMSessionFetcher.h>\n#import <GTMSessionFetcher/GTMSessionFetcherService.h>";
+				SWIFT_OBJC_BRIDGING_HEADER = "PersonalAssistant-Briding-Header.h";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -913,7 +947,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "#import <GTMSessionFetcher/GTMSessionFetcher.h>\n#import <GTMSessionFetcher/GTMSessionFetcherService.h>";
+				SWIFT_OBJC_BRIDGING_HEADER = "PersonalAssistant-Briding-Header.h";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

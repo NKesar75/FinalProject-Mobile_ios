@@ -12,6 +12,8 @@ target 'Personal Assistant' do
   pod 'Firebase/Messaging'
   pod 'SwiftyJSON'
   pod 'ApiAI'
+  pod 'GoogleAPIClientForREST/Calendar'
+  pod 'GoogleSignIn'
 
   target 'Personal AssistantTests' do
     inherit! :search_paths

@@ -286,12 +286,16 @@
                                                     <rect key="frame" x="10" y="298" width="155" height="40"/>
                                                     <color key="backgroundColor" red="0.57248467209999998" green="0.57258617879999996" blue="0.57247823480000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="HsJ-ko-bPN"/>
                                                         <constraint firstAttribute="height" constant="40" id="NSI-d2-TSM"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                     <state key="normal" title="Scheduling">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <segue destination="Gcn-FH-YMR" kind="show" id="3QN-tq-Smi"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9vR-yv-42a">
                                                     <rect key="frame" x="10" y="346" width="155" height="40"/>
@@ -2211,6 +2215,7 @@ Hv0r/S79O/1A/Uj9S/1Q/Vj9W/1t/XD9dQAAAAAAAAIBAAAAAAAAAFkAAAAAAAAAAAAAAAAAAP13A
         </image>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="ykz-dk-IB6"/>
         <segue reference="kcy-4g-Neh"/>
     </inferredMetricsTieBreakers>
 </document>
