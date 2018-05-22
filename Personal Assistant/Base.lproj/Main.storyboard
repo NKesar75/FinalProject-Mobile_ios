@@ -1101,7 +1101,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <state key="normal" title="Home"/>
                                 <connections>
-                                    <segue destination="edF-9K-KxK" kind="show" id="eNp-a0-Ibq"/>
+                                    <action selector="homebuttonpressed:" destination="Gcn-FH-YMR" eventType="touchUpInside" id="F5O-G0-CFZ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1116,6 +1116,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="JjL-vM-XBY"/>
                     </view>
+                    <connections>
+                        <outlet property="Homebutton" destination="Jch-7N-bkn" id="Nzk-rk-3OF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cbD-TL-NdQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2215,7 +2218,6 @@ Hv0r/S79O/1A/Uj9S/1Q/Vj9W/1t/XD9dQAAAAAAAAIBAAAAAAAAAFkAAAAAAAAAAAAAAAAAAP13A
         </image>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ykz-dk-IB6"/>
-        <segue reference="kcy-4g-Neh"/>
+        <segue reference="2ba-H6-wvk"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -19,6 +19,8 @@ class Make_a_list: UIViewController, UITableViewDataSource, UITableViewDelegate 
     
     @IBOutlet weak var tablelist: UITableView!
     
+    var activityindactor:UIActivityIndicatorView = UIActivityIndicatorView()
+    
     var listtitles:[listitems] = []
     
     static var nameoftext = "New List"
@@ -29,6 +31,13 @@ class Make_a_list: UIViewController, UITableViewDataSource, UITableViewDelegate 
         tablelist.delegate = self
         tablelist.dataSource = self
         
+        activityindactor.center = self.view.center
+        activityindactor.hidesWhenStopped = true
+        activityindactor.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
+        activityindactor.color = UIColor.black
+        view.addSubview(activityindactor)
+        self.activityindactor.startAnimating()
+        view.addSubview(activityindactor)
         
         let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(Make_a_list.longPress(longPressGestureRecognizer:)))
         self.tablelist.addGestureRecognizer(longPressRecognizer)
@@ -38,19 +47,7 @@ class Make_a_list: UIViewController, UITableViewDataSource, UITableViewDelegate 
         listtitles.removeAll()
         listtitles.append(listitems(key: "New List", value: "null"))
         
-        
-//        ref.observeSingleEvent(of: .value, with: { (snapshot) in
-//                        for child in snapshot.children {
-//                            let snap = child as! DataSnapshot
-//                            let key = snap.key
-//                            let value = snap.value
-//                            //print("key = \(key)  value = \(value!)")
-//                           // print(key)
-//                            self.listtitles.append(listitems(key: String(describing: key), value: String(describing: value!)))
-//                            print(self.listtitles.count)
-//                        }
-//                        self.tablelist.reloadData()
-//                    })
+    
         
         ref.observe(.childAdded, with: { (snapshot) -> Void in
                 let key = snapshot.key
@@ -62,6 +59,10 @@ class Make_a_list: UIViewController, UITableViewDataSource, UITableViewDelegate 
             print(snapshot)
              self.tablelist.reloadData()
         })
+        
+        UIApplication.shared.endIgnoringInteractionEvents()
+        self.activityindactor.removeFromSuperview()
+        
         
         // Listen for deleted comments in the Firebase database
         ref.observe(.childRemoved, with: { (snapshot) -> Void in

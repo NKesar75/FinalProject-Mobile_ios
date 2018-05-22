@@ -426,7 +426,7 @@
 					};
 					C4AF45F52049BE1500B9093F = {
 						CreatedOnToolsVersion = 9.1;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					C4AF46092049BE1600B9093F = {
 						CreatedOnToolsVersion = 9.1;
@@ -912,7 +912,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 279LK4S6S3;
 				INFOPLIST_FILE = "Personal Assistant/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
@@ -921,8 +921,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "PA-Personal-Assistant.Personal-Assistant";
 				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "48bd214b-2fac-4b38-86d6-5649886dba6e";
+				PROVISIONING_PROFILE_SPECIFIER = "All iPhone";
 				SWIFT_OBJC_BRIDGING_HEADER = "PersonalAssistant-Briding-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
@@ -936,7 +936,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 279LK4S6S3;
 				INFOPLIST_FILE = "Personal Assistant/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
@@ -945,8 +945,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "PA-Personal-Assistant.Personal-Assistant";
 				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "48bd214b-2fac-4b38-86d6-5649886dba6e";
+				PROVISIONING_PROFILE_SPECIFIER = "All iPhone";
 				SWIFT_OBJC_BRIDGING_HEADER = "PersonalAssistant-Briding-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;

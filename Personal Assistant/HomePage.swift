@@ -43,7 +43,7 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
  
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(HomePage.navagitiongone))
         speechRecognizer.delegate = self
         SFSpeechRecognizer.requestAuthorization { authStatus in
            
@@ -58,6 +58,9 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
                      print("no choice yet authorizion")
             }
         }
+        tap.cancelsTouchesInView = false
+        
+        view.addGestureRecognizer(tap)
         
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
@@ -85,6 +88,16 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
         sideview.layer.shadowOffset = CGSize(width: 5, height: 0)
         
         viewconstraint.constant = -175
+    }
+    
+    @objc func navagitiongone() {
+        if viewconstraint.constant > -175 {
+            UIView.animate(withDuration: 0.2, animations: {
+                self.viewconstraint.constant = -175
+                self.view.layoutIfNeeded()
+                self.menu.isHidden = false
+            })
+        }
     }
 
     @IBAction func menubuttonpressed(_ sender: UIButton) {

@@ -12,6 +12,7 @@ import GoogleSignIn
 
 class GoogleCalender: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate  {
 
+    @IBOutlet weak var Homebutton: UIButton!
     private let scopes = [kGTLRAuthScopeCalendarReadonly]
     
     private let service = GTLRCalendarService()
@@ -26,12 +27,14 @@ class GoogleCalender: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate  
         GIDSignIn.sharedInstance().uiDelegate = self
         GIDSignIn.sharedInstance().scopes = scopes
         GIDSignIn.sharedInstance().signInSilently()
+        signInButton.center = view.center
         
         // Add the sign-in button.
         view.addSubview(signInButton)
         
         // Add a UITextView to display output.
-        output.frame = view.bounds
+        output.frame = view.bounds.offsetBy(dx: view.bounds.minX, dy: Homebutton.bounds.maxY + 50)
+       // output.frame = view.bounds
         output.isEditable = false
         output.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 0)
         output.autoresizingMask = [.flexibleHeight, .flexibleWidth]
@@ -39,6 +42,11 @@ class GoogleCalender: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate  
         view.addSubview(output);
     }
     
+    @IBAction func homebuttonpressed(_ sender: UIButton) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomePage_ID") as! HomePage
+        self.present(vc, animated: true, completion: nil)
+        output.removeFromSuperview()
+    }
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!,
               withError error: Error!) {
         if let error = error {
