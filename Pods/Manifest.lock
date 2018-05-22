@@ -101,6 +101,9 @@ PODS:
   - nanopb/encode (0.3.8)
   - Protobuf (3.5.0)
   - SwiftyJSON (4.1.0)
+  - UberCore (0.10.0)
+  - UberRides (0.10.0):
+    - UberCore
 
 DEPENDENCIES:
   - ApiAI
@@ -112,6 +115,7 @@ DEPENDENCIES:
   - GoogleAPIClientForREST/Calendar
   - GoogleSignIn
   - SwiftyJSON
+  - UberRides
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -133,6 +137,8 @@ SPEC REPOS:
     - nanopb
     - Protobuf
     - SwiftyJSON
+    - UberCore
+    - UberRides
 
 SPEC CHECKSUMS:
   ApiAI: d4b49d3736f33ce6f3ef66dc33c0e0fccb23579e
@@ -153,7 +159,9 @@ SPEC CHECKSUMS:
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   Protobuf: 8a9838fba8dae3389230e1b7f8c104aa32389c03
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
+  UberCore: 512950407dadc8045a583e4a509da2750ae7dc21
+  UberRides: cc6d7c5232966e45229dda1534106b33e379dfbe
 
-PODFILE CHECKSUM: 6bde9601181343f8b831225cb1300c4861ec1027
+PODFILE CHECKSUM: 0fa1c6b3632058398d70c35e894bb79dc6e16ed5
 
 COCOAPODS: 1.5.2

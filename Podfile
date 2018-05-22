@@ -14,6 +14,7 @@ target 'Personal Assistant' do
   pod 'ApiAI'
   pod 'GoogleAPIClientForREST/Calendar'
   pod 'GoogleSignIn'
+  pod 'UberRides'
 
   target 'Personal AssistantTests' do
     inherit! :search_paths

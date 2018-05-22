@@ -236,11 +236,11 @@
                                                         <constraint firstAttribute="height" constant="40" id="PAi-Tn-92z"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                                    <state key="normal" title="Maps">
+                                                    <state key="normal" title="Maps / Uber">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <segue destination="DCX-ay-Ck8" kind="show" id="vPQ-hB-1fr"/>
+                                                        <segue destination="DCX-ay-Ck8" kind="show" id="ZZi-5l-f7P"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g2m-uv-Uus">
@@ -1074,6 +1074,7 @@
                     </view>
                     <connections>
                         <outlet property="Mapkitview" destination="uYD-o5-BA8" id="QJb-3S-VZE"/>
+                        <outlet property="homebutton" destination="g8m-3z-2dq" id="I71-dB-cTo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XaB-Cq-qvK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2218,6 +2219,7 @@ Hv0r/S79O/1A/Uj9S/1Q/Vj9W/1t/XD9dQAAAAAAAAIBAAAAAAAAAFkAAAAAAAAAAAAAAAAAAP13A
         </image>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="ZZi-5l-f7P"/>
         <segue reference="2ba-H6-wvk"/>
     </inferredMetricsTieBreakers>
 </document>

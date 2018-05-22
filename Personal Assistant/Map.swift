@@ -9,12 +9,14 @@
 import UIKit
 import CoreLocation
 import MapKit
+import UberRides
 
 class Map: UIViewController, CLLocationManagerDelegate {
     
     
     @IBOutlet weak var Mapkitview: MKMapView!
-
+    @IBOutlet weak var homebutton: UIButton!
+    
     let locationManager:CLLocationManager = CLLocationManager()
     
     override func viewDidLoad() {
@@ -27,6 +29,9 @@ class Map: UIViewController, CLLocationManagerDelegate {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         
         
+        let button = RideRequestButton()
+        button.frame.origin = CGPoint(x: 100, y: 30)
+        view.addSubview(button)
         // Do any additional setup after loading the view.
     }
     

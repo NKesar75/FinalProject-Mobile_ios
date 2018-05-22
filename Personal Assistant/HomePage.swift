@@ -44,6 +44,7 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(HomePage.navagitiongone))
+        tap.cancelsTouchesInView = true
         speechRecognizer.delegate = self
         SFSpeechRecognizer.requestAuthorization { authStatus in
            
@@ -58,7 +59,7 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
                      print("no choice yet authorizion")
             }
         }
-        tap.cancelsTouchesInView = false
+        
         
         view.addGestureRecognizer(tap)
         
