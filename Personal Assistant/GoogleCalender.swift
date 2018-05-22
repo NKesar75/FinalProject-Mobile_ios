@@ -66,7 +66,7 @@ class GoogleCalender: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate  
     }
     
     // Display the start dates and event summaries in the UITextView
-    func displayResultWithTicket(
+    @objc func displayResultWithTicket(
         ticket: GTLRServiceTicket,
         finishedWithObject response : GTLRCalendar_Events,
         error : NSError?) {
