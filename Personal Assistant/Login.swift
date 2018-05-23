@@ -29,8 +29,6 @@ class Login: UIViewController {
         tap.cancelsTouchesInView = false
         
         view.addGestureRecognizer(tap)
-        
-        
     }
     override func viewDidAppear(_ animated: Bool) {
         if Auth.auth().currentUser != nil {
