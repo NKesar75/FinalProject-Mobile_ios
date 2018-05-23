@@ -29,13 +29,16 @@ class Login: UIViewController {
         tap.cancelsTouchesInView = false
         
         view.addGestureRecognizer(tap)
+        
+        
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewDidAppear(_ animated: Bool) {
+        if Auth.auth().currentUser != nil {
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomePage_ID") as! HomePage
+            self.present(vc, animated: true, completion: nil)
+        }
+        super.viewDidAppear(animated)
     }
-    
     @IBAction func LoginLabelChanged(_ sender: Any) {
         loginlabelbool = !loginlabelbool
         
