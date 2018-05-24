@@ -37,7 +37,7 @@ class Map: UIViewController, CLLocationManagerDelegate {
         
         let image = UIImage(named: "Location") as UIImage?
         let RCbutton   = UIButton(type: UIButtonType.custom) as UIButton
-        RCbutton.frame = CGRect(origin: CGPoint(x:Mapkitview.bounds.maxX - 40, y: Mapkitview.bounds.minY + 10), size: CGSize(width: 35, height: 35))
+        RCbutton.frame = CGRect(origin: CGPoint(x:Mapkitview.bounds.maxX - 50, y: Mapkitview.bounds.maxY - 50), size: CGSize(width: 35, height: 35))
         RCbutton.setImage(image, for: .normal)
         RCbutton.backgroundColor = .clear
         RCbutton.addTarget(self, action: #selector(Map.centerMapOnUserButtonClicked), for:.touchUpInside)
