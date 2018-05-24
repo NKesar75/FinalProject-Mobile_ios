@@ -1097,6 +1097,10 @@
                             </imageView>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="uYD-o5-BA8">
                                 <rect key="frame" x="0.0" y="110" width="375" height="557"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="egT-3T-5jk" appends="YES" id="aui-Tb-Cn5"/>
+                                </connections>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g8m-3z-2dq">
                                 <rect key="frame" x="10" y="30" width="60" height="40"/>
@@ -1126,9 +1130,6 @@
                             <constraint firstItem="uYD-o5-BA8" firstAttribute="top" secondItem="g8m-3z-2dq" secondAttribute="bottom" constant="40" id="xtI-IG-ygu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="447-D8-CM2"/>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="mqr-J0-HVL" appends="YES" id="fjx-hY-S8S"/>
-                        </connections>
                     </view>
                     <connections>
                         <outlet property="Mapkitview" destination="uYD-o5-BA8" id="QJb-3S-VZE"/>
@@ -1136,7 +1137,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XaB-Cq-qvK" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="mqr-J0-HVL"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="egT-3T-5jk">
+                    <connections>
+                        <action selector="addpinforuber:" destination="DCX-ay-Ck8" id="BGT-5R-b6e"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2975" y="135"/>
         </scene>
@@ -2277,7 +2282,6 @@ Hv0r/S79O/1A/Uj9S/1Q/Vj9W/1t/XD9dQAAAAAAAAIBAAAAAAAAAFkAAAAAAAAAAAAAAAAAAP13A
         </image>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ZZi-5l-f7P"/>
         <segue reference="2ba-H6-wvk"/>
     </inferredMetricsTieBreakers>
 </document>
