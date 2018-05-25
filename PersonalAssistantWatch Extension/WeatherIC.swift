@@ -45,24 +45,21 @@ class WeatherIC: WKInterfaceController {
     }
     func loadDataintoTable()
     {
-        let testarray = ["One","Two","Three"]
          fetchperviouscall()
-        weatherTable.setNumberOfRows(testarray.count, withRowType: "WeatherRowController")
-        
-        
-        for (index, _) in testarray.enumerated() {
+        weatherTable.setNumberOfRows(weatherforcasts.count, withRowType: "WeatherRowController")
+
+        for (index, _) in weatherforcasts.enumerated()
+        {
             if let rowController = weatherTable.rowController(at: index) as? WeatherRowController
             {
-            rowController.weatherHigh.setText(testarray[index])
+                rowController.weatherHigh.setText(weatherforcasts[index].temphigh)
+                rowController.weatherLow.setText(weatherforcasts[index].templow)
+                rowController.weatherRain.setText(weatherforcasts[index].rain)
+                rowController.weatherForecast.setText(weatherforcasts[index].forcast)
+                rowController.weatherLocation.setText(weatherforcasts[index].Location)
+                rowController.weatherDate.setText(weatherforcasts[index].date)
             }
         }
-       
-//        rowController?.weatherHigh.setText(weatherforcasts[0].temphigh)
-//        rowController?.weatherLow.setText(weatherforcasts[0].templow)
-//        rowController?.weatherRain.setText(weatherforcasts[0].rain)
-//        rowController?.weatherForecast.setText(weatherforcasts[0].forcast)
-//        rowController?.weatherLocation.setText(weatherforcasts[0].Location)
-//        rowController?.weatherDate.setText(weatherforcasts[0].date)
     }
     func fetchperviouscall(){
         if HomePageIC.requestinfo != "" && HomePageIC.requestinfo != nil{
