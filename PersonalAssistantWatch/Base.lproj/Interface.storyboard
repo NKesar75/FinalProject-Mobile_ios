@@ -14,24 +14,20 @@
             <objects>
                 <controller identifier="Homepage_IC" id="BXB-gt-B20" customClass="HomePageIC" customModule="PersonalAssistantWatch_Extension">
                     <items>
-                        <label alignment="center" verticalAlignment="center" text="Label" id="OXg-bR-LKr"/>
                         <button width="1" alignment="center" verticalAlignment="center" title="Make a Request" id="9fl-I9-MVA">
                             <connections>
                                 <action selector="requestBtn" destination="BXB-gt-B20" id="ctI-wA-ntL"/>
                             </connections>
                         </button>
                     </items>
-                    <connections>
-                        <outlet property="requestLabel" destination="OXg-bR-LKr" id="JUa-NQ-Srd"/>
-                    </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="268" y="38"/>
         </scene>
-        <!--WeatherIC-->
+        <!--WeatherIdentifier-->
         <scene sceneID="mod-7D-B60">
             <objects>
-                <controller id="Q5K-OM-YpC" customClass="WeatherIC" customModule="PersonalAssistantWatch_Extension">
+                <controller identifier="WeatherIdentifier" id="Q5K-OM-YpC" customClass="WeatherIC" customModule="PersonalAssistantWatch_Extension">
                     <items>
                         <table alignment="left" id="bDQ-aV-etQ">
                             <items>

@@ -14,7 +14,6 @@ import MapKit
 
 class HomePageIC: WKInterfaceController, WCSessionDelegate, CLLocationManagerDelegate {
 
-    @IBOutlet var requestLabel: WKInterfaceLabel!
     var aResult : String?
     var session:WCSession!
     
@@ -67,12 +66,15 @@ class HomePageIC: WKInterfaceController, WCSessionDelegate, CLLocationManagerDel
         let requestinfo = message["key"]! as? String
         print(requestinfo)
         let keyofmsg = requestinfo?.split(separator: ",")
+        print(keyofmsg)
         if keyofmsg![0] != nil{
             switch(keyofmsg![0]){
             case "weather":
 //                 self.pushController(withName: "Homepage_IC", context: nil)
 //                let vc = self.storyboard?.instantiateViewController(withIdentifier: "Homepage_IC") as! HomePageIC
 //                self.present(vc, animated: true, completion: nil)
+                pushController(withName: "WeatherIdentifier", context: nil)
+                print("push")
                 break
             case "google":
                 break

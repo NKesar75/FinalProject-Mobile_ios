@@ -30,6 +30,8 @@ class WeatherIC: WKInterfaceController {
         super.awake(withContext: context)
         
         // Configure interface objects here.
+       
+        loadDataintoTable()
     }
 
     override func willActivate() {
@@ -41,46 +43,32 @@ class WeatherIC: WKInterfaceController {
         // This method is called when watch view controller is no longer visible
         super.didDeactivate()
     }
-
-    
-    
-    
-    
-    
-    //merge check
-    //lets see
-    //cassac
-    //cs
-    
-    //cssc
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    func loadDataintoTable()
+    {
+        let testarray = ["One","Two","Three"]
+         fetchperviouscall()
+        weatherTable.setNumberOfRows(testarray.count, withRowType: "WeatherRowController")
+        
+        
+        for (index, _) in testarray.enumerated() {
+            if let rowController = weatherTable.rowController(at: index) as? WeatherRowController
+            {
+            rowController.weatherHigh.setText(testarray[index])
+            }
+        }
+       
+//        rowController?.weatherHigh.setText(weatherforcasts[0].temphigh)
+//        rowController?.weatherLow.setText(weatherforcasts[0].templow)
+//        rowController?.weatherRain.setText(weatherforcasts[0].rain)
+//        rowController?.weatherForecast.setText(weatherforcasts[0].forcast)
+//        rowController?.weatherLocation.setText(weatherforcasts[0].Location)
+//        rowController?.weatherDate.setText(weatherforcasts[0].date)
+    }
     func fetchperviouscall(){
         if HomePageIC.requestinfo != "" && HomePageIC.requestinfo != nil{
             let weatherinfoarray = HomePageIC.requestinfo.split(separator: ",")
             //0 key //1 city //2 state //3 condition //4 url //5 rain //6 temp low //7 temp high //8 month/date/year //9 repeat condition
-            
+            print(weatherinfoarray)
             weatherforcasts.append(weatherinfo(Location: weatherinfoarray[1] + ", " + weatherinfoarray[2],forcast: "Forcast: " + weatherinfoarray[3], image:  String(weatherinfoarray[4]), rain: "Rain: " + weatherinfoarray[5] + "%", templow: "Low: " + weatherinfoarray[6] + "°F", temphigh: "High: " + weatherinfoarray[7] + "°F", date: String(weatherinfoarray[8])))
             
             weatherforcasts.append(weatherinfo(Location: weatherinfoarray[1] + ", " + weatherinfoarray[2],forcast: "Forcast: " + weatherinfoarray[9], image:  String(weatherinfoarray[10]), rain: "Rain: " + weatherinfoarray[11] + "%", templow: "Low: " + weatherinfoarray[12] + "°F", temphigh: "High: " + weatherinfoarray[13] + "°F", date: String(weatherinfoarray[14])))
