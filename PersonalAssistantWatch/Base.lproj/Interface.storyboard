@@ -9,10 +9,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14031"/>
     </dependencies>
     <scenes>
-        <!--Home PageIC-->
+        <!--Homepage_IC-->
         <scene sceneID="APq-ge-Ytt">
             <objects>
-                <controller id="BXB-gt-B20" customClass="HomePageIC" customModule="PersonalAssistantWatch_Extension">
+                <controller identifier="Homepage_IC" id="BXB-gt-B20" customClass="HomePageIC" customModule="PersonalAssistantWatch_Extension">
                     <items>
                         <label alignment="center" verticalAlignment="center" text="Label" id="OXg-bR-LKr"/>
                         <button width="1" alignment="center" verticalAlignment="center" title="Make a Request" id="9fl-I9-MVA">
