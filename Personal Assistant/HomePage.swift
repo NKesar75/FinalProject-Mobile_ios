@@ -445,19 +445,81 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
         DispatchQueue.main.async
             {
                 self.resuestfromwatch = message["Request"]! as? String
-                
-//                let server = Servercalls()
-//                server.apicall(city: city!, state: state!, voicecall: "Weather")
-//                print(Servercalls.serverjson)
-//
-//                DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(7), execute: {
-//
-//
-//                    print(Servercalls.serverjson)
-//
-//
-                session.sendMessage(["key":"Weather"], replyHandler: nil, errorHandler: nil)
-//                })
+                //0 city
+                //1 state
+                //3 request
+                let splitstring = self.resuestfromwatch.split(separator: ",")
+                let server = Servercalls()
+                server.apicall(city: String(splitstring[0]), state: String(splitstring[1]), voicecall: String(splitstring[2]))
+                var sendtowatch: String = ""
+                print(Servercalls.serverjson)
+                DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(7), execute: {
+                    
+                    if Servercalls.serverjson["key"].string != nil {
+                        switch (Servercalls.serverjson["key"].string!){
+                        case "weather":
+                            
+                            //0 key //1 city //2 state //3 condition //4 url //5 rain //6 temp low //7 temp high //8 month/date/year //9 repeat condition
+                            
+                       sendtowatch = Servercalls.serverjson["key"].string! + "," + Servercalls.serverjson["city"].string! + "," + Servercalls.serverjson["state"].string! + "," + Servercalls.serverjson["results"][0]["condition"].string! + "," +  Servercalls.serverjson["results"][0]["url"].string! + "," + String(Servercalls.serverjson["results"][0]["precip"].double!) + "%" + "," + Servercalls.serverjson["results"][0]["temp_lowf"].string! + "°F" + "," + Servercalls.serverjson["results"][0]["temp_highf"].string! + "°F" + "," + String(Servercalls.serverjson["results"][0]["month"].int!) + "/" + String(Servercalls.serverjson["results"][0]["day"].int!) + "/" + String(Servercalls.serverjson["results"][0]["year"].int!)
+                        
+                      sendtowatch += "," + Servercalls.serverjson["results"][1]["condition"].string! + "," +  Servercalls.serverjson["results"][1]["url"].string! + "," + String(Servercalls.serverjson["results"][1]["precip"].double!) + "%" + "," + Servercalls.serverjson["results"][1]["temp_lowf"].string! + "°F" + "," + Servercalls.serverjson["results"][1]["temp_highf"].string! + "°F" + "," + String(Servercalls.serverjson["results"][1]["month"].int!) + "/" + String(Servercalls.serverjson["results"][1]["day"].int!) + "/" + String(Servercalls.serverjson["results"][1]["year"].int!)
+                            
+                            
+                     sendtowatch += "," + Servercalls.serverjson["results"][2]["condition"].string! + "," +  Servercalls.serverjson["results"][2]["url"].string! + "," + String(Servercalls.serverjson["results"][2]["precip"].double!) + "%" + "," + Servercalls.serverjson["results"][2]["temp_lowf"].string! + "°F" + "," + Servercalls.serverjson["results"][2]["temp_highf"].string! + "°F" + "," + String(Servercalls.serverjson["results"][2]["month"].int!) + "/" + String(Servercalls.serverjson["results"][2]["day"].int!) + "/" + String(Servercalls.serverjson["results"][2]["year"].int!)
+                            
+                            
+                      sendtowatch +=  "," + Servercalls.serverjson["results"][3]["condition"].string! + "," +  Servercalls.serverjson["results"][3]["url"].string! + "," + String(Servercalls.serverjson["results"][3]["precip"].double!) + "%" + "," + Servercalls.serverjson["results"][3]["temp_lowf"].string! + "°F" + "," + Servercalls.serverjson["results"][3]["temp_highf"].string! + "°F" + "," + String(Servercalls.serverjson["results"][3]["month"].int!) + "/" + String(Servercalls.serverjson["results"][3]["day"].int!) + "/" + String(Servercalls.serverjson["results"][3]["year"].int!)
+                            
+                            
+                    sendtowatch += "," + Servercalls.serverjson["results"][4]["condition"].string! + "," +  Servercalls.serverjson["results"][4]["url"].string! + "," + String(Servercalls.serverjson["results"][4]["precip"].double!) + "%" + "," + Servercalls.serverjson["results"][4]["temp_lowf"].string! + "°F" + "," + Servercalls.serverjson["results"][4]["temp_highf"].string! + "°F" + "," + String(Servercalls.serverjson["results"][4]["month"].int!) + "/" + String(Servercalls.serverjson["results"][4]["day"].int!) + "/" + String(Servercalls.serverjson["results"][4]["year"].int!)
+                            
+                            
+                    sendtowatch += "," + Servercalls.serverjson["results"][5]["condition"].string! + "," +  Servercalls.serverjson["results"][5]["url"].string! + "," + String(Servercalls.serverjson["results"][5]["precip"].double!) + "%" + "," + Servercalls.serverjson["results"][5]["temp_lowf"].string! + "°F" + "," + Servercalls.serverjson["results"][5]["temp_highf"].string! + "°F" + "," + String(Servercalls.serverjson["results"][5]["month"].int!) + "/" + String(Servercalls.serverjson["results"][5]["day"].int!) + "/" + String(Servercalls.serverjson["results"][5]["year"].int!)
+                            
+                            
+                    sendtowatch += "," + Servercalls.serverjson["results"][6]["condition"].string! + "," +  Servercalls.serverjson["results"][6]["url"].string! + "," + String(Servercalls.serverjson["results"][6]["precip"].double!) + "%" + "," + Servercalls.serverjson["results"][6]["temp_lowf"].string! + "°F" + "," + Servercalls.serverjson["results"][6]["temp_highf"].string! + "°F" + "," + String(Servercalls.serverjson["results"][6]["month"].int!) + "/" + String(Servercalls.serverjson["results"][6]["day"].int!) + "/" + String(Servercalls.serverjson["results"][6]["year"].int!)
+                            
+                        case "youtube":
+                            sendtowatch = "youtube"
+                            break
+                           
+                        case "google":
+                            
+                            // 0 key
+                            // 1 title
+                            // 2 snippet
+                            // 3 url
+                            
+                       sendtowatch = Servercalls.serverjson["key"].string! + "," +  Servercalls.serverjson["results"][0]["title"].string! + "," + Servercalls.serverjson["results"][0]["snippet"].string! + "," + Servercalls.serverjson["results"][0]["url"].string!
+                            
+                      sendtowatch += "," + Servercalls.serverjson["results"][1]["title"].string! + "," + Servercalls.serverjson["results"][1]["snippet"].string! + "," +  Servercalls.serverjson["results"][1]["url"].string!
+                            
+                       sendtowatch += "," + Servercalls.serverjson["results"][2]["title"].string! + "," + Servercalls.serverjson["results"][2]["snippet"].string! + "," +  Servercalls.serverjson["results"][2]["url"].string!
+                       
+                       sendtowatch += "," + Servercalls.serverjson["results"][3]["title"].string! + "," +  Servercalls.serverjson["results"][3]["snippet"].string! + "," +  Servercalls.serverjson["results"][3]["url"].string!
+                            
+                       sendtowatch += "," + Servercalls.serverjson["results"][4]["title"].string! + "," +  Servercalls.serverjson["results"][4]["snippet"].string! + "," +  Servercalls.serverjson["results"][4]["url"].string!
+                            
+                       sendtowatch += "," + Servercalls.serverjson["results"][5]["title"].string! + "," +  Servercalls.serverjson["results"][5]["snippet"].string! + "," +  Servercalls.serverjson["results"][5]["url"].string!
+                            
+                       sendtowatch += "," + Servercalls.serverjson["results"][6]["title"].string! + "," +  Servercalls.serverjson["results"][6]["snippet"].string! + "," +  Servercalls.serverjson["results"][6]["url"].string!
+                    
+                       sendtowatch += "," + Servercalls.serverjson["results"][7]["title"].string! + "," +  Servercalls.serverjson["results"][7]["snippet"].string! + "," +  Servercalls.serverjson["results"][7]["url"].string!
+                           
+                       sendtowatch += "," + Servercalls.serverjson["results"][8]["title"].string! + "," +  Servercalls.serverjson["results"][8]["snippet"].string! + "," +  Servercalls.serverjson["results"][8]["url"].string!
+                            
+                       sendtowatch += "," + Servercalls.serverjson["results"][9]["title"].string! + "," +  Servercalls.serverjson["results"][9]["snippet"].string! + "," +  Servercalls.serverjson["results"][9]["url"].string!
+                            
+                        default: sendtowatch = "error"
+                        }
+                    }else{
+                        sendtowatch = "error"
+                    }
+                    
+                      session.sendMessage(["key": sendtowatch], replyHandler: nil, errorHandler: nil)
+                })
+              
         }
     }
     
