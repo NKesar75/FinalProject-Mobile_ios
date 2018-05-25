@@ -444,13 +444,11 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
         //self.msgLabel.text = message["wTp"]! as? String
         DispatchQueue.main.async
             {
+                //request
                 self.resuestfromwatch = message["Request"]! as? String
-                //0 city
-                //1 state
-                //3 request
-                let splitstring = self.resuestfromwatch.split(separator: ",")
+                
                 let server = Servercalls()
-                server.apicall(city: String(splitstring[0]), state: String(splitstring[1]), voicecall: String(splitstring[2]))
+                server.apicall(city: self.city!, state: self.state!, voicecall: self.resuestfromwatch)
                 var sendtowatch: String = ""
                 print(Servercalls.serverjson)
                 DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(7), execute: {
