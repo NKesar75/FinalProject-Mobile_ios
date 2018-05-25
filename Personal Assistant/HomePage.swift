@@ -13,8 +13,9 @@ import CoreLocation
 import MapKit
 import Speech
 import SwiftyJSON
+import WatchConnectivity
 
-class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate, CLLocationManagerDelegate, SFSpeechRecognizerDelegate{
+class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate, CLLocationManagerDelegate, SFSpeechRecognizerDelegate, WCSessionDelegate{
     
     @IBOutlet weak var menu: UIButton!
     @IBOutlet weak var voice_button: UIButton!
@@ -40,6 +41,10 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
     var activityindactor:UIActivityIndicatorView = UIActivityIndicatorView()
     
     var stringtoserver: String?
+    
+    //WatchConnectivity session variable
+    var session: WCSession!
+    var resuestfromwatch: String!
  
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -89,6 +94,13 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
         sideview.layer.shadowOffset = CGSize(width: 5, height: 0)
         
         viewconstraint.constant = -175
+        
+        //WatchConnectivity Session created
+        if(WCSession.isSupported()){
+            self.session = WCSession.default
+            self.session.delegate = self
+            self.session.activate()
+        }
     }
     
     @objc func navagitiongone() {
@@ -426,4 +438,39 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
                         print(error)
                     }
             }
+    func session(_ session: WCSession, didReceiveMessage message: [String : Any])
+    {
+        //recieve messages from watch
+        //self.msgLabel.text = message["wTp"]! as? String
+        DispatchQueue.main.async
+            {
+                self.resuestfromwatch = message["Request"]! as? String
+                
+//                let server = Servercalls()
+//                server.apicall(city: city!, state: state!, voicecall: "Weather")
+//                print(Servercalls.serverjson)
+//
+//                DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(7), execute: {
+//
+//
+//                    print(Servercalls.serverjson)
+//
+//
+                session.sendMessage(["key":"Weather"], replyHandler: nil, errorHandler: nil)
+//                })
+        }
+    }
+    
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        
+    }
+    
+    func sessionDidBecomeInactive(_ session: WCSession) {
+        
+    }
+    
+    func sessionDidDeactivate(_ session: WCSession) {
+        
+    }
+    
         }

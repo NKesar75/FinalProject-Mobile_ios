@@ -7,21 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		13DFF3D0A13E7B88161EA390 /* Pods_Personal_AssistantTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 968D9A34FC7DEC2F9D0359E7 /* Pods_Personal_AssistantTests.framework */; };
-		29546D0F0372945425279372 /* Pods_Personal_Assistant.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21ECC3C9F0E1460F69AABAC8 /* Pods_Personal_Assistant.framework */; };
-		AF3B948E1E686E66BA64983A /* Pods_Personal_AssistantUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA0109070B794EE417ED35F4 /* Pods_Personal_AssistantUITests.framework */; };
+		08038B1FE6CFF67B792D5804 /* Pods_Personal_AssistantTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32C329A034FBB387AC396CF7 /* Pods_Personal_AssistantTests.framework */; };
+		5790A9B3B41C83356763F35B /* Pods_Personal_Assistant.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFA95829EA2FE3F559A084CD /* Pods_Personal_Assistant.framework */; };
 		C4158DAC20A494850080AC0E /* PopalertDelete.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4158DAB20A494850080AC0E /* PopalertDelete.swift */; };
 		C4254B04207E97F500807AF4 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4254B03207E97F500807AF4 /* Weather.swift */; };
 		C4254B062084E4E500807AF4 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4254B052084E4E500807AF4 /* Map.swift */; };
-		C4270B60209A4866009DC4DB /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4270B5E209A4866009DC4DB /* Interface.storyboard */; };
-		C4270B62209A4866009DC4DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4270B61209A4866009DC4DB /* Assets.xcassets */; };
-		C4270B69209A4866009DC4DB /* Personal-Assistant-Watch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C4270B68209A4866009DC4DB /* Personal-Assistant-Watch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		C4270B6E209A4866009DC4DB /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4270B6D209A4866009DC4DB /* InterfaceController.swift */; };
-		C4270B70209A4866009DC4DB /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4270B6F209A4866009DC4DB /* ExtensionDelegate.swift */; };
-		C4270B74209A4866009DC4DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4270B73209A4866009DC4DB /* Assets.xcassets */; };
 		C42BF3422097664300E02910 /* WeatherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42BF3412097664300E02910 /* WeatherTableViewCell.swift */; };
 		C45426E0208781550052B531 /* Youtube.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45426DF208781550052B531 /* Youtube.swift */; };
-		C46A259A20B451D4007A944F /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = C46A259920B451D4007A944F /* credentials.plist */; };
 		C46A259C20B453D2007A944F /* GoogleCalender.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46A259B20B453D2007A944F /* GoogleCalender.swift */; };
 		C46A259D20B45C7B007A944F /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C41A045420AF26F800D49E4E /* SwiftyJSON.framework */; };
 		C46A25A120B45FFF007A944F /* GoogleAPIClientForREST.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C46A25A020B45FFF007A944F /* GoogleAPIClientForREST.framework */; };
@@ -40,21 +32,19 @@
 		C4CAD9592049E3A7007CC517 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CAD9582049E3A7007CC517 /* AlertController.swift */; };
 		C4DABCD0208F780700ED146C /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DABCCF208F780700ED146C /* Search.swift */; };
 		C4DABCD2208FA42500ED146C /* Servercalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DABCD1208FA42500ED146C /* Servercalls.swift */; };
+		D2990C9D3AE0E834CCF9BB5A /* Pods_Personal_AssistantUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2352F41B6155460C5B86AC0 /* Pods_Personal_AssistantUITests.framework */; };
+		ED2C713720B72D7100B22B44 /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED2C713620B72D7100B22B44 /* credentials.plist */; };
+		ED7492B420B73BB900BDB592 /* HomePageIC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7492B320B73BB900BDB592 /* HomePageIC.swift */; };
 		EDCE033920A1EF8700DD7F91 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EDCE033820A1EF8700DD7F91 /* GoogleService-Info.plist */; };
-		EDCE033A20A1EF8700DD7F91 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EDCE033820A1EF8700DD7F91 /* GoogleService-Info.plist */; };
-		EDCE033B20A1EF8700DD7F91 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EDCE033820A1EF8700DD7F91 /* GoogleService-Info.plist */; };
-		EDCE03A720A4845800DD7F91 /* WeatherRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCE03A620A4845800DD7F91 /* WeatherRowController.swift */; };
-		EDCE03A920A486E100DD7F91 /* Weather_IC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCE03A820A486E100DD7F91 /* Weather_IC.swift */; };
+		EDED64A520B731060050C690 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDED64A320B731060050C690 /* Interface.storyboard */; };
+		EDED64A720B731070050C690 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDED64A620B731070050C690 /* Assets.xcassets */; };
+		EDED64AE20B731070050C690 /* PersonalAssistantWatch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = EDED64AD20B731070050C690 /* PersonalAssistantWatch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		EDED64B520B731070050C690 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDED64B420B731070050C690 /* ExtensionDelegate.swift */; };
+		EDED64B720B731070050C690 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDED64B620B731070050C690 /* Assets.xcassets */; };
+		EDED64BB20B731070050C690 /* PersonalAssistantWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = EDED64A120B731060050C690 /* PersonalAssistantWatch.app */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		C4270B6A209A4866009DC4DB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C4AF45EE2049BE1500B9093F /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = C4270B67209A4866009DC4DB;
-			remoteInfo = "Personal-Assistant-Watch Extension";
-		};
 		C4AF460B2049BE1600B9093F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C4AF45EE2049BE1500B9093F /* Project object */;
@@ -69,47 +59,58 @@
 			remoteGlobalIDString = C4AF45F52049BE1500B9093F;
 			remoteInfo = "Personal Assistant";
 		};
+		EDED64AF20B731070050C690 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C4AF45EE2049BE1500B9093F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EDED64AC20B731070050C690;
+			remoteInfo = "PersonalAssistantWatch Extension";
+		};
+		EDED64B920B731070050C690 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C4AF45EE2049BE1500B9093F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EDED64A020B731060050C690;
+			remoteInfo = PersonalAssistantWatch;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		C4270B7D209A4866009DC4DB /* Embed App Extensions */ = {
+		EDED64BF20B731070050C690 /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				C4270B69209A4866009DC4DB /* Personal-Assistant-Watch Extension.appex in Embed App Extensions */,
+				EDED64AE20B731070050C690 /* PersonalAssistantWatch Extension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EDED64C320B731070050C690 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				EDED64BB20B731070050C690 /* PersonalAssistantWatch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		21ECC3C9F0E1460F69AABAC8 /* Pods_Personal_Assistant.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Personal_Assistant.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		41984FF137B84C707B433DB9 /* Pods-Personal AssistantTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Personal AssistantTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Personal AssistantTests/Pods-Personal AssistantTests.release.xcconfig"; sourceTree = "<group>"; };
-		4705133311C3B96F78311A13 /* Pods-Personal AssistantUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Personal AssistantUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Personal AssistantUITests/Pods-Personal AssistantUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		4A2CF26720225A7DA2E3266D /* Pods-Personal AssistantTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Personal AssistantTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Personal AssistantTests/Pods-Personal AssistantTests.debug.xcconfig"; sourceTree = "<group>"; };
-		801C98FC1E72DCCB0034E127 /* Pods-Personal Assistant.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Personal Assistant.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Personal Assistant/Pods-Personal Assistant.debug.xcconfig"; sourceTree = "<group>"; };
-		968D9A34FC7DEC2F9D0359E7 /* Pods_Personal_AssistantTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Personal_AssistantTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		AD09A2C2331360BAE087EBCA /* Pods-Personal AssistantUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Personal AssistantUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Personal AssistantUITests/Pods-Personal AssistantUITests.release.xcconfig"; sourceTree = "<group>"; };
+		17E4DA50188C2D1A92978C74 /* Pods-Personal Assistant.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Personal Assistant.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Personal Assistant/Pods-Personal Assistant.debug.xcconfig"; sourceTree = "<group>"; };
+		32C329A034FBB387AC396CF7 /* Pods_Personal_AssistantTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Personal_AssistantTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		892D6BBDDE2F098566B04DC1 /* Pods-Personal AssistantTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Personal AssistantTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Personal AssistantTests/Pods-Personal AssistantTests.debug.xcconfig"; sourceTree = "<group>"; };
+		9D1946BCFB1F2E44EC7976CA /* Pods-Personal AssistantUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Personal AssistantUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Personal AssistantUITests/Pods-Personal AssistantUITests.release.xcconfig"; sourceTree = "<group>"; };
 		C4158DAB20A494850080AC0E /* PopalertDelete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopalertDelete.swift; sourceTree = "<group>"; };
 		C41A045420AF26F800D49E4E /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4254B03207E97F500807AF4 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		C4254B052084E4E500807AF4 /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
-		C4270B5C209A4866009DC4DB /* Personal-Assistant-Watch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Personal-Assistant-Watch.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		C4270B5F209A4866009DC4DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
-		C4270B61209A4866009DC4DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		C4270B63209A4866009DC4DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C4270B68209A4866009DC4DB /* Personal-Assistant-Watch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Personal-Assistant-Watch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		C4270B6D209A4866009DC4DB /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
-		C4270B6F209A4866009DC4DB /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
-		C4270B73209A4866009DC4DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		C4270B75209A4866009DC4DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C4270B76209A4866009DC4DB /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		C42BF3412097664300E02910 /* WeatherTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherTableViewCell.swift; sourceTree = "<group>"; };
 		C45426DF208781550052B531 /* Youtube.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Youtube.swift; sourceTree = "<group>"; };
-		C46A259920B451D4007A944F /* credentials.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = credentials.plist; path = ../../../Downloads/credentials.plist; sourceTree = "<group>"; };
 		C46A259B20B453D2007A944F /* GoogleCalender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleCalender.swift; sourceTree = "<group>"; };
 		C46A259E20B45E93007A944F /* GTLRService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = GTLRService.m; path = Pods/GoogleAPIClientForREST/Source/Objects/GTLRService.m; sourceTree = "<group>"; };
 		C46A25A020B45FFF007A944F /* GoogleAPIClientForREST.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GoogleAPIClientForREST.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -135,35 +136,32 @@
 		C4CAD9582049E3A7007CC517 /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		C4DABCCF208F780700ED146C /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		C4DABCD1208FA42500ED146C /* Servercalls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Servercalls.swift; sourceTree = "<group>"; };
-		EA0109070B794EE417ED35F4 /* Pods_Personal_AssistantUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Personal_AssistantUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C582FD434982437ABFB991CE /* Pods-Personal AssistantTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Personal AssistantTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Personal AssistantTests/Pods-Personal AssistantTests.release.xcconfig"; sourceTree = "<group>"; };
+		CFA95829EA2FE3F559A084CD /* Pods_Personal_Assistant.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Personal_Assistant.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E3F04C50D7A4936E74FE524F /* Pods-Personal Assistant.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Personal Assistant.release.xcconfig"; path = "Pods/Target Support Files/Pods-Personal Assistant/Pods-Personal Assistant.release.xcconfig"; sourceTree = "<group>"; };
+		ED2C713620B72D7100B22B44 /* credentials.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = credentials.plist; sourceTree = "<group>"; };
+		ED7492B320B73BB900BDB592 /* HomePageIC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageIC.swift; sourceTree = "<group>"; };
 		EDCE033820A1EF8700DD7F91 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		EDCE03A620A4845800DD7F91 /* WeatherRowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRowController.swift; sourceTree = "<group>"; };
-		EDCE03A820A486E100DD7F91 /* Weather_IC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather_IC.swift; sourceTree = "<group>"; };
-		FC3A690C484741C4B79839E6 /* Pods-Personal Assistant.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Personal Assistant.release.xcconfig"; path = "Pods/Target Support Files/Pods-Personal Assistant/Pods-Personal Assistant.release.xcconfig"; sourceTree = "<group>"; };
+		EDED64A120B731060050C690 /* PersonalAssistantWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PersonalAssistantWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EDED64A420B731060050C690 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		EDED64A620B731070050C690 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EDED64A820B731070050C690 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EDED64AD20B731070050C690 /* PersonalAssistantWatch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "PersonalAssistantWatch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EDED64B420B731070050C690 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		EDED64B620B731070050C690 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EDED64B820B731070050C690 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F2352F41B6155460C5B86AC0 /* Pods_Personal_AssistantUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Personal_AssistantUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F27E7416EF6E93F998114477 /* Pods-Personal AssistantUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Personal AssistantUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Personal AssistantUITests/Pods-Personal AssistantUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		BC26B1843794EA01139584D9 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C4270B65209A4866009DC4DB /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		C4AF45F32049BE1500B9093F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				C46A25A120B45FFF007A944F /* GoogleAPIClientForREST.framework in Frameworks */,
 				C46A259D20B45C7B007A944F /* SwiftyJSON.framework in Frameworks */,
-				29546D0F0372945425279372 /* Pods_Personal_Assistant.framework in Frameworks */,
+				5790A9B3B41C83356763F35B /* Pods_Personal_Assistant.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -171,7 +169,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				13DFF3D0A13E7B88161EA390 /* Pods_Personal_AssistantTests.framework in Frameworks */,
+				08038B1FE6CFF67B792D5804 /* Pods_Personal_AssistantTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -179,48 +177,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF3B948E1E686E66BA64983A /* Pods_Personal_AssistantUITests.framework in Frameworks */,
+				D2990C9D3AE0E834CCF9BB5A /* Pods_Personal_AssistantUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EDED64AA20B731070050C690 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9B6A6B274E6F698110C26294 /* Pods */ = {
+		1C619DCBC11E9B52E78806F7 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				801C98FC1E72DCCB0034E127 /* Pods-Personal Assistant.debug.xcconfig */,
-				FC3A690C484741C4B79839E6 /* Pods-Personal Assistant.release.xcconfig */,
-				4A2CF26720225A7DA2E3266D /* Pods-Personal AssistantTests.debug.xcconfig */,
-				41984FF137B84C707B433DB9 /* Pods-Personal AssistantTests.release.xcconfig */,
-				4705133311C3B96F78311A13 /* Pods-Personal AssistantUITests.debug.xcconfig */,
-				AD09A2C2331360BAE087EBCA /* Pods-Personal AssistantUITests.release.xcconfig */,
+				17E4DA50188C2D1A92978C74 /* Pods-Personal Assistant.debug.xcconfig */,
+				E3F04C50D7A4936E74FE524F /* Pods-Personal Assistant.release.xcconfig */,
+				892D6BBDDE2F098566B04DC1 /* Pods-Personal AssistantTests.debug.xcconfig */,
+				C582FD434982437ABFB991CE /* Pods-Personal AssistantTests.release.xcconfig */,
+				F27E7416EF6E93F998114477 /* Pods-Personal AssistantUITests.debug.xcconfig */,
+				9D1946BCFB1F2E44EC7976CA /* Pods-Personal AssistantUITests.release.xcconfig */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		C4270B5D209A4866009DC4DB /* Personal-Assistant-Watch */ = {
-			isa = PBXGroup;
-			children = (
-				C4270B5E209A4866009DC4DB /* Interface.storyboard */,
-				C4270B61209A4866009DC4DB /* Assets.xcassets */,
-				C4270B63209A4866009DC4DB /* Info.plist */,
-			);
-			path = "Personal-Assistant-Watch";
-			sourceTree = "<group>";
-		};
-		C4270B6C209A4866009DC4DB /* Personal-Assistant-Watch Extension */ = {
-			isa = PBXGroup;
-			children = (
-				C4270B6D209A4866009DC4DB /* InterfaceController.swift */,
-				C4270B6F209A4866009DC4DB /* ExtensionDelegate.swift */,
-				C4270B73209A4866009DC4DB /* Assets.xcassets */,
-				C4270B75209A4866009DC4DB /* Info.plist */,
-				C4270B76209A4866009DC4DB /* PushNotificationPayload.apns */,
-				EDCE03A620A4845800DD7F91 /* WeatherRowController.swift */,
-				EDCE03A820A486E100DD7F91 /* Weather_IC.swift */,
-			);
-			path = "Personal-Assistant-Watch Extension";
 			sourceTree = "<group>";
 		};
 		C4AF45ED2049BE1500B9093F = {
@@ -230,11 +211,11 @@
 				C4AF45F82049BE1500B9093F /* Personal Assistant */,
 				C4AF460D2049BE1600B9093F /* Personal AssistantTests */,
 				C4AF46182049BE1600B9093F /* Personal AssistantUITests */,
-				C4270B5D209A4866009DC4DB /* Personal-Assistant-Watch */,
-				C4270B6C209A4866009DC4DB /* Personal-Assistant-Watch Extension */,
+				EDED64A220B731060050C690 /* PersonalAssistantWatch */,
+				EDED64B120B731070050C690 /* PersonalAssistantWatch Extension */,
 				C4AF45F72049BE1500B9093F /* Products */,
 				DE94A9D74DBF0EB5966F40D1 /* Frameworks */,
-				9B6A6B274E6F698110C26294 /* Pods */,
+				1C619DCBC11E9B52E78806F7 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -244,8 +225,8 @@
 				C4AF45F62049BE1500B9093F /* Personal Assistant.app */,
 				C4AF460A2049BE1600B9093F /* Personal AssistantTests.xctest */,
 				C4AF46152049BE1600B9093F /* Personal AssistantUITests.xctest */,
-				C4270B5C209A4866009DC4DB /* Personal-Assistant-Watch.app */,
-				C4270B68209A4866009DC4DB /* Personal-Assistant-Watch Extension.appex */,
+				EDED64A120B731060050C690 /* PersonalAssistantWatch.app */,
+				EDED64AD20B731070050C690 /* PersonalAssistantWatch Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -261,7 +242,7 @@
 				C4AF46022049BE1600B9093F /* LaunchScreen.storyboard */,
 				C4AF46052049BE1600B9093F /* Info.plist */,
 				EDCE033820A1EF8700DD7F91 /* GoogleService-Info.plist */,
-				C46A259920B451D4007A944F /* credentials.plist */,
+				ED2C713620B72D7100B22B44 /* credentials.plist */,
 				C4AF46292049C05E00B9093F /* Login.swift */,
 				C4AF462D2049C2F700B9093F /* HomePage.swift */,
 				C4254B03207E97F500807AF4 /* Weather.swift */,
@@ -303,65 +284,53 @@
 				C46A25A020B45FFF007A944F /* GoogleAPIClientForREST.framework */,
 				C46A259E20B45E93007A944F /* GTLRService.m */,
 				C41A045420AF26F800D49E4E /* SwiftyJSON.framework */,
-				21ECC3C9F0E1460F69AABAC8 /* Pods_Personal_Assistant.framework */,
-				968D9A34FC7DEC2F9D0359E7 /* Pods_Personal_AssistantTests.framework */,
-				EA0109070B794EE417ED35F4 /* Pods_Personal_AssistantUITests.framework */,
+				CFA95829EA2FE3F559A084CD /* Pods_Personal_Assistant.framework */,
+				32C329A034FBB387AC396CF7 /* Pods_Personal_AssistantTests.framework */,
+				F2352F41B6155460C5B86AC0 /* Pods_Personal_AssistantUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EDED64A220B731060050C690 /* PersonalAssistantWatch */ = {
+			isa = PBXGroup;
+			children = (
+				EDED64A320B731060050C690 /* Interface.storyboard */,
+				EDED64A620B731070050C690 /* Assets.xcassets */,
+				EDED64A820B731070050C690 /* Info.plist */,
+			);
+			path = PersonalAssistantWatch;
+			sourceTree = "<group>";
+		};
+		EDED64B120B731070050C690 /* PersonalAssistantWatch Extension */ = {
+			isa = PBXGroup;
+			children = (
+				EDED64B420B731070050C690 /* ExtensionDelegate.swift */,
+				ED7492B320B73BB900BDB592 /* HomePageIC.swift */,
+				EDED64B620B731070050C690 /* Assets.xcassets */,
+				EDED64B820B731070050C690 /* Info.plist */,
+			);
+			path = "PersonalAssistantWatch Extension";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C4270B5B209A4866009DC4DB /* Personal-Assistant-Watch */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = C4270B7E209A4866009DC4DB /* Build configuration list for PBXNativeTarget "Personal-Assistant-Watch" */;
-			buildPhases = (
-				C4270B5A209A4866009DC4DB /* Resources */,
-				C4270B7D209A4866009DC4DB /* Embed App Extensions */,
-				BC26B1843794EA01139584D9 /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				C4270B6B209A4866009DC4DB /* PBXTargetDependency */,
-			);
-			name = "Personal-Assistant-Watch";
-			productName = "Personal-Assistant-Watch";
-			productReference = C4270B5C209A4866009DC4DB /* Personal-Assistant-Watch.app */;
-			productType = "com.apple.product-type.application.watchapp2";
-		};
-		C4270B67209A4866009DC4DB /* Personal-Assistant-Watch Extension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = C4270B7A209A4866009DC4DB /* Build configuration list for PBXNativeTarget "Personal-Assistant-Watch Extension" */;
-			buildPhases = (
-				C4270B64209A4866009DC4DB /* Sources */,
-				C4270B65209A4866009DC4DB /* Frameworks */,
-				C4270B66209A4866009DC4DB /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Personal-Assistant-Watch Extension";
-			productName = "Personal-Assistant-Watch Extension";
-			productReference = C4270B68209A4866009DC4DB /* Personal-Assistant-Watch Extension.appex */;
-			productType = "com.apple.product-type.watchkit2-extension";
-		};
 		C4AF45F52049BE1500B9093F /* Personal Assistant */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C4AF461E2049BE1600B9093F /* Build configuration list for PBXNativeTarget "Personal Assistant" */;
 			buildPhases = (
-				5E7E35ED3571B05FE9B5226E /* [CP] Check Pods Manifest.lock */,
+				0D28C6CBD309ADB1DC90069F /* [CP] Check Pods Manifest.lock */,
 				C4AF45F22049BE1500B9093F /* Sources */,
 				C4AF45F32049BE1500B9093F /* Frameworks */,
 				C4AF45F42049BE1500B9093F /* Resources */,
-				3D1292D4949D1CE6C00B4F58 /* [CP] Embed Pods Frameworks */,
-				1B8B8741FE230A8849164543 /* [CP] Copy Pods Resources */,
+				62267F982F6BD7AE457A5AAB /* [CP] Embed Pods Frameworks */,
+				59347DD3882083AF2750C38C /* [CP] Copy Pods Resources */,
+				EDED64C320B731070050C690 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				EDED64BA20B731070050C690 /* PBXTargetDependency */,
 			);
 			name = "Personal Assistant";
 			productName = "Personal Assistant";
@@ -372,7 +341,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C4AF46212049BE1600B9093F /* Build configuration list for PBXNativeTarget "Personal AssistantTests" */;
 			buildPhases = (
-				07308A2AAB22601F32571FEF /* [CP] Check Pods Manifest.lock */,
+				C4E4979FFDC09B81476B934A /* [CP] Check Pods Manifest.lock */,
 				C4AF46062049BE1600B9093F /* Sources */,
 				C4AF46072049BE1600B9093F /* Frameworks */,
 				C4AF46082049BE1600B9093F /* Resources */,
@@ -391,7 +360,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C4AF46242049BE1600B9093F /* Build configuration list for PBXNativeTarget "Personal AssistantUITests" */;
 			buildPhases = (
-				C1E781E13F5DF038A1E7E53F /* [CP] Check Pods Manifest.lock */,
+				060E23B583EFB63296236080 /* [CP] Check Pods Manifest.lock */,
 				C4AF46112049BE1600B9093F /* Sources */,
 				C4AF46122049BE1600B9093F /* Frameworks */,
 				C4AF46132049BE1600B9093F /* Resources */,
@@ -406,24 +375,50 @@
 			productReference = C4AF46152049BE1600B9093F /* Personal AssistantUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		EDED64A020B731060050C690 /* PersonalAssistantWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EDED64C020B731070050C690 /* Build configuration list for PBXNativeTarget "PersonalAssistantWatch" */;
+			buildPhases = (
+				EDED649F20B731060050C690 /* Resources */,
+				EDED64BF20B731070050C690 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EDED64B020B731070050C690 /* PBXTargetDependency */,
+			);
+			name = PersonalAssistantWatch;
+			productName = PersonalAssistantWatch;
+			productReference = EDED64A120B731060050C690 /* PersonalAssistantWatch.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		EDED64AC20B731070050C690 /* PersonalAssistantWatch Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EDED64BC20B731070050C690 /* Build configuration list for PBXNativeTarget "PersonalAssistantWatch Extension" */;
+			buildPhases = (
+				EDED64A920B731070050C690 /* Sources */,
+				EDED64AA20B731070050C690 /* Frameworks */,
+				EDED64AB20B731070050C690 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "PersonalAssistantWatch Extension";
+			productName = "PersonalAssistantWatch Extension";
+			productReference = EDED64AD20B731070050C690 /* PersonalAssistantWatch Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		C4AF45EE2049BE1500B9093F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0920;
+				LastSwiftUpdateCheck = 0930;
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Final-Project";
 				TargetAttributes = {
-					C4270B5B209A4866009DC4DB = {
-						CreatedOnToolsVersion = 9.2;
-						ProvisioningStyle = Automatic;
-					};
-					C4270B67209A4866009DC4DB = {
-						CreatedOnToolsVersion = 9.2;
-						ProvisioningStyle = Automatic;
-					};
 					C4AF45F52049BE1500B9093F = {
 						CreatedOnToolsVersion = 9.1;
 						ProvisioningStyle = Automatic;
@@ -437,6 +432,14 @@
 						CreatedOnToolsVersion = 9.1;
 						ProvisioningStyle = Automatic;
 						TestTargetID = C4AF45F52049BE1500B9093F;
+					};
+					EDED64A020B731060050C690 = {
+						CreatedOnToolsVersion = 9.3;
+						ProvisioningStyle = Automatic;
+					};
+					EDED64AC20B731070050C690 = {
+						CreatedOnToolsVersion = 9.3;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -456,39 +459,20 @@
 				C4AF45F52049BE1500B9093F /* Personal Assistant */,
 				C4AF46092049BE1600B9093F /* Personal AssistantTests */,
 				C4AF46142049BE1600B9093F /* Personal AssistantUITests */,
-				C4270B5B209A4866009DC4DB /* Personal-Assistant-Watch */,
-				C4270B67209A4866009DC4DB /* Personal-Assistant-Watch Extension */,
+				EDED64A020B731060050C690 /* PersonalAssistantWatch */,
+				EDED64AC20B731070050C690 /* PersonalAssistantWatch Extension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		C4270B5A209A4866009DC4DB /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C4270B62209A4866009DC4DB /* Assets.xcassets in Resources */,
-				C4270B60209A4866009DC4DB /* Interface.storyboard in Resources */,
-				EDCE033A20A1EF8700DD7F91 /* GoogleService-Info.plist in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C4270B66209A4866009DC4DB /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C4270B74209A4866009DC4DB /* Assets.xcassets in Resources */,
-				EDCE033B20A1EF8700DD7F91 /* GoogleService-Info.plist in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		C4AF45F42049BE1500B9093F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				C4AF46042049BE1600B9093F /* LaunchScreen.storyboard in Resources */,
 				EDCE033920A1EF8700DD7F91 /* GoogleService-Info.plist in Resources */,
-				C46A259A20B451D4007A944F /* credentials.plist in Resources */,
+				ED2C713720B72D7100B22B44 /* credentials.plist in Resources */,
 				C4AF46012049BE1600B9093F /* Assets.xcassets in Resources */,
 				C4AF45FF2049BE1600B9093F /* Main.storyboard in Resources */,
 			);
@@ -508,10 +492,27 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EDED649F20B731060050C690 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDED64A720B731070050C690 /* Assets.xcassets in Resources */,
+				EDED64A520B731060050C690 /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EDED64AB20B731070050C690 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDED64B720B731070050C690 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		07308A2AAB22601F32571FEF /* [CP] Check Pods Manifest.lock */ = {
+		060E23B583EFB63296236080 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -522,14 +523,32 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Personal AssistantTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Personal AssistantUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		1B8B8741FE230A8849164543 /* [CP] Copy Pods Resources */ = {
+		0D28C6CBD309ADB1DC90069F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Personal Assistant-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		59347DD3882083AF2750C38C /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -547,7 +566,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Personal Assistant/Pods-Personal Assistant-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		3D1292D4949D1CE6C00B4F58 /* [CP] Embed Pods Frameworks */ = {
+		62267F982F6BD7AE457A5AAB /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -585,7 +604,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Personal Assistant/Pods-Personal Assistant-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		5E7E35ED3571B05FE9B5226E /* [CP] Check Pods Manifest.lock */ = {
+		C4E4979FFDC09B81476B934A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -596,25 +615,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Personal Assistant-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C1E781E13F5DF038A1E7E53F /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Personal AssistantUITests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Personal AssistantTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -624,17 +625,6 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		C4270B64209A4866009DC4DB /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				EDCE03A920A486E100DD7F91 /* Weather_IC.swift in Sources */,
-				C4270B70209A4866009DC4DB /* ExtensionDelegate.swift in Sources */,
-				EDCE03A720A4845800DD7F91 /* WeatherRowController.swift in Sources */,
-				C4270B6E209A4866009DC4DB /* InterfaceController.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		C4AF45F22049BE1500B9093F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -674,14 +664,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EDED64A920B731070050C690 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED7492B420B73BB900BDB592 /* HomePageIC.swift in Sources */,
+				EDED64B520B731070050C690 /* ExtensionDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		C4270B6B209A4866009DC4DB /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = C4270B67209A4866009DC4DB /* Personal-Assistant-Watch Extension */;
-			targetProxy = C4270B6A209A4866009DC4DB /* PBXContainerItemProxy */;
-		};
 		C4AF460C2049BE1600B9093F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = C4AF45F52049BE1500B9093F /* Personal Assistant */;
@@ -692,17 +686,19 @@
 			target = C4AF45F52049BE1500B9093F /* Personal Assistant */;
 			targetProxy = C4AF46162049BE1600B9093F /* PBXContainerItemProxy */;
 		};
+		EDED64B020B731070050C690 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EDED64AC20B731070050C690 /* PersonalAssistantWatch Extension */;
+			targetProxy = EDED64AF20B731070050C690 /* PBXContainerItemProxy */;
+		};
+		EDED64BA20B731070050C690 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EDED64A020B731060050C690 /* PersonalAssistantWatch */;
+			targetProxy = EDED64B920B731070050C690 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		C4270B5E209A4866009DC4DB /* Interface.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C4270B5F209A4866009DC4DB /* Base */,
-			);
-			name = Interface.storyboard;
-			sourceTree = "<group>";
-		};
 		C4AF45FD2049BE1600B9093F /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -719,79 +715,17 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		EDED64A320B731060050C690 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EDED64A420B731060050C690 /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		C4270B7B209A4866009DC4DB /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "Personal-Assistant-Watch Extension/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "PA-Personal-Assistant.Personal-Assistant.watchkitapp.watchkitextension";
-				PRODUCT_NAME = "${TARGET_NAME}";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 4.2;
-			};
-			name = Debug;
-		};
-		C4270B7C209A4866009DC4DB /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "Personal-Assistant-Watch Extension/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "PA-Personal-Assistant.Personal-Assistant.watchkitapp.watchkitextension";
-				PRODUCT_NAME = "${TARGET_NAME}";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 4.2;
-			};
-			name = Release;
-		};
-		C4270B7F209A4866009DC4DB /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				IBSC_MODULE = Personal_Assistant_Watch_Extension;
-				INFOPLIST_FILE = "Personal-Assistant-Watch/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = "PA-Personal-Assistant.Personal-Assistant.watchkitapp";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 4.2;
-			};
-			name = Debug;
-		};
-		C4270B80209A4866009DC4DB /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				IBSC_MODULE = Personal_Assistant_Watch_Extension;
-				INFOPLIST_FILE = "Personal-Assistant-Watch/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = "PA-Personal-Assistant.Personal-Assistant.watchkitapp";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 4.2;
-			};
-			name = Release;
-		};
 		C4AF461C2049BE1600B9093F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -912,7 +846,7 @@
 		};
 		C4AF461F2049BE1600B9093F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 801C98FC1E72DCCB0034E127 /* Pods-Personal Assistant.debug.xcconfig */;
+			baseConfigurationReference = 17E4DA50188C2D1A92978C74 /* Pods-Personal Assistant.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -936,7 +870,7 @@
 		};
 		C4AF46202049BE1600B9093F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FC3A690C484741C4B79839E6 /* Pods-Personal Assistant.release.xcconfig */;
+			baseConfigurationReference = E3F04C50D7A4936E74FE524F /* Pods-Personal Assistant.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -960,7 +894,7 @@
 		};
 		C4AF46222049BE1600B9093F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4A2CF26720225A7DA2E3266D /* Pods-Personal AssistantTests.debug.xcconfig */;
+			baseConfigurationReference = 892D6BBDDE2F098566B04DC1 /* Pods-Personal AssistantTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -977,7 +911,7 @@
 		};
 		C4AF46232049BE1600B9093F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 41984FF137B84C707B433DB9 /* Pods-Personal AssistantTests.release.xcconfig */;
+			baseConfigurationReference = C582FD434982437ABFB991CE /* Pods-Personal AssistantTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -994,7 +928,7 @@
 		};
 		C4AF46252049BE1600B9093F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4705133311C3B96F78311A13 /* Pods-Personal AssistantUITests.debug.xcconfig */;
+			baseConfigurationReference = F27E7416EF6E93F998114477 /* Pods-Personal AssistantUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1010,7 +944,7 @@
 		};
 		C4AF46262049BE1600B9093F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AD09A2C2331360BAE087EBCA /* Pods-Personal AssistantUITests.release.xcconfig */;
+			baseConfigurationReference = 9D1946BCFB1F2E44EC7976CA /* Pods-Personal AssistantUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1024,27 +958,89 @@
 			};
 			name = Release;
 		};
+		EDED64BD20B731070050C690 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "PersonalAssistantWatch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "PA-Personal-Assistant.Personal-Assistant.watchkitapp.watchkitextension";
+				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.3;
+			};
+			name = Debug;
+		};
+		EDED64BE20B731070050C690 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "PersonalAssistantWatch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "PA-Personal-Assistant.Personal-Assistant.watchkitapp.watchkitextension";
+				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.3;
+			};
+			name = Release;
+		};
+		EDED64C120B731070050C690 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 279LK4S6S3;
+				IBSC_MODULE = PersonalAssistantWatch_Extension;
+				INFOPLIST_FILE = PersonalAssistantWatch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = "PA-Personal-Assistant.Personal-Assistant.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.3;
+			};
+			name = Debug;
+		};
+		EDED64C220B731070050C690 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 279LK4S6S3;
+				IBSC_MODULE = PersonalAssistantWatch_Extension;
+				INFOPLIST_FILE = PersonalAssistantWatch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = "PA-Personal-Assistant.Personal-Assistant.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.3;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C4270B7A209A4866009DC4DB /* Build configuration list for PBXNativeTarget "Personal-Assistant-Watch Extension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				C4270B7B209A4866009DC4DB /* Debug */,
-				C4270B7C209A4866009DC4DB /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		C4270B7E209A4866009DC4DB /* Build configuration list for PBXNativeTarget "Personal-Assistant-Watch" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				C4270B7F209A4866009DC4DB /* Debug */,
-				C4270B80209A4866009DC4DB /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		C4AF45F12049BE1500B9093F /* Build configuration list for PBXProject "Personal Assistant" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1077,6 +1073,24 @@
 			buildConfigurations = (
 				C4AF46252049BE1600B9093F /* Debug */,
 				C4AF46262049BE1600B9093F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EDED64BC20B731070050C690 /* Build configuration list for PBXNativeTarget "PersonalAssistantWatch Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EDED64BD20B731070050C690 /* Debug */,
+				EDED64BE20B731070050C690 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EDED64C020B731070050C690 /* Build configuration list for PBXNativeTarget "PersonalAssistantWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EDED64C120B731070050C690 /* Debug */,
+				EDED64C220B731070050C690 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

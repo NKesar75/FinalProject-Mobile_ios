@@ -1,8 +1,8 @@
 //
 //  ExtensionDelegate.swift
-//  Personal-Assistant-Watch Extension
+//  PersonalAssistantWatch Extension
 //
-//  Created by Hector Kesar on 5/2/18.
+//  Created by Raj  Chandan on 5/24/18.
 //  Copyright © 2018 Final-Project. All rights reserved.
 //
 
