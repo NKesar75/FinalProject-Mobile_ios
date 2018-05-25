@@ -42,6 +42,8 @@
 		EDED64B520B731070050C690 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDED64B420B731070050C690 /* ExtensionDelegate.swift */; };
 		EDED64B720B731070050C690 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDED64B620B731070050C690 /* Assets.xcassets */; };
 		EDED64BB20B731070050C690 /* PersonalAssistantWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = EDED64A120B731060050C690 /* PersonalAssistantWatch.app */; };
+		EDF6DBDD20B86AE900F94718 /* WeatherIC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF6DBDC20B86AE900F94718 /* WeatherIC.swift */; };
+		EDF6DBDF20B86B5600F94718 /* WeatherRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF6DBDE20B86B5600F94718 /* WeatherRowController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -150,6 +152,8 @@
 		EDED64B420B731070050C690 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
 		EDED64B620B731070050C690 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EDED64B820B731070050C690 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EDF6DBDC20B86AE900F94718 /* WeatherIC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherIC.swift; sourceTree = "<group>"; };
+		EDF6DBDE20B86B5600F94718 /* WeatherRowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRowController.swift; sourceTree = "<group>"; };
 		F2352F41B6155460C5B86AC0 /* Pods_Personal_AssistantUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Personal_AssistantUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F27E7416EF6E93F998114477 /* Pods-Personal AssistantUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Personal AssistantUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Personal AssistantUITests/Pods-Personal AssistantUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -306,6 +310,8 @@
 			children = (
 				EDED64B420B731070050C690 /* ExtensionDelegate.swift */,
 				ED7492B320B73BB900BDB592 /* HomePageIC.swift */,
+				EDF6DBDC20B86AE900F94718 /* WeatherIC.swift */,
+				EDF6DBDE20B86B5600F94718 /* WeatherRowController.swift */,
 				EDED64B620B731070050C690 /* Assets.xcassets */,
 				EDED64B820B731070050C690 /* Info.plist */,
 			);
@@ -669,6 +675,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED7492B420B73BB900BDB592 /* HomePageIC.swift in Sources */,
+				EDF6DBDF20B86B5600F94718 /* WeatherRowController.swift in Sources */,
+				EDF6DBDD20B86AE900F94718 /* WeatherIC.swift in Sources */,
 				EDED64B520B731070050C690 /* ExtensionDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
