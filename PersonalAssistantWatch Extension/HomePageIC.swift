@@ -9,12 +9,17 @@
 import WatchKit
 import Foundation
 import WatchConnectivity
+import CoreLocation
+import MapKit
 
-class HomePageIC: WKInterfaceController, WCSessionDelegate {
+class HomePageIC: WKInterfaceController, WCSessionDelegate, CLLocationManagerDelegate {
 
     @IBOutlet var requestLabel: WKInterfaceLabel!
     var aResult : String?
     var session:WCSession!
+    
+    //Global Variable to acess request infor on each page
+    static var requestinfo: String = ""
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
@@ -25,6 +30,8 @@ class HomePageIC: WKInterfaceController, WCSessionDelegate {
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
+        
+        //Created Session to connect with the Phone
         if(WCSession.isSupported()){
             self.session = WCSession.default
             self.session.delegate = self
@@ -43,19 +50,23 @@ class HomePageIC: WKInterfaceController, WCSessionDelegate {
         presentTextInputController(withSuggestions: textChoices, allowedInputMode: WKTextInputMode.plain,
                                    completion: {(results) -> Void in if results != nil && results!.count > 0 { //selection made
                                     self.aResult = results?[0] as? String
-                                    //print(self.aResult!)
-                                    //self.myLabel.setText(self.aResult)
-                                    if(WCSession.isSupported()){
-                                        self.session.sendMessage(["Request":self.aResult!], replyHandler: nil, errorHandler: nil)
+                                    self.aResult = self.aResult!.replacingOccurrences(of: " ", with: "_", options: .literal, range: nil)
+                                    //Send MEssage to Phone
+                                    if(WCSession.isSupported())
+                                    {
+                                        self.session.sendMessage(["Request": self.aResult!], replyHandler: nil, errorHandler: nil)
                                     }
                                     }
         }
         )
     }
     
+    //function to receive the message from the Phone
     func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
         
-        self.requestLabel.setText(message["key"]! as? String)
+        let msgfromPhone = message["key"]! as? String
+        print(msgfromPhone!)
+        
     }
     
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
