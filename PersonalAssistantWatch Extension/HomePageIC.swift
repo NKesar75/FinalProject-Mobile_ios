@@ -64,8 +64,23 @@ class HomePageIC: WKInterfaceController, WCSessionDelegate, CLLocationManagerDel
     //function to receive the message from the Phone
     func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
         
-        let msgfromPhone = message["key"]! as? String
-        print(msgfromPhone!)
+        let requestinfo = message["key"]! as? String
+        print(requestinfo)
+        let keyofmsg = requestinfo?.split(separator: ",")
+        if keyofmsg![0] != nil{
+            switch(keyofmsg![0]){
+            case "weather":
+//                 self.pushController(withName: "Homepage_IC", context: nil)
+//                let vc = self.storyboard?.instantiateViewController(withIdentifier: "Homepage_IC") as! HomePageIC
+//                self.present(vc, animated: true, completion: nil)
+                break
+            case "google":
+                break
+                
+            default:
+                break
+            }
+        }
         
     }
     
