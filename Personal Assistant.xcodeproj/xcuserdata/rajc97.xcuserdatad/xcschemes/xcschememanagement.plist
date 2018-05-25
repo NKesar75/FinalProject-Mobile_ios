@@ -7,7 +7,7 @@
 		<key>Personal Assistant.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>15</integer>
+			<integer>19</integer>
 		</dict>
 		<key>Personal-Assistant-Watch (Notification).xcscheme</key>
 		<dict>
@@ -17,7 +17,12 @@
 		<key>Personal-Assistant-Watch.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>16</integer>
+			<integer>20</integer>
+		</dict>
+		<key>PersonalAssistantWatch.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>20</integer>
 		</dict>
 	</dict>
 </dict>
