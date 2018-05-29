@@ -41,7 +41,6 @@
 		EDED64AE20B731070050C690 /* PersonalAssistantWatch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = EDED64AD20B731070050C690 /* PersonalAssistantWatch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		EDED64B520B731070050C690 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDED64B420B731070050C690 /* ExtensionDelegate.swift */; };
 		EDED64B720B731070050C690 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDED64B620B731070050C690 /* Assets.xcassets */; };
-		EDED64BB20B731070050C690 /* PersonalAssistantWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = EDED64A120B731060050C690 /* PersonalAssistantWatch.app */; };
 		EDF6DBDD20B86AE900F94718 /* WeatherIC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF6DBDC20B86AE900F94718 /* WeatherIC.swift */; };
 		EDF6DBDF20B86B5600F94718 /* WeatherRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF6DBDE20B86B5600F94718 /* WeatherRowController.swift */; };
 /* End PBXBuildFile section */
@@ -68,13 +67,6 @@
 			remoteGlobalIDString = EDED64AC20B731070050C690;
 			remoteInfo = "PersonalAssistantWatch Extension";
 		};
-		EDED64B920B731070050C690 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C4AF45EE2049BE1500B9093F /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = EDED64A020B731060050C690;
-			remoteInfo = PersonalAssistantWatch;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -95,7 +87,6 @@
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
-				EDED64BB20B731070050C690 /* PersonalAssistantWatch.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -336,7 +327,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				EDED64BA20B731070050C690 /* PBXTargetDependency */,
 			);
 			name = "Personal Assistant";
 			productName = "Personal Assistant";
@@ -698,11 +688,6 @@
 			isa = PBXTargetDependency;
 			target = EDED64AC20B731070050C690 /* PersonalAssistantWatch Extension */;
 			targetProxy = EDED64AF20B731070050C690 /* PBXContainerItemProxy */;
-		};
-		EDED64BA20B731070050C690 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = EDED64A020B731060050C690 /* PersonalAssistantWatch */;
-			targetProxy = EDED64B920B731070050C690 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

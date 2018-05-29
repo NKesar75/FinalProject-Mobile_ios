@@ -200,7 +200,7 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         var location = locations[0]
-        
+
         geocoder.reverseGeocodeLocation(location, completionHandler: { (placemarks, error) in
             // always good to check if no error
             // also we have to unwrap the placemark because it's optional

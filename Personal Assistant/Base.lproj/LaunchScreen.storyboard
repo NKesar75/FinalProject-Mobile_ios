@@ -21,7 +21,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="6db0e8" translatesAutoresizingMaskIntoConstraints="NO" id="Lkk-nA-Ve6">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Badge" translatesAutoresizingMaskIntoConstraints="NO" id="yNr-kg-Kha">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="yNr-kg-Kha">
                                 <rect key="frame" x="62" y="208.5" width="250" height="250"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="250" id="foE-Q4-mT7"/>
@@ -65,6 +65,6 @@
     </scenes>
     <resources>
         <image name="6db0e8" width="168" height="140"/>
-        <image name="Badge" width="24" height="24"/>
+        <image name="Logo" width="120" height="120"/>
     </resources>
 </document>
