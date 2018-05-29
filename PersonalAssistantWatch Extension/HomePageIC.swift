@@ -48,7 +48,7 @@ class HomePageIC: WKInterfaceController, WCSessionDelegate, CLLocationManagerDel
 
     @IBAction func requestBtn()
     {
-        let textChoices = ["What is the Weather","Play Despacito","Search for Game of Thrones"]
+        let textChoices = ["What is the Weather"]
         presentTextInputController(withSuggestions: textChoices, allowedInputMode: WKTextInputMode.plain,
                                    completion: {(results) -> Void in if results != nil && results!.count > 0 { //selection made
                                     self.aResult = results?[0] as? String
