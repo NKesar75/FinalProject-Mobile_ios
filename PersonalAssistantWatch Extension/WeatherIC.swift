@@ -46,6 +46,7 @@ class WeatherIC: WKInterfaceController {
     func loadDataintoTable()
     {
          fetchperviouscall()
+        print(weatherforcasts.count)
         weatherTable.setNumberOfRows(weatherforcasts.count, withRowType: "WeatherRowController")
 
         for (index, _) in weatherforcasts.enumerated()
@@ -62,7 +63,7 @@ class WeatherIC: WKInterfaceController {
         }
     }
     func fetchperviouscall(){
-        if HomePageIC.requestinfo != "" && HomePageIC.requestinfo != nil{
+        if HomePageIC.requestinfo != "" {
             let weatherinfoarray = HomePageIC.requestinfo.split(separator: ",")
             //0 key //1 city //2 state //3 condition //4 url //5 rain //6 temp low //7 temp high //8 month/date/year //9 repeat condition
             print(weatherinfoarray)
@@ -82,13 +83,5 @@ class WeatherIC: WKInterfaceController {
         }
         
     }
-    
-    
-    
-    
-    
-    
-    
-    
     
 }

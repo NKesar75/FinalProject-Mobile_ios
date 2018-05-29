@@ -31,7 +31,7 @@
                     <items>
                         <table alignment="left" id="bDQ-aV-etQ">
                             <items>
-                                <tableRow identifier="WeatherRowController" id="Jtb-bz-fpC" customClass="WeatherRowController" customModule="PersonalAssistantWatch_Extension">
+                                <tableRow identifier="WeatherRowController" selectable="NO" id="Jtb-bz-fpC" customClass="WeatherRowController" customModule="PersonalAssistantWatch_Extension">
                                     <group key="rootItem" width="1" height="0.0" alignment="left" spacing="6" id="y5L-e4-6yk">
                                         <items>
                                             <separator height="1" heightAdjustment="-4" alignment="left" verticalAlignment="center" id="Afl-0Q-JPy">
