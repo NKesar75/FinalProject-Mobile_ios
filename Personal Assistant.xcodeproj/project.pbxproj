@@ -20,7 +20,6 @@
 		C4764E4720921C120000E8E3 /* CustomCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4764E4620921C120000E8E3 /* CustomCellTableViewCell.swift */; };
 		C481A5C32099FBE7004DEFA5 /* Make_a_list.swift in Sources */ = {isa = PBXBuildFile; fileRef = C481A5C22099FBE7004DEFA5 /* Make_a_list.swift */; };
 		C481A5C5209A0D34004DEFA5 /* Listdata.swift in Sources */ = {isa = PBXBuildFile; fileRef = C481A5C4209A0D34004DEFA5 /* Listdata.swift */; };
-		C481A5C7209A424E004DEFA5 /* watchcontact.swift in Sources */ = {isa = PBXBuildFile; fileRef = C481A5C6209A424E004DEFA5 /* watchcontact.swift */; };
 		C4AF45FA2049BE1500B9093F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AF45F92049BE1500B9093F /* AppDelegate.swift */; };
 		C4AF45FF2049BE1600B9093F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4AF45FD2049BE1600B9093F /* Main.storyboard */; };
 		C4AF46012049BE1600B9093F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4AF46002049BE1600B9093F /* Assets.xcassets */; };
@@ -33,6 +32,7 @@
 		C4DABCD0208F780700ED146C /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DABCCF208F780700ED146C /* Search.swift */; };
 		C4DABCD2208FA42500ED146C /* Servercalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DABCD1208FA42500ED146C /* Servercalls.swift */; };
 		D2990C9D3AE0E834CCF9BB5A /* Pods_Personal_AssistantUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2352F41B6155460C5B86AC0 /* Pods_Personal_AssistantUITests.framework */; };
+		ED1C425620BD9332006A8BFB /* UberIC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1C425520BD9332006A8BFB /* UberIC.swift */; };
 		ED2C713720B72D7100B22B44 /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED2C713620B72D7100B22B44 /* credentials.plist */; };
 		ED7492B420B73BB900BDB592 /* HomePageIC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7492B320B73BB900BDB592 /* HomePageIC.swift */; };
 		EDCE033920A1EF8700DD7F91 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EDCE033820A1EF8700DD7F91 /* GoogleService-Info.plist */; };
@@ -111,7 +111,6 @@
 		C4764E4620921C120000E8E3 /* CustomCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellTableViewCell.swift; sourceTree = "<group>"; };
 		C481A5C22099FBE7004DEFA5 /* Make_a_list.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Make_a_list.swift; sourceTree = "<group>"; };
 		C481A5C4209A0D34004DEFA5 /* Listdata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Listdata.swift; sourceTree = "<group>"; };
-		C481A5C6209A424E004DEFA5 /* watchcontact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = watchcontact.swift; sourceTree = "<group>"; };
 		C4AF45F62049BE1500B9093F /* Personal Assistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Personal Assistant.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4AF45F92049BE1500B9093F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C4AF45FE2049BE1600B9093F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -132,6 +131,7 @@
 		C582FD434982437ABFB991CE /* Pods-Personal AssistantTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Personal AssistantTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Personal AssistantTests/Pods-Personal AssistantTests.release.xcconfig"; sourceTree = "<group>"; };
 		CFA95829EA2FE3F559A084CD /* Pods_Personal_Assistant.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Personal_Assistant.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3F04C50D7A4936E74FE524F /* Pods-Personal Assistant.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Personal Assistant.release.xcconfig"; path = "Pods/Target Support Files/Pods-Personal Assistant/Pods-Personal Assistant.release.xcconfig"; sourceTree = "<group>"; };
+		ED1C425520BD9332006A8BFB /* UberIC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UberIC.swift; sourceTree = "<group>"; };
 		ED2C713620B72D7100B22B44 /* credentials.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = credentials.plist; sourceTree = "<group>"; };
 		ED7492B320B73BB900BDB592 /* HomePageIC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageIC.swift; sourceTree = "<group>"; };
 		EDCE033820A1EF8700DD7F91 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -150,6 +150,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		22BDE2854E91CFA5FC96B0AD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C4AF45F32049BE1500B9093F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -248,7 +255,6 @@
 				C42BF3412097664300E02910 /* WeatherTableViewCell.swift */,
 				C481A5C22099FBE7004DEFA5 /* Make_a_list.swift */,
 				C481A5C4209A0D34004DEFA5 /* Listdata.swift */,
-				C481A5C6209A424E004DEFA5 /* watchcontact.swift */,
 				C4158DAB20A494850080AC0E /* PopalertDelete.swift */,
 				C46A259B20B453D2007A944F /* GoogleCalender.swift */,
 			);
@@ -303,6 +309,7 @@
 				ED7492B320B73BB900BDB592 /* HomePageIC.swift */,
 				EDF6DBDC20B86AE900F94718 /* WeatherIC.swift */,
 				EDF6DBDE20B86B5600F94718 /* WeatherRowController.swift */,
+				ED1C425520BD9332006A8BFB /* UberIC.swift */,
 				EDED64B620B731070050C690 /* Assets.xcassets */,
 				EDED64B820B731070050C690 /* Info.plist */,
 			);
@@ -377,6 +384,7 @@
 			buildPhases = (
 				EDED649F20B731060050C690 /* Resources */,
 				EDED64BF20B731070050C690 /* Embed App Extensions */,
+				22BDE2854E91CFA5FC96B0AD /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -625,7 +633,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C481A5C7209A424E004DEFA5 /* watchcontact.swift in Sources */,
 				C481A5C5209A0D34004DEFA5 /* Listdata.swift in Sources */,
 				C4DABCD2208FA42500ED146C /* Servercalls.swift in Sources */,
 				C4CAD9592049E3A7007CC517 /* AlertController.swift in Sources */,
@@ -665,6 +672,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED7492B420B73BB900BDB592 /* HomePageIC.swift in Sources */,
+				ED1C425620BD9332006A8BFB /* UberIC.swift in Sources */,
 				EDF6DBDF20B86B5600F94718 /* WeatherRowController.swift in Sources */,
 				EDF6DBDD20B86AE900F94718 /* WeatherIC.swift in Sources */,
 				EDED64B520B731070050C690 /* ExtensionDelegate.swift in Sources */,
