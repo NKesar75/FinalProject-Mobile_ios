@@ -14,12 +14,17 @@
             <objects>
                 <controller identifier="Homepage_IC" id="BXB-gt-B20" customClass="HomePageIC" customModule="PersonalAssistantWatch_Extension">
                     <items>
-                        <button width="1" alignment="center" verticalAlignment="center" title="Make a Request" id="9fl-I9-MVA">
+                        <imageView width="136" height="105" alignment="center" verticalAlignment="center" hidden="YES" image="loading" initiallyAnimated="NO" id="fWp-Vq-iP5"/>
+                        <button width="1" alignment="center" verticalAlignment="bottom" title="Make a Request" id="9fl-I9-MVA">
                             <connections>
                                 <action selector="requestBtn" destination="BXB-gt-B20" id="ctI-wA-ntL"/>
                             </connections>
                         </button>
                     </items>
+                    <connections>
+                        <outlet property="hideBtn" destination="9fl-I9-MVA" id="yTN-WL-yaR"/>
+                        <outlet property="loadingAnimation" destination="fWp-Vq-iP5" id="2kX-tm-5d0"/>
+                    </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="268" y="38"/>
@@ -89,7 +94,26 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="526" y="38"/>
+            <point key="canvasLocation" x="522" y="-100"/>
+        </scene>
+        <!--UberIdentifier-->
+        <scene sceneID="a4f-F0-qLg">
+            <objects>
+                <controller identifier="UberIdentifier" id="R9J-Mq-ttr" customClass="UberIC" customModule="PersonalAssistantWatch_Extension">
+                    <items>
+                        <map height="112" alignment="left" id="6qq-4I-DAM"/>
+                        <button width="1" alignment="left" title="Ride with Uber" id="rWh-c7-zqm">
+                            <connections>
+                                <action selector="sendLocationtoPhone" destination="R9J-Mq-ttr" id="J1k-SC-YUQ"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="myMap" destination="6qq-4I-DAM" id="JPG-qF-bRl"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="522" y="201"/>
         </scene>
     </scenes>
 </document>

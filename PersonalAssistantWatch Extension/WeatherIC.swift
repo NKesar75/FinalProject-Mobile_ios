@@ -59,6 +59,10 @@ class WeatherIC: WKInterfaceController {
                 rowController.weatherForecast.setText(weatherforcasts[index].forcast)
                 rowController.weatherLocation.setText(weatherforcasts[index].Location)
                 rowController.weatherDate.setText(weatherforcasts[index].date)
+//                let imageUrl:URL = URL(string: weatherforcasts[index].image)!
+//                let imageData:NSData = NSData(contentsOf: imageUrl)!
+//                rowController.weatherImage.setImage(UIImage(data: imageData as Data))
+                //wcell.weatherimage.contentMode = UIViewContentMode.scaleAspectFit
             }
         }
     }
