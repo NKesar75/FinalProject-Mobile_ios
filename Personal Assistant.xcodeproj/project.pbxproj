@@ -13,6 +13,7 @@
 		C4254B04207E97F500807AF4 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4254B03207E97F500807AF4 /* Weather.swift */; };
 		C4254B062084E4E500807AF4 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4254B052084E4E500807AF4 /* Map.swift */; };
 		C42BF3422097664300E02910 /* WeatherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42BF3412097664300E02910 /* WeatherTableViewCell.swift */; };
+		C4539E1A20BDE92E00DDC43C /* PersonalAssistantWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = EDED64A120B731060050C690 /* PersonalAssistantWatch.app */; };
 		C45426E0208781550052B531 /* Youtube.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45426DF208781550052B531 /* Youtube.swift */; };
 		C46A259C20B453D2007A944F /* GoogleCalender.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46A259B20B453D2007A944F /* GoogleCalender.swift */; };
 		C46A259D20B45C7B007A944F /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C41A045420AF26F800D49E4E /* SwiftyJSON.framework */; };
@@ -46,6 +47,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		C4539E1420BDE78400DDC43C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C4AF45EE2049BE1500B9093F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EDED64A020B731060050C690;
+			remoteInfo = PersonalAssistantWatch;
+		};
 		C4AF460B2049BE1600B9093F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C4AF45EE2049BE1500B9093F /* Project object */;
@@ -87,6 +95,7 @@
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
+				C4539E1A20BDE92E00DDC43C /* PersonalAssistantWatch.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -334,6 +343,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				C4539E1520BDE78400DDC43C /* PBXTargetDependency */,
 			);
 			name = "Personal Assistant";
 			productName = "Personal Assistant";
@@ -682,6 +692,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		C4539E1520BDE78400DDC43C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EDED64A020B731060050C690 /* PersonalAssistantWatch */;
+			targetProxy = C4539E1420BDE78400DDC43C /* PBXContainerItemProxy */;
+		};
 		C4AF460C2049BE1600B9093F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = C4AF45F52049BE1500B9093F /* Personal Assistant */;
