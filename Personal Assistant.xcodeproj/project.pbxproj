@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		08038B1FE6CFF67B792D5804 /* Pods_Personal_AssistantTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32C329A034FBB387AC396CF7 /* Pods_Personal_AssistantTests.framework */; };
 		5790A9B3B41C83356763F35B /* Pods_Personal_Assistant.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFA95829EA2FE3F559A084CD /* Pods_Personal_Assistant.framework */; };
-		C400EFA120BD8755009483EB /* SearchIC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C400EFA020BD8755009483EB /* SearchIC.swift */; };
 		C4158DAC20A494850080AC0E /* PopalertDelete.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4158DAB20A494850080AC0E /* PopalertDelete.swift */; };
 		C4254B04207E97F500807AF4 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4254B03207E97F500807AF4 /* Weather.swift */; };
 		C4254B062084E4E500807AF4 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4254B052084E4E500807AF4 /* Map.swift */; };
@@ -108,7 +107,6 @@
 		32C329A034FBB387AC396CF7 /* Pods_Personal_AssistantTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Personal_AssistantTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		892D6BBDDE2F098566B04DC1 /* Pods-Personal AssistantTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Personal AssistantTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Personal AssistantTests/Pods-Personal AssistantTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9D1946BCFB1F2E44EC7976CA /* Pods-Personal AssistantUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Personal AssistantUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Personal AssistantUITests/Pods-Personal AssistantUITests.release.xcconfig"; sourceTree = "<group>"; };
-		C400EFA020BD8755009483EB /* SearchIC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchIC.swift; sourceTree = "<group>"; };
 		C4158DAB20A494850080AC0E /* PopalertDelete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopalertDelete.swift; sourceTree = "<group>"; };
 		C41A045420AF26F800D49E4E /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4254B03207E97F500807AF4 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
@@ -314,7 +312,6 @@
 				ED7492B320B73BB900BDB592 /* HomePageIC.swift */,
 				EDF6DBDC20B86AE900F94718 /* WeatherIC.swift */,
 				EDF6DBDE20B86B5600F94718 /* WeatherRowController.swift */,
-				C400EFA020BD8755009483EB /* SearchIC.swift */,
 				EDED64B620B731070050C690 /* Assets.xcassets */,
 				EDED64B820B731070050C690 /* Info.plist */,
 			);
@@ -681,7 +678,6 @@
 				EDF6DBDF20B86B5600F94718 /* WeatherRowController.swift in Sources */,
 				EDF6DBDD20B86AE900F94718 /* WeatherIC.swift in Sources */,
 				EDED64B520B731070050C690 /* ExtensionDelegate.swift in Sources */,
-				C400EFA120BD8755009483EB /* SearchIC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

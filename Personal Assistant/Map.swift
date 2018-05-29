@@ -92,7 +92,4 @@ class Map: UIViewController, CLLocationManagerDelegate {
         ridebutton.removeFromSuperview()
         view.addSubview(ridebutton)
     }
-    
-    
-    
 }
