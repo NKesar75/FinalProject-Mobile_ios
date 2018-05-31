@@ -33,7 +33,10 @@ class Youtube: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate,
     let audioEngine = AVAudioEngine()
     var stringtoserver: String?
     
-     var activityindactor:UIActivityIndicatorView = UIActivityIndicatorView()
+    var activityindactor:UIActivityIndicatorView = UIActivityIndicatorView()
+    var video_id:String = ""
+    var video_title:String = ""
+    @IBOutlet weak var remberbutton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +57,11 @@ class Youtube: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate,
     }
     
     func setvideo (videoid:String, videotitle:String){
+        if videoid != video_id {
+        video_id = videoid
+        video_title = videotitle + "-,-"
+        remberbutton.setTitle("Remember",for: .normal)
+        }
         let url = URL(string: "https://www.youtube.com/embed/\(videoid)")
         youtubeview.load(URLRequest(url: url!))
         Titleofvideo.text = videotitle
@@ -61,9 +69,21 @@ class Youtube: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate,
     
     
     @IBAction func voicebuttonpressed(_ sender: UIButton) {
-    
+        if remberbutton.titleLabel?.text != "Remembered" && video_id != "" && video_id != " "{
+        let helper: Remberfirebasehelperclass = Remberfirebasehelperclass()
+            
+        video_title = video_title.replacingOccurrences(of: ".", with: " ", options: .literal, range: nil)
+        video_title = video_title.replacingOccurrences(of: "$", with: " ", options: .literal, range: nil)
+        video_title = video_title.replacingOccurrences(of: "[", with: " ", options: .literal, range: nil)
+        video_title = video_title.replacingOccurrences(of: "]", with: " ", options: .literal, range: nil)
+        video_title = video_title.replacingOccurrences(of: "#", with: " ", options: .literal, range: nil)
+        video_title = video_title.replacingOccurrences(of: "/", with: " ", options: .literal, range: nil)
+           
+        helper.pushtofirebase(link: (video_title + video_id), type: "Youtube")
+        remberbutton.setTitle("Remembered",for: .normal)
+        }
+        
     }
-    
     @IBAction func Searchfortextyoutube(_ sender: UIButton) {
         if Searchfortext.text != "" && Searchfortext.text != " "{
        // activityindactor.center = self.view.center

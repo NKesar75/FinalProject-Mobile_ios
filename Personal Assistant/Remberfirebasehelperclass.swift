@@ -7,3 +7,23 @@
 //
 
 import Foundation
+import Firebase
+
+class Remberfirebasehelperclass
+{
+    
+    func pushtofirebase(link:String, type:String)
+    {
+        let userID = Auth.auth().currentUser?.uid
+        let ref: DatabaseReference! = Database.database().reference().child("users").child(userID!).child("remeb")
+        ref.child(link).setValue(type)
+    }
+    
+    func deletefromfirebase(link:String)
+    {
+        let userID = Auth.auth().currentUser?.uid
+        let ref: DatabaseReference! =  Database.database().reference().child("users").child(userID!).child("remeb").child(link)
+        ref.removeValue()
+    }
+    
+}

@@ -65,7 +65,6 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
             }
         }
         
-        
         view.addGestureRecognizer(tap)
         
         locationManager.delegate = self
@@ -75,7 +74,6 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
         
         voicequestion = false
         isfirsttimecall = true
-        
         AVAudioSession.sharedInstance().requestRecordPermission () {
              [unowned self] allowed in
             if allowed {
@@ -87,7 +85,6 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
             }
         }
         //locationManager.stopUpdatingLocation()
-        
         blurview.layer.cornerRadius = 15
         sideview.layer.shadowColor = UIColor.black.cgColor
         sideview.layer.shadowOpacity = 0.8

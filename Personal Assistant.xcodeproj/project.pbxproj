@@ -14,6 +14,10 @@
 		C4254B062084E4E500807AF4 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4254B052084E4E500807AF4 /* Map.swift */; };
 		C42BF3422097664300E02910 /* WeatherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42BF3412097664300E02910 /* WeatherTableViewCell.swift */; };
 		C4539E1A20BDE92E00DDC43C /* PersonalAssistantWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = EDED64A120B731060050C690 /* PersonalAssistantWatch.app */; };
+		C4539E1C20BF05B200DDC43C /* Rember.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4539E1B20BF05B200DDC43C /* Rember.swift */; };
+		C4539E1E20BF085600DDC43C /* Remberfirebasehelperclass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4539E1D20BF085600DDC43C /* Remberfirebasehelperclass.swift */; };
+		C4539E2020C0667300DDC43C /* Searchpopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4539E1F20C0667300DDC43C /* Searchpopup.swift */; };
+		C4539E2220C0668800DDC43C /* Remberpopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4539E2120C0668800DDC43C /* Remberpopup.swift */; };
 		C45426E0208781550052B531 /* Youtube.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45426DF208781550052B531 /* Youtube.swift */; };
 		C46A259C20B453D2007A944F /* GoogleCalender.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46A259B20B453D2007A944F /* GoogleCalender.swift */; };
 		C46A259D20B45C7B007A944F /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C41A045420AF26F800D49E4E /* SwiftyJSON.framework */; };
@@ -112,6 +116,10 @@
 		C4254B03207E97F500807AF4 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		C4254B052084E4E500807AF4 /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
 		C42BF3412097664300E02910 /* WeatherTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherTableViewCell.swift; sourceTree = "<group>"; };
+		C4539E1B20BF05B200DDC43C /* Rember.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rember.swift; sourceTree = "<group>"; };
+		C4539E1D20BF085600DDC43C /* Remberfirebasehelperclass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Remberfirebasehelperclass.swift; sourceTree = "<group>"; };
+		C4539E1F20C0667300DDC43C /* Searchpopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Searchpopup.swift; sourceTree = "<group>"; };
+		C4539E2120C0668800DDC43C /* Remberpopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Remberpopup.swift; sourceTree = "<group>"; };
 		C45426DF208781550052B531 /* Youtube.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Youtube.swift; sourceTree = "<group>"; };
 		C46A259B20B453D2007A944F /* GoogleCalender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleCalender.swift; sourceTree = "<group>"; };
 		C46A259E20B45E93007A944F /* GTLRService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = GTLRService.m; path = Pods/GoogleAPIClientForREST/Source/Objects/GTLRService.m; sourceTree = "<group>"; };
@@ -249,7 +257,6 @@
 				C4AF45F92049BE1500B9093F /* AppDelegate.swift */,
 				C4CAD9582049E3A7007CC517 /* AlertController.swift */,
 				C4AF45FD2049BE1600B9093F /* Main.storyboard */,
-				C45426DF208781550052B531 /* Youtube.swift */,
 				C4AF46022049BE1600B9093F /* LaunchScreen.storyboard */,
 				C4AF46052049BE1600B9093F /* Info.plist */,
 				EDCE033820A1EF8700DD7F91 /* GoogleService-Info.plist */,
@@ -264,8 +271,13 @@
 				C42BF3412097664300E02910 /* WeatherTableViewCell.swift */,
 				C481A5C22099FBE7004DEFA5 /* Make_a_list.swift */,
 				C481A5C4209A0D34004DEFA5 /* Listdata.swift */,
-				C4158DAB20A494850080AC0E /* PopalertDelete.swift */,
 				C46A259B20B453D2007A944F /* GoogleCalender.swift */,
+				C4539E1B20BF05B200DDC43C /* Rember.swift */,
+				C4539E1D20BF085600DDC43C /* Remberfirebasehelperclass.swift */,
+				C45426DF208781550052B531 /* Youtube.swift */,
+				C4158DAB20A494850080AC0E /* PopalertDelete.swift */,
+				C4539E1F20C0667300DDC43C /* Searchpopup.swift */,
+				C4539E2120C0668800DDC43C /* Remberpopup.swift */,
 			);
 			path = "Personal Assistant";
 			sourceTree = "<group>";
@@ -647,16 +659,20 @@
 				C4DABCD2208FA42500ED146C /* Servercalls.swift in Sources */,
 				C4CAD9592049E3A7007CC517 /* AlertController.swift in Sources */,
 				C42BF3422097664300E02910 /* WeatherTableViewCell.swift in Sources */,
+				C4539E1C20BF05B200DDC43C /* Rember.swift in Sources */,
 				C4AF462A2049C05E00B9093F /* Login.swift in Sources */,
 				C4AF462E2049C2F700B9093F /* HomePage.swift in Sources */,
 				C481A5C32099FBE7004DEFA5 /* Make_a_list.swift in Sources */,
 				C4AF45FA2049BE1500B9093F /* AppDelegate.swift in Sources */,
 				C45426E0208781550052B531 /* Youtube.swift in Sources */,
+				C4539E1E20BF085600DDC43C /* Remberfirebasehelperclass.swift in Sources */,
 				C46A259C20B453D2007A944F /* GoogleCalender.swift in Sources */,
 				C4DABCD0208F780700ED146C /* Search.swift in Sources */,
 				C4254B062084E4E500807AF4 /* Map.swift in Sources */,
 				C4764E4720921C120000E8E3 /* CustomCellTableViewCell.swift in Sources */,
 				C4254B04207E97F500807AF4 /* Weather.swift in Sources */,
+				C4539E2220C0668800DDC43C /* Remberpopup.swift in Sources */,
+				C4539E2020C0667300DDC43C /* Searchpopup.swift in Sources */,
 				C4158DAC20A494850080AC0E /* PopalertDelete.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
