@@ -53,8 +53,13 @@ class Listdata: UIViewController {
     }
     
     @IBAction func cancelbuttonpressed(_ sender: UIButton) {
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "Make_a_list_ID") as! Make_a_list
-        self.present(vc, animated: true, completion: nil)
+        if HomePage.diditcomefromrember{
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "Rember_ID") as! Rember
+            self.present(vc, animated: true, completion: nil)
+        }else{
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "Make_a_list_ID") as! Make_a_list
+            self.present(vc, animated: true, completion: nil)
+        }
     }
     
     @IBAction func savebuttonpressed(_ sender: UIButton) {
@@ -112,9 +117,13 @@ class Listdata: UIViewController {
                                             ref.child("users").child(userID!).child("list").child(nameoffile).setValue(downloadString)
                                             UIApplication.shared.endIgnoringInteractionEvents()
                                             self.activityindactor.removeFromSuperview()
-                                            
-                                            let vc = self.storyboard?.instantiateViewController(withIdentifier: "Make_a_list_ID") as! Make_a_list
+                                            if HomePage.diditcomefromrember{
+                                            let vc = self.storyboard?.instantiateViewController(withIdentifier: "Rember_ID") as! Rember
                                             self.present(vc, animated: true, completion: nil)
+                                            }else{
+                                                let vc = self.storyboard?.instantiateViewController(withIdentifier: "Make_a_list_ID") as! Make_a_list
+                                                self.present(vc, animated: true, completion: nil)
+                                            }
                                             
                                         }
                                     } else {

@@ -18,6 +18,7 @@
 		C4539E1E20BF085600DDC43C /* Remberfirebasehelperclass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4539E1D20BF085600DDC43C /* Remberfirebasehelperclass.swift */; };
 		C4539E2020C0667300DDC43C /* Searchpopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4539E1F20C0667300DDC43C /* Searchpopup.swift */; };
 		C4539E2220C0668800DDC43C /* Remberpopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4539E2120C0668800DDC43C /* Remberpopup.swift */; };
+		C4539E2420C0884200DDC43C /* RemberWebview.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4539E2320C0884200DDC43C /* RemberWebview.swift */; };
 		C45426E0208781550052B531 /* Youtube.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45426DF208781550052B531 /* Youtube.swift */; };
 		C46A259C20B453D2007A944F /* GoogleCalender.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46A259B20B453D2007A944F /* GoogleCalender.swift */; };
 		C46A259D20B45C7B007A944F /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C41A045420AF26F800D49E4E /* SwiftyJSON.framework */; };
@@ -120,6 +121,7 @@
 		C4539E1D20BF085600DDC43C /* Remberfirebasehelperclass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Remberfirebasehelperclass.swift; sourceTree = "<group>"; };
 		C4539E1F20C0667300DDC43C /* Searchpopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Searchpopup.swift; sourceTree = "<group>"; };
 		C4539E2120C0668800DDC43C /* Remberpopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Remberpopup.swift; sourceTree = "<group>"; };
+		C4539E2320C0884200DDC43C /* RemberWebview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemberWebview.swift; sourceTree = "<group>"; };
 		C45426DF208781550052B531 /* Youtube.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Youtube.swift; sourceTree = "<group>"; };
 		C46A259B20B453D2007A944F /* GoogleCalender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleCalender.swift; sourceTree = "<group>"; };
 		C46A259E20B45E93007A944F /* GTLRService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = GTLRService.m; path = Pods/GoogleAPIClientForREST/Source/Objects/GTLRService.m; sourceTree = "<group>"; };
@@ -278,6 +280,7 @@
 				C4158DAB20A494850080AC0E /* PopalertDelete.swift */,
 				C4539E1F20C0667300DDC43C /* Searchpopup.swift */,
 				C4539E2120C0668800DDC43C /* Remberpopup.swift */,
+				C4539E2320C0884200DDC43C /* RemberWebview.swift */,
 			);
 			path = "Personal Assistant";
 			sourceTree = "<group>";
@@ -659,6 +662,7 @@
 				C4DABCD2208FA42500ED146C /* Servercalls.swift in Sources */,
 				C4CAD9592049E3A7007CC517 /* AlertController.swift in Sources */,
 				C42BF3422097664300E02910 /* WeatherTableViewCell.swift in Sources */,
+				C4539E2420C0884200DDC43C /* RemberWebview.swift in Sources */,
 				C4539E1C20BF05B200DDC43C /* Rember.swift in Sources */,
 				C4AF462A2049C05E00B9093F /* Login.swift in Sources */,
 				C4AF462E2049C2F700B9093F /* HomePage.swift in Sources */,

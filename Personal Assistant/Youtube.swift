@@ -59,7 +59,7 @@ class Youtube: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate,
     func setvideo (videoid:String, videotitle:String){
         if videoid != video_id {
         video_id = videoid
-        video_title = videotitle + "-,-"
+        video_title = videotitle
         remberbutton.setTitle("Remember",for: .normal)
         }
         let url = URL(string: "https://www.youtube.com/embed/\(videoid)")
@@ -79,7 +79,7 @@ class Youtube: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate,
         video_title = video_title.replacingOccurrences(of: "#", with: " ", options: .literal, range: nil)
         video_title = video_title.replacingOccurrences(of: "/", with: " ", options: .literal, range: nil)
            
-        helper.pushtofirebase(link: (video_title + video_id), type: "Youtube")
+        helper.pushtofirebase(link: video_title, type: ("Youtube," + video_id))
         remberbutton.setTitle("Remembered",for: .normal)
         }
         

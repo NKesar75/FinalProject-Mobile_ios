@@ -23,6 +23,8 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
     @IBOutlet weak var blurview: UIVisualEffectView!
     @IBOutlet weak var viewconstraint: NSLayoutConstraint!
     
+    static var diditcomefromrember:Bool = false
+    
     var audioRecorder: AVAudioRecorder!
     var player : AVAudioPlayer?
     var isRecording = false
@@ -64,6 +66,8 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
                      print("no choice yet authorizion")
             }
         }
+        
+        HomePage.diditcomefromrember = false
         
         view.addGestureRecognizer(tap)
         

@@ -77,7 +77,7 @@ class PopalertDelete: UIViewController {
     @IBAction func savebuttonpressed(_ sender: Any) {
         if filenamelabel.text != "No File Selected"{
             var listtitle = Make_a_list.nameoflist
-            var listlinc = Make_a_list.nameoftext
+            let listlinc = Make_a_list.nameoftext
             
             listtitle = listtitle.replacingOccurrences(of: ".", with: " ", options: .literal, range: nil)
             listtitle = listtitle.replacingOccurrences(of: "$", with: " ", options: .literal, range: nil)
@@ -86,15 +86,8 @@ class PopalertDelete: UIViewController {
             listtitle = listtitle.replacingOccurrences(of: "#", with: " ", options: .literal, range: nil)
             listtitle = listtitle.replacingOccurrences(of: "/", with: " ", options: .literal, range: nil)
             
-            listlinc = listlinc.replacingOccurrences(of: ".", with: " ", options: .literal, range: nil)
-            listlinc = listlinc.replacingOccurrences(of: "$", with: " ", options: .literal, range: nil)
-            listlinc = listlinc.replacingOccurrences(of: "[", with: " ", options: .literal, range: nil)
-            listlinc = listlinc.replacingOccurrences(of: "]", with: " ", options: .literal, range: nil)
-            listlinc = listlinc.replacingOccurrences(of: "#", with: " ", options: .literal, range: nil)
-            listlinc = listlinc.replacingOccurrences(of: "/", with: " ", options: .literal, range: nil)
-            
             let temp: Remberfirebasehelperclass = Remberfirebasehelperclass()
-            temp.pushtofirebase(link: listtitle + "-,-" + listlinc, type: "List")
+            temp.pushtofirebase(link: listtitle, type: "List," + listlinc)
             
             self.removeAnimate()
         }

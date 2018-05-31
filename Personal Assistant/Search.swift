@@ -28,6 +28,10 @@ class Search: UIViewController, CLLocationManagerDelegate, UITableViewDataSource
     var city: String?
     var state: String?
     var googlesearches:[googlesearchinfo] = []
+    
+    static var titleofsearch = ""
+    static var urlofsearch = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,8 +43,31 @@ class Search: UIViewController, CLLocationManagerDelegate, UITableViewDataSource
         googlesearchtableview.delegate = self
         googlesearchtableview.dataSource = self
         self.FetchPreviousCall()
+        
+        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(Search.longPress(longPressGestureRecognizer:)))
+        self.googlesearchtableview.addGestureRecognizer(longPressRecognizer)
     }
 
+    
+    @objc func longPress(longPressGestureRecognizer: UILongPressGestureRecognizer) {
+        
+        if longPressGestureRecognizer.state == UIGestureRecognizerState.began {
+            
+            let touchPoint = longPressGestureRecognizer.location(in: googlesearchtableview)
+            if let indexPath = googlesearchtableview.indexPathForRow(at: touchPoint) {
+                print("touchpoint " ,touchPoint)
+                if googlesearches[indexPath.row] != nil {
+                    Search.titleofsearch = googlesearches[indexPath.row].title
+                    Search.urlofsearch = googlesearches[indexPath.row].url
+                    let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Searchpopup_ID") as! Searchpopup
+                    self.addChildViewController(popOverVC)
+                    popOverVC.view.frame = self.view.frame
+                    self.view.addSubview(popOverVC.view)
+                    popOverVC.didMove(toParentViewController: self)
+                }
+            }
+        }
+    }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         var location = locations[0]
@@ -106,6 +133,7 @@ class Search: UIViewController, CLLocationManagerDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         if let url = URL(string: googlesearches[indexPath.row].url) {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
