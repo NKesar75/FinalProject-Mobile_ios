@@ -84,10 +84,9 @@ class newsselctortypeViewController: UIViewController, UITableViewDataSource, UI
             }.resume()
         
          DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(10), execute: {
-
+        UIApplication.shared.endIgnoringInteractionEvents()
+        self.activityindactor.removeFromSuperview()
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "News_ID") as! News
-            UIApplication.shared.endIgnoringInteractionEvents()
-            self.activityindactor.removeFromSuperview()
         self.present(vc, animated: true, completion: nil)
         })
     }
