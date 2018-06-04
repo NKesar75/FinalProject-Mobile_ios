@@ -19,6 +19,9 @@
 		C4539E2020C0667300DDC43C /* Searchpopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4539E1F20C0667300DDC43C /* Searchpopup.swift */; };
 		C4539E2220C0668800DDC43C /* Remberpopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4539E2120C0668800DDC43C /* Remberpopup.swift */; };
 		C4539E2420C0884200DDC43C /* RemberWebview.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4539E2320C0884200DDC43C /* RemberWebview.swift */; };
+		C4539E2620C1AA4A00DDC43C /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4539E2520C1AA4A00DDC43C /* News.swift */; };
+		C4539E2820C1AA7F00DDC43C /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4539E2720C1AA7F00DDC43C /* Stock.swift */; };
+		C4539E2A20C1AA9300DDC43C /* ChatBot.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4539E2920C1AA9300DDC43C /* ChatBot.swift */; };
 		C45426E0208781550052B531 /* Youtube.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45426DF208781550052B531 /* Youtube.swift */; };
 		C46A259C20B453D2007A944F /* GoogleCalender.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46A259B20B453D2007A944F /* GoogleCalender.swift */; };
 		C46A259D20B45C7B007A944F /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C41A045420AF26F800D49E4E /* SwiftyJSON.framework */; };
@@ -26,6 +29,9 @@
 		C4764E4720921C120000E8E3 /* CustomCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4764E4620921C120000E8E3 /* CustomCellTableViewCell.swift */; };
 		C481A5C32099FBE7004DEFA5 /* Make_a_list.swift in Sources */ = {isa = PBXBuildFile; fileRef = C481A5C22099FBE7004DEFA5 /* Make_a_list.swift */; };
 		C481A5C5209A0D34004DEFA5 /* Listdata.swift in Sources */ = {isa = PBXBuildFile; fileRef = C481A5C4209A0D34004DEFA5 /* Listdata.swift */; };
+		C483FBBF20C5B553008ECE74 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C483FBBE20C5B553008ECE74 /* NewsTableViewCell.swift */; };
+		C483FBC120C5C56A008ECE74 /* newstypeselctortable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C483FBC020C5C56A008ECE74 /* newstypeselctortable.swift */; };
+		C483FBC320C5C583008ECE74 /* newsselctortypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C483FBC220C5C583008ECE74 /* newsselctortypeViewController.swift */; };
 		C4AF45FA2049BE1500B9093F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AF45F92049BE1500B9093F /* AppDelegate.swift */; };
 		C4AF45FF2049BE1600B9093F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4AF45FD2049BE1600B9093F /* Main.storyboard */; };
 		C4AF46012049BE1600B9093F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4AF46002049BE1600B9093F /* Assets.xcassets */; };
@@ -122,6 +128,9 @@
 		C4539E1F20C0667300DDC43C /* Searchpopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Searchpopup.swift; sourceTree = "<group>"; };
 		C4539E2120C0668800DDC43C /* Remberpopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Remberpopup.swift; sourceTree = "<group>"; };
 		C4539E2320C0884200DDC43C /* RemberWebview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemberWebview.swift; sourceTree = "<group>"; };
+		C4539E2520C1AA4A00DDC43C /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
+		C4539E2720C1AA7F00DDC43C /* Stock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stock.swift; sourceTree = "<group>"; };
+		C4539E2920C1AA9300DDC43C /* ChatBot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBot.swift; sourceTree = "<group>"; };
 		C45426DF208781550052B531 /* Youtube.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Youtube.swift; sourceTree = "<group>"; };
 		C46A259B20B453D2007A944F /* GoogleCalender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleCalender.swift; sourceTree = "<group>"; };
 		C46A259E20B45E93007A944F /* GTLRService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = GTLRService.m; path = Pods/GoogleAPIClientForREST/Source/Objects/GTLRService.m; sourceTree = "<group>"; };
@@ -130,6 +139,9 @@
 		C4764E4620921C120000E8E3 /* CustomCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellTableViewCell.swift; sourceTree = "<group>"; };
 		C481A5C22099FBE7004DEFA5 /* Make_a_list.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Make_a_list.swift; sourceTree = "<group>"; };
 		C481A5C4209A0D34004DEFA5 /* Listdata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Listdata.swift; sourceTree = "<group>"; };
+		C483FBBE20C5B553008ECE74 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
+		C483FBC020C5C56A008ECE74 /* newstypeselctortable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newstypeselctortable.swift; sourceTree = "<group>"; };
+		C483FBC220C5C583008ECE74 /* newsselctortypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newsselctortypeViewController.swift; sourceTree = "<group>"; };
 		C4AF45F62049BE1500B9093F /* Personal Assistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Personal Assistant.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4AF45F92049BE1500B9093F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C4AF45FE2049BE1600B9093F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -281,6 +293,12 @@
 				C4539E1F20C0667300DDC43C /* Searchpopup.swift */,
 				C4539E2120C0668800DDC43C /* Remberpopup.swift */,
 				C4539E2320C0884200DDC43C /* RemberWebview.swift */,
+				C4539E2520C1AA4A00DDC43C /* News.swift */,
+				C4539E2720C1AA7F00DDC43C /* Stock.swift */,
+				C4539E2920C1AA9300DDC43C /* ChatBot.swift */,
+				C483FBBE20C5B553008ECE74 /* NewsTableViewCell.swift */,
+				C483FBC020C5C56A008ECE74 /* newstypeselctortable.swift */,
+				C483FBC220C5C583008ECE74 /* newsselctortypeViewController.swift */,
 			);
 			path = "Personal Assistant";
 			sourceTree = "<group>";
@@ -660,6 +678,7 @@
 			files = (
 				C481A5C5209A0D34004DEFA5 /* Listdata.swift in Sources */,
 				C4DABCD2208FA42500ED146C /* Servercalls.swift in Sources */,
+				C483FBBF20C5B553008ECE74 /* NewsTableViewCell.swift in Sources */,
 				C4CAD9592049E3A7007CC517 /* AlertController.swift in Sources */,
 				C42BF3422097664300E02910 /* WeatherTableViewCell.swift in Sources */,
 				C4539E2420C0884200DDC43C /* RemberWebview.swift in Sources */,
@@ -675,8 +694,13 @@
 				C4254B062084E4E500807AF4 /* Map.swift in Sources */,
 				C4764E4720921C120000E8E3 /* CustomCellTableViewCell.swift in Sources */,
 				C4254B04207E97F500807AF4 /* Weather.swift in Sources */,
+				C483FBC320C5C583008ECE74 /* newsselctortypeViewController.swift in Sources */,
 				C4539E2220C0668800DDC43C /* Remberpopup.swift in Sources */,
+				C4539E2620C1AA4A00DDC43C /* News.swift in Sources */,
 				C4539E2020C0667300DDC43C /* Searchpopup.swift in Sources */,
+				C483FBC120C5C56A008ECE74 /* newstypeselctortable.swift in Sources */,
+				C4539E2820C1AA7F00DDC43C /* Stock.swift in Sources */,
+				C4539E2A20C1AA9300DDC43C /* ChatBot.swift in Sources */,
 				C4158DAC20A494850080AC0E /* PopalertDelete.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
