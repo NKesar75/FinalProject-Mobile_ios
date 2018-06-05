@@ -16,6 +16,6 @@ class Stock: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-  
+//  "https://api.iextrading.com/1.0/tops/last?symbols=aapl,fb,msft,SNE"
 
 }

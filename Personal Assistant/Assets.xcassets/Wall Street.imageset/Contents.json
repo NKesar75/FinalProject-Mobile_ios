@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "waa-1.jpeg",
+      "filename" : "wall street.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "waa.jpeg",
+      "filename" : "wall street-1.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "waa-2.jpeg",
+      "filename" : "wall street-2.png",
       "scale" : "3x"
     }
   ],

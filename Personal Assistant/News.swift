@@ -62,29 +62,21 @@ class News: UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
     
     func pullnews(){
+        
         if newsselctortypeViewController.newsjson["status"].string != nil && newsselctortypeViewController.newsjson["status"].string == "ok" {
             newsarray.removeAll()
-            newsarray.append(Newsinfo(Title: newsselctortypeViewController.newsjson["articles"][0]["title"].string!, Desc: newsselctortypeViewController.newsjson["articles"][0]["description"].string!, image: newsselctortypeViewController.newsjson["articles"][0]["urlToImage"].string!, URL: newsselctortypeViewController.newsjson["articles"][0]["url"].string!))
-            
-             newsarray.append(Newsinfo(Title: newsselctortypeViewController.newsjson["articles"][1]["title"].string!, Desc: newsselctortypeViewController.newsjson["articles"][1]["description"].string!, image: newsselctortypeViewController.newsjson["articles"][1]["urlToImage"].string!, URL: newsselctortypeViewController.newsjson["articles"][1]["url"].string!))
-            
-             newsarray.append(Newsinfo(Title: newsselctortypeViewController.newsjson["articles"][2]["title"].string!, Desc: newsselctortypeViewController.newsjson["articles"][2]["description"].string!, image: newsselctortypeViewController.newsjson["articles"][2]["urlToImage"].string!, URL: newsselctortypeViewController.newsjson["articles"][2]["url"].string!))
-            
-             newsarray.append(Newsinfo(Title: newsselctortypeViewController.newsjson["articles"][3]["title"].string!, Desc: newsselctortypeViewController.newsjson["articles"][3]["description"].string!, image: newsselctortypeViewController.newsjson["articles"][3]["urlToImage"].string!, URL: newsselctortypeViewController.newsjson["articles"][3]["url"].string!))
-            
-             newsarray.append(Newsinfo(Title: newsselctortypeViewController.newsjson["articles"][4]["title"].string!, Desc: newsselctortypeViewController.newsjson["articles"][4]["description"].string!, image: newsselctortypeViewController.newsjson["articles"][4]["urlToImage"].string!, URL: newsselctortypeViewController.newsjson["articles"][4]["url"].string!))
-            
-             newsarray.append(Newsinfo(Title: newsselctortypeViewController.newsjson["articles"][5]["title"].string!, Desc: newsselctortypeViewController.newsjson["articles"][5]["description"].string!, image: newsselctortypeViewController.newsjson["articles"][5]["urlToImage"].string!, URL: newsselctortypeViewController.newsjson["articles"][5]["url"].string!))
-            
-             newsarray.append(Newsinfo(Title: newsselctortypeViewController.newsjson["articles"][6]["title"].string!, Desc: newsselctortypeViewController.newsjson["articles"][6]["description"].string!, image: newsselctortypeViewController.newsjson["articles"][6]["urlToImage"].string!, URL: newsselctortypeViewController.newsjson["articles"][6]["url"].string!))
-            
-             newsarray.append(Newsinfo(Title: newsselctortypeViewController.newsjson["articles"][7]["title"].string!, Desc: newsselctortypeViewController.newsjson["articles"][7]["description"].string!, image: newsselctortypeViewController.newsjson["articles"][7]["urlToImage"].string!, URL: newsselctortypeViewController.newsjson["articles"][7]["url"].string!))
-            
-            newsarray.append(Newsinfo(Title: newsselctortypeViewController.newsjson["articles"][8]["title"].string!, Desc: newsselctortypeViewController.newsjson["articles"][8]["description"].string!, image: newsselctortypeViewController.newsjson["articles"][8]["urlToImage"].string!, URL: newsselctortypeViewController.newsjson["articles"][8]["url"].string!))
-
-            newsarray.append(Newsinfo(Title: newsselctortypeViewController.newsjson["articles"][9]["title"].string!, Desc: newsselctortypeViewController.newsjson["articles"][9]["description"].string!, image: newsselctortypeViewController.newsjson["articles"][9]["urlToImage"].string!, URL: newsselctortypeViewController.newsjson["articles"][9]["url"].string!))
+            var index:Int = 0
+            while true {
+                
+                if  newsselctortypeViewController.newsjson["articles"][index]["title"].string != nil && newsselctortypeViewController.newsjson["articles"][index]["description"].string != nil && newsselctortypeViewController.newsjson["articles"][index]["urlToImage"].string != nil && newsselctortypeViewController.newsjson["articles"][index]["url"].string != nil {
+                    
+                      newsarray.append(Newsinfo(Title: newsselctortypeViewController.newsjson["articles"][index]["title"].string!, Desc: newsselctortypeViewController.newsjson["articles"][index]["description"].string!, image: newsselctortypeViewController.newsjson["articles"][index]["urlToImage"].string!, URL: newsselctortypeViewController.newsjson["articles"][index]["url"].string!))
+                }else{
+                    break
+                }
+                index += 1
+            }
         }
-        print("newsarray",newsarray)
         newstable.reloadData()
         
     }

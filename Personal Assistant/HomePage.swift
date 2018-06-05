@@ -148,7 +148,7 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
         server.apicall(city: city!, state: state!, voicecall: "Weather")
         print(Servercalls.serverjson)
         
-       DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(7), execute: {
+       DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(10), execute: {
         
         UIApplication.shared.endIgnoringInteractionEvents()
         self.activityindactor.removeFromSuperview()
