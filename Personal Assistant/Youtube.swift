@@ -17,6 +17,7 @@ class Youtube: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate,
     @IBOutlet weak var Titleofvideo: UILabel!
     @IBOutlet weak var Searchfortext: UITextField!
     
+    var serverjson = JSON()
     
     @IBOutlet weak var youtubeview: WKWebView!
     var audioRecorder: AVAudioRecorder!
@@ -96,14 +97,38 @@ class Youtube: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate,
         let server = Servercalls()
         var servermetod = "play " + Searchfortext.text!
         servermetod = servermetod.replacingOccurrences(of: " ", with: "_", options: .literal, range: nil)
-        server.apicall(city: city!, state: state!, voicecall: servermetod)
-        print(Servercalls.serverjson)
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(7), execute: {
+//        server.apicall(city: city!, state: state!, voicecall: servermetod)
+//        print(self.serverjson)
+            
+            
+            let urlString = "https://personalassistant-ec554.appspot.com/recognize/" + servermetod + "/" + self.state! + "/" + self.city!
+            guard let url = URL(string: urlString) else { return }
+            URLSession.shared.dataTask(with: url) { (data, reponse, err) in
+                guard let data = data else { return }
+                do {
+                    
+                    self.serverjson = try JSON(data: data)
+                } catch let jsonErr {
+                    print("Error serializing json:", jsonErr)
+                }
                 
-            UIApplication.shared.endIgnoringInteractionEvents()
-            self.activityindactor.removeFromSuperview()
-            self.setvideo(videoid: Servercalls.serverjson["id"].string!, videotitle: Servercalls.serverjson["title"].string!)
-        })
+                }.resume()
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(10), execute: {
+                if self.serverjson["key"].string != nil && self.serverjson["key"] == "youtube" {
+                    
+                    self.FetchPreviousCall()
+                    UIApplication.shared.endIgnoringInteractionEvents()
+                    self.activityindactor.removeFromSuperview()
+                    
+                    
+                }else{
+                    UIApplication.shared.endIgnoringInteractionEvents()
+                    self.activityindactor.removeFromSuperview()
+                }
+            })
+            
+      
         }
     }
     
@@ -152,8 +177,8 @@ class Youtube: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate,
     }
     
     func FetchPreviousCall(){
-        if Servercalls.serverjson["key"].string != nil && Servercalls.serverjson["key"] == "youtube" {
-            setvideo(videoid: Servercalls.serverjson["id"].string!, videotitle: Servercalls.serverjson["title"].string!)
+        if self.serverjson["key"].string != nil && self.serverjson["key"] == "youtube" {
+            setvideo(videoid: self.serverjson["id"].string!, videotitle: self.serverjson["title"].string!)
         }
     }
    

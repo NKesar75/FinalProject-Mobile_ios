@@ -77,6 +77,8 @@ class Rember: UIViewController, UITableViewDataSource, UITableViewDelegate {
              Lcell.textLabel?.textColor = UIColor.green
         case "List":
             Lcell.textLabel?.textColor = UIColor.white
+        case "News":
+            Lcell.textLabel?.textColor = UIColor.purple
         default:
             Lcell.textLabel?.textColor = UIColor.black
         }
@@ -107,7 +109,9 @@ class Rember: UIViewController, UITableViewDataSource, UITableViewDelegate {
                 Make_a_list.nameoflist = Rember.titleofrember
                 let vc = self.storyboard?.instantiateViewController(withIdentifier: "Listdata_ID") as! Listdata
                 self.present(vc, animated: true, completion: nil)
-                
+            case "News":
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: "RemberWeb_ID") as! RemberWebview
+                self.present(vc, animated: true, completion: nil)
             default:
                 break
             }

@@ -12,7 +12,7 @@ import SwiftyJSON
 class News: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var newstable: UITableView!
-
+    var newsjson = JSON()
     struct Newsinfo{
         var Title : String
         var Desc : String
@@ -27,6 +27,10 @@ class News: UIViewController, UITableViewDataSource, UITableViewDelegate {
         super.viewDidLoad()
         newstable.delegate = self
         newstable.dataSource = self
+        
+        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(News.longPress(longPressGestureRecognizer:)))
+        self.newstable.addGestureRecognizer(longPressRecognizer)
+        
         pullnews()
         
     }
@@ -61,22 +65,45 @@ class News: UIViewController, UITableViewDataSource, UITableViewDelegate {
         }
     }
     
+    
+    @objc func longPress(longPressGestureRecognizer: UILongPressGestureRecognizer) {
+        
+        if longPressGestureRecognizer.state == UIGestureRecognizerState.began {
+            
+            let touchPoint = longPressGestureRecognizer.location(in: newstable)
+            if let indexPath = newstable.indexPathForRow(at: touchPoint) {
+                print("touchpoint " ,touchPoint)
+                if newsarray[indexPath.row] != nil {
+                    Search.titleofsearch = newsarray[indexPath.row].Title
+                    Search.urlofsearch = newsarray[indexPath.row].URL
+                    Search.typeforfirebase = "News"
+                    let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Searchpopup_ID") as! Searchpopup
+                    self.addChildViewController(popOverVC)
+                    popOverVC.view.frame = self.view.frame
+                    self.view.addSubview(popOverVC.view)
+                    popOverVC.didMove(toParentViewController: self)
+                }
+            }
+        }
+    }
+    
     func pullnews(){
         
-        if newsselctortypeViewController.newsjson["status"].string != nil && newsselctortypeViewController.newsjson["status"].string == "ok" {
+        if self.newsjson["status"].string != nil && self.newsjson["status"].string == "ok" {
             newsarray.removeAll()
             var index:Int = 0
             while true {
                 
-                if  newsselctortypeViewController.newsjson["articles"][index]["title"].string != nil && newsselctortypeViewController.newsjson["articles"][index]["description"].string != nil && newsselctortypeViewController.newsjson["articles"][index]["urlToImage"].string != nil && newsselctortypeViewController.newsjson["articles"][index]["url"].string != nil {
+                if  self.newsjson["articles"][index]["title"].string != nil && self.newsjson["articles"][index]["description"].string != nil && self.newsjson["articles"][index]["urlToImage"].string != nil && self.newsjson["articles"][index]["url"].string != nil {
                     
-                      newsarray.append(Newsinfo(Title: newsselctortypeViewController.newsjson["articles"][index]["title"].string!, Desc: newsselctortypeViewController.newsjson["articles"][index]["description"].string!, image: newsselctortypeViewController.newsjson["articles"][index]["urlToImage"].string!, URL: newsselctortypeViewController.newsjson["articles"][index]["url"].string!))
+                      newsarray.append(Newsinfo(Title: self.newsjson["articles"][index]["title"].string!, Desc: self.newsjson["articles"][index]["description"].string!, image: self.newsjson["articles"][index]["urlToImage"].string!, URL: self.newsjson["articles"][index]["url"].string!))
                 }else{
                     break
                 }
                 index += 1
             }
         }
+        print(newsarray)
         newstable.reloadData()
         
     }

@@ -29,8 +29,12 @@ class Search: UIViewController, CLLocationManagerDelegate, UITableViewDataSource
     var state: String?
     var googlesearches:[googlesearchinfo] = []
     
+    
+    var serverjson = JSON()
+    
     static var titleofsearch = ""
     static var urlofsearch = ""
+    static var typeforfirebase = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,6 +63,7 @@ class Search: UIViewController, CLLocationManagerDelegate, UITableViewDataSource
                 if googlesearches[indexPath.row] != nil {
                     Search.titleofsearch = googlesearches[indexPath.row].title
                     Search.urlofsearch = googlesearches[indexPath.row].url
+                    Search.typeforfirebase = "Google"
                     let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Searchpopup_ID") as! Searchpopup
                     self.addChildViewController(popOverVC)
                     popOverVC.view.frame = self.view.frame
@@ -111,23 +116,42 @@ class Search: UIViewController, CLLocationManagerDelegate, UITableViewDataSource
     @IBAction func searchbuttonpressed(_ sender: UIButton) {
         if SearchText.text != "" && SearchText.text != " "{
             activityindactor.center = self.view.center
-            //activityindactor.center = googlesearchtableview.center
+         
             activityindactor.hidesWhenStopped = true
             activityindactor.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
-            //activityindactor.color = UIColor.black
+    
             view.addSubview(activityindactor)
             self.activityindactor.startAnimating()
             UIApplication.shared.beginIgnoringInteractionEvents()
             let server = Servercalls()
             var servermetod = "Search for " + SearchText.text!
             servermetod = servermetod.replacingOccurrences(of: " ", with: "_", options: .literal, range: nil)
-            server.apicall(city: city!, state: state!, voicecall: servermetod)
-            print(Servercalls.serverjson)
-            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(7), execute: {
+//            server.apicall(city: city!, state: state!, voicecall: servermetod)
+//            print(self.serverjson)
+            let urlString = "https://personalassistant-ec554.appspot.com/recognize/" + servermetod + "/" + self.state! + "/" + self.city!
+            guard let url = URL(string: urlString) else { return }
+            URLSession.shared.dataTask(with: url) { (data, reponse, err) in
+                guard let data = data else { return }
+                do {
+                    
+                    self.serverjson = try JSON(data: data)
+                } catch let jsonErr {
+                    print("Error serializing json:", jsonErr)
+                }
                 
-                UIApplication.shared.endIgnoringInteractionEvents()
-                self.activityindactor.removeFromSuperview()
-                self.FetchPreviousCall()
+                }.resume()
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(10), execute: {
+                if self.serverjson["key"].string != nil && self.serverjson["key"] == "google" {
+                    UIApplication.shared.endIgnoringInteractionEvents()
+                    self.activityindactor.removeFromSuperview()
+                    print("why wont it work", self.serverjson)
+                    self.FetchPreviousCall()
+                    
+                }else{
+                    UIApplication.shared.endIgnoringInteractionEvents()
+                    self.activityindactor.removeFromSuperview()
+                }
             })
         }
     }
@@ -157,14 +181,14 @@ class Search: UIViewController, CLLocationManagerDelegate, UITableViewDataSource
     }
     
     func FetchPreviousCall(){
-        if Servercalls.serverjson["key"].string != nil && Servercalls.serverjson["key"] == "google" {
+        if self.serverjson["key"].string != nil && self.serverjson["key"] == "google" {
             googlesearches.removeAll()
         
             var index:Int = 0
             while true {
-                if Servercalls.serverjson["results"][index]["title"].string != nil && Servercalls.serverjson["results"][index]["snippet"].string != nil && Servercalls.serverjson["results"][index]["url"].string != nil {
+                if self.serverjson["results"][index]["title"].string != nil && self.serverjson["results"][index]["snippet"].string != nil && self.serverjson["results"][index]["url"].string != nil {
                     
-                    googlesearches.append(googlesearchinfo(title: Servercalls.serverjson["results"][index]["title"].string!, snippet: Servercalls.serverjson["results"][index]["snippet"].string!, url: Servercalls.serverjson["results"][index]["url"].string!))
+                    googlesearches.append(googlesearchinfo(title: self.serverjson["results"][index]["title"].string!, snippet: self.serverjson["results"][index]["snippet"].string!, url: self.serverjson["results"][index]["url"].string!))
                 }else{
                     break
                 }

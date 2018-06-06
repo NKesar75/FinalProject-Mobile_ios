@@ -38,7 +38,7 @@ class Searchpopup: UIViewController {
         if filename.text != "No Link Selected"{
             var listtitle = Search.titleofsearch
             let listlinc = Search.urlofsearch
-            
+            let typefirebase = Search.typeforfirebase
             listtitle = listtitle.replacingOccurrences(of: ".", with: " ", options: .literal, range: nil)
             listtitle = listtitle.replacingOccurrences(of: "$", with: " ", options: .literal, range: nil)
             listtitle = listtitle.replacingOccurrences(of: "[", with: " ", options: .literal, range: nil)
@@ -48,7 +48,7 @@ class Searchpopup: UIViewController {
             
             
             let temp: Remberfirebasehelperclass = Remberfirebasehelperclass()
-            temp.pushtofirebase(link: listtitle, type: "Google," + listlinc)
+            temp.pushtofirebase(link: listtitle, type: typefirebase + "," + listlinc)
             
             self.removeAnimate()
             

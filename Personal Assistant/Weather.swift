@@ -16,6 +16,8 @@ class Weather: UIViewController, CLLocationManagerDelegate, UITableViewDataSourc
     @IBOutlet weak var weathertable: UITableView!
     @IBOutlet weak var Searchweathertext: UITextField!
     
+    var serverjson = JSON()
+    
     struct weatherinfo{
         var Location : String
         var forcast : String
@@ -74,19 +76,39 @@ class Weather: UIViewController, CLLocationManagerDelegate, UITableViewDataSourc
             view.addSubview(activityindactor)
             activityindactor.startAnimating()
             UIApplication.shared.beginIgnoringInteractionEvents()
-            let server = Servercalls()
+           // let server = Servercalls()
             var servermetod = "whats the weather in " + Searchweathertext.text!.lowercased()
             servermetod = servermetod.trimmingCharacters(in: .whitespacesAndNewlines)
             servermetod = servermetod.replacingOccurrences(of: " ", with: "_", options: .literal, range: nil)
-            server.apicall(city: city!, state: state!, voicecall: servermetod)
-            print(Servercalls.serverjson)
-            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(7), execute: {
-              
-            UIApplication.shared.endIgnoringInteractionEvents()
-            self.activityindactor.removeFromSuperview()
-            print(Servercalls.serverjson)
-            self.FetchPreviousCall()
-            self.weathertable.reloadData()
+//            server.apicall(city: city!, state: state!, voicecall: servermetod)
+//            print(self.serverjson)
+            
+            let urlString = "https://personalassistant-ec554.appspot.com/recognize/" + servermetod + "/" + self.state! + "/" + self.city!
+            guard let url = URL(string: urlString) else { return }
+            URLSession.shared.dataTask(with: url) { (data, reponse, err) in
+                guard let data = data else { return }
+                do {
+                    
+                    self.serverjson = try JSON(data: data)
+                } catch let jsonErr {
+                    print("Error serializing json:", jsonErr)
+                }
+                
+                }.resume()
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(10), execute: {
+                if self.serverjson["key"].string != nil && self.serverjson["key"] == "weather" {
+                  
+                    self.FetchPreviousCall()
+                    self.weathertable.reloadData()
+                    UIApplication.shared.endIgnoringInteractionEvents()
+                    self.activityindactor.removeFromSuperview()
+                   
+                    
+                }else{
+                    UIApplication.shared.endIgnoringInteractionEvents()
+                    self.activityindactor.removeFromSuperview()
+                }
             })
         }
     }
@@ -117,15 +139,15 @@ class Weather: UIViewController, CLLocationManagerDelegate, UITableViewDataSourc
     }
     
     func FetchPreviousCall(){
-    if Servercalls.serverjson["key"].string != nil && Servercalls.serverjson["key"].string == "weather" {
+    if self.serverjson["key"].string != nil && self.serverjson["key"].string == "weather" {
         weatherforcasts.removeAll()
         
         var index:Int = 0
         while true {
             
-            if  Servercalls.serverjson["city"].string != nil && Servercalls.serverjson["state"].string != nil && Servercalls.serverjson["results"][index]["condition"].string != nil && Servercalls.serverjson["results"][index]["url"].string != nil && Servercalls.serverjson["results"][index]["precip"].double != nil && Servercalls.serverjson["results"][index]["temp_lowf"].string != nil && Servercalls.serverjson["results"][index]["temp_highf"].string != nil && Servercalls.serverjson["results"][index]["humidity"].double != nil && Servercalls.serverjson["results"][index]["month"].int != nil &&  Servercalls.serverjson["results"][index]["day"].int != nil && Servercalls.serverjson["results"][index]["year"].int != nil {
+            if  self.serverjson["city"].string != nil && self.serverjson["state"].string != nil && self.serverjson["results"][index]["condition"].string != nil && self.serverjson["results"][index]["url"].string != nil && self.serverjson["results"][index]["precip"].double != nil && self.serverjson["results"][index]["temp_lowf"].string != nil && self.serverjson["results"][index]["temp_highf"].string != nil && self.serverjson["results"][index]["humidity"].double != nil && self.serverjson["results"][index]["month"].int != nil &&  self.serverjson["results"][index]["day"].int != nil && self.serverjson["results"][index]["year"].int != nil {
                 
-                       weatherforcasts.append(weatherinfo(Location: Servercalls.serverjson["city"].string! + ", " + Servercalls.serverjson["state"].string!,forcast: "Forcast: " + Servercalls.serverjson["results"][index]["condition"].string!,image:  Servercalls.serverjson["results"][index]["url"].string!,rain: "Rain: " + String(Servercalls.serverjson["results"][index]["precip"].double!) + "%", templow: "Low: " + Servercalls.serverjson["results"][index]["temp_lowf"].string! + "°F", temphigh: "High: " + Servercalls.serverjson["results"][index]["temp_highf"].string! + "°F",humidty: "Humidity: " + String(Servercalls.serverjson["results"][index]["humidity"].double!), date: String(Servercalls.serverjson["results"][index]["month"].int!) + "/" + String(Servercalls.serverjson["results"][index]["day"].int!) + "/" + String(Servercalls.serverjson["results"][index]["year"].int!)))
+                       weatherforcasts.append(weatherinfo(Location: self.serverjson["city"].string! + ", " + self.serverjson["state"].string!,forcast: "Forcast: " + self.serverjson["results"][index]["condition"].string!,image:  self.serverjson["results"][index]["url"].string!,rain: "Rain: " + String(self.serverjson["results"][index]["precip"].double!) + "%", templow: "Low: " + self.serverjson["results"][index]["temp_lowf"].string! + "°F", temphigh: "High: " + self.serverjson["results"][index]["temp_highf"].string! + "°F",humidty: "Humidity: " + String(self.serverjson["results"][index]["humidity"].double!), date: String(self.serverjson["results"][index]["month"].int!) + "/" + String(self.serverjson["results"][index]["day"].int!) + "/" + String(self.serverjson["results"][index]["year"].int!)))
             }else{
                 break
             }

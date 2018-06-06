@@ -15,7 +15,7 @@ class newsselctortypeViewController: UIViewController, UITableViewDataSource, UI
     var titles:[String] = ["ABC News", "Apple", "BBC News", "BBC Sports", "Bitcoin", "Bleacher Reports", "Bloomberg", "Breitbart", "Business", "Business Insider", "Buzz Feed", "CBS News", "CNN", "Daily Mail", "Entertainment Week", "ESPN", "Financial Times", "Four Four Two", "Fox News", "Fox Sports", "Google News", "Hacker News", "IGN", "Medical News", "Metro", "MSNBC", "MTV", "National Geographics", "National Review", "NBC News", "New Scientist",  "News 24", "NFL News", "NHL News", "Reddit", "Talk Sports", "TechCrunch", "The New York Times", "USA Today", "Vice News", "Wall Street", "Washington"]
     
     var activityindactor:UIActivityIndicatorView = UIActivityIndicatorView()
-   static var newsjson = JSON()
+    var newsjson = JSON()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -151,7 +151,7 @@ class newsselctortypeViewController: UIViewController, UITableViewDataSource, UI
             guard let data = data else { return }
             do {
                 
-                newsselctortypeViewController.newsjson = try JSON(data: data)
+                self.newsjson = try JSON(data: data)
             } catch let jsonErr {
                 print("Error serializing json:", jsonErr)
                 
@@ -164,6 +164,7 @@ class newsselctortypeViewController: UIViewController, UITableViewDataSource, UI
         UIApplication.shared.endIgnoringInteractionEvents()
         self.activityindactor.removeFromSuperview()
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "News_ID") as! News
+        vc.newsjson = self.newsjson
         self.present(vc, animated: true, completion: nil)
             
         })
