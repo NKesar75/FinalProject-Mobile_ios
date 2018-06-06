@@ -146,7 +146,6 @@ class Search: UIViewController, CLLocationManagerDelegate, UITableViewDataSource
                 if self.serverjson["key"].string != nil && self.serverjson["key"] == "google" {
                     UIApplication.shared.endIgnoringInteractionEvents()
                     self.activityindactor.removeFromSuperview()
-                    print("why wont it work", self.serverjson)
                     self.FetchPreviousCall()
                     
                 }else{

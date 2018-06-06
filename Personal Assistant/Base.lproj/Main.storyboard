@@ -510,20 +510,20 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="125.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name of Company" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SNC-61-Q8U">
-                                                    <rect key="frame" x="115" y="21" width="177.5" height="26.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name of Company" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SNC-61-Q8U">
+                                                    <rect key="frame" x="115" y="21" width="235" height="35"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="29"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dnn-T5-ahF">
-                                                    <rect key="frame" x="115" y="52.5" width="240" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dnn-T5-ahF">
+                                                    <rect key="frame" x="115" y="61" width="240" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Size" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k79-di-J8O">
-                                                    <rect key="frame" x="115" y="78.5" width="240" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Size" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k79-di-J8O">
+                                                    <rect key="frame" x="115" y="87" width="240" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -545,6 +545,7 @@
                                                 <constraint firstItem="33T-fv-enR" firstAttribute="top" secondItem="g3P-0A-9yj" secondAttribute="top" constant="10" id="grh-Vm-7rE"/>
                                                 <constraint firstItem="SNC-61-Q8U" firstAttribute="leading" secondItem="33T-fv-enR" secondAttribute="trailing" constant="5" id="iYa-XJ-ZCb"/>
                                                 <constraint firstItem="k79-di-J8O" firstAttribute="leading" secondItem="33T-fv-enR" secondAttribute="trailing" constant="5" id="jiP-8U-YiF"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="SNC-61-Q8U" secondAttribute="trailing" constant="10" id="lEV-wT-CVK"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="k79-di-J8O" secondAttribute="trailing" constant="5" id="mjl-Fu-Tem"/>
                                                 <constraint firstItem="dnn-T5-ahF" firstAttribute="leading" secondItem="33T-fv-enR" secondAttribute="trailing" constant="5" id="vEE-od-Rhl"/>
                                             </constraints>

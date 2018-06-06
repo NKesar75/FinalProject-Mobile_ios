@@ -65,8 +65,7 @@ class Stock: UIViewController, UITableViewDataSource, UITableViewDelegate {
             }.resume()
         
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(10), execute: {
-            print(self.newsjson)
-            if self.newsjson[0]["symbol"].string != nil {
+            if self.newsjson.arrayValue[0]["symbol"] != nil {
                 UIApplication.shared.endIgnoringInteractionEvents()
                 self.activityindactor.removeFromSuperview()
                 self.FetchPreviousCall()
@@ -79,7 +78,7 @@ class Stock: UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200
+        return 150
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -103,12 +102,12 @@ class Stock: UIViewController, UITableViewDataSource, UITableViewDelegate {
             stocks.removeAll()
             
             var index:Int = 0
-            while true {
-                if self.newsjson[][index]["symbol"].string != nil && self.newsjson[index]["price"].string != nil && self.newsjson[index]["size"].string != nil {
+            while index < self.newsjson.arrayValue.count{
+                if self.newsjson.arrayValue[index]["symbol"].string != nil && self.newsjson.arrayValue[index]["price"].double != nil && self.newsjson.arrayValue[index]["size"].int != nil {
                     var nameofcompany = ""
                     var imageofcompany = ""
                     
-                    switch (self.newsjson[index]["symbol"].string!){
+                    switch (self.newsjson.arrayValue[index]["symbol"].string!){
                     case "AAPL":
                         nameofcompany = "Apple Inc."
                         imageofcompany = "Apple"
@@ -180,7 +179,7 @@ class Stock: UIViewController, UITableViewDataSource, UITableViewDelegate {
                     
                     
                     
-                    stocks.append(stockstruct(nameofcompany: nameofcompany, priceofstock: String(self.newsjson[index]["price"].double!), sizeofstock: String(self.newsjson[index]["size"].int!), imagename: imageofcompany))
+                    stocks.append(stockstruct(nameofcompany: nameofcompany, priceofstock: "Price Per Stock: $" + String(self.newsjson.arrayValue[index]["price"].double!), sizeofstock: "Size Per Transcation: " + String(self.newsjson.arrayValue[index]["size"].int!), imagename: imageofcompany))
                 }else{
                     break
                 }
