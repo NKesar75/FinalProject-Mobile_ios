@@ -36,7 +36,7 @@
                     <items>
                         <table alignment="left" id="bDQ-aV-etQ">
                             <items>
-                                <tableRow identifier="WeatherRowController" selectable="NO" id="Jtb-bz-fpC" customClass="WeatherRowController" customModule="PersonalAssistantWatch_Extension">
+                                <tableRow identifier="WeatherRowController" id="Jtb-bz-fpC" customClass="WeatherRowController" customModule="PersonalAssistantWatch_Extension">
                                     <group key="rootItem" width="1" height="0.0" alignment="left" spacing="6" id="y5L-e4-6yk">
                                         <items>
                                             <separator height="1" heightAdjustment="-4" alignment="left" verticalAlignment="center" id="Afl-0Q-JPy">
@@ -48,22 +48,11 @@
                                                     <group width="1" alignment="left" id="hdc-DH-U5L">
                                                         <items>
                                                             <label alignment="left" text="High" id="xEU-vI-I3J"/>
-                                                            <label alignment="right" text="Low" id="GeO-De-d8p"/>
                                                         </items>
                                                     </group>
-                                                    <group width="1" alignment="left" id="uyD-Ev-Zb7">
+                                                    <group width="1" alignment="left" id="GiZ-32-DNn">
                                                         <items>
-                                                            <label alignment="left" text="Forecast" id="MiO-lM-fSX"/>
-                                                        </items>
-                                                    </group>
-                                                    <group width="1" alignment="left" id="Ky4-gN-lPd">
-                                                        <items>
-                                                            <label alignment="left" text="Rain" id="qdK-xl-BMp"/>
-                                                        </items>
-                                                    </group>
-                                                    <group width="1" alignment="left" id="L6H-Qq-R6h">
-                                                        <items>
-                                                            <label alignment="left" text="Location" id="gtw-SB-j8O"/>
+                                                            <label alignment="left" text="Low" id="E3Z-Af-kDN"/>
                                                         </items>
                                                     </group>
                                                     <group width="1" alignment="left" id="ywt-7c-5KT">
@@ -77,12 +66,9 @@
                                     </group>
                                     <connections>
                                         <outlet property="weatherDate" destination="3zt-Nh-ws5" id="NFt-TP-eCG"/>
-                                        <outlet property="weatherForecast" destination="MiO-lM-fSX" id="dLp-9i-XFH"/>
                                         <outlet property="weatherHigh" destination="xEU-vI-I3J" id="jzs-di-U7z"/>
                                         <outlet property="weatherImage" destination="IfF-YV-oCZ" id="mAt-1i-oBb"/>
-                                        <outlet property="weatherLocation" destination="gtw-SB-j8O" id="eIQ-8U-Dzm"/>
-                                        <outlet property="weatherLow" destination="GeO-De-d8p" id="1Dm-Os-P2V"/>
-                                        <outlet property="weatherRain" destination="qdK-xl-BMp" id="B5X-6d-gfB"/>
+                                        <outlet property="weatherLow" destination="E3Z-Af-kDN" id="2Fi-cF-Xty"/>
                                         <outlet property="weatherSeparator" destination="Afl-0Q-JPy" id="e9P-Kb-tly"/>
                                     </connections>
                                 </tableRow>
@@ -94,26 +80,66 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="522" y="-100"/>
+            <point key="canvasLocation" x="518" y="38"/>
         </scene>
-        <!--UberIdentifier-->
-        <scene sceneID="a4f-F0-qLg">
+        <!--WeatherInfoIdentifier-->
+        <scene sceneID="17a-ga-I8L">
             <objects>
-                <controller identifier="UberIdentifier" id="R9J-Mq-ttr" customClass="UberIC" customModule="PersonalAssistantWatch_Extension">
+                <controller identifier="WeatherInfoIdentifier" id="s5g-11-0US" customClass="WeatherInfoIC" customModule="PersonalAssistantWatch_Extension">
                     <items>
-                        <map height="112" alignment="left" id="6qq-4I-DAM"/>
-                        <button width="1" alignment="left" title="Ride with Uber" id="rWh-c7-zqm">
-                            <connections>
-                                <action selector="sendLocationtoPhone" destination="R9J-Mq-ttr" id="J1k-SC-YUQ"/>
-                            </connections>
-                        </button>
+                        <group width="136" alignment="left" layout="vertical" id="W10-1Q-oDC">
+                            <items>
+                                <group width="1" alignment="left" id="SSv-Um-Aqc">
+                                    <items>
+                                        <imageView alignment="left" id="M9c-Sv-2z4"/>
+                                    </items>
+                                </group>
+                                <group width="1" alignment="left" id="J4U-j0-pLx">
+                                    <items>
+                                        <label alignment="left" text="High" id="2Xu-ib-PTV"/>
+                                    </items>
+                                </group>
+                                <group width="1" alignment="left" id="st9-Lc-fiU">
+                                    <items>
+                                        <label alignment="left" text="Low" id="dIy-zk-P6u"/>
+                                    </items>
+                                </group>
+                                <group width="1" alignment="left" layout="vertical" id="EG5-dC-iSK">
+                                    <items>
+                                        <label alignment="left" text="Forecast:" id="BEM-6R-cQ0"/>
+                                        <label alignment="left" text="Forecast" id="wBK-iY-zFL"/>
+                                    </items>
+                                </group>
+                                <group width="1" alignment="left" id="8m2-7g-8rH">
+                                    <items>
+                                        <label alignment="left" text="Rain" id="YOT-ZE-44O"/>
+                                    </items>
+                                </group>
+                                <group width="1" alignment="left" id="FyD-IR-pRY">
+                                    <items>
+                                        <label alignment="left" text="Location" id="K2q-TL-yus"/>
+                                    </items>
+                                </group>
+                                <group width="1" alignment="left" id="7lB-W1-AaM">
+                                    <items>
+                                        <label alignment="left" text="mm/dd/yyyy" id="lov-ic-NGk"/>
+                                    </items>
+                                </group>
+                            </items>
+                        </group>
                     </items>
                     <connections>
-                        <outlet property="myMap" destination="6qq-4I-DAM" id="JPG-qF-bRl"/>
+                        <outlet property="weatherInfoDate" destination="lov-ic-NGk" id="q1M-UV-uMw"/>
+                        <outlet property="weatherInfoForecast" destination="wBK-iY-zFL" id="ZQv-Rp-FAC"/>
+                        <outlet property="weatherInfoHigh" destination="2Xu-ib-PTV" id="jXt-rF-Ppu"/>
+                        <outlet property="weatherInfoImg" destination="M9c-Sv-2z4" id="SYJ-pN-4du"/>
+                        <outlet property="weatherInfoLocation" destination="K2q-TL-yus" id="POY-wF-wM2"/>
+                        <outlet property="weatherInfoLow" destination="dIy-zk-P6u" id="vga-T5-oMl"/>
+                        <outlet property="weatherInfoRain" destination="YOT-ZE-44O" id="FR3-Oh-igr"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="522" y="201"/>
+            <point key="canvasLocation" x="770" y="37"/>
         </scene>
     </scenes>
 </document>

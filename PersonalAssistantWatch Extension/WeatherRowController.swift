@@ -14,9 +14,6 @@ class WeatherRowController: NSObject {
     @IBOutlet var weatherImage: WKInterfaceImage!
     @IBOutlet var weatherHigh: WKInterfaceLabel!
     @IBOutlet var weatherLow: WKInterfaceLabel!
-    @IBOutlet var weatherForecast: WKInterfaceLabel!
-    @IBOutlet var weatherRain: WKInterfaceLabel!
-    @IBOutlet var weatherLocation: WKInterfaceLabel!
     @IBOutlet var weatherDate: WKInterfaceLabel!
     
 }

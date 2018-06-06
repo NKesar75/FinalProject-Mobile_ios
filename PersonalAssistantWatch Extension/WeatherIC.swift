@@ -10,19 +10,8 @@ import WatchKit
 import Foundation
 
 
-class WeatherIC: WKInterfaceController {
-
-    struct weatherinfo{
-        var Location : String
-        var forcast : String
-        var image : String
-        var rain : String
-        var templow : String
-        var temphigh : String
-        var date: String
-    }
-    
-    var weatherforcasts:[weatherinfo] = []
+class WeatherIC: WKInterfaceController {    
+    var weatherforcasts: [weatherInfo] = []
     
     @IBOutlet var weatherTable: WKInterfaceTable!
     
@@ -43,6 +32,7 @@ class WeatherIC: WKInterfaceController {
         // This method is called when watch view controller is no longer visible
         super.didDeactivate()
     }
+    
     func loadDataintoTable()
     {
          fetchperviouscall()
@@ -55,35 +45,59 @@ class WeatherIC: WKInterfaceController {
             {
                 rowController.weatherHigh.setText(weatherforcasts[index].temphigh)
                 rowController.weatherLow.setText(weatherforcasts[index].templow)
-                rowController.weatherRain.setText(weatherforcasts[index].rain)
-                rowController.weatherForecast.setText(weatherforcasts[index].forcast)
-                rowController.weatherLocation.setText(weatherforcasts[index].Location)
                 rowController.weatherDate.setText(weatherforcasts[index].date)
-//                let imageUrl:URL = URL(string: weatherforcasts[index].image)!
-//                let imageData:NSData = NSData(contentsOf: imageUrl)!
-//                rowController.weatherImage.setImage(UIImage(data: imageData as Data))
-                //wcell.weatherimage.contentMode = UIViewContentMode.scaleAspectFit
+                let imgUrl = weatherforcasts[index].image
+                if let url = URL(string: imgUrl)
+                {
+                    do
+                    {
+                        let data = try Data(contentsOf: url)
+                        rowController.weatherImage.setImageData(data)
+                    }
+                    catch let error
+                    {
+                        print("Error : \(error.localizedDescription)")
+                    }
+                }
             }
         }
     }
+    
+    override func table(_ table: WKInterfaceTable, didSelectRowAt rowIndex: Int)
+    {
+//        let weather = weatherforcasts[rowIndex]
+        pushController(withName: "WeatherInfoIdentifier", context: weatherforcasts[rowIndex])
+    }
+    
+    
     func fetchperviouscall(){
-        if HomePageIC.requestinfo != "" {
+        if HomePageIC.requestinfo != ""
+        {
             let weatherinfoarray = HomePageIC.requestinfo.split(separator: ",")
             //0 key //1 city //2 state //3 condition //4 url //5 rain //6 temp low //7 temp high //8 month/date/year //9 repeat condition
-            print(weatherinfoarray)
-            weatherforcasts.append(weatherinfo(Location: weatherinfoarray[1] + ", " + weatherinfoarray[2],forcast: "Forcast: " + weatherinfoarray[3], image:  String(weatherinfoarray[4]), rain: "Rain: " + weatherinfoarray[5] + "%", templow: "Low: " + weatherinfoarray[6] + "°F", temphigh: "High: " + weatherinfoarray[7] + "°F", date: String(weatherinfoarray[8])))
+            //print(weatherinfoarray)
             
-            weatherforcasts.append(weatherinfo(Location: weatherinfoarray[1] + ", " + weatherinfoarray[2],forcast: "Forcast: " + weatherinfoarray[9], image:  String(weatherinfoarray[10]), rain: "Rain: " + weatherinfoarray[11] + "%", templow: "Low: " + weatherinfoarray[12] + "°F", temphigh: "High: " + weatherinfoarray[13] + "°F", date: String(weatherinfoarray[14])))
+            let one = weatherInfo(location: weatherinfoarray[1] + ", " + weatherinfoarray[2], forecast: String(weatherinfoarray[3]), image: String(weatherinfoarray[4]), rain: "Rain: " + weatherinfoarray[5], templow: "Low: " + weatherinfoarray[6], temphigh: "High: " + weatherinfoarray[7], date: String(weatherinfoarray[8]))
+            weatherforcasts.append(one)
             
-            weatherforcasts.append(weatherinfo(Location: weatherinfoarray[1] + ", " + weatherinfoarray[2],forcast: "Forcast: " + weatherinfoarray[15], image:  String(weatherinfoarray[16]), rain: "Rain: " + weatherinfoarray[17] + "%", templow: "Low: " + weatherinfoarray[18] + "°F", temphigh: "High: " + weatherinfoarray[19] + "°F", date: String(weatherinfoarray[20])))
+            let two = weatherInfo(location: weatherinfoarray[1] + ", " + weatherinfoarray[2], forecast: String(weatherinfoarray[9]), image: String(weatherinfoarray[10]), rain: "Rain: " + weatherinfoarray[11], templow: "Low: " + weatherinfoarray[12], temphigh: "High: " + weatherinfoarray[13], date: String(weatherinfoarray[14]))
+            weatherforcasts.append(two)
+
             
-            weatherforcasts.append(weatherinfo(Location: weatherinfoarray[1] + ", " + weatherinfoarray[2],forcast: "Forcast: " + weatherinfoarray[21], image:  String(weatherinfoarray[22]), rain: "Rain: " + weatherinfoarray[23] + "%", templow: "Low: " + weatherinfoarray[24] + "°F", temphigh: "High: " + weatherinfoarray[25] + "°F", date: String(weatherinfoarray[26])))
+             let three = weatherInfo(location: weatherinfoarray[1] + ", " + weatherinfoarray[2], forecast: String(weatherinfoarray[15]), image: String(weatherinfoarray[16]), rain: "Rain: " + weatherinfoarray[17], templow: "Low: " + weatherinfoarray[18], temphigh: "High: " + weatherinfoarray[19], date: String(weatherinfoarray[20]))
+            weatherforcasts.append(three)
             
-            weatherforcasts.append(weatherinfo(Location: weatherinfoarray[1] + ", " + weatherinfoarray[2],forcast: "Forcast: " + weatherinfoarray[27], image:  String(weatherinfoarray[28]), rain: "Rain: " + weatherinfoarray[29] + "%", templow: "Low: " + weatherinfoarray[30] + "°F", temphigh: "High: " + weatherinfoarray[31] + "°F", date: String(weatherinfoarray[32])))
+            let four = weatherInfo(location: weatherinfoarray[1] + ", " + weatherinfoarray[2], forecast: String(weatherinfoarray[21]), image: String(weatherinfoarray[22]), rain: "Rain: " + weatherinfoarray[23], templow: "Low: " + weatherinfoarray[24], temphigh: "High: " + weatherinfoarray[25], date: String(weatherinfoarray[26]))
+            weatherforcasts.append(four)
             
-            weatherforcasts.append(weatherinfo(Location: weatherinfoarray[1] + ", " + weatherinfoarray[2],forcast: "Forcast: " + weatherinfoarray[33], image:  String(weatherinfoarray[34]), rain: "Rain: " + weatherinfoarray[35] + "%", templow: "Low: " + weatherinfoarray[36] + "°F", temphigh: "High: " + weatherinfoarray[37] + "°F", date: String(weatherinfoarray[38])))
+            let five = weatherInfo(location: weatherinfoarray[1] + ", " + weatherinfoarray[2], forecast: String(weatherinfoarray[27]), image: String(weatherinfoarray[28]), rain: "Rain: " + weatherinfoarray[29], templow: "Low: " + weatherinfoarray[30], temphigh: "High: " + weatherinfoarray[31], date: String(weatherinfoarray[32]))
+            weatherforcasts.append(five)
             
-            weatherforcasts.append(weatherinfo(Location: weatherinfoarray[1] + ", " + weatherinfoarray[2],forcast: "Forcast: " + weatherinfoarray[39], image:  String(weatherinfoarray[40]), rain: "Rain: " + weatherinfoarray[41] + "%", templow: "Low: " + weatherinfoarray[42] + "°F", temphigh: "High: " + weatherinfoarray[43] + "°F", date: String(weatherinfoarray[44])))
+           let six = weatherInfo(location: weatherinfoarray[1] + ", " + weatherinfoarray[2], forecast: String(weatherinfoarray[33]), image: String(weatherinfoarray[34]), rain: "Rain: " + weatherinfoarray[35], templow: "Low: " + weatherinfoarray[36], temphigh: "High: " + weatherinfoarray[37], date: String(weatherinfoarray[38]))
+            weatherforcasts.append(six)
+            
+             let seven = weatherInfo(location: weatherinfoarray[1] + ", " + weatherinfoarray[2], forecast: String(weatherinfoarray[39]), image: String(weatherinfoarray[40]), rain: "Rain: " + weatherinfoarray[41], templow: "Low: " + weatherinfoarray[42], temphigh: "High: " + weatherinfoarray[43], date: String(weatherinfoarray[44]))
+            weatherforcasts.append(seven)
         }
         
     }
