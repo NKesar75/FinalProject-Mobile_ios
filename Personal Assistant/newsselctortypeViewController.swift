@@ -37,8 +37,7 @@ class newsselctortypeViewController: UIViewController, UITableViewDataSource, UI
         let ncell = newstypeselctortable.dequeueReusableCell(withIdentifier: "newstypecell") as! newstypeselctortable
         
         ncell.typelabel.text = titles[indexPath.row]
-        let imagey = UIImage(named: titles[indexPath.row]) as UIImage?
-        ncell.newtypeimage.image = imagey
+        ncell.newtypeimage.image = UIImage(named: titles[indexPath.row]) as UIImage?
         ncell.newtypeimage.contentMode = UIViewContentMode.scaleAspectFit
         
         return ncell

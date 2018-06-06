@@ -486,7 +486,7 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
 //                let server = Servercalls()
 //                server.apicall(city: self.city!, state: self.state!, voicecall: self.resuestfromwatch)
     
-                let urlString = "https://personalassistant-ec554.appspot.com/recognize/" + self.resuestfromwatch!.lowercased() + "/" + self.state! + "/" + self.city!
+                let urlString = "https://personalassistant-ec554.appspot.com/recognize/" + self.resuestfromwatch + "/" + self.state! + "/" + self.city!
                 guard let url = URL(string: urlString) else { return }
                 URLSession.shared.dataTask(with: url) { (data, reponse, err) in
                     guard let data = data else { return }
@@ -519,7 +519,6 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
                             
                           
                         }else{
-                            sendtowatch = "error"
                             break
                         }
                         index += 1

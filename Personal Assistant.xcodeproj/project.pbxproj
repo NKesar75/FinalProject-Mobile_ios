@@ -13,6 +13,8 @@
 		C4254B04207E97F500807AF4 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4254B03207E97F500807AF4 /* Weather.swift */; };
 		C4254B062084E4E500807AF4 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4254B052084E4E500807AF4 /* Map.swift */; };
 		C42BF3422097664300E02910 /* WeatherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42BF3412097664300E02910 /* WeatherTableViewCell.swift */; };
+		C4522BE420C840EC00A661BA /* apitest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4522BE320C840EC00A661BA /* apitest.swift */; };
+		C4522BE620C859CB00A661BA /* StockCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4522BE520C859CB00A661BA /* StockCell.swift */; };
 		C4539E1A20BDE92E00DDC43C /* PersonalAssistantWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = EDED64A120B731060050C690 /* PersonalAssistantWatch.app */; };
 		C4539E1C20BF05B200DDC43C /* Rember.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4539E1B20BF05B200DDC43C /* Rember.swift */; };
 		C4539E1E20BF085600DDC43C /* Remberfirebasehelperclass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4539E1D20BF085600DDC43C /* Remberfirebasehelperclass.swift */; };
@@ -128,6 +130,8 @@
 		C4254B03207E97F500807AF4 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		C4254B052084E4E500807AF4 /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
 		C42BF3412097664300E02910 /* WeatherTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherTableViewCell.swift; sourceTree = "<group>"; };
+		C4522BE320C840EC00A661BA /* apitest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = apitest.swift; sourceTree = "<group>"; };
+		C4522BE520C859CB00A661BA /* StockCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockCell.swift; sourceTree = "<group>"; };
 		C4539E1B20BF05B200DDC43C /* Rember.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rember.swift; sourceTree = "<group>"; };
 		C4539E1D20BF085600DDC43C /* Remberfirebasehelperclass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Remberfirebasehelperclass.swift; sourceTree = "<group>"; };
 		C4539E1F20C0667300DDC43C /* Searchpopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Searchpopup.swift; sourceTree = "<group>"; };
@@ -288,6 +292,8 @@
 				C483FBBE20C5B553008ECE74 /* NewsTableViewCell.swift */,
 				C483FBC020C5C56A008ECE74 /* newstypeselctortable.swift */,
 				C483FBC220C5C583008ECE74 /* newsselctortypeViewController.swift */,
+				C4522BE320C840EC00A661BA /* apitest.swift */,
+				C4522BE520C859CB00A661BA /* StockCell.swift */,
 			);
 			path = "Personal Assistant";
 			sourceTree = "<group>";
@@ -642,12 +648,38 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
+				"${SRCROOT}/Pods/Target Support Files/Pods-Personal Assistant/Pods-Personal Assistant-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/ApiAI/ApiAI.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleAPIClientForREST/GoogleAPIClientForREST.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/UberCore/UberCore.framework",
+				"${BUILT_PRODUCTS_DIR}/UberRides/UberRides.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Personal AssistantUITests-checkManifestLockResult.txt",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ApiAI.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleAPIClientForREST.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UberCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UberRides.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -681,10 +713,12 @@
 			files = (
 				C481A5C5209A0D34004DEFA5 /* Listdata.swift in Sources */,
 				C4DABCD2208FA42500ED146C /* Servercalls.swift in Sources */,
+				C4522BE620C859CB00A661BA /* StockCell.swift in Sources */,
 				C483FBBF20C5B553008ECE74 /* NewsTableViewCell.swift in Sources */,
 				C4CAD9592049E3A7007CC517 /* AlertController.swift in Sources */,
 				C42BF3422097664300E02910 /* WeatherTableViewCell.swift in Sources */,
 				C4539E2420C0884200DDC43C /* RemberWebview.swift in Sources */,
+				C4522BE420C840EC00A661BA /* apitest.swift in Sources */,
 				C4539E1C20BF05B200DDC43C /* Rember.swift in Sources */,
 				C4AF462A2049C05E00B9093F /* Login.swift in Sources */,
 				C4AF462E2049C2F700B9093F /* HomePage.swift in Sources */,

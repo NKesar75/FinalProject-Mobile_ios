@@ -27,6 +27,7 @@ class Search: UIViewController, CLLocationManagerDelegate, UITableViewDataSource
     var placemark: CLPlacemark?
     var city: String?
     var state: String?
+    
     var googlesearches:[googlesearchinfo] = []
     
     

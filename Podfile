@@ -15,6 +15,9 @@ target 'Personal Assistant' do
   pod 'GoogleAPIClientForREST/Calendar'
   pod 'GoogleSignIn'
   pod 'UberRides'
+  pod 'Alamofire', '~> 4.5'
+  pod 'SnapKit', '~> 4.0.0'
+  pod 'PromiseKit', '~> 4.4'
 
   target 'Personal AssistantTests' do
     inherit! :search_paths
