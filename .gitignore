@@ -2,3 +2,5 @@
 Pods/
 
 Podfile\.lock
+
+Personal Assistant\.xcodeproj/project\.pbxproj
