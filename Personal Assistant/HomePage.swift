@@ -25,6 +25,8 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
     
     static var diditcomefromrember:Bool = false
     
+    var serverjson = JSON()
+    
     var audioRecorder: AVAudioRecorder!
     var player : AVAudioPlayer?
     var isRecording = false
@@ -39,7 +41,6 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
     let audioEngine = AVAudioEngine()
     var voicequestion: Bool?
     var isfirsttimecall: Bool?
-    
     var activityindactor:UIActivityIndicatorView = UIActivityIndicatorView()
     
     var stringtoserver: String?
@@ -68,7 +69,6 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
         }
         
         HomePage.diditcomefromrember = false
-        
         view.addGestureRecognizer(tap)
         
         locationManager.delegate = self
@@ -144,20 +144,34 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
         view.addSubview(activityindactor)
         self.activityindactor.startAnimating()
         UIApplication.shared.beginIgnoringInteractionEvents()
-        let server = Servercalls()
-        server.apicall(city: city!, state: state!, voicecall: "Weather")
-        print(Servercalls.serverjson)
+       // let server = Servercalls()
+       // server.apicall(city: city!, state: state!, voicecall: "Weather")
+        let urlString = "https://personalassistant-ec554.appspot.com/recognize/Weather" + "/" + self.state! + "/" + self.city!
+        guard let url = URL(string: urlString) else { return }
+        URLSession.shared.dataTask(with: url) { (data, reponse, err) in
+            guard let data = data else { return }
+            do {
+                
+                self.serverjson = try JSON(data: data)
+            } catch let jsonErr {
+                print("Error serializing json:", jsonErr)
+            }
+            
+            }.resume()
         
-       DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(10), execute: {
-        
-        UIApplication.shared.endIgnoringInteractionEvents()
-        self.activityindactor.removeFromSuperview()
-        
-        print(Servercalls.serverjson)
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "Weather_ID") as! Weather
-        self.present(vc, animated: true, completion: nil)
-        
-       })
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(10), execute: {
+            if self.serverjson["key"].string != nil && self.serverjson["key"] == "weather" {
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "Weather_ID") as! Weather
+                    vc.serverjson = self.serverjson
+                    UIApplication.shared.endIgnoringInteractionEvents()
+                    self.activityindactor.removeFromSuperview()
+                    self.present(vc, animated: true, completion: nil)
+                
+            }else{
+                UIApplication.shared.endIgnoringInteractionEvents()
+                self.activityindactor.removeFromSuperview()
+            }
+        })
     }
     
     
@@ -242,32 +256,53 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
     }
     
      func FetchJSON() {
-        let server = Servercalls()
-        server.apicall(city: city!, state: state!, voicecall: self.stringtoserver!.lowercased())
-        print(Servercalls.serverjson)
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(7), execute: {
-        if Servercalls.serverjson["key"].string != nil {
-            //self.activityindactor.stopAnimating()
-            UIApplication.shared.endIgnoringInteractionEvents()
-            self.activityindactor.removeFromSuperview()
-            switch (Servercalls.serverjson["key"].string!){
-            case "weather":
-                let vc = self.storyboard?.instantiateViewController(withIdentifier: "Weather_ID") as! Weather
-                self.present(vc, animated: true, completion: nil)
-            case "youtube":
-                let vc = self.storyboard?.instantiateViewController(withIdentifier: "Youtube_ID") as! Youtube
-                self.present(vc, animated: true, completion: nil)
-            case "google":
-                let vc = self.storyboard?.instantiateViewController(withIdentifier: "Search_ID") as! Search
-                self.present(vc, animated: true, completion: nil)
-            default: break
+       // let server = Servercalls()
+       // server.apicall(city: city!, state: state!, voicecall: self.stringtoserver!.lowercased())
+        let urlString = "https://personalassistant-ec554.appspot.com/recognize/" + self.stringtoserver!.lowercased() + "/" + self.state! + "/" + self.city!
+        guard let url = URL(string: urlString) else { return }
+        URLSession.shared.dataTask(with: url) { (data, reponse, err) in
+            guard let data = data else { return }
+            do {
+                
+                self.serverjson = try JSON(data: data)
+            } catch let jsonErr {
+                print("Error serializing json:", jsonErr)
             }
-        }else{
-//            self.activityindactor.stopAnimating()
-            UIApplication.shared.endIgnoringInteractionEvents()
-            self.activityindactor.removeFromSuperview()
-        }
-            })
+            
+            }.resume()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(10), execute: {
+            if self.serverjson["key"].string != nil {
+                switch (self.serverjson["key"].string!){
+                case "weather":
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "Weather_ID") as! Weather
+                    vc.serverjson = self.serverjson
+                    UIApplication.shared.endIgnoringInteractionEvents()
+                    self.activityindactor.removeFromSuperview()
+                    self.present(vc, animated: true, completion: nil)
+                case "youtube":
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "Youtube_ID") as! Youtube
+                    vc.serverjson = self.serverjson
+                    UIApplication.shared.endIgnoringInteractionEvents()
+                    self.activityindactor.removeFromSuperview()
+                    self.present(vc, animated: true, completion: nil)
+                case "google":
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "Search_ID") as! Search
+                    vc.serverjson = self.serverjson
+                    UIApplication.shared.endIgnoringInteractionEvents()
+                    self.activityindactor.removeFromSuperview()
+                    self.present(vc, animated: true, completion: nil)
+                default:
+                    UIApplication.shared.endIgnoringInteractionEvents()
+                    self.activityindactor.removeFromSuperview()
+                    
+                }
+            }else{
+                UIApplication.shared.endIgnoringInteractionEvents()
+                self.activityindactor.removeFromSuperview()
+            }
+        })
+        
     }
     
     @IBAction func voicebutton(_ sender: UIButton) {
@@ -280,12 +315,12 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
             self.stringtoserver = self.stringtoserver!.replacingOccurrences(of: " ", with: "_", options: .literal, range: nil)
             print(stringtoserver)
             voicequestion = true
-                activityindactor.center = self.view.center
-                activityindactor.hidesWhenStopped = true
-                activityindactor.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
-                self.activityindactor.startAnimating()
-                view.addSubview(activityindactor)
-                UIApplication.shared.beginIgnoringInteractionEvents()
+            activityindactor.center = self.view.center
+            activityindactor.hidesWhenStopped = true
+            activityindactor.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
+            self.activityindactor.startAnimating()
+            view.addSubview(activityindactor)
+            UIApplication.shared.beginIgnoringInteractionEvents()
             //self.activityindactor.startAnimating()
             //UIApplication.shared.beginIgnoringInteractionEvents()
             self.FetchJSON()
@@ -448,37 +483,48 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
                 //request
                 self.resuestfromwatch = message["Request"]! as? String
                 
-                let server = Servercalls()
-                server.apicall(city: self.city!, state: self.state!, voicecall: self.resuestfromwatch)
-                var sendtowatch: String = ""
-                print(Servercalls.serverjson)
-                DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(7), execute: {
+//                let server = Servercalls()
+//                server.apicall(city: self.city!, state: self.state!, voicecall: self.resuestfromwatch)
+    
+                let urlString = "https://personalassistant-ec554.appspot.com/recognize/" + self.resuestfromwatch!.lowercased() + "/" + self.state! + "/" + self.city!
+                guard let url = URL(string: urlString) else { return }
+                URLSession.shared.dataTask(with: url) { (data, reponse, err) in
+                    guard let data = data else { return }
+                    do {
+                        
+                        self.serverjson = try JSON(data: data)
+                    } catch let jsonErr {
+                        print("Error serializing json:", jsonErr)
+                    }
                     
-                    if Servercalls.serverjson["key"].string != nil {
-                        switch (Servercalls.serverjson["key"].string!){
+                    }.resume()
+                
+                
+                var sendtowatch: String = ""
+                print(self.serverjson)
+                DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(10), execute: {
+                    
+                    if self.serverjson["key"].string != nil {
+                        switch (self.serverjson["key"].string!){
                         case "weather":
                             
                             //0 key //1 city //2 state //3 condition //4 url //5 rain //6 temp low //7 temp high //8 month/date/year //9 repeat condition
                             
-                       sendtowatch = Servercalls.serverjson["key"].string! + "," + Servercalls.serverjson["city"].string! + "," + Servercalls.serverjson["state"].string! + "," + Servercalls.serverjson["results"][0]["condition"].string! + "," +  Servercalls.serverjson["results"][0]["url"].string! + "," + String(Servercalls.serverjson["results"][0]["precip"].double!) + "%" + "," + Servercalls.serverjson["results"][0]["temp_lowf"].string! + "°F" + "," + Servercalls.serverjson["results"][0]["temp_highf"].string! + "°F" + "," + String(Servercalls.serverjson["results"][0]["month"].int!) + "/" + String(Servercalls.serverjson["results"][0]["day"].int!) + "/" + String(Servercalls.serverjson["results"][0]["year"].int!)
-                        
-                      sendtowatch += "," + Servercalls.serverjson["results"][1]["condition"].string! + "," +  Servercalls.serverjson["results"][1]["url"].string! + "," + String(Servercalls.serverjson["results"][1]["precip"].double!) + "%" + "," + Servercalls.serverjson["results"][1]["temp_lowf"].string! + "°F" + "," + Servercalls.serverjson["results"][1]["temp_highf"].string! + "°F" + "," + String(Servercalls.serverjson["results"][1]["month"].int!) + "/" + String(Servercalls.serverjson["results"][1]["day"].int!) + "/" + String(Servercalls.serverjson["results"][1]["year"].int!)
+                       sendtowatch = self.serverjson["key"].string! + "," + self.serverjson["city"].string! + "," + self.serverjson["state"].string!
+                       var index:Int = 0
+                       while true {
+                        if  self.serverjson["city"].string != nil && self.serverjson["state"].string != nil && self.serverjson["results"][index]["condition"].string != nil && self.serverjson["results"][index]["url"].string != nil && self.serverjson["results"][index]["precip"].double != nil && self.serverjson["results"][index]["temp_lowf"].string != nil && self.serverjson["results"][index]["temp_highf"].string != nil && self.serverjson["results"][index]["humidity"].double != nil && self.serverjson["results"][index]["month"].int != nil &&  self.serverjson["results"][index]["day"].int != nil && self.serverjson["results"][index]["year"].int != nil {
                             
+                            sendtowatch += "," + self.serverjson["results"][index]["condition"].string! + "," +  self.serverjson["results"][index]["url"].string! + "," + String(self.serverjson["results"][index]["precip"].double!) + "%" + "," + self.serverjson["results"][index]["temp_lowf"].string! + "°F" + "," + self.serverjson["results"][index]["temp_highf"].string! + "°F" + "," + String(self.serverjson["results"][index]["month"].int!) + "/" + String(self.serverjson["results"][index]["day"].int!) + "/" + String(self.serverjson["results"][index]["year"].int!)
                             
-                     sendtowatch += "," + Servercalls.serverjson["results"][2]["condition"].string! + "," +  Servercalls.serverjson["results"][2]["url"].string! + "," + String(Servercalls.serverjson["results"][2]["precip"].double!) + "%" + "," + Servercalls.serverjson["results"][2]["temp_lowf"].string! + "°F" + "," + Servercalls.serverjson["results"][2]["temp_highf"].string! + "°F" + "," + String(Servercalls.serverjson["results"][2]["month"].int!) + "/" + String(Servercalls.serverjson["results"][2]["day"].int!) + "/" + String(Servercalls.serverjson["results"][2]["year"].int!)
-                            
-                            
-                      sendtowatch +=  "," + Servercalls.serverjson["results"][3]["condition"].string! + "," +  Servercalls.serverjson["results"][3]["url"].string! + "," + String(Servercalls.serverjson["results"][3]["precip"].double!) + "%" + "," + Servercalls.serverjson["results"][3]["temp_lowf"].string! + "°F" + "," + Servercalls.serverjson["results"][3]["temp_highf"].string! + "°F" + "," + String(Servercalls.serverjson["results"][3]["month"].int!) + "/" + String(Servercalls.serverjson["results"][3]["day"].int!) + "/" + String(Servercalls.serverjson["results"][3]["year"].int!)
-                            
-                            
-                    sendtowatch += "," + Servercalls.serverjson["results"][4]["condition"].string! + "," +  Servercalls.serverjson["results"][4]["url"].string! + "," + String(Servercalls.serverjson["results"][4]["precip"].double!) + "%" + "," + Servercalls.serverjson["results"][4]["temp_lowf"].string! + "°F" + "," + Servercalls.serverjson["results"][4]["temp_highf"].string! + "°F" + "," + String(Servercalls.serverjson["results"][4]["month"].int!) + "/" + String(Servercalls.serverjson["results"][4]["day"].int!) + "/" + String(Servercalls.serverjson["results"][4]["year"].int!)
-                            
-                            
-                    sendtowatch += "," + Servercalls.serverjson["results"][5]["condition"].string! + "," +  Servercalls.serverjson["results"][5]["url"].string! + "," + String(Servercalls.serverjson["results"][5]["precip"].double!) + "%" + "," + Servercalls.serverjson["results"][5]["temp_lowf"].string! + "°F" + "," + Servercalls.serverjson["results"][5]["temp_highf"].string! + "°F" + "," + String(Servercalls.serverjson["results"][5]["month"].int!) + "/" + String(Servercalls.serverjson["results"][5]["day"].int!) + "/" + String(Servercalls.serverjson["results"][5]["year"].int!)
-                            
-                            
-                    sendtowatch += "," + Servercalls.serverjson["results"][6]["condition"].string! + "," +  Servercalls.serverjson["results"][6]["url"].string! + "," + String(Servercalls.serverjson["results"][6]["precip"].double!) + "%" + "," + Servercalls.serverjson["results"][6]["temp_lowf"].string! + "°F" + "," + Servercalls.serverjson["results"][6]["temp_highf"].string! + "°F" + "," + String(Servercalls.serverjson["results"][6]["month"].int!) + "/" + String(Servercalls.serverjson["results"][6]["day"].int!) + "/" + String(Servercalls.serverjson["results"][6]["year"].int!)
-                            
+                          
+                        }else{
+                            sendtowatch = "error"
+                            break
+                        }
+                        index += 1
+                       }
+                       
                         case "youtube":
                             sendtowatch = "youtube"
                             break
@@ -489,27 +535,20 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
                             // 1 title
                             // 2 snippet
                             // 3 url
-                            
-                       sendtowatch = Servercalls.serverjson["key"].string! + "," +  Servercalls.serverjson["results"][0]["title"].string! + "," + Servercalls.serverjson["results"][0]["snippet"].string! + "," + Servercalls.serverjson["results"][0]["url"].string!
-                            
-                      sendtowatch += "," + Servercalls.serverjson["results"][1]["title"].string! + "," + Servercalls.serverjson["results"][1]["snippet"].string! + "," +  Servercalls.serverjson["results"][1]["url"].string!
-                            
-                       sendtowatch += "," + Servercalls.serverjson["results"][2]["title"].string! + "," + Servercalls.serverjson["results"][2]["snippet"].string! + "," +  Servercalls.serverjson["results"][2]["url"].string!
-                       
-                       sendtowatch += "," + Servercalls.serverjson["results"][3]["title"].string! + "," +  Servercalls.serverjson["results"][3]["snippet"].string! + "," +  Servercalls.serverjson["results"][3]["url"].string!
-                            
-                       sendtowatch += "," + Servercalls.serverjson["results"][4]["title"].string! + "," +  Servercalls.serverjson["results"][4]["snippet"].string! + "," +  Servercalls.serverjson["results"][4]["url"].string!
-                            
-                       sendtowatch += "," + Servercalls.serverjson["results"][5]["title"].string! + "," +  Servercalls.serverjson["results"][5]["snippet"].string! + "," +  Servercalls.serverjson["results"][5]["url"].string!
-                            
-                       sendtowatch += "," + Servercalls.serverjson["results"][6]["title"].string! + "," +  Servercalls.serverjson["results"][6]["snippet"].string! + "," +  Servercalls.serverjson["results"][6]["url"].string!
-                    
-                       sendtowatch += "," + Servercalls.serverjson["results"][7]["title"].string! + "," +  Servercalls.serverjson["results"][7]["snippet"].string! + "," +  Servercalls.serverjson["results"][7]["url"].string!
-                           
-                       sendtowatch += "," + Servercalls.serverjson["results"][8]["title"].string! + "," +  Servercalls.serverjson["results"][8]["snippet"].string! + "," +  Servercalls.serverjson["results"][8]["url"].string!
-                            
-                       sendtowatch += "," + Servercalls.serverjson["results"][9]["title"].string! + "," +  Servercalls.serverjson["results"][9]["snippet"].string! + "," +  Servercalls.serverjson["results"][9]["url"].string!
-                            
+                            sendtowatch = self.serverjson["key"].string!
+                            var index:Int = 0
+                            while true {
+                                if self.serverjson["results"][index]["title"].string != nil && self.serverjson["results"][index]["snippet"].string != nil && self.serverjson["results"][index]["url"].string != nil {
+                                    
+                                  sendtowatch += "," + self.serverjson["results"][index]["title"].string! + "," + self.serverjson["results"][index]["snippet"].string! + "," +  self.serverjson["results"][index]["url"].string!
+                                    
+                                }else{
+                                    sendtowatch = "error"
+                                    break
+                                }
+                                index += 1
+                            }
+                
                         default: sendtowatch = "error"
                         }
                     }else{

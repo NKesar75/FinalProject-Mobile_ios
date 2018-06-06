@@ -94,9 +94,6 @@ class Login: UIViewController {
                         let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomePage_ID") as! HomePage
                         self.present(vc, animated: true, completion: nil)
                     }
-                    //guard let user = user else { return }
-                    //print(user.email ?? "MISSING EMAIL")
-                    //print(user.uid)
                 })
         }
     }
