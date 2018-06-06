@@ -15,6 +15,34 @@
                 <controller identifier="Homepage_IC" id="BXB-gt-B20" customClass="HomePageIC" customModule="PersonalAssistantWatch_Extension">
                     <items>
                         <imageView width="136" height="105" alignment="center" verticalAlignment="center" hidden="YES" image="loading" initiallyAnimated="NO" id="fWp-Vq-iP5"/>
+                        <group alignment="center" id="ru1-v9-GaX">
+                            <items>
+                                <button alignment="left" title="News" id="pFQ-XD-nfd">
+                                    <connections>
+                                        <action selector="newsBtn" destination="BXB-gt-B20" id="HH2-CC-JtA"/>
+                                    </connections>
+                                </button>
+                                <button alignment="left" title="Stocks" id="sdR-oG-NtU">
+                                    <connections>
+                                        <action selector="stocksBtn" destination="BXB-gt-B20" id="7ep-8Z-9f6"/>
+                                    </connections>
+                                </button>
+                            </items>
+                        </group>
+                        <group alignment="center" id="ijL-LI-2tA">
+                            <items>
+                                <button alignment="left" title="Uber" id="woL-2M-WdI">
+                                    <connections>
+                                        <action selector="uberBtn" destination="BXB-gt-B20" id="o2X-gg-j0M"/>
+                                    </connections>
+                                </button>
+                                <button alignment="left" title="ChatBot" id="xU1-Cw-JyK">
+                                    <connections>
+                                        <action selector="chatBotBtn" destination="BXB-gt-B20" id="qmi-Xg-Z1K"/>
+                                    </connections>
+                                </button>
+                            </items>
+                        </group>
                         <button width="1" alignment="center" verticalAlignment="bottom" title="Make a Request" id="9fl-I9-MVA">
                             <connections>
                                 <action selector="requestBtn" destination="BXB-gt-B20" id="ctI-wA-ntL"/>
@@ -22,8 +50,12 @@
                         </button>
                     </items>
                     <connections>
-                        <outlet property="hideBtn" destination="9fl-I9-MVA" id="yTN-WL-yaR"/>
+                        <outlet property="chatBotBtnHide" destination="xU1-Cw-JyK" id="4Ha-DU-fCc"/>
                         <outlet property="loadingAnimation" destination="fWp-Vq-iP5" id="2kX-tm-5d0"/>
+                        <outlet property="newsBtnHide" destination="pFQ-XD-nfd" id="ejU-oA-wZL"/>
+                        <outlet property="requestBtnHide" destination="9fl-I9-MVA" id="DWC-g4-afJ"/>
+                        <outlet property="stocksBtnHide" destination="sdR-oG-NtU" id="Tzx-oH-to9"/>
+                        <outlet property="uberBtnHide" destination="woL-2M-WdI" id="Qxb-WB-c4d"/>
                     </connections>
                 </controller>
             </objects>
@@ -80,7 +112,198 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="518" y="38"/>
+            <point key="canvasLocation" x="575" y="-139"/>
+        </scene>
+        <!--googleSearchIdentifier-->
+        <scene sceneID="DIh-fr-xiN">
+            <objects>
+                <controller identifier="googleSearchIdentifier" id="rVg-Sm-QQr" customClass="googleSearchIC" customModule="PersonalAssistantWatch_Extension">
+                    <items>
+                        <table alignment="left" id="x3q-yr-sWe">
+                            <items>
+                                <tableRow id="d0Z-iN-S7u">
+                                    <group key="rootItem" width="1" alignment="left" id="QqH-5g-J3C">
+                                        <items>
+                                            <separator height="1" heightAdjustment="-4" alignment="left" verticalAlignment="center" id="1s3-14-dgK">
+                                                <color key="color" red="0.0" green="0.6452265814" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </separator>
+                                            <label width="111" height="36" alignment="left" text="Title" textAlignment="center" id="f7s-qn-AvQ"/>
+                                        </items>
+                                    </group>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="575" y="211"/>
+        </scene>
+        <!--stocksIdentifier-->
+        <scene sceneID="5tw-Vc-x92">
+            <objects>
+                <controller identifier="stocksIdentifier" id="1Lp-e7-A10" customClass="stockIC" customModule="PersonalAssistantWatch_Extension">
+                    <items>
+                        <table alignment="left" id="36B-Wm-9EW">
+                            <items>
+                                <tableRow id="GOF-mA-SsS">
+                                    <group key="rootItem" width="1" height="0.0" alignment="left" id="jBQ-WC-xyU">
+                                        <items>
+                                            <separator height="1" heightAdjustment="-4" alignment="left" verticalAlignment="center" id="eTg-pd-hjE">
+                                                <color key="color" red="0.0" green="0.6452265814" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </separator>
+                                            <imageView width="41" height="40" alignment="left" verticalAlignment="center" id="NYB-82-3pJ"/>
+                                            <group alignment="left" layout="vertical" spacing="0.0" id="HpK-D2-Gph">
+                                                <items>
+                                                    <group width="1" alignment="left" id="Yzo-RO-z98">
+                                                        <items>
+                                                            <label alignment="left" text="Name" id="lpJ-TA-1GC"/>
+                                                        </items>
+                                                    </group>
+                                                    <group width="1" alignment="left" id="Huz-f9-Bsw">
+                                                        <items>
+                                                            <label alignment="left" text="Price" id="pmh-Hy-pbr"/>
+                                                        </items>
+                                                    </group>
+                                                    <group width="1" alignment="left" id="YJB-TK-bid">
+                                                        <items>
+                                                            <label alignment="left" text="Capacity" id="Ros-om-j1s"/>
+                                                        </items>
+                                                    </group>
+                                                </items>
+                                            </group>
+                                        </items>
+                                    </group>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="-114" y="-139"/>
+        </scene>
+        <!--Interface Controller-->
+        <scene sceneID="v5B-BO-Hd8">
+            <objects>
+                <controller id="whx-oY-bAA">
+                    <items>
+                        <label alignment="center" text="Headline" id="jPZ-VS-SUm"/>
+                        <label alignment="left" text="Snippet" id="xIR-5D-f43"/>
+                        <button width="1" alignment="center" verticalAlignment="bottom" title="Read More" id="dOL-SV-vvQ"/>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="-636" y="227"/>
+        </scene>
+        <!--Interface Controller-->
+        <scene sceneID="udb-Vg-8BE">
+            <objects>
+                <controller id="y8e-Yu-gzU">
+                    <items>
+                        <table alignment="left" id="Wt3-aM-XOv">
+                            <items>
+                                <tableRow id="gZc-bf-I1U">
+                                    <group key="rootItem" width="1" alignment="left" id="e0q-94-r1c">
+                                        <items>
+                                            <separator height="1" heightAdjustment="-4" alignment="left" verticalAlignment="center" id="22H-WT-cWO">
+                                                <color key="color" red="0.0" green="0.6452265814" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </separator>
+                                            <imageView width="43" alignment="left" id="q9I-Kv-Akv"/>
+                                            <label width="65" height="95" alignment="left" text="Headline" id="uP4-nZ-49P"/>
+                                        </items>
+                                    </group>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="-387" y="227"/>
+        </scene>
+        <!--newsIdentifier-->
+        <scene sceneID="Ba1-Vi-Wls">
+            <objects>
+                <controller identifier="newsIdentifier" id="jP4-uI-Zuk" customClass="newsIC" customModule="PersonalAssistantWatch_Extension">
+                    <items>
+                        <table alignment="left" id="FaW-pT-jFz">
+                            <items>
+                                <tableRow id="h2f-Zg-fjS">
+                                    <group key="rootItem" width="1" alignment="left" id="Jef-j2-ble">
+                                        <items>
+                                            <separator height="1" heightAdjustment="-4" alignment="left" verticalAlignment="center" id="ffG-oa-tuZ">
+                                                <color key="color" red="0.0" green="0.6452265814" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </separator>
+                                            <imageView width="43" alignment="left" id="UIW-OD-ub5"/>
+                                            <label width="65" height="48" alignment="left" text="Channel" id="AcS-xc-7pi"/>
+                                        </items>
+                                    </group>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="-114" y="227"/>
+        </scene>
+        <!--Interface Controller-->
+        <scene sceneID="JfH-HN-uqE">
+            <objects>
+                <controller id="SH2-Qn-qsa">
+                    <items>
+                        <label alignment="center" verticalAlignment="center" text="Please check" id="fQC-yU-nnf"/>
+                        <label alignment="center" verticalAlignment="center" text="your phone for" id="VLW-IP-zc7"/>
+                        <label alignment="center" verticalAlignment="center" text="the ride" id="Ys8-8F-dtv"/>
+                        <label alignment="center" verticalAlignment="center" text=" information" id="ECx-04-wwZ"/>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="-387" y="536"/>
+        </scene>
+        <!--uberIdentifier-->
+        <scene sceneID="0BK-kd-5bA">
+            <objects>
+                <controller identifier="uberIdentifier" id="tTN-Nr-OrK" customClass="uberIC" customModule="PersonalAssistantWatch_Extension">
+                    <items>
+                        <button width="1" alignment="left" verticalAlignment="bottom" title="Where would like to go" id="352-9O-O5e"/>
+                        <button width="1" alignment="center" verticalAlignment="bottom" title="Request Ride" id="QuR-M6-pIn"/>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="-114" y="536"/>
+        </scene>
+        <!--chatBotIdentifier-->
+        <scene sceneID="uST-h7-4V1">
+            <objects>
+                <controller identifier="chatBotIdentifier" id="lf2-cl-zTA" customClass="chatBotIC" customModule="PersonalAssistantWatch_Extension">
+                    <items>
+                        <label alignment="right" id="KUJ-pt-YwN"/>
+                        <label alignment="left" verticalAlignment="bottom" id="r8W-sI-kdZ"/>
+                        <button width="1" alignment="center" verticalAlignment="bottom" title="Ask Questions to the Bot" id="xjO-Ek-KBi">
+                            <connections>
+                                <action selector="askBtn" destination="lf2-cl-zTA" id="3ht-N4-Xgj"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="answerLabel" destination="r8W-sI-kdZ" id="gqg-ri-wER"/>
+                        <outlet property="questionLabel" destination="KUJ-pt-YwN" id="sHJ-KV-01L"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="268" y="536"/>
+        </scene>
+        <!--youtubeIdentifier-->
+        <scene sceneID="cge-vW-yO8">
+            <objects>
+                <controller identifier="youtubeIdentifier" id="vLW-ri-z3s" customClass="youtubeIC" customModule="PersonalAssistantWatch_Extension">
+                    <items>
+                        <label alignment="center" verticalAlignment="center" text="Please check " id="dmB-42-bvo"/>
+                        <label alignment="center" verticalAlignment="center" text="your phone to " id="Opz-MN-3Pn"/>
+                        <label alignment="center" verticalAlignment="center" text="play YouTube" id="kWg-0h-8h9"/>
+                        <label alignment="center" verticalAlignment="center" text=" video..." id="sOe-fF-7tL"/>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="575" y="536"/>
         </scene>
         <!--WeatherInfoIdentifier-->
         <scene sceneID="17a-ga-I8L">
@@ -139,7 +362,20 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="770" y="37"/>
+            <point key="canvasLocation" x="880" y="-139"/>
+        </scene>
+        <!--Interface Controller-->
+        <scene sceneID="XA6-Rh-33e">
+            <objects>
+                <controller id="7Y5-Rj-Zas">
+                    <items>
+                        <label alignment="center" text="Title" id="zFU-ez-qrG"/>
+                        <label alignment="left" text="Snippet" id="ZhY-v4-FhM"/>
+                        <button width="1" alignment="center" verticalAlignment="bottom" title="Read More" id="U4G-Yk-Gis"/>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="880" y="211"/>
         </scene>
     </scenes>
 </document>
