@@ -531,7 +531,6 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
                                 }
                                 index += 1
                             }
-                            
                         default: sendtowatch = "error"
                         }
                     }else{
