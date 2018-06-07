@@ -151,7 +151,7 @@
                     <items>
                         <table alignment="left" id="36B-Wm-9EW">
                             <items>
-                                <tableRow identifier="StocksRowController" id="GOF-mA-SsS" customClass="stocksRowController" customModule="PersonalAssistantWatch_Extension">
+                                <tableRow identifier="stocksRowController" id="GOF-mA-SsS" customClass="stocksRowController" customModule="PersonalAssistantWatch_Extension">
                                     <group key="rootItem" width="1" height="0.0" alignment="left" id="jBQ-WC-xyU">
                                         <items>
                                             <separator height="1" heightAdjustment="-4" alignment="left" verticalAlignment="center" id="eTg-pd-hjE">

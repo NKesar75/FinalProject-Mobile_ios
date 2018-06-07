@@ -151,13 +151,23 @@ class HomePageIC: WKInterfaceController, WCSessionDelegate {
         {
             HomePageIC.stockInfo = message["StockInfo"]! as! String
             print(HomePageIC.stockInfo)
-            pushController(withName: "stocksIdentifier", context: nil)
+            let stockKey = HomePageIC.stockInfo.split(separator: ",")
+            print(stockKey)
+            if stockKey[0] != nil && stockKey[0] == "Stock"
+            {
+                pushController(withName: "stocksIdentifier", context: nil)
+            }
         }
         else if message["NewsInfo"] != nil
         {
             HomePageIC.newsInfo = message["NewsInfo"]! as! String
             print(HomePageIC.newsInfo)
-            pushController(withName: "newsIdentifier", context: nil)
+            let newsKey = HomePageIC.newsInfo.split(separator: ",")
+            print(newsKey)
+            if newsKey[0] != nil && newsKey[0] == "News"
+            {
+                pushController(withName: "newsIdentifier", context: nil)
+            }
         }
         loadingAnimation.setHidden(true)
         requestBtnHide.setHidden(false)

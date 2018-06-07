@@ -595,7 +595,7 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
                                         nameofcompany = "Apple Inc."
                                         imageofcompany = "Apple"
                                     case "FB":
-                                        nameofcompany = "Facebook, Inc."
+                                        nameofcompany = "Facebook Inc."
                                         imageofcompany = "Facebook"
                                     case "MSFT":
                                         nameofcompany = "Microsoft Corporation"
