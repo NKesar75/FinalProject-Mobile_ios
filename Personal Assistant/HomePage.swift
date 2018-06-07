@@ -815,7 +815,7 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
                     
                     self.resuestfromwatch = message["More"]! as? String
                     
-                    if let url = URL(string: newsarray[indexPath.row].URL) {
+                    if let url = URL(string:self.resuestfromwatch) {
                         UIApplication.shared.open(url, options: [:], completionHandler: nil)
                     }
                     
