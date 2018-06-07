@@ -26,7 +26,6 @@
 		C4539E2420C0884200DDC43C /* RemberWebview.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4539E2320C0884200DDC43C /* RemberWebview.swift */; };
 		C4539E2620C1AA4A00DDC43C /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4539E2520C1AA4A00DDC43C /* News.swift */; };
 		C4539E2820C1AA7F00DDC43C /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4539E2720C1AA7F00DDC43C /* Stock.swift */; };
-		C4539E2A20C1AA9300DDC43C /* ChatBot.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4539E2920C1AA9300DDC43C /* ChatBot.swift */; };
 		C45426E0208781550052B531 /* Youtube.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45426DF208781550052B531 /* Youtube.swift */; };
 		C46A259C20B453D2007A944F /* GoogleCalender.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46A259B20B453D2007A944F /* GoogleCalender.swift */; };
 		C46A259D20B45C7B007A944F /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C41A045420AF26F800D49E4E /* SwiftyJSON.framework */; };
@@ -146,7 +145,6 @@
 		C4539E2320C0884200DDC43C /* RemberWebview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemberWebview.swift; sourceTree = "<group>"; };
 		C4539E2520C1AA4A00DDC43C /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		C4539E2720C1AA7F00DDC43C /* Stock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stock.swift; sourceTree = "<group>"; };
-		C4539E2920C1AA9300DDC43C /* ChatBot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBot.swift; sourceTree = "<group>"; };
 		C45426DF208781550052B531 /* Youtube.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Youtube.swift; sourceTree = "<group>"; };
 		C46A259B20B453D2007A944F /* GoogleCalender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleCalender.swift; sourceTree = "<group>"; };
 		C46A259E20B45E93007A944F /* GTLRService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = GTLRService.m; path = Pods/GoogleAPIClientForREST/Source/Objects/GTLRService.m; sourceTree = "<group>"; };
@@ -313,7 +311,6 @@
 				C4539E2320C0884200DDC43C /* RemberWebview.swift */,
 				C4539E2520C1AA4A00DDC43C /* News.swift */,
 				C4539E2720C1AA7F00DDC43C /* Stock.swift */,
-				C4539E2920C1AA9300DDC43C /* ChatBot.swift */,
 				C483FBBE20C5B553008ECE74 /* NewsTableViewCell.swift */,
 				C483FBC020C5C56A008ECE74 /* newstypeselctortable.swift */,
 				C483FBC220C5C583008ECE74 /* newsselctortypeViewController.swift */,
@@ -729,7 +726,6 @@
 				C4539E2020C0667300DDC43C /* Searchpopup.swift in Sources */,
 				C483FBC120C5C56A008ECE74 /* newstypeselctortable.swift in Sources */,
 				C4539E2820C1AA7F00DDC43C /* Stock.swift in Sources */,
-				C4539E2A20C1AA9300DDC43C /* ChatBot.swift in Sources */,
 				C4158DAC20A494850080AC0E /* PopalertDelete.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

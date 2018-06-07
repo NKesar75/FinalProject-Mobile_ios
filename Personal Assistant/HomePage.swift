@@ -14,6 +14,7 @@ import MapKit
 import Speech
 import SwiftyJSON
 import WatchConnectivity
+import ApiAI
 
 class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate, CLLocationManagerDelegate, SFSpeechRecognizerDelegate, WCSessionDelegate{
     
@@ -478,85 +479,92 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
     {
         //recieve messages from watch
         //self.msgLabel.text = message["wTp"]! as? String
+
         DispatchQueue.main.async
             {
+                
+                
+                if message["Request"] != nil {
                 //request
                 self.resuestfromwatch = message["Request"]! as? String
-                
-//                let server = Servercalls()
-//                server.apicall(city: self.city!, state: self.state!, voicecall: self.resuestfromwatch)
-    
                 let urlString = "https://personalassistant-ec554.appspot.com/recognize/" + self.resuestfromwatch + "/" + self.state! + "/" + self.city!
                 guard let url = URL(string: urlString) else { return }
                 URLSession.shared.dataTask(with: url) { (data, reponse, err) in
                     guard let data = data else { return }
                     do {
-                        
                         self.serverjson = try JSON(data: data)
                     } catch let jsonErr {
                         print("Error serializing json:", jsonErr)
                     }
-                    
                     }.resume()
-                
-                
                 var sendtowatch: String = ""
                 print(self.serverjson)
                 DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(10), execute: {
-                    
                     if self.serverjson["key"].string != nil {
                         switch (self.serverjson["key"].string!){
                         case "weather":
-                            
                             //0 key //1 city //2 state //3 condition //4 url //5 rain //6 temp low //7 temp high //8 month/date/year //9 repeat condition
-                            
                        sendtowatch = self.serverjson["key"].string! + "," + self.serverjson["city"].string! + "," + self.serverjson["state"].string!
                        var index:Int = 0
                        while true {
                         if  self.serverjson["city"].string != nil && self.serverjson["state"].string != nil && self.serverjson["results"][index]["condition"].string != nil && self.serverjson["results"][index]["url"].string != nil && self.serverjson["results"][index]["precip"].double != nil && self.serverjson["results"][index]["temp_lowf"].string != nil && self.serverjson["results"][index]["temp_highf"].string != nil && self.serverjson["results"][index]["humidity"].double != nil && self.serverjson["results"][index]["month"].int != nil &&  self.serverjson["results"][index]["day"].int != nil && self.serverjson["results"][index]["year"].int != nil {
                             
                             sendtowatch += "," + self.serverjson["results"][index]["condition"].string! + "," +  self.serverjson["results"][index]["url"].string! + "," + String(self.serverjson["results"][index]["precip"].double!) + "%" + "," + self.serverjson["results"][index]["temp_lowf"].string! + "°F" + "," + self.serverjson["results"][index]["temp_highf"].string! + "°F" + "," + String(self.serverjson["results"][index]["month"].int!) + "/" + String(self.serverjson["results"][index]["day"].int!) + "/" + String(self.serverjson["results"][index]["year"].int!)
-                            
-                          
                         }else{
                             break
                         }
                         index += 1
                        }
-                       
                         case "youtube":
                             sendtowatch = "youtube"
                             break
-                           
                         case "google":
-                            
-                            // 0 key
-                            // 1 title
-                            // 2 snippet
-                            // 3 url
+                            // 0 key // 1 title // 2 snippet // 3 url
                             sendtowatch = self.serverjson["key"].string!
                             var index:Int = 0
                             while true {
                                 if self.serverjson["results"][index]["title"].string != nil && self.serverjson["results"][index]["snippet"].string != nil && self.serverjson["results"][index]["url"].string != nil {
-                                    
                                   sendtowatch += "," + self.serverjson["results"][index]["title"].string! + "," + self.serverjson["results"][index]["snippet"].string! + "," +  self.serverjson["results"][index]["url"].string!
-                                    
                                 }else{
                                     sendtowatch = "error"
                                     break
                                 }
                                 index += 1
                             }
-                
+                            
                         default: sendtowatch = "error"
                         }
                     }else{
                         sendtowatch = "error"
                     }
-                    
                       session.sendMessage(["key": sendtowatch], replyHandler: nil, errorHandler: nil)
-                })
-              
+                     })
+                }else if message["chatBotQuestion"] != nil
+                {
+                    let chatQuestion = message["chatBotQuestion"]! as? String
+                    var sendtowatch : String = ""
+                    
+                    let request = ApiAI.shared().textRequest()
+                    
+                    if chatQuestion != "" {
+                        request?.query = chatQuestion
+                    } else {
+                        return
+                    }
+                    
+                    request?.setMappedCompletionBlockSuccess({ (request, response) in
+                        let response = response as! AIResponse
+                        if let textResponse = response.result.fulfillment.speech {
+                            sendtowatch = textResponse
+                            session.sendMessage(["chatBotAnswer": sendtowatch], replyHandler: nil, errorHandler: nil)
+                        }
+                    }, failure: { (request, error) in
+                        sendtowatch = error! as! String
+                        print(error!)
+                    })
+                    
+                    ApiAI.shared().enqueue(request)
+                }
         }
     }
     
@@ -572,4 +580,4 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
         
     }
     
-        }
+}
