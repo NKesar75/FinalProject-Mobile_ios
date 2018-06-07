@@ -23,7 +23,6 @@ class HomePageIC: WKInterfaceController, WCSessionDelegate {
     
     @IBOutlet var loadingAnimation: WKInterfaceImage!
     
-    var aResult : String?
     var session:WCSession!
     
     //Global Variable to acess request infor on each page
@@ -74,13 +73,13 @@ class HomePageIC: WKInterfaceController, WCSessionDelegate {
     
     @IBAction func requestBtn()
     {
-        let textChoices = ["What is the Weather", "Search for Avengers"]
+        let textChoices = ["What is the Weather", "Search for Full Sail University", "Play Spiderman PS4"]
         presentTextInputController(withSuggestions: textChoices, allowedInputMode: WKTextInputMode.plain,
                                    completion: {(results) -> Void in if results != nil && results!.count > 0 { //selection made
-                                    self.aResult = results?[0] as? String
-                                    self.aResult = self.aResult!.lowercased()
-                                    self.aResult = self.aResult!.replacingOccurrences(of: " ", with: "_", options: .literal, range: nil)
-                                    print(self.aResult!)
+                                    var aResult = results?[0] as? String
+                                    aResult = aResult!.lowercased()
+                                    aResult = aResult!.replacingOccurrences(of: " ", with: "_", options: .literal, range: nil)
+                                    print(aResult!)
                                     //Send MEssage to Phone
                                     if(WCSession.isSupported())
                                     {
@@ -92,7 +91,7 @@ class HomePageIC: WKInterfaceController, WCSessionDelegate {
                                         self.loadingAnimation.setHidden(false)
                                         self.loadingAnimation.setImageNamed("loading")
                                         self.loadingAnimation.startAnimatingWithImages(in: NSRange(location: 0, length: 137), duration: 15, repeatCount: Int.max)
-                                        self.session.sendMessage(["Request": self.aResult!], replyHandler: nil, errorHandler: nil)
+                                        self.session.sendMessage(["Request": aResult!], replyHandler: nil, errorHandler: nil)
                                     }
                                     }
         }
