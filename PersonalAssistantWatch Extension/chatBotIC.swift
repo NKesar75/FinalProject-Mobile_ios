@@ -49,7 +49,7 @@ class chatBotIC: WKInterfaceController, WCSessionDelegate {
 //                                    self.printQuestion = aResult
 //                                    aResult = aResult!.lowercased()
 //                                    aResult = aResult!.replacingOccurrences(of: " ", with: "_", options: .literal, range: nil)
-//                                    print(aResult!)
+                                    print(aResult!)
                                     self.questionLabel.setText(aResult)
                                     if(WCSession.isSupported())
                                     {

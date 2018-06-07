@@ -10,4 +10,9 @@ import WatchKit
 
 class stocksRowController: NSObject {
 
+    @IBOutlet var stocksImg: WKInterfaceImage!
+    @IBOutlet var stocksName: WKInterfaceLabel!
+    @IBOutlet var stocksPrice: WKInterfaceLabel!
+    @IBOutlet var stocksCapacity: WKInterfaceLabel!
+    @IBOutlet var stocksSeperator: WKInterfaceSeparator!
 }

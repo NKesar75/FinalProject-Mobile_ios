@@ -27,6 +27,8 @@ class HomePageIC: WKInterfaceController, WCSessionDelegate {
     
     //Global Variable to acess request infor on each page
     static var requestinfo: String = ""
+    static var stockInfo : String = ""
+    static var newsInfo : String = ""
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
@@ -53,12 +55,34 @@ class HomePageIC: WKInterfaceController, WCSessionDelegate {
     
     @IBAction func newsBtn()
     {
-        pushController(withName: "newsIdentifier", context: nil)
+        if(WCSession.isSupported())
+        {
+            self.requestBtnHide.setHidden(true)
+            self.uberBtnHide.setHidden(true)
+            self.chatBotBtnHide.setHidden(true)
+            self.newsBtnHide.setHidden(true)
+            self.stocksBtnHide.setHidden(true)
+            self.loadingAnimation.setHidden(false)
+            self.loadingAnimation.setImageNamed("loading")
+            self.loadingAnimation.startAnimatingWithImages(in: NSRange(location: 0, length: 137), duration: 15, repeatCount: Int.max)
+            self.session.sendMessage(["StockRequest": "User wants to see the news"], replyHandler: nil, errorHandler: nil)
+        }
     }
     
     @IBAction func stocksBtn()
     {
-        pushController(withName: "stocksIdentifier", context: nil)
+        if(WCSession.isSupported())
+        {
+            self.requestBtnHide.setHidden(true)
+            self.uberBtnHide.setHidden(true)
+            self.chatBotBtnHide.setHidden(true)
+            self.newsBtnHide.setHidden(true)
+            self.stocksBtnHide.setHidden(true)
+            self.loadingAnimation.setHidden(false)
+            self.loadingAnimation.setImageNamed("loading")
+            self.loadingAnimation.startAnimatingWithImages(in: NSRange(location: 0, length: 137), duration: 15, repeatCount: Int.max)
+            self.session.sendMessage(["StockRequest": "User wants to see the stocks"], replyHandler: nil, errorHandler: nil)
+        }
     }
     
     @IBAction func uberBtn()
@@ -101,6 +125,8 @@ class HomePageIC: WKInterfaceController, WCSessionDelegate {
     //function to receive the message from the Phone
     func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
         
+        if message["key"] != nil
+        {
         HomePageIC.requestinfo = message["key"]! as! String
         print( HomePageIC.requestinfo)
         let keyofmsg =  HomePageIC.requestinfo.split(separator: ",")
@@ -119,6 +145,19 @@ class HomePageIC: WKInterfaceController, WCSessionDelegate {
             default:
                 break
             }
+        }
+        }
+        else if message["StockInfo"] != nil
+        {
+            HomePageIC.stockInfo = message["StockInfo"]! as! String
+            print(HomePageIC.stockInfo)
+            pushController(withName: "stocksIdentifier", context: nil)
+        }
+        else if message["NewsInfo"] != nil
+        {
+            HomePageIC.newsInfo = message["NewsInfo"]! as! String
+            print(HomePageIC.newsInfo)
+            pushController(withName: "newsIdentifier", context: nil)
         }
         loadingAnimation.setHidden(true)
         requestBtnHide.setHidden(false)

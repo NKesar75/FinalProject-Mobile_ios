@@ -130,10 +130,16 @@
                                             <label width="111" height="36" alignment="left" text="Title" textAlignment="center" id="f7s-qn-AvQ"/>
                                         </items>
                                     </group>
+                                    <connections>
+                                        <outlet property="googleTitle" destination="f7s-qn-AvQ" id="7TT-OT-kDY"/>
+                                    </connections>
                                 </tableRow>
                             </items>
                         </table>
                     </items>
+                    <connections>
+                        <outlet property="googleTable" destination="x3q-yr-sWe" id="s11-Vu-IkR"/>
+                    </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="575" y="211"/>
@@ -173,18 +179,28 @@
                                             </group>
                                         </items>
                                     </group>
+                                    <connections>
+                                        <outlet property="stocksCapacity" destination="Ros-om-j1s" id="1wF-Ut-pys"/>
+                                        <outlet property="stocksImg" destination="NYB-82-3pJ" id="Se8-je-yho"/>
+                                        <outlet property="stocksName" destination="lpJ-TA-1GC" id="W18-Vu-ZIF"/>
+                                        <outlet property="stocksPrice" destination="pmh-Hy-pbr" id="MHd-qB-8US"/>
+                                        <outlet property="stocksSeperator" destination="eTg-pd-hjE" id="sBq-yM-pcx"/>
+                                    </connections>
                                 </tableRow>
                             </items>
                         </table>
                     </items>
+                    <connections>
+                        <outlet property="stocksTable" destination="36B-Wm-9EW" id="TVw-4a-fzP"/>
+                    </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="-114" y="-139"/>
         </scene>
-        <!--Interface Controller-->
+        <!--newsInfoIdentifier-->
         <scene sceneID="v5B-BO-Hd8">
             <objects>
-                <controller id="whx-oY-bAA">
+                <controller identifier="newsInfoIdentifier" id="whx-oY-bAA" customClass="newsInfoIC" customModule="PersonalAssistantWatch_Extension">
                     <items>
                         <label alignment="center" text="Headline" id="jPZ-VS-SUm"/>
                         <label alignment="left" text="Snippet" id="xIR-5D-f43"/>
@@ -194,10 +210,10 @@
             </objects>
             <point key="canvasLocation" x="-636" y="227"/>
         </scene>
-        <!--Interface Controller-->
+        <!--newsHeadlineIdentifier-->
         <scene sceneID="udb-Vg-8BE">
             <objects>
-                <controller id="y8e-Yu-gzU">
+                <controller identifier="newsHeadlineIdentifier" id="y8e-Yu-gzU" customClass="newsHeadlineIC" customModule="PersonalAssistantWatch_Extension">
                     <items>
                         <table alignment="left" id="Wt3-aM-XOv">
                             <items>
@@ -211,6 +227,10 @@
                                             <label width="65" height="95" alignment="left" text="Headline" id="uP4-nZ-49P"/>
                                         </items>
                                     </group>
+                                    <connections>
+                                        <outlet property="newsHeadline" destination="uP4-nZ-49P" id="FWH-Te-g0x"/>
+                                        <outlet property="newsImg" destination="q9I-Kv-Akv" id="VZa-NT-Trg"/>
+                                    </connections>
                                 </tableRow>
                             </items>
                         </table>
@@ -236,18 +256,26 @@
                                             <label width="65" height="48" alignment="left" text="Channel" id="AcS-xc-7pi"/>
                                         </items>
                                     </group>
+                                    <connections>
+                                        <outlet property="newsChannelImg" destination="UIW-OD-ub5" id="bDy-eD-Svp"/>
+                                        <outlet property="newsChannelName" destination="AcS-xc-7pi" id="RxO-bA-Ase"/>
+                                        <outlet property="newsSeparator" destination="ffG-oa-tuZ" id="7CS-Ly-TW4"/>
+                                    </connections>
                                 </tableRow>
                             </items>
                         </table>
                     </items>
+                    <connections>
+                        <outlet property="newsChannelTable" destination="FaW-pT-jFz" id="BF6-XW-KeT"/>
+                    </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="-114" y="227"/>
         </scene>
-        <!--Interface Controller-->
+        <!--uberRideIdentifier-->
         <scene sceneID="JfH-HN-uqE">
             <objects>
-                <controller id="SH2-Qn-qsa">
+                <controller identifier="uberRideIdentifier" id="SH2-Qn-qsa" customClass="uberRideIC" customModule="PersonalAssistantWatch_Extension">
                     <items>
                         <label alignment="center" verticalAlignment="center" text="Please check" id="fQC-yU-nnf"/>
                         <label alignment="center" verticalAlignment="center" text="your phone for" id="VLW-IP-zc7"/>
@@ -364,10 +392,10 @@
             </objects>
             <point key="canvasLocation" x="880" y="-139"/>
         </scene>
-        <!--Interface Controller-->
+        <!--googleinfoIdentifier-->
         <scene sceneID="XA6-Rh-33e">
             <objects>
-                <controller id="7Y5-Rj-Zas">
+                <controller identifier="googleinfoIdentifier" id="7Y5-Rj-Zas" customClass="googleinfoIC" customModule="PersonalAssistantWatch_Extension">
                     <items>
                         <label alignment="center" text="Title" id="zFU-ez-qrG"/>
                         <label alignment="left" text="Snippet" id="ZhY-v4-FhM"/>

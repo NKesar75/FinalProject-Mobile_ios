@@ -10,4 +10,7 @@ import WatchKit
 
 class newsRowController: NSObject {
 
+    @IBOutlet var newsSeparator: WKInterfaceSeparator!
+    @IBOutlet var newsChannelImg: WKInterfaceImage!
+    @IBOutlet var newsChannelName: WKInterfaceLabel!
 }

@@ -12,6 +12,8 @@ import Foundation
 
 class newsIC: WKInterfaceController {
 
+    @IBOutlet var newsChannelTable: WKInterfaceTable!
+    
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         

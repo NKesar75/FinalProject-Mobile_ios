@@ -12,6 +12,8 @@ import Foundation
 
 class googleSearchIC: WKInterfaceController {
 
+    @IBOutlet var googleTable: WKInterfaceTable!
+    
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         

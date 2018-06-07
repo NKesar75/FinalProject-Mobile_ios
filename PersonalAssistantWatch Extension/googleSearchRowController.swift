@@ -10,4 +10,5 @@ import WatchKit
 
 class googleSearchRowController: NSObject {
 
+    @IBOutlet var googleTitle: WKInterfaceLabel!
 }

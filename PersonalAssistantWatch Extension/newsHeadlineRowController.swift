@@ -10,4 +10,6 @@ import WatchKit
 
 class newsHeadlineRowController: NSObject {
 
+    @IBOutlet var newsHeadline: WKInterfaceLabel!
+    @IBOutlet var newsImg: WKInterfaceImage!
 }
