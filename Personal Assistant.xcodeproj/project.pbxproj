@@ -47,6 +47,10 @@
 		C4CAD9592049E3A7007CC517 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CAD9582049E3A7007CC517 /* AlertController.swift */; };
 		C4DABCD0208F780700ED146C /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DABCCF208F780700ED146C /* Search.swift */; };
 		C4DABCD2208FA42500ED146C /* Servercalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DABCD1208FA42500ED146C /* Servercalls.swift */; };
+		ED17B8EC20C9A60C00D1B4AE /* stocksRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED17B8EB20C9A60C00D1B4AE /* stocksRowController.swift */; };
+		ED17B8EE20C9A65E00D1B4AE /* newsRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED17B8ED20C9A65E00D1B4AE /* newsRowController.swift */; };
+		ED17B8F020C9A6A100D1B4AE /* newsHeadlineRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED17B8EF20C9A6A100D1B4AE /* newsHeadlineRowController.swift */; };
+		ED17B8F220C9A6D600D1B4AE /* googleSearchRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED17B8F120C9A6D600D1B4AE /* googleSearchRowController.swift */; };
 		ED2C713720B72D7100B22B44 /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED2C713620B72D7100B22B44 /* credentials.plist */; };
 		ED7492B420B73BB900BDB592 /* HomePageIC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7492B320B73BB900BDB592 /* HomePageIC.swift */; };
 		EDB7180B20C874DE00B2913E /* chatBotIC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB7180520C874DD00B2913E /* chatBotIC.swift */; };
@@ -173,6 +177,10 @@
 		C4CAD9582049E3A7007CC517 /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		C4DABCCF208F780700ED146C /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		C4DABCD1208FA42500ED146C /* Servercalls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Servercalls.swift; sourceTree = "<group>"; };
+		ED17B8EB20C9A60C00D1B4AE /* stocksRowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = stocksRowController.swift; sourceTree = "<group>"; };
+		ED17B8ED20C9A65E00D1B4AE /* newsRowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newsRowController.swift; sourceTree = "<group>"; };
+		ED17B8EF20C9A6A100D1B4AE /* newsHeadlineRowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newsHeadlineRowController.swift; sourceTree = "<group>"; };
+		ED17B8F120C9A6D600D1B4AE /* googleSearchRowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = googleSearchRowController.swift; sourceTree = "<group>"; };
 		ED2C713620B72D7100B22B44 /* credentials.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = credentials.plist; sourceTree = "<group>"; };
 		ED7492B320B73BB900BDB592 /* HomePageIC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageIC.swift; sourceTree = "<group>"; };
 		EDAE06A2229C6E849C3C915E /* Pods-Personal AssistantTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Personal AssistantTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Personal AssistantTests/Pods-Personal AssistantTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -376,6 +384,10 @@
 				ED7492B320B73BB900BDB592 /* HomePageIC.swift */,
 				EDF6DBDC20B86AE900F94718 /* WeatherIC.swift */,
 				EDF6DBDE20B86B5600F94718 /* WeatherRowController.swift */,
+				ED17B8EB20C9A60C00D1B4AE /* stocksRowController.swift */,
+				ED17B8ED20C9A65E00D1B4AE /* newsRowController.swift */,
+				ED17B8EF20C9A6A100D1B4AE /* newsHeadlineRowController.swift */,
+				ED17B8F120C9A6D600D1B4AE /* googleSearchRowController.swift */,
 				EDED64B620B731070050C690 /* Assets.xcassets */,
 				EDED64B820B731070050C690 /* Info.plist */,
 			);
@@ -751,6 +763,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EDB7180C20C874DE00B2913E /* stockIC.swift in Sources */,
+				ED17B8EE20C9A65E00D1B4AE /* newsRowController.swift in Sources */,
 				EDB7180F20C874DE00B2913E /* uberIC.swift in Sources */,
 				ED7492B420B73BB900BDB592 /* HomePageIC.swift in Sources */,
 				EDF6DBDF20B86B5600F94718 /* WeatherRowController.swift in Sources */,
@@ -758,10 +771,13 @@
 				EDB7180D20C874DE00B2913E /* youtubeIC.swift in Sources */,
 				C4522BE920C8715F00A661BA /* weatherInfo.swift in Sources */,
 				EDB7180B20C874DE00B2913E /* chatBotIC.swift in Sources */,
+				ED17B8F220C9A6D600D1B4AE /* googleSearchRowController.swift in Sources */,
 				C4522BEA20C8715F00A661BA /* WeatherInfoIC.swift in Sources */,
 				EDB7180E20C874DE00B2913E /* newsIC.swift in Sources */,
+				ED17B8EC20C9A60C00D1B4AE /* stocksRowController.swift in Sources */,
 				EDB7181020C874DE00B2913E /* googleSearchIC.swift in Sources */,
 				EDED64B520B731070050C690 /* ExtensionDelegate.swift in Sources */,
+				ED17B8F020C9A6A100D1B4AE /* newsHeadlineRowController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

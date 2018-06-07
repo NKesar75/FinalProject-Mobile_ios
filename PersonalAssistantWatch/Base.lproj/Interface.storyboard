@@ -121,7 +121,7 @@
                     <items>
                         <table alignment="left" id="x3q-yr-sWe">
                             <items>
-                                <tableRow id="d0Z-iN-S7u">
+                                <tableRow identifier="googleSearchRowController" id="d0Z-iN-S7u" customClass="googleSearchRowController" customModule="PersonalAssistantWatch_Extension">
                                     <group key="rootItem" width="1" alignment="left" id="QqH-5g-J3C">
                                         <items>
                                             <separator height="1" heightAdjustment="-4" alignment="left" verticalAlignment="center" id="1s3-14-dgK">
@@ -145,7 +145,7 @@
                     <items>
                         <table alignment="left" id="36B-Wm-9EW">
                             <items>
-                                <tableRow id="GOF-mA-SsS">
+                                <tableRow identifier="StocksRowController" id="GOF-mA-SsS" customClass="stocksRowController" customModule="PersonalAssistantWatch_Extension">
                                     <group key="rootItem" width="1" height="0.0" alignment="left" id="jBQ-WC-xyU">
                                         <items>
                                             <separator height="1" heightAdjustment="-4" alignment="left" verticalAlignment="center" id="eTg-pd-hjE">
@@ -201,7 +201,7 @@
                     <items>
                         <table alignment="left" id="Wt3-aM-XOv">
                             <items>
-                                <tableRow id="gZc-bf-I1U">
+                                <tableRow identifier="newsHeadlineRowController" id="gZc-bf-I1U" customClass="newsHeadlineRowController" customModule="PersonalAssistantWatch_Extension">
                                     <group key="rootItem" width="1" alignment="left" id="e0q-94-r1c">
                                         <items>
                                             <separator height="1" heightAdjustment="-4" alignment="left" verticalAlignment="center" id="22H-WT-cWO">
@@ -226,7 +226,7 @@
                     <items>
                         <table alignment="left" id="FaW-pT-jFz">
                             <items>
-                                <tableRow id="h2f-Zg-fjS">
+                                <tableRow identifier="newschannelRowController" id="h2f-Zg-fjS" customClass="newsRowController" customModule="PersonalAssistantWatch_Extension">
                                     <group key="rootItem" width="1" alignment="left" id="Jef-j2-ble">
                                         <items>
                                             <separator height="1" heightAdjustment="-4" alignment="left" verticalAlignment="center" id="ffG-oa-tuZ">
