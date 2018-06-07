@@ -562,7 +562,120 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
                     })
                     
                     ApiAI.shared().enqueue(request)
-                }
+                }else if message["StockRequest"] != nil{
+                    
+                    var newsjson = JSON()
+                    var sendtowatch : String = ""
+                    let urlString = "https://api.iextrading.com/1.0/tops/last?symbols=aapl,bac,ccf,cvx,fb,f,hmc,mcd,msft,frsh,pep,sonc,sne,s,tgt,tm,vz,wmt,dis,wen"
+                    
+                    guard let url = URL(string: urlString) else { return }
+                    URLSession.shared.dataTask(with: url) { (data, reponse, err) in
+                        guard let data = data else { return }
+                        do {
+                            
+                            newsjson = try JSON(data: data)
+                        } catch let jsonErr {
+                            print("Error serializing json:", jsonErr)
+                            
+                        }
+                        //print(self.newsjson)
+                        }.resume()
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(10), execute: {
+                        if newsjson.arrayValue[0]["symbol"] != nil {
+                    
+                            var index:Int = 0
+                            while index < newsjson.arrayValue.count{
+                                if newsjson.arrayValue[index]["symbol"].string != nil && newsjson.arrayValue[index]["price"].double != nil && newsjson.arrayValue[index]["size"].int != nil {
+                                    var nameofcompany = ""
+                                    var imageofcompany = ""
+                                    
+                                    switch (newsjson.arrayValue[index]["symbol"].string!){
+                                    case "AAPL":
+                                        nameofcompany = "Apple Inc."
+                                        imageofcompany = "Apple"
+                                    case "FB":
+                                        nameofcompany = "Facebook, Inc."
+                                        imageofcompany = "Facebook"
+                                    case "MSFT":
+                                        nameofcompany = "Microsoft Corporation"
+                                        imageofcompany = "Microsoft"
+                                    case "SNE":
+                                        nameofcompany = "Sony Corp"
+                                        imageofcompany = "Sony"
+                                        
+                                    case "HMC":
+                                        nameofcompany = "Honda Motor Co Ltd"
+                                        imageofcompany = "Honda"
+                                    case "TM":
+                                        nameofcompany = "Toyota Motor Corp"
+                                        imageofcompany = "Toyota"
+                                    case "DIS":
+                                        nameofcompany = " Walt Disney Co"
+                                        imageofcompany = "Walt"
+                                    case "BAC":
+                                        nameofcompany = "Bank of America Corp"
+                                        imageofcompany = "Bank"
+                                        
+                                    case "CCF":
+                                        nameofcompany = "Chase Corporation"
+                                        imageofcompany = "Chase"
+                                    case "SONC":
+                                        nameofcompany = "Sonic Corporation"
+                                        imageofcompany = "Sonic"
+                                    case "MCD":
+                                        nameofcompany = "McDonald's Corporation"
+                                        imageofcompany = "McDonald"
+                                    case "WEN":
+                                        nameofcompany = "Wendys Co"
+                                        imageofcompany = "Wendys"
+                                        
+                                    case "WMT":
+                                        nameofcompany = "Walmart Inc"
+                                        imageofcompany = "Walmart"
+                                    case "TGT":
+                                        nameofcompany = "Target Corporation"
+                                        imageofcompany = "Target"
+                                    case "PEP":
+                                        nameofcompany = "PepsiCo Inc."
+                                        imageofcompany = "PepsiCo"
+                                    case "FRSH":
+                                        nameofcompany = "Papa Murphy's Holdings Inc"
+                                        imageofcompany = "Papa"
+                                        
+                                    case "VZ":
+                                        nameofcompany = "Verizon Communications Inc."
+                                        imageofcompany = "Verizon"
+                                    case "S":
+                                        nameofcompany = "Sprint Corp"
+                                        imageofcompany = "Sprint"
+                                    case "CVX":
+                                        nameofcompany = "Chevron Corporation"
+                                        imageofcompany = "Chevron"
+                                    case "F":
+                                        nameofcompany = "Ford Motor Company"
+                                        imageofcompany = "Ford"
+                                        
+                                    default:
+                                        break
+                                    }
+                                    
+                                    sendtowatch += nameofcompany + ","
+                                    sendtowatch += String(newsjson.arrayValue[index]["price"].double!) + ","
+                                    sendtowatch += String(newsjson.arrayValue[index]["size"].int!) + ","
+                                    sendtowatch +=  imageofcompany + ","
+                                }else{
+                                    break
+                                }
+                                index += 1
+                            }
+                            
+                        }else{
+                           sendtowatch = "error"
+                        }
+                    })
+                    
+                }//else{news}
         }
     }
     
@@ -577,5 +690,5 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
     func sessionDidDeactivate(_ session: WCSession) {
         
     }
-    
 }
+
