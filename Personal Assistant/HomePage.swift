@@ -539,8 +539,7 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
                     }
                       session.sendMessage(["key": sendtowatch], replyHandler: nil, errorHandler: nil)
                      })
-                }else if message["chatBotQuestion"] != nil
-                {
+                }else if message["chatBotQuestion"] != nil {
                     let chatQuestion = message["chatBotQuestion"]! as? String
                     var sendtowatch : String = ""
                     
@@ -564,7 +563,7 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
                     })
                     
                     ApiAI.shared().enqueue(request)
-                }
+                }c
         }
     }
     
