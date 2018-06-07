@@ -583,7 +583,7 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
                     
                     DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(10), execute: {
                         if newsjson.arrayValue[0]["symbol"] != nil {
-                    
+                            sendtowatch += "Stock"
                             var index:Int = 0
                             while index < newsjson.arrayValue.count{
                                 if newsjson.arrayValue[index]["symbol"].string != nil && newsjson.arrayValue[index]["price"].double != nil && newsjson.arrayValue[index]["size"].int != nil {
@@ -660,10 +660,10 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
                                         break
                                     }
                                     
-                                    sendtowatch += nameofcompany + ","
+                                    sendtowatch += "," + nameofcompany + ","
                                     sendtowatch += String(newsjson.arrayValue[index]["price"].double!) + ","
                                     sendtowatch += String(newsjson.arrayValue[index]["size"].int!) + ","
-                                    sendtowatch +=  imageofcompany + ","
+                                    sendtowatch +=  imageofcompany
                                 }else{
                                     break
                                 }
@@ -673,10 +673,146 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
                         }else{
                            sendtowatch = "error"
                         }
-                        session.sendMessage(["StocksInfo": sendtowatch], replyHandler: nil, errorHandler: nil)
+                        // 0 name of company //1 price //2 size //3 name of image
+                        session.sendMessage(["StockInfo": sendtowatch], replyHandler: nil, errorHandler: nil)
                     })
                     
-                }//else{news}
+                }else if message["NewsRequest"] != nil{
+                   
+                    self.resuestfromwatch = message["NewsRequest"]! as? String
+                    var newsjson = JSON()
+                    var sendtowatch : String = ""
+                     var urlString = ""
+                    sendtowatch += "News"
+                    switch  self.resuestfromwatch {
+                    case "ABC News":
+                        urlString =  "https://newsapi.org/v2/top-headlines?sources=abc-news&apiKey=388f3a0e55d54bcbb705b8a244b8f380"
+                    case "Apple":
+                        urlString =  "https://newsapi.org/v2/everything?q=apple&from=2018-06-03&to=2018-06-03&sortBy=popularity&apiKey=388f3a0e55d54bcbb705b8a244b8f380"
+                    case "BBC News":
+                        urlString =  "https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey=388f3a0e55d54bcbb705b8a244b8f380"
+                    case "BBC Sports":
+                        urlString =  "https://newsapi.org/v2/top-headlines?sources=bbc-sport&apiKey=388f3a0e55d54bcbb705b8a244b8f380"
+                    case "Bitcoin":
+                        urlString =  "https://newsapi.org/v2/everything?q=bitcoin&sortBy=publishedAt&apiKey=388f3a0e55d54bcbb705b8a244b8f380"
+                    case "Bleacher Reports":
+                        urlString =  "https://newsapi.org/v2/top-headlines?sources=bleacher-report&apiKey=388f3a0e55d54bcbb705b8a244b8f380"
+                    case "Bloomberg":
+                        urlString =  "https://newsapi.org/v2/top-headlines?sources=bloomberg&apiKey=388f3a0e55d54bcbb705b8a244b8f380"
+                    case "Breitbart":
+                        urlString =  "https://newsapi.org/v2/top-headlines?sources=breitbart-news&apiKey=388f3a0e55d54bcbb705b8a244b8f380"
+                    case "Business":
+                        urlString =  "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=388f3a0e55d54bcbb705b8a244b8f380"
+                    case "Business Insider":
+                        urlString =  "https://newsapi.org/v2/top-headlines?sources=business-insider&apiKey=388f3a0e55d54bcbb705b8a244b8f380"
+                    case "Buzz Feed":
+                        urlString =  "https://newsapi.org/v2/top-headlines?sources=buzzfeed&apiKey=388f3a0e55d54bcbb705b8a244b8f380"
+                    case "CBS News":
+                        urlString =  "https://newsapi.org/v2/top-headlines?sources=cbs-news&apiKey=388f3a0e55d54bcbb705b8a244b8f380"
+                    case "CNN":
+                        urlString =  "https://newsapi.org/v2/top-headlines?sources=cnn&apiKey=388f3a0e55d54bcbb705b8a244b8f380"
+                    case "Daily Mail":
+                        urlString =  "https://newsapi.org/v2/top-headlines?sources=daily-mail&apiKey=388f3a0e55d54bcbb705b8a244b8f380"
+                    case "Entertainment Week":
+                        urlString =  "https://newsapi.org/v2/top-headlines?sources=entertainment-weekly&apiKey=388f3a0e55d54bcbb705b8a244b8f380"
+                    case "ESPN":
+                        urlString =  "https://newsapi.org/v2/top-headlines?sources=espn&apiKey=388f3a0e55d54bcbb705b8a244b8f380"
+                    case "Financial Times":
+                        urlString =  "https://newsapi.org/v2/top-headlines?sources=financial-times&apiKey=388f3a0e55d54bcbb705b8a244b8f380"
+                    case "Four Four Two":
+                        urlString =  "https://newsapi.org/v2/top-headlines?sources=four-four-two&apiKey=388f3a0e55d54bcbb705b8a244b8f380"
+                    case "Fox News":
+                        urlString =  "https://newsapi.org/v2/top-headlines?sources=fox-news&apiKey=388f3a0e55d54bcbb705b8a244b8f380"
+                    case "Fox Sports":
+                        urlString =  "https://newsapi.org/v2/top-headlines?sources=fox-sports&apiKey=388f3a0e55d54bcbb705b8a244b8f380"
+                    case "Google News":
+                        urlString =  "https://newsapi.org/v2/top-headlines?sources=google-news&apiKey=388f3a0e55d54bcbb705b8a244b8f380"
+                    case "Hacker News":
+                        urlString =  "https://newsapi.org/v2/top-headlines?sources=hacker-news&apiKey=388f3a0e55d54bcbb705b8a244b8f380"
+                    case "IGN":
+                        urlString =  "https://newsapi.org/v2/top-headlines?sources=ign&apiKey=388f3a0e55d54bcbb705b8a244b8f380"
+                    case "Medical News":
+                        urlString =  "https://newsapi.org/v2/top-headlines?sources=medical-news-today&apiKey=388f3a0e55d54bcbb705b8a244b8f380"
+                    case "Metro":
+                        urlString =  "https://newsapi.org/v2/top-headlines?sources=metro&apiKey=388f3a0e55d54bcbb705b8a244b8f380"
+                    case "MSNBC":
+                        urlString =  "https://newsapi.org/v2/top-headlines?sources=msnbc&apiKey=388f3a0e55d54bcbb705b8a244b8f380"
+                    case  "MTV":
+                        urlString =  "https://newsapi.org/v2/top-headlines?sources=mtv-news&apiKey=388f3a0e55d54bcbb705b8a244b8f380"
+                    case "National Geographics":
+                        urlString =  "https://newsapi.org/v2/top-headlines?sources=national-geographic&apiKey=388f3a0e55d54bcbb705b8a244b8f380"
+                    case "National Review":
+                        urlString =  "https://newsapi.org/v2/top-headlines?sources=national-review&apiKey=388f3a0e55d54bcbb705b8a244b8f380"
+                    case "NBC News":
+                        urlString =  "https://newsapi.org/v2/top-headlines?sources=nbc-news&apiKey=388f3a0e55d54bcbb705b8a244b8f380"
+                    case "New Scientist":
+                        urlString =  "https://newsapi.org/v2/top-headlines?sources=new-scientist&apiKey=388f3a0e55d54bcbb705b8a244b8f380"
+                    case "News 24":
+                        urlString =  "https://newsapi.org/v2/top-headlines?sources=news24&apiKey=388f3a0e55d54bcbb705b8a244b8f380"
+                    case "NFL News":
+                        urlString =  "https://newsapi.org/v2/top-headlines?sources=nfl-news&apiKey=388f3a0e55d54bcbb705b8a244b8f380"
+                    case "NHL News":
+                        urlString =  "https://newsapi.org/v2/top-headlines?sources=nhl-news&apiKey=388f3a0e55d54bcbb705b8a244b8f380"
+                    case "Reddit":
+                        urlString =  "https://newsapi.org/v2/top-headlines?sources=reddit-r-all&apiKey=388f3a0e55d54bcbb705b8a244b8f380"
+                    case "Talk Sports":
+                        urlString =  "https://newsapi.org/v2/top-headlines?sources=talksport&apiKey=388f3a0e55d54bcbb705b8a244b8f380"
+                    case "TechCrunch":
+                        urlString =  "https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=388f3a0e55d54bcbb705b8a244b8f380"
+                    case "The New York Times":
+                        urlString =  "https://newsapi.org/v2/top-headlines?sources=the-new-york-times&apiKey=388f3a0e55d54bcbb705b8a244b8f380"
+                    case "USA Today":
+                        urlString =  "https://newsapi.org/v2/top-headlines?sources=usa-today&apiKey=388f3a0e55d54bcbb705b8a244b8f380"
+                    case "Vice News":
+                        urlString =  "https://newsapi.org/v2/top-headlines?sources=vice-news&apiKey=388f3a0e55d54bcbb705b8a244b8f380"
+                    case "Wall Street":
+                        urlString =  "https://newsapi.org/v2/everything?domains=wsj.com&apiKey=388f3a0e55d54bcbb705b8a244b8f380"
+                    case "Washington":
+                        urlString =  "https://newsapi.org/v2/top-headlines?sources=the-washington-times&apiKey=388f3a0e55d54bcbb705b8a244b8f380"
+                    default:
+                        urlString =  "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=388f3a0e55d54bcbb705b8a244b8f380"
+                    }
+                    
+                    guard let url = URL(string: urlString) else { return }
+                    URLSession.shared.dataTask(with: url) { (data, reponse, err) in
+                        guard let data = data else { return }
+                        do {
+                            
+                            newsjson = try JSON(data: data)
+                        } catch let jsonErr {
+                            print("Error serializing json:", jsonErr)
+                            
+                        }
+                        //print(self.newsjson)
+                        }.resume()
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(10), execute: {
+                        
+                        if newsjson["status"].string != nil && newsjson["status"].string == "ok" {
+                            var index:Int = 0
+                            while true {
+                                
+                                if  newsjson["articles"][index]["title"].string != nil && newsjson["articles"][index]["description"].string != nil && newsjson["articles"][index]["urlToImage"].string != nil && newsjson["articles"][index]["url"].string != nil {
+                                    
+                                    sendtowatch += "," + newsjson["articles"][index]["title"].string! + ","
+                                    sendtowatch += newsjson["articles"][index]["description"].string! + ","
+                                    sendtowatch += newsjson["articles"][index]["urlToImage"].string! + ","
+                                    sendtowatch += newsjson["articles"][index]["url"].string!
+                                    
+                                }else{
+                                    break
+                                }
+                                index += 1
+                            }
+                        }else{
+                            sendtowatch = "error"
+                        }
+                        
+                      session.sendMessage(["NewsInfo": sendtowatch], replyHandler: nil, errorHandler: nil)
+                       
+                    })
+
+                }
         }
     }
     
