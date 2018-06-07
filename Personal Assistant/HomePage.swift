@@ -811,7 +811,14 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
                       session.sendMessage(["NewsInfo": sendtowatch], replyHandler: nil, errorHandler: nil)
                        
                     })
-
+                }else if message["More"] != nil {
+                    
+                    self.resuestfromwatch = message["More"]! as? String
+                    
+                    if let url = URL(string: newsarray[indexPath.row].URL) {
+                        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                    }
+                    
                 }
         }
     }
