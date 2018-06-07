@@ -563,7 +563,7 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
                     })
                     
                     ApiAI.shared().enqueue(request)
-                }c
+                }
         }
     }
     

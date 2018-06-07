@@ -21,11 +21,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         FirebaseApp.configure()
         let configuration: AIConfiguration = AIDefaultConfiguration()
-        configuration.clientAccessToken = "Your_API_Key_Here"
+        configuration.clientAccessToken = "fb57e9c4edb34e31bfdd91ece7f542c"
         //you would find the client access token in settings section of your agent at Dialogflow
         let apiai = ApiAI.shared()
         apiai?.configuration = configuration
-        GIDSignIn.sharedInstance().clientID = "Your_API_Key_Here"
+        GIDSignIn.sharedInstance().clientID = "720590166253-48p4djl6rlitavhc40p97mclj54g7h66.apps.googleusercontent.com"
         return true
     }
     
