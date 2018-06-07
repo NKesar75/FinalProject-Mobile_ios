@@ -673,6 +673,7 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
                         }else{
                            sendtowatch = "error"
                         }
+                        session.sendMessage(["StocksInfo": sendtowatch], replyHandler: nil, errorHandler: nil)
                     })
                     
                 }//else{news}
