@@ -1020,7 +1020,7 @@
                                                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
                                                     <connections>
-                                                        <segue destination="Gcn-FH-YMR" kind="show" id="3QN-tq-Smi"/>
+                                                        <action selector="schedling:" destination="edF-9K-KxK" eventType="touchUpInside" id="NFP-Ay-Cua"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9vR-yv-42a">

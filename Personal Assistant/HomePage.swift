@@ -466,6 +466,21 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
        
     }
 
+    
+    @IBAction func schedling(_ sender: UIButton) {
+    
+        let dateFormatter : DateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd-HH-mm-ss"
+        let date = Date()
+        let dateString = dateFormatter.string(from: date)
+
+        if let url = URL(string: "calshow:\(dateString)") {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
+        
+    }
+    
+    
     @IBAction func Signout(_ sender: UIButton) {
         do {
                 try Auth.auth().signOut()
@@ -516,6 +531,8 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
                         index += 1
                        }
                         case "youtube":
+                            let vc = self.storyboard?.instantiateViewController(withIdentifier: "Youtube_ID") as! Youtube
+                            vc.serverjson = self.serverjson
                             sendtowatch = "youtube"
                             break
                         case "google":
