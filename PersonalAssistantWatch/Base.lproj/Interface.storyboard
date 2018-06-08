@@ -197,15 +197,34 @@
             </objects>
             <point key="canvasLocation" x="-114" y="-139"/>
         </scene>
+        <!--newsReadMoreIdentifier-->
+        <scene sceneID="NAb-hu-kmj">
+            <objects>
+                <controller identifier="newsReadMoreIdentifier" id="Ah5-sW-SaA">
+                    <items>
+                        <label alignment="center" verticalAlignment="center" text="Please check your mobile to read more about the news" numberOfLines="0" id="JbZ-3f-MbG"/>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="-906" y="227"/>
+        </scene>
         <!--newsInfoIdentifier-->
         <scene sceneID="v5B-BO-Hd8">
             <objects>
                 <controller identifier="newsInfoIdentifier" id="whx-oY-bAA" customClass="newsInfoIC" customModule="PersonalAssistantWatch_Extension">
                     <items>
-                        <label alignment="center" text="Headline" id="jPZ-VS-SUm"/>
-                        <label alignment="left" text="Snippet" id="xIR-5D-f43"/>
-                        <button width="1" alignment="center" verticalAlignment="bottom" title="Read More" id="dOL-SV-vvQ"/>
+                        <label alignment="center" text="Headline" numberOfLines="0" id="jPZ-VS-SUm"/>
+                        <label alignment="left" text="Snippet" numberOfLines="0" id="xIR-5D-f43"/>
+                        <button width="1" alignment="center" verticalAlignment="bottom" title="Read More" id="dOL-SV-vvQ">
+                            <connections>
+                                <action selector="newsInfoReadMore" destination="whx-oY-bAA" id="cPv-pf-bKn"/>
+                            </connections>
+                        </button>
                     </items>
+                    <connections>
+                        <outlet property="newsInfoHeadline" destination="jPZ-VS-SUm" id="rud-Pi-xYF"/>
+                        <outlet property="newsInfoSnippet" destination="xIR-5D-f43" id="out-oa-IXd"/>
+                    </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="-636" y="227"/>
@@ -223,8 +242,8 @@
                                             <separator height="1" heightAdjustment="-4" alignment="left" verticalAlignment="center" id="22H-WT-cWO">
                                                 <color key="color" red="0.0" green="0.6452265814" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </separator>
-                                            <imageView width="43" alignment="left" id="q9I-Kv-Akv"/>
-                                            <label width="65" height="95" alignment="left" text="Headline" id="uP4-nZ-49P"/>
+                                            <imageView width="43" height="41" alignment="left" id="q9I-Kv-Akv"/>
+                                            <label alignment="left" text="Headline" numberOfLines="0" id="uP4-nZ-49P"/>
                                         </items>
                                     </group>
                                     <connections>
@@ -257,7 +276,7 @@
                                                 <color key="color" red="0.0" green="0.6452265814" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </separator>
                                             <imageView width="43" height="40" alignment="left" id="UIW-OD-ub5"/>
-                                            <label width="65" height="48" alignment="left" text="Channel" id="AcS-xc-7pi"/>
+                                            <label alignment="left" text="Channel" numberOfLines="0" id="AcS-xc-7pi"/>
                                         </items>
                                     </group>
                                     <connections>

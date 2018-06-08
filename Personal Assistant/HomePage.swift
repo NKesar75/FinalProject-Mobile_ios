@@ -793,9 +793,9 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
                                 
                                 if  newsjson["articles"][index]["title"].string != nil && newsjson["articles"][index]["description"].string != nil && newsjson["articles"][index]["urlToImage"].string != nil && newsjson["articles"][index]["url"].string != nil {
                                     
-                                    sendtowatch += "," + newsjson["articles"][index]["title"].string! + ","
-                                    sendtowatch += newsjson["articles"][index]["description"].string! + ","
-                                    sendtowatch += newsjson["articles"][index]["urlToImage"].string! + ","
+                                    sendtowatch += "\u{1D6FF}" + newsjson["articles"][index]["title"].string! + "\u{1D6FF}"
+                                    sendtowatch += newsjson["articles"][index]["description"].string! + "\u{1D6FF}"
+                                    sendtowatch += newsjson["articles"][index]["urlToImage"].string! + "\u{1D6FF}"
                                     sendtowatch += newsjson["articles"][index]["url"].string!
                                     
                                 }else{

@@ -1,5 +1,5 @@
 //
-//  googleReadMoreIC.swift
+//  newsReadMoreIC.swift
 //  PersonalAssistantWatch Extension
 //
 //  Created by Raj  Chandan on 6/8/18.
@@ -9,10 +9,9 @@
 import WatchKit
 import Foundation
 
-class googleReadMoreIC: WKInterfaceController {
+class newsReadMoreIC: WKInterfaceController {
 
-    
-    
+
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         
@@ -28,5 +27,4 @@ class googleReadMoreIC: WKInterfaceController {
         // This method is called when watch view controller is no longer visible
         super.didDeactivate()
     }
-
 }

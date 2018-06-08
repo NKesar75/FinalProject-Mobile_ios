@@ -11,12 +11,13 @@ import Foundation
 import WatchConnectivity
 
 
-class googleinfoIC: WKInterfaceController {
+class googleinfoIC: WKInterfaceController, WCSessionDelegate {
 
     @IBOutlet var googleInfoTitle: WKInterfaceLabel!
     @IBOutlet var googleInfoSnippet: WKInterfaceLabel!
     
-    static var googleUrl : String = ""
+    var googleUrl : String = ""
+    var session:WCSession!
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
@@ -27,8 +28,13 @@ class googleinfoIC: WKInterfaceController {
         {
             googleInfoTitle.setText(googleData.title)
             googleInfoSnippet.setText(googleData.snippet)
-            googleinfoIC.googleUrl = googleData.url
-            print(googleinfoIC.googleUrl)
+            self.googleUrl = googleData.url
+            print(self.googleUrl)
+        }
+        if(WCSession.isSupported()){
+            self.session = WCSession.default
+            self.session.delegate = self
+            self.session.activate()
         }
     }
 
@@ -44,6 +50,14 @@ class googleinfoIC: WKInterfaceController {
 
     @IBAction func readMoreBtn()
     {
+        if(WCSession.isSupported())
+        {
+            self.session.sendMessage(["More": self.googleUrl], replyHandler: nil, errorHandler: nil)
+        }
         presentController(withName: "googleReadMoreIdentifier", context: nil)
+    }
+    
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        
     }
 }

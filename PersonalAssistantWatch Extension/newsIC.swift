@@ -76,7 +76,7 @@ class newsIC: WKInterfaceController, WCSessionDelegate {
         {
             newsIC.newsData = message["NewsInfo"]! as! String
             print(newsIC.newsData)
-            let newsKey = newsIC.newsData.split(separator: ",")
+            let newsKey = newsIC.newsData.split(separator: "\u{1D6FF}")
             print(newsKey)
             if newsKey[0] != nil && newsKey[0] == "News"
             {
