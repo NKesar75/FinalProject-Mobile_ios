@@ -17,7 +17,6 @@ class HomePageIC: WKInterfaceController, WCSessionDelegate {
     @IBOutlet var requestBtnHide: WKInterfaceButton!
     @IBOutlet var newsBtnHide: WKInterfaceButton!
     @IBOutlet var stocksBtnHide: WKInterfaceButton!
-    @IBOutlet var uberBtnHide: WKInterfaceButton!
     @IBOutlet var chatBotBtnHide: WKInterfaceButton!
     
     
@@ -62,7 +61,6 @@ class HomePageIC: WKInterfaceController, WCSessionDelegate {
         if(WCSession.isSupported())
         {
             self.requestBtnHide.setHidden(true)
-            self.uberBtnHide.setHidden(true)
             self.chatBotBtnHide.setHidden(true)
             self.newsBtnHide.setHidden(true)
             self.stocksBtnHide.setHidden(true)
@@ -71,11 +69,6 @@ class HomePageIC: WKInterfaceController, WCSessionDelegate {
             self.loadingAnimation.startAnimatingWithImages(in: NSRange(location: 0, length: 137), duration: 15, repeatCount: Int.max)
             self.session.sendMessage(["StockRequest": "User wants to see the stocks"], replyHandler: nil, errorHandler: nil)
         }
-    }
-    
-    @IBAction func uberBtn()
-    {
-        pushController(withName: "uberIdentifier", context: nil)
     }
     
     @IBAction func chatBotBtn()
@@ -96,7 +89,6 @@ class HomePageIC: WKInterfaceController, WCSessionDelegate {
                                     if(WCSession.isSupported())
                                     {
                                         self.requestBtnHide.setHidden(true)
-                                        self.uberBtnHide.setHidden(true)
                                         self.chatBotBtnHide.setHidden(true)
                                         self.newsBtnHide.setHidden(true)
                                         self.stocksBtnHide.setHidden(true)
@@ -148,7 +140,6 @@ class HomePageIC: WKInterfaceController, WCSessionDelegate {
         }
         loadingAnimation.setHidden(true)
         requestBtnHide.setHidden(false)
-        uberBtnHide.setHidden(false)
         chatBotBtnHide.setHidden(false)
         newsBtnHide.setHidden(false)
         stocksBtnHide.setHidden(false)

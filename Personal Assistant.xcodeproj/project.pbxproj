@@ -56,7 +56,6 @@
 		ED17B8F020C9A6A100D1B4AE /* newsHeadlineRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED17B8EF20C9A6A100D1B4AE /* newsHeadlineRowController.swift */; };
 		ED17B8F220C9A6D600D1B4AE /* googleSearchRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED17B8F120C9A6D600D1B4AE /* googleSearchRowController.swift */; };
 		ED17B8F420C9B1DE00D1B4AE /* newsHeadlineIC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED17B8F320C9B1DE00D1B4AE /* newsHeadlineIC.swift */; };
-		ED17B8F620C9B22400D1B4AE /* uberRideIC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED17B8F520C9B22400D1B4AE /* uberRideIC.swift */; };
 		ED17B8F820C9B25500D1B4AE /* newsInfoIC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED17B8F720C9B25500D1B4AE /* newsInfoIC.swift */; };
 		ED17B8FA20C9B28400D1B4AE /* googleinfoIC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED17B8F920C9B28400D1B4AE /* googleinfoIC.swift */; };
 		ED2C713720B72D7100B22B44 /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED2C713620B72D7100B22B44 /* credentials.plist */; };
@@ -65,7 +64,6 @@
 		EDB7180C20C874DE00B2913E /* stockIC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB7180620C874DD00B2913E /* stockIC.swift */; };
 		EDB7180D20C874DE00B2913E /* youtubeIC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB7180720C874DD00B2913E /* youtubeIC.swift */; };
 		EDB7180E20C874DE00B2913E /* newsIC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB7180820C874DE00B2913E /* newsIC.swift */; };
-		EDB7180F20C874DE00B2913E /* uberIC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB7180920C874DE00B2913E /* uberIC.swift */; };
 		EDB7181020C874DE00B2913E /* googleSearchIC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB7180A20C874DE00B2913E /* googleSearchIC.swift */; };
 		EDCE033920A1EF8700DD7F91 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EDCE033820A1EF8700DD7F91 /* GoogleService-Info.plist */; };
 		EDED64A520B731060050C690 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDED64A320B731060050C690 /* Interface.storyboard */; };
@@ -194,7 +192,6 @@
 		ED17B8EF20C9A6A100D1B4AE /* newsHeadlineRowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newsHeadlineRowController.swift; sourceTree = "<group>"; };
 		ED17B8F120C9A6D600D1B4AE /* googleSearchRowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = googleSearchRowController.swift; sourceTree = "<group>"; };
 		ED17B8F320C9B1DE00D1B4AE /* newsHeadlineIC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newsHeadlineIC.swift; sourceTree = "<group>"; };
-		ED17B8F520C9B22400D1B4AE /* uberRideIC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = uberRideIC.swift; sourceTree = "<group>"; };
 		ED17B8F720C9B25500D1B4AE /* newsInfoIC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newsInfoIC.swift; sourceTree = "<group>"; };
 		ED17B8F920C9B28400D1B4AE /* googleinfoIC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = googleinfoIC.swift; sourceTree = "<group>"; };
 		ED2C713620B72D7100B22B44 /* credentials.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = credentials.plist; sourceTree = "<group>"; };
@@ -204,7 +201,6 @@
 		EDB7180620C874DD00B2913E /* stockIC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = stockIC.swift; sourceTree = "<group>"; };
 		EDB7180720C874DD00B2913E /* youtubeIC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = youtubeIC.swift; sourceTree = "<group>"; };
 		EDB7180820C874DE00B2913E /* newsIC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = newsIC.swift; sourceTree = "<group>"; };
-		EDB7180920C874DE00B2913E /* uberIC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = uberIC.swift; sourceTree = "<group>"; };
 		EDB7180A20C874DE00B2913E /* googleSearchIC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = googleSearchIC.swift; sourceTree = "<group>"; };
 		EDCE033820A1EF8700DD7F91 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EDED64A120B731060050C690 /* PersonalAssistantWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PersonalAssistantWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -390,7 +386,6 @@
 			children = (
 				ED7492B320B73BB900BDB592 /* HomePageIC.swift */,
 				EDB7180520C874DD00B2913E /* chatBotIC.swift */,
-				ED17B8F520C9B22400D1B4AE /* uberRideIC.swift */,
 				EDB7180A20C874DE00B2913E /* googleSearchIC.swift */,
 				ED17B8F120C9A6D600D1B4AE /* googleSearchRowController.swift */,
 				ED17B8F920C9B28400D1B4AE /* googleinfoIC.swift */,
@@ -398,7 +393,6 @@
 				ED03309220CAF08B00B03094 /* googleReadMoreIC.swift */,
 				EDB7180620C874DD00B2913E /* stockIC.swift */,
 				ED17B8EB20C9A60C00D1B4AE /* stocksRowController.swift */,
-				EDB7180920C874DE00B2913E /* uberIC.swift */,
 				EDB7180720C874DD00B2913E /* youtubeIC.swift */,
 				C4522BE720C8715F00A661BA /* weatherInfo.swift */,
 				EDF6DBDC20B86AE900F94718 /* WeatherIC.swift */,
@@ -789,8 +783,6 @@
 				ED17B8F820C9B25500D1B4AE /* newsInfoIC.swift in Sources */,
 				EDB7180C20C874DE00B2913E /* stockIC.swift in Sources */,
 				ED17B8EE20C9A65E00D1B4AE /* newsRowController.swift in Sources */,
-				EDB7180F20C874DE00B2913E /* uberIC.swift in Sources */,
-				ED17B8F620C9B22400D1B4AE /* uberRideIC.swift in Sources */,
 				ED7492B420B73BB900BDB592 /* HomePageIC.swift in Sources */,
 				EDF6DBDF20B86B5600F94718 /* WeatherRowController.swift in Sources */,
 				EDF6DBDD20B86AE900F94718 /* WeatherIC.swift in Sources */,

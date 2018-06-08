@@ -31,11 +31,6 @@
                         </group>
                         <group alignment="center" id="ijL-LI-2tA">
                             <items>
-                                <button alignment="left" title="Uber" id="woL-2M-WdI">
-                                    <connections>
-                                        <action selector="uberBtn" destination="BXB-gt-B20" id="o2X-gg-j0M"/>
-                                    </connections>
-                                </button>
                                 <button alignment="left" title="ChatBot" id="xU1-Cw-JyK">
                                     <connections>
                                         <action selector="chatBotBtn" destination="BXB-gt-B20" id="qmi-Xg-Z1K"/>
@@ -55,7 +50,6 @@
                         <outlet property="newsBtnHide" destination="pFQ-XD-nfd" id="ejU-oA-wZL"/>
                         <outlet property="requestBtnHide" destination="9fl-I9-MVA" id="DWC-g4-afJ"/>
                         <outlet property="stocksBtnHide" destination="sdR-oG-NtU" id="Tzx-oH-to9"/>
-                        <outlet property="uberBtnHide" destination="woL-2M-WdI" id="Qxb-WB-c4d"/>
                     </connections>
                 </controller>
             </objects>
@@ -295,32 +289,6 @@
                 </controller>
             </objects>
             <point key="canvasLocation" x="-114" y="227"/>
-        </scene>
-        <!--uberRideIdentifier-->
-        <scene sceneID="JfH-HN-uqE">
-            <objects>
-                <controller identifier="uberRideIdentifier" id="SH2-Qn-qsa" customClass="uberRideIC" customModule="PersonalAssistantWatch_Extension">
-                    <items>
-                        <label alignment="center" verticalAlignment="center" text="Please check" id="fQC-yU-nnf"/>
-                        <label alignment="center" verticalAlignment="center" text="your phone for" id="VLW-IP-zc7"/>
-                        <label alignment="center" verticalAlignment="center" text="the ride" id="Ys8-8F-dtv"/>
-                        <label alignment="center" verticalAlignment="center" text=" information" id="ECx-04-wwZ"/>
-                    </items>
-                </controller>
-            </objects>
-            <point key="canvasLocation" x="-387" y="536"/>
-        </scene>
-        <!--uberIdentifier-->
-        <scene sceneID="0BK-kd-5bA">
-            <objects>
-                <controller identifier="uberIdentifier" id="tTN-Nr-OrK" customClass="uberIC" customModule="PersonalAssistantWatch_Extension">
-                    <items>
-                        <button width="1" alignment="left" verticalAlignment="bottom" title="Where would like to go" id="352-9O-O5e"/>
-                        <button width="1" alignment="center" verticalAlignment="bottom" title="Request Ride" id="QuR-M6-pIn"/>
-                    </items>
-                </controller>
-            </objects>
-            <point key="canvasLocation" x="-114" y="536"/>
         </scene>
         <!--chatBotIdentifier-->
         <scene sceneID="uST-h7-4V1">
