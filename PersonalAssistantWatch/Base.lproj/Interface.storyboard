@@ -350,7 +350,7 @@
                     <items>
                         <label alignment="center" verticalAlignment="center" text="Please check " id="dmB-42-bvo"/>
                         <label alignment="center" verticalAlignment="center" text="your phone to " id="Opz-MN-3Pn"/>
-                        <label alignment="center" verticalAlignment="center" text="play YouTube" id="kWg-0h-8h9"/>
+                        <label alignment="center" verticalAlignment="center" text="see the YouTube" id="kWg-0h-8h9"/>
                         <label alignment="center" verticalAlignment="center" text=" video..." id="sOe-fF-7tL"/>
                     </items>
                 </controller>
