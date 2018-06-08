@@ -73,17 +73,17 @@
                                                 <items>
                                                     <group width="1" alignment="left" id="hdc-DH-U5L">
                                                         <items>
-                                                            <label alignment="left" text="High" id="xEU-vI-I3J"/>
+                                                            <label alignment="left" text="High" numberOfLines="0" id="xEU-vI-I3J"/>
                                                         </items>
                                                     </group>
                                                     <group width="1" alignment="left" id="GiZ-32-DNn">
                                                         <items>
-                                                            <label alignment="left" text="Low" id="E3Z-Af-kDN"/>
+                                                            <label alignment="left" text="Low" numberOfLines="0" id="E3Z-Af-kDN"/>
                                                         </items>
                                                     </group>
                                                     <group width="1" alignment="left" id="ywt-7c-5KT">
                                                         <items>
-                                                            <label alignment="left" text="mm/dd" id="3zt-Nh-ws5"/>
+                                                            <label alignment="left" text="mm/dd" numberOfLines="0" id="3zt-Nh-ws5"/>
                                                         </items>
                                                     </group>
                                                 </items>
@@ -295,8 +295,8 @@
             <objects>
                 <controller identifier="chatBotIdentifier" id="lf2-cl-zTA" customClass="chatBotIC" customModule="PersonalAssistantWatch_Extension">
                     <items>
-                        <label alignment="right" id="KUJ-pt-YwN"/>
-                        <label alignment="left" verticalAlignment="bottom" id="r8W-sI-kdZ"/>
+                        <label alignment="right" numberOfLines="0" id="KUJ-pt-YwN"/>
+                        <label alignment="left" verticalAlignment="bottom" numberOfLines="0" id="r8W-sI-kdZ"/>
                         <button width="1" alignment="center" verticalAlignment="bottom" title="Ask Questions to the Bot" id="xjO-Ek-KBi">
                             <connections>
                                 <action selector="askBtn" destination="lf2-cl-zTA" id="3ht-N4-Xgj"/>
