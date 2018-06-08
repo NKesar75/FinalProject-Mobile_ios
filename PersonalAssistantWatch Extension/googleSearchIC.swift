@@ -14,10 +14,14 @@ class googleSearchIC: WKInterfaceController {
 
     @IBOutlet var googleTable: WKInterfaceTable!
     
+    var googleList: [googleSearchInfo] = []
+    
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         
         // Configure interface objects here.
+        
+        loadDataintoTable()
     }
 
     override func willActivate() {
@@ -29,5 +33,35 @@ class googleSearchIC: WKInterfaceController {
         // This method is called when watch view controller is no longer visible
         super.didDeactivate()
     }
+    
+    override func table(_ table: WKInterfaceTable, didSelectRowAt rowIndex: Int)
+    {
+        pushController(withName: "googleinfoIdentifier", context: googleList[rowIndex])
+    }
 
+    func loadDataintoTable()
+    {
+        fetchperviouscall()
+        googleTable.setNumberOfRows(googleList.count, withRowType: "googleSearchRowController")
+        for (index, _) in googleList.enumerated()
+        {
+            if let rowController = googleTable.rowController(at: index) as? googleSearchRowController
+            {
+                rowController.googleTitle.setText(googleList[index].title)
+            }
+        }
+    }
+    
+    func fetchperviouscall()
+    {
+        if HomePageIC.requestinfo != ""
+        {
+            let googleArray = HomePageIC.requestinfo.split(separator: "\u{1D6FF}")
+            print(googleArray.count)
+            for i in stride(from: 1, to: 30, by: 3)
+            {
+                googleList.append(googleSearchInfo(title: String(googleArray[i]), snippet: String(googleArray[i+1]), url: String(googleArray[i+2])))
+            }
+        }
+    }
 }
