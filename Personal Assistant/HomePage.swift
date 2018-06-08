@@ -533,6 +533,7 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
                         case "youtube":
                             let vc = self.storyboard?.instantiateViewController(withIdentifier: "Youtube_ID") as! Youtube
                             vc.serverjson = self.serverjson
+                            self.present(vc, animated: true, completion: nil)
                             sendtowatch = "youtube"
                             break
                         case "google":
