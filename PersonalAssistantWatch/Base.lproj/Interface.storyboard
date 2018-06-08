@@ -14,7 +14,7 @@
             <objects>
                 <controller identifier="Homepage_IC" id="BXB-gt-B20" customClass="HomePageIC" customModule="PersonalAssistantWatch_Extension">
                     <items>
-                        <imageView width="136" height="105" alignment="center" verticalAlignment="center" hidden="YES" image="loading" initiallyAnimated="NO" id="fWp-Vq-iP5"/>
+                        <imageView width="100" height="100" alignment="center" verticalAlignment="center" hidden="YES" image="loading" initiallyAnimated="NO" id="fWp-Vq-iP5"/>
                         <group alignment="center" id="ru1-v9-GaX">
                             <items>
                                 <button alignment="left" title="News" id="pFQ-XD-nfd">
@@ -122,12 +122,12 @@
                         <table alignment="left" id="x3q-yr-sWe">
                             <items>
                                 <tableRow identifier="googleSearchRowController" id="d0Z-iN-S7u" customClass="googleSearchRowController" customModule="PersonalAssistantWatch_Extension">
-                                    <group key="rootItem" width="1" alignment="left" id="QqH-5g-J3C">
+                                    <group key="rootItem" width="1" height="0.0" alignment="left" id="QqH-5g-J3C">
                                         <items>
                                             <separator height="1" heightAdjustment="-4" alignment="left" verticalAlignment="center" id="1s3-14-dgK">
                                                 <color key="color" red="0.0" green="0.6452265814" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </separator>
-                                            <label width="111" height="36" alignment="left" text="Title" textAlignment="center" id="f7s-qn-AvQ"/>
+                                            <label alignment="left" text="Title" textAlignment="center" numberOfLines="0" id="f7s-qn-AvQ"/>
                                         </items>
                                     </group>
                                     <connections>
@@ -235,6 +235,9 @@
                             </items>
                         </table>
                     </items>
+                    <connections>
+                        <outlet property="newsHeadlineTable" destination="Wt3-aM-XOv" id="kIY-a7-160"/>
+                    </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="-387" y="227"/>
@@ -244,6 +247,7 @@
             <objects>
                 <controller identifier="newsIdentifier" id="jP4-uI-Zuk" customClass="newsIC" customModule="PersonalAssistantWatch_Extension">
                     <items>
+                        <imageView width="100" height="100" alignment="center" verticalAlignment="center" hidden="YES" image="loading" initiallyAnimated="NO" id="8ni-o0-5eS"/>
                         <table alignment="left" id="FaW-pT-jFz">
                             <items>
                                 <tableRow identifier="newschannelRowController" id="h2f-Zg-fjS" customClass="newsRowController" customModule="PersonalAssistantWatch_Extension">
@@ -252,7 +256,7 @@
                                             <separator height="1" heightAdjustment="-4" alignment="left" verticalAlignment="center" id="ffG-oa-tuZ">
                                                 <color key="color" red="0.0" green="0.6452265814" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </separator>
-                                            <imageView width="43" alignment="left" id="UIW-OD-ub5"/>
+                                            <imageView width="43" height="40" alignment="left" id="UIW-OD-ub5"/>
                                             <label width="65" height="48" alignment="left" text="Channel" id="AcS-xc-7pi"/>
                                         </items>
                                     </group>
@@ -266,6 +270,7 @@
                         </table>
                     </items>
                     <connections>
+                        <outlet property="loadingAnimation" destination="8ni-o0-5eS" id="8X1-w5-Zid"/>
                         <outlet property="newsChannelTable" destination="FaW-pT-jFz" id="BF6-XW-KeT"/>
                     </connections>
                 </controller>
@@ -338,7 +343,7 @@
             <objects>
                 <controller identifier="WeatherInfoIdentifier" id="s5g-11-0US" customClass="WeatherInfoIC" customModule="PersonalAssistantWatch_Extension">
                     <items>
-                        <group width="136" alignment="left" layout="vertical" id="W10-1Q-oDC">
+                        <group width="136" height="181" alignment="left" layout="vertical" id="W10-1Q-oDC">
                             <items>
                                 <group width="1" alignment="left" id="SSv-Um-Aqc">
                                     <items>
@@ -347,33 +352,32 @@
                                 </group>
                                 <group width="1" alignment="left" id="J4U-j0-pLx">
                                     <items>
-                                        <label alignment="left" text="High" id="2Xu-ib-PTV"/>
+                                        <label alignment="left" text="High" numberOfLines="0" id="2Xu-ib-PTV"/>
                                     </items>
                                 </group>
                                 <group width="1" alignment="left" id="st9-Lc-fiU">
                                     <items>
-                                        <label alignment="left" text="Low" id="dIy-zk-P6u"/>
+                                        <label alignment="left" text="Low" numberOfLines="0" id="dIy-zk-P6u"/>
                                     </items>
                                 </group>
                                 <group width="1" alignment="left" layout="vertical" id="EG5-dC-iSK">
                                     <items>
-                                        <label alignment="left" text="Forecast:" id="BEM-6R-cQ0"/>
-                                        <label alignment="left" text="Forecast" id="wBK-iY-zFL"/>
+                                        <label alignment="left" text="Forecast" numberOfLines="0" id="wBK-iY-zFL"/>
                                     </items>
                                 </group>
                                 <group width="1" alignment="left" id="8m2-7g-8rH">
                                     <items>
-                                        <label alignment="left" text="Rain" id="YOT-ZE-44O"/>
+                                        <label alignment="left" text="Rain" numberOfLines="0" id="YOT-ZE-44O"/>
                                     </items>
                                 </group>
                                 <group width="1" alignment="left" id="FyD-IR-pRY">
                                     <items>
-                                        <label alignment="left" text="Location" id="K2q-TL-yus"/>
+                                        <label alignment="left" text="Location" numberOfLines="0" id="K2q-TL-yus"/>
                                     </items>
                                 </group>
                                 <group width="1" alignment="left" id="7lB-W1-AaM">
                                     <items>
-                                        <label alignment="left" text="mm/dd/yyyy" id="lov-ic-NGk"/>
+                                        <label alignment="left" text="mm/dd/yyyy" numberOfLines="0" id="lov-ic-NGk"/>
                                     </items>
                                 </group>
                             </items>
@@ -390,20 +394,39 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="880" y="-139"/>
+            <point key="canvasLocation" x="852" y="-139"/>
         </scene>
         <!--googleinfoIdentifier-->
         <scene sceneID="XA6-Rh-33e">
             <objects>
                 <controller identifier="googleinfoIdentifier" id="7Y5-Rj-Zas" customClass="googleinfoIC" customModule="PersonalAssistantWatch_Extension">
                     <items>
-                        <label alignment="center" text="Title" id="zFU-ez-qrG"/>
-                        <label alignment="left" text="Snippet" id="ZhY-v4-FhM"/>
-                        <button width="1" alignment="center" verticalAlignment="bottom" title="Read More" id="U4G-Yk-Gis"/>
+                        <label alignment="center" text="Title" numberOfLines="0" id="zFU-ez-qrG"/>
+                        <label alignment="left" text="Snippet" numberOfLines="0" id="ZhY-v4-FhM"/>
+                        <button width="1" alignment="center" verticalAlignment="bottom" title="Read More" id="U4G-Yk-Gis">
+                            <connections>
+                                <action selector="readMoreBtn" destination="7Y5-Rj-Zas" id="VQZ-44-2dg"/>
+                            </connections>
+                        </button>
                     </items>
+                    <connections>
+                        <outlet property="googleInfoSnippet" destination="ZhY-v4-FhM" id="5GQ-Ca-CEQ"/>
+                        <outlet property="googleInfoTitle" destination="zFU-ez-qrG" id="0gE-O3-kWz"/>
+                    </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="880" y="211"/>
+        </scene>
+        <!--googleReadMoreIdentifier-->
+        <scene sceneID="cjl-29-mQk">
+            <objects>
+                <controller identifier="googleReadMoreIdentifier" id="KgI-lc-m3B" customClass="googleReadMoreIC" customModule="PersonalAssistantWatch_Extension">
+                    <items>
+                        <label alignment="center" verticalAlignment="center" text="Please check your mobile to read more about the search result" numberOfLines="0" id="R3n-73-ZNR"/>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="1154" y="211"/>
         </scene>
     </scenes>
 </document>

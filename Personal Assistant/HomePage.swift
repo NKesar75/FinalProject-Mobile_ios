@@ -519,12 +519,12 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
                         switch (self.serverjson["key"].string!){
                         case "weather":
                             //0 key //1 city //2 state //3 condition //4 url //5 rain //6 temp low //7 temp high //8 month/date/year //9 repeat condition
-                       sendtowatch = self.serverjson["key"].string! + "," + self.serverjson["city"].string! + "," + self.serverjson["state"].string!
+                       sendtowatch = self.serverjson["key"].string! + "\u{1D6FF}" + self.serverjson["city"].string! + "\u{1D6FF}" + self.serverjson["state"].string!
                        var index:Int = 0
                        while true {
                         if  self.serverjson["city"].string != nil && self.serverjson["state"].string != nil && self.serverjson["results"][index]["condition"].string != nil && self.serverjson["results"][index]["url"].string != nil && self.serverjson["results"][index]["precip"].double != nil && self.serverjson["results"][index]["temp_lowf"].string != nil && self.serverjson["results"][index]["temp_highf"].string != nil && self.serverjson["results"][index]["humidity"].double != nil && self.serverjson["results"][index]["month"].int != nil &&  self.serverjson["results"][index]["day"].int != nil && self.serverjson["results"][index]["year"].int != nil {
                             
-                            sendtowatch += "," + self.serverjson["results"][index]["condition"].string! + "," +  self.serverjson["results"][index]["url"].string! + "," + String(self.serverjson["results"][index]["precip"].double!) + "%" + "," + self.serverjson["results"][index]["temp_lowf"].string! + "°F" + "," + self.serverjson["results"][index]["temp_highf"].string! + "°F" + "," + String(self.serverjson["results"][index]["month"].int!) + "/" + String(self.serverjson["results"][index]["day"].int!) + "/" + String(self.serverjson["results"][index]["year"].int!)
+                            sendtowatch += "\u{1D6FF}" + self.serverjson["results"][index]["condition"].string! + "\u{1D6FF}" +  self.serverjson["results"][index]["url"].string! + "\u{1D6FF}" + String(self.serverjson["results"][index]["precip"].double!) + "%" + "\u{1D6FF}" + self.serverjson["results"][index]["temp_lowf"].string! + "°F" + "\u{1D6FF}" + self.serverjson["results"][index]["temp_highf"].string! + "°F" + "\u{1D6FF}" + String(self.serverjson["results"][index]["month"].int!) + "/" + String(self.serverjson["results"][index]["day"].int!) + "/" + String(self.serverjson["results"][index]["year"].int!)
                         }else{
                             break
                         }
@@ -539,9 +539,8 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
                             var index:Int = 0
                             while true {
                                 if self.serverjson["results"][index]["title"].string != nil && self.serverjson["results"][index]["snippet"].string != nil && self.serverjson["results"][index]["url"].string != nil {
-                                  sendtowatch += "," + self.serverjson["results"][index]["title"].string! + "," + self.serverjson["results"][index]["snippet"].string! + "," +  self.serverjson["results"][index]["url"].string!
+                                  sendtowatch += "\u{1D6FF}" + self.serverjson["results"][index]["title"].string! + "\u{1D6FF}" + self.serverjson["results"][index]["snippet"].string! + "\u{1D6FF}" +  self.serverjson["results"][index]["url"].string!
                                 }else{
-                                    sendtowatch = "error"
                                     break
                                 }
                                 index += 1

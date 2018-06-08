@@ -10,7 +10,8 @@ import WatchKit
 import Foundation
 
 
-class WeatherIC: WKInterfaceController {    
+class WeatherIC: WKInterfaceController {
+    
     var weatherforcasts: [weatherInfo] = []
     
     @IBOutlet var weatherTable: WKInterfaceTable!
@@ -65,7 +66,6 @@ class WeatherIC: WKInterfaceController {
     
     override func table(_ table: WKInterfaceTable, didSelectRowAt rowIndex: Int)
     {
-//        let weather = weatherforcasts[rowIndex]
         pushController(withName: "WeatherInfoIdentifier", context: weatherforcasts[rowIndex])
     }
     
@@ -73,30 +73,30 @@ class WeatherIC: WKInterfaceController {
     func fetchperviouscall(){
         if HomePageIC.requestinfo != ""
         {
-            let weatherinfoarray = HomePageIC.requestinfo.split(separator: ",")
+            let weatherinfoarray = HomePageIC.requestinfo.split(separator: "\u{1D6FF}")
             //0 key //1 city //2 state //3 condition //4 url //5 rain //6 temp low //7 temp high //8 month/date/year //9 repeat condition
             //print(weatherinfoarray)
             
-            let one = weatherInfo(location: weatherinfoarray[1] + ", " + weatherinfoarray[2], forecast: String(weatherinfoarray[3]), image: String(weatherinfoarray[4]), rain: "Rain: " + weatherinfoarray[5], templow: "Low: " + weatherinfoarray[6], temphigh: "High: " + weatherinfoarray[7], date: String(weatherinfoarray[8]))
+            let one = weatherInfo(location: weatherinfoarray[1] + ", " + weatherinfoarray[2], forecast: "Forecast: " + weatherinfoarray[3], image: String(weatherinfoarray[4]), rain: "Rain: " + weatherinfoarray[5], templow: "Low: " + weatherinfoarray[6], temphigh: "High: " + weatherinfoarray[7], date: String(weatherinfoarray[8]))
             weatherforcasts.append(one)
             
-            let two = weatherInfo(location: weatherinfoarray[1] + ", " + weatherinfoarray[2], forecast: String(weatherinfoarray[9]), image: String(weatherinfoarray[10]), rain: "Rain: " + weatherinfoarray[11], templow: "Low: " + weatherinfoarray[12], temphigh: "High: " + weatherinfoarray[13], date: String(weatherinfoarray[14]))
+            let two = weatherInfo(location: weatherinfoarray[1] + ", " + weatherinfoarray[2], forecast: "Forecast: " + weatherinfoarray[9], image: String(weatherinfoarray[10]), rain: "Rain: " + weatherinfoarray[11], templow: "Low: " + weatherinfoarray[12], temphigh: "High: " + weatherinfoarray[13], date: String(weatherinfoarray[14]))
             weatherforcasts.append(two)
 
             
-             let three = weatherInfo(location: weatherinfoarray[1] + ", " + weatherinfoarray[2], forecast: String(weatherinfoarray[15]), image: String(weatherinfoarray[16]), rain: "Rain: " + weatherinfoarray[17], templow: "Low: " + weatherinfoarray[18], temphigh: "High: " + weatherinfoarray[19], date: String(weatherinfoarray[20]))
+             let three = weatherInfo(location: weatherinfoarray[1] + ", " + weatherinfoarray[2], forecast: "Forecast: " + weatherinfoarray[15], image: String(weatherinfoarray[16]), rain: "Rain: " + weatherinfoarray[17], templow: "Low: " + weatherinfoarray[18], temphigh: "High: " + weatherinfoarray[19], date: String(weatherinfoarray[20]))
             weatherforcasts.append(three)
             
-            let four = weatherInfo(location: weatherinfoarray[1] + ", " + weatherinfoarray[2], forecast: String(weatherinfoarray[21]), image: String(weatherinfoarray[22]), rain: "Rain: " + weatherinfoarray[23], templow: "Low: " + weatherinfoarray[24], temphigh: "High: " + weatherinfoarray[25], date: String(weatherinfoarray[26]))
+            let four = weatherInfo(location: weatherinfoarray[1] + ", " + weatherinfoarray[2], forecast: "Forecast: " + weatherinfoarray[21], image: String(weatherinfoarray[22]), rain: "Rain: " + weatherinfoarray[23], templow: "Low: " + weatherinfoarray[24], temphigh: "High: " + weatherinfoarray[25], date: String(weatherinfoarray[26]))
             weatherforcasts.append(four)
             
-            let five = weatherInfo(location: weatherinfoarray[1] + ", " + weatherinfoarray[2], forecast: String(weatherinfoarray[27]), image: String(weatherinfoarray[28]), rain: "Rain: " + weatherinfoarray[29], templow: "Low: " + weatherinfoarray[30], temphigh: "High: " + weatherinfoarray[31], date: String(weatherinfoarray[32]))
+            let five = weatherInfo(location: weatherinfoarray[1] + ", " + weatherinfoarray[2], forecast: "Forecast: " + weatherinfoarray[27], image: String(weatherinfoarray[28]), rain: "Rain: " + weatherinfoarray[29], templow: "Low: " + weatherinfoarray[30], temphigh: "High: " + weatherinfoarray[31], date: String(weatherinfoarray[32]))
             weatherforcasts.append(five)
             
-           let six = weatherInfo(location: weatherinfoarray[1] + ", " + weatherinfoarray[2], forecast: String(weatherinfoarray[33]), image: String(weatherinfoarray[34]), rain: "Rain: " + weatherinfoarray[35], templow: "Low: " + weatherinfoarray[36], temphigh: "High: " + weatherinfoarray[37], date: String(weatherinfoarray[38]))
+           let six = weatherInfo(location: weatherinfoarray[1] + ", " + weatherinfoarray[2], forecast: "Forecast: " + weatherinfoarray[33], image: String(weatherinfoarray[34]), rain: "Rain: " + weatherinfoarray[35], templow: "Low: " + weatherinfoarray[36], temphigh: "High: " + weatherinfoarray[37], date: String(weatherinfoarray[38]))
             weatherforcasts.append(six)
             
-             let seven = weatherInfo(location: weatherinfoarray[1] + ", " + weatherinfoarray[2], forecast: String(weatherinfoarray[39]), image: String(weatherinfoarray[40]), rain: "Rain: " + weatherinfoarray[41], templow: "Low: " + weatherinfoarray[42], temphigh: "High: " + weatherinfoarray[43], date: String(weatherinfoarray[44]))
+             let seven = weatherInfo(location: weatherinfoarray[1] + ", " + weatherinfoarray[2], forecast: "Forecast: " + weatherinfoarray[39], image: String(weatherinfoarray[40]), rain: "Rain: " + weatherinfoarray[41], templow: "Low: " + weatherinfoarray[42], temphigh: "High: " + weatherinfoarray[43], date: String(weatherinfoarray[44]))
             weatherforcasts.append(seven)
         }
         
