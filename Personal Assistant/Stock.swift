@@ -25,12 +25,11 @@ class Stock: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
         
         stockstable.delegate = self
         stockstable.dataSource = self
         self.pullstock()
-        // Do any additional setup after loading the view.
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -45,11 +44,8 @@ class Stock: UIViewController, UITableViewDataSource, UITableViewDelegate {
         
     }
     
-    
-    
     func pullstock(){
-       let urlString = "https://api.iextrading.com/1.0/tops/last?symbols=aapl,bac,ccf,cvx,fb,f,hmc,mcd,msft,frsh,pep,sonc,sne,s,tgt,tm,vz,wmt,dis,wen"
-        
+        let urlString = "https://api.iextrading.com/1.0/tops/last?symbols=aapl,bac,ccf,cvx,fb,f,hmc,mcd,msft,frsh,pep,sonc,sne,s,tgt,tm,vz,wmt,dis,wen"
         
         guard let url = URL(string: urlString) else { return }
         URLSession.shared.dataTask(with: url) { (data, reponse, err) in
@@ -59,9 +55,7 @@ class Stock: UIViewController, UITableViewDataSource, UITableViewDelegate {
                 self.newsjson = try JSON(data: data)
             } catch let jsonErr {
                 print("Error serializing json:", jsonErr)
-                
             }
-            //print(self.newsjson)
             }.resume()
         
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(10), execute: {
@@ -84,9 +78,9 @@ class Stock: UIViewController, UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return stocks.count
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       let scell = stockstable.dequeueReusableCell(withIdentifier: "Stockcell") as! StockCell
+        let scell = stockstable.dequeueReusableCell(withIdentifier: "Stockcell") as! StockCell
         
         scell.nameofcompany.text = stocks[indexPath.row].nameofcompany
         scell.Priceofstock.text = stocks[indexPath.row].priceofstock
@@ -120,7 +114,6 @@ class Stock: UIViewController, UITableViewDataSource, UITableViewDelegate {
                     case "SNE":
                         nameofcompany = "Sony Corp"
                         imageofcompany = "Sony"
-                        
                     case "HMC":
                         nameofcompany = "Honda Motor Co Ltd"
                         imageofcompany = "Honda"
@@ -133,7 +126,6 @@ class Stock: UIViewController, UITableViewDataSource, UITableViewDelegate {
                     case "BAC":
                         nameofcompany = "Bank of America Corp"
                         imageofcompany = "Bank"
-                        
                     case "CCF":
                         nameofcompany = "Chase Corporation"
                         imageofcompany = "Chase"
@@ -146,7 +138,6 @@ class Stock: UIViewController, UITableViewDataSource, UITableViewDelegate {
                     case "WEN":
                         nameofcompany = "Wendys Co"
                         imageofcompany = "Wendys"
-                        
                     case "WMT":
                         nameofcompany = "Walmart Inc"
                         imageofcompany = "Walmart"
@@ -159,7 +150,6 @@ class Stock: UIViewController, UITableViewDataSource, UITableViewDelegate {
                     case "FRSH":
                         nameofcompany = "Papa Murphy's Holdings Inc"
                         imageofcompany = "Papa"
-               
                     case "VZ":
                         nameofcompany = "Verizon Communications Inc."
                         imageofcompany = "Verizon"
@@ -172,12 +162,10 @@ class Stock: UIViewController, UITableViewDataSource, UITableViewDelegate {
                     case "F":
                         nameofcompany = "Ford Motor Company"
                         imageofcompany = "Ford"
-
+                        
                     default:
                         break
                     }
-                    
-                    
                     
                     stocks.append(stockstruct(nameofcompany: nameofcompany, priceofstock: "Price Per Stock: $" + String(self.newsjson.arrayValue[index]["price"].double!), sizeofstock: "Size Per Transcation: " + String(self.newsjson.arrayValue[index]["size"].int!), imagename: imageofcompany))
                 }else{
@@ -186,10 +174,7 @@ class Stock: UIViewController, UITableViewDataSource, UITableViewDelegate {
                 index += 1
             }
         }
-        print(stocks)
-        print(stocks.count)
         stockstable.reloadData()
-    
+        
     }
-    
 }

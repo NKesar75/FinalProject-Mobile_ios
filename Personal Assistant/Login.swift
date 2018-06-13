@@ -30,6 +30,7 @@ class Login: UIViewController {
         
         view.addGestureRecognizer(tap)
     }
+    
     override func viewDidAppear(_ animated: Bool) {
         if Auth.auth().currentUser != nil {
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomePage_ID") as! HomePage
@@ -37,6 +38,7 @@ class Login: UIViewController {
         }
         super.viewDidAppear(animated)
     }
+    
     @IBAction func LoginLabelChanged(_ sender: Any) {
         loginlabelbool = !loginlabelbool
         
@@ -48,15 +50,32 @@ class Login: UIViewController {
             submitbutton.setTitle("Register", for: .normal)
         }
     }
-
-//Calls this function when the tap is recognized.
+    
+    //Calls this function when the tap is recognized.
     @objc func dismissKeyboard() {
-    //Causes the view (or one of its embedded text fields) to resign the first responder status.
-    view.endEditing(true)
-}
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
+    
     @IBAction func Signinbuttonclicked(_ sender: Any) {
         if loginlabelbool {
             
+            guard let email = Emailvalue.text, email != "", let password = Passwordvalue.text, password != ""
+            else
+            {
+                AlertController.showAlert(self, title: "Missing Info", message: "Please fill out all required fields")
+                return
+            }
+            Auth.auth().signIn(withEmail: email, password: password, completion: { (user, error) in
+                if let error = error {
+                    AlertController.showAlert(self, title: "Error", message: error.localizedDescription)
+                } else {
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomePage_ID") as! HomePage
+                    self.present(vc, animated: true, completion: nil)
+                }
+            })
+            
+        }else{
             guard let email = Emailvalue.text,
                 email != "",
                 let password = Passwordvalue.text,
@@ -65,36 +84,15 @@ class Login: UIViewController {
                     AlertController.showAlert(self, title: "Missing Info", message: "Please fill out all required fields")
                     return
             }
-                Auth.auth().signIn(withEmail: email, password: password, completion: { (user, error) in
-                    if let error = error {
-                        AlertController.showAlert(self, title: "Error", message: error.localizedDescription)
-                    } else {
-                        let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomePage_ID") as! HomePage
-                        self.present(vc, animated: true, completion: nil)
-                    }
-//                    guard let user = user else { return }
-//                    //print(user.email ?? "MISSING EMAIL")
-//                    //print(user.uid)
-                })
-            
-        }else{
-            guard let email = Emailvalue.text,
-                email != "",
-                let password = Passwordvalue.text,
-                password != ""
-                else{
-                     AlertController.showAlert(self, title: "Missing Info", message: "Please fill out all required fields")
-                    return
-            }
-                Auth.auth().createUser(withEmail: email, password: password, completion: { (user,error ) in
-                   
-                    if let error = error {
-                        AlertController.showAlert(self, title: "Error", message: error.localizedDescription)
-                    } else {
-                        let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomePage_ID") as! HomePage
-                        self.present(vc, animated: true, completion: nil)
-                    }
-                })
+            Auth.auth().createUser(withEmail: email, password: password, completion: { (user,error ) in
+                
+                if let error = error {
+                    AlertController.showAlert(self, title: "Error", message: error.localizedDescription)
+                } else {
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomePage_ID") as! HomePage
+                    self.present(vc, animated: true, completion: nil)
+                }
+            })
         }
     }
 }

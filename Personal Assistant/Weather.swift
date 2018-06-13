@@ -47,18 +47,15 @@ class Weather: UIViewController, CLLocationManagerDelegate, UITableViewDataSourc
         locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
-
+        
         weathertable.delegate = self
         weathertable.dataSource = self
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(Weather.dismissKeyboard))
         
-        //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
+        //comment the line below if you want the tap to interfere and cancel other interactions.
         tap.cancelsTouchesInView = false
-        
         view.addGestureRecognizer(tap)
-        
-        //locationManager.stopUpdatingLocation()
         self.FetchPreviousCall()
         
     }
@@ -76,12 +73,9 @@ class Weather: UIViewController, CLLocationManagerDelegate, UITableViewDataSourc
             view.addSubview(activityindactor)
             activityindactor.startAnimating()
             UIApplication.shared.beginIgnoringInteractionEvents()
-           // let server = Servercalls()
             var servermetod = "whats the weather in " + Searchweathertext.text!.lowercased()
             servermetod = servermetod.trimmingCharacters(in: .whitespacesAndNewlines)
             servermetod = servermetod.replacingOccurrences(of: " ", with: "_", options: .literal, range: nil)
-//            server.apicall(city: city!, state: state!, voicecall: servermetod)
-//            print(self.serverjson)
             
             let urlString = "https://personalassistant-ec554.appspot.com/recognize/" + servermetod + "/" + self.state! + "/" + self.city!
             guard let url = URL(string: urlString) else { return }
@@ -98,12 +92,12 @@ class Weather: UIViewController, CLLocationManagerDelegate, UITableViewDataSourc
             
             DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(10), execute: {
                 if self.serverjson["key"].string != nil && self.serverjson["key"] == "weather" {
-                  
+                    
                     self.FetchPreviousCall()
                     self.weathertable.reloadData()
                     UIApplication.shared.endIgnoringInteractionEvents()
                     self.activityindactor.removeFromSuperview()
-                   
+                    
                     
                 }else{
                     UIApplication.shared.endIgnoringInteractionEvents()
@@ -135,63 +129,48 @@ class Weather: UIViewController, CLLocationManagerDelegate, UITableViewDataSourc
         let imageData:NSData = NSData(contentsOf: imageUrl)!
         wcell.weatherimage.image = UIImage(data: imageData as Data)
         wcell.weatherimage.contentMode = UIViewContentMode.scaleAspectFit
+        
         return wcell
     }
     
     func FetchPreviousCall(){
-    if self.serverjson["key"].string != nil && self.serverjson["key"].string == "weather" {
-        weatherforcasts.removeAll()
-        
-        var index:Int = 0
-        while true {
+        if self.serverjson["key"].string != nil && self.serverjson["key"].string == "weather" {
+            weatherforcasts.removeAll()
             
-            if  self.serverjson["city"].string != nil && self.serverjson["state"].string != nil && self.serverjson["results"][index]["condition"].string != nil && self.serverjson["results"][index]["url"].string != nil && self.serverjson["results"][index]["precip"].double != nil && self.serverjson["results"][index]["temp_lowf"].string != nil && self.serverjson["results"][index]["temp_highf"].string != nil && self.serverjson["results"][index]["humidity"].double != nil && self.serverjson["results"][index]["month"].int != nil &&  self.serverjson["results"][index]["day"].int != nil && self.serverjson["results"][index]["year"].int != nil {
+            var index:Int = 0
+            while true {
                 
-                       weatherforcasts.append(weatherinfo(Location: self.serverjson["city"].string! + ", " + self.serverjson["state"].string!,forcast: "Forcast: " + self.serverjson["results"][index]["condition"].string!,image:  self.serverjson["results"][index]["url"].string!,rain: "Rain: " + String(self.serverjson["results"][index]["precip"].double!) + "%", templow: "Low: " + self.serverjson["results"][index]["temp_lowf"].string! + "°F", temphigh: "High: " + self.serverjson["results"][index]["temp_highf"].string! + "°F",humidty: "Humidity: " + String(self.serverjson["results"][index]["humidity"].double!), date: String(self.serverjson["results"][index]["month"].int!) + "/" + String(self.serverjson["results"][index]["day"].int!) + "/" + String(self.serverjson["results"][index]["year"].int!)))
-            }else{
-                break
+                if  self.serverjson["city"].string != nil && self.serverjson["state"].string != nil && self.serverjson["results"][index]["condition"].string != nil && self.serverjson["results"][index]["url"].string != nil && self.serverjson["results"][index]["precip"].double != nil && self.serverjson["results"][index]["temp_lowf"].string != nil && self.serverjson["results"][index]["temp_highf"].string != nil && self.serverjson["results"][index]["humidity"].double != nil && self.serverjson["results"][index]["month"].int != nil &&  self.serverjson["results"][index]["day"].int != nil && self.serverjson["results"][index]["year"].int != nil {
+                    
+                    weatherforcasts.append(weatherinfo(Location: self.serverjson["city"].string! + ", " + self.serverjson["state"].string!,forcast: "Forcast: " + self.serverjson["results"][index]["condition"].string!,image:  self.serverjson["results"][index]["url"].string!,rain: "Rain: " + String(self.serverjson["results"][index]["precip"].double!) + "%", templow: "Low: " + self.serverjson["results"][index]["temp_lowf"].string! + "°F", temphigh: "High: " + self.serverjson["results"][index]["temp_highf"].string! + "°F",humidty: "Humidity: " + String(self.serverjson["results"][index]["humidity"].double!), date: String(self.serverjson["results"][index]["month"].int!) + "/" + String(self.serverjson["results"][index]["day"].int!) + "/" + String(self.serverjson["results"][index]["year"].int!)))
+                }else{
+                    break
+                }
+                index += 1
             }
-            index += 1
-        }
         }
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        var location = locations[0]
+        let location = locations[0]
         
         geocoder.reverseGeocodeLocation(location, completionHandler: { (placemarks, error) in
-            // always good to check if no error
-            // also we have to unwrap the placemark because it's optional
-            // I have done all in a single if but you check them separately
             if error == nil, let placemark = placemarks, !placemark.isEmpty {
                 self.placemark = placemark.last
             }
-            // a new function where you start to parse placemarks to get the information you need
-            // here we check if location manager is not nil using a _ wild card
             if let _:CLLocation = location {
-                // unwrap the placemark
                 if let placemark = self.placemark {
-                    // wow now you can get the city name. remember that apple refers to city name as locality not city
-                    // again we have to unwrap the locality remember optionalllls also some times there is no text so we check that it should not be empty
                     if let city = placemark.locality, !city.isEmpty {
-                        // here you have the city name
-                        // assign city name to our iVar
                         self.city = city
                     }
-                    // the same story optionalllls also they are not empty
                     if let state = placemark.administrativeArea, !state.isEmpty {
                         
                         self.state = state
                     }
-                    
                 }
-                
-                self.city = self.city!.replacingOccurrences(of: " ", with: "_", options: .literal, range: nil)
-                print(self.city)
-                print(self.state)
-                
-            } else {
-                // add some more check's if for some reason location manager is nil
+                if self.city != nil && self.state != nil {
+                    self.city = self.city!.replacingOccurrences(of: " ", with: "_", options: .literal, range: nil)
+                }
             }
         })
     }

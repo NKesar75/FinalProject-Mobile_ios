@@ -9,7 +9,7 @@
 import UIKit
 
 class CustomCellTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var customcellview: UIView!
     @IBOutlet weak var customcelltitle: UILabel!
     @IBOutlet weak var customcellsnippet: UITextView!
@@ -19,6 +19,6 @@ class CustomCellTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
-  
+    
+    
 }

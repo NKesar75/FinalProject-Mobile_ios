@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 
 class Searchpopup: UIViewController {
-
+    
     @IBOutlet weak var filename: UILabel!
     
     override func viewDidLoad() {
@@ -20,16 +20,9 @@ class Searchpopup: UIViewController {
         filename.text = Search.titleofsearch
         
         self.showAnimate()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
-
+    
     @IBAction func canelbuttonpressed(_ sender: Any) {
         self.removeAnimate()
     }
@@ -55,7 +48,6 @@ class Searchpopup: UIViewController {
         }
     }
     
-    
     func showAnimate()
     {
         self.view.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
@@ -78,7 +70,4 @@ class Searchpopup: UIViewController {
             }
         });
     }
-    
-    
-
 }

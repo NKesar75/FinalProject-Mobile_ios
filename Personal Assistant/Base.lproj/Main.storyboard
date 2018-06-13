@@ -682,21 +682,12 @@
                                     <constraint firstAttribute="width" constant="60" id="3GE-LY-Pyu"/>
                                     <constraint firstAttribute="height" constant="40" id="V6n-Vg-SjP"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <state key="normal" title="Home"/>
                                 <connections>
                                     <segue destination="edF-9K-KxK" kind="show" id="jfY-Qu-qy2"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="type your question" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5NP-VF-ZRB">
-                                <rect key="frame" x="0.0" y="323" width="290" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="290" id="cBx-VD-grF"/>
-                                    <constraint firstAttribute="height" constant="50" id="xbp-Wa-QVU"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="api message" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bOF-Ir-9wv">
                                 <rect key="frame" x="10" y="140" width="355" height="175"/>
                                 <constraints>
@@ -715,13 +706,17 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0q4-oU-8FU">
-                                <rect key="frame" x="290" y="322" width="85" height="50"/>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="type your question" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5NP-VF-ZRB">
+                                <rect key="frame" x="0.0" y="617" width="285" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0q4-oU-8FU">
+                                <rect key="frame" x="285" y="617" width="90" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="9wO-75-xBc"/>
-                                    <constraint firstAttribute="width" constant="85" id="fa4-t3-F3R"/>
-                                </constraints>
                                 <state key="normal" title="Send">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -737,11 +732,7 @@
                             <constraint firstItem="bOF-Ir-9wv" firstAttribute="top" secondItem="zvK-70-eRQ" secondAttribute="bottom" constant="10" id="62J-6P-CCB"/>
                             <constraint firstItem="bOF-Ir-9wv" firstAttribute="leading" secondItem="4G8-h9-UD6" secondAttribute="leading" constant="10" id="DPz-qw-hlK"/>
                             <constraint firstItem="4G8-h9-UD6" firstAttribute="trailing" secondItem="bOF-Ir-9wv" secondAttribute="trailing" constant="10" id="G6Q-NE-Q7c"/>
-                            <constraint firstItem="5NP-VF-ZRB" firstAttribute="bottom" secondItem="4G8-h9-UD6" secondAttribute="bottom" constant="-294" id="MfY-Ug-KKU"/>
-                            <constraint firstItem="5NP-VF-ZRB" firstAttribute="leading" secondItem="4G8-h9-UD6" secondAttribute="leading" id="XCX-mW-7Md"/>
                             <constraint firstItem="hYM-bI-5sP" firstAttribute="leading" secondItem="4G8-h9-UD6" secondAttribute="leading" constant="10" id="bVI-an-M0c"/>
-                            <constraint firstItem="0q4-oU-8FU" firstAttribute="baseline" secondItem="5NP-VF-ZRB" secondAttribute="baseline" id="mLp-Qf-KiG"/>
-                            <constraint firstAttribute="trailing" secondItem="0q4-oU-8FU" secondAttribute="trailing" id="n2d-JO-hsY"/>
                             <constraint firstItem="zvK-70-eRQ" firstAttribute="leading" secondItem="4G8-h9-UD6" secondAttribute="leading" constant="10" id="riF-iG-HSN"/>
                             <constraint firstItem="4G8-h9-UD6" firstAttribute="trailing" secondItem="zvK-70-eRQ" secondAttribute="trailing" constant="10" id="sVr-8a-l7G"/>
                         </constraints>
@@ -756,7 +747,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DL3-kh-gv7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3030" y="1657"/>
+            <point key="canvasLocation" x="3029.5999999999999" y="1656.521739130435"/>
         </scene>
         <!--Login-->
         <scene sceneID="tne-QT-ifu">
@@ -953,8 +944,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="175" height="723"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pww-zO-4wC">
-                                                    <rect key="frame" x="10" y="474" width="155" height="40"/>
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pww-zO-4wC">
+                                                    <rect key="frame" x="6" y="482" width="161" height="40"/>
                                                     <color key="backgroundColor" red="0.57248467209999998" green="0.57258617879999996" blue="0.57247823480000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="40" id="EAI-sL-0m0"/>
@@ -967,8 +958,8 @@
                                                         <action selector="weatherbuttonpressed:" destination="edF-9K-KxK" eventType="touchUpInside" id="oLS-fo-klg"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vna-Dn-izn">
-                                                    <rect key="frame" x="10" y="186" width="155" height="40"/>
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vna-Dn-izn">
+                                                    <rect key="frame" x="6" y="194" width="161" height="40"/>
                                                     <color key="backgroundColor" red="0.57248467209999998" green="0.57258617879999996" blue="0.57247823480000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="40" id="PAi-Tn-92z"/>
@@ -981,8 +972,8 @@
                                                         <segue destination="DCX-ay-Ck8" kind="show" id="ZZi-5l-f7P"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g2m-uv-Uus">
-                                                    <rect key="frame" x="10" y="522" width="155" height="40"/>
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g2m-uv-Uus">
+                                                    <rect key="frame" x="6" y="530" width="161" height="40"/>
                                                     <color key="backgroundColor" red="0.57248467209999998" green="0.57258617879999996" blue="0.57247823480000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="40" id="9sT-yq-A6r"/>
@@ -995,8 +986,8 @@
                                                         <segue destination="aUV-p5-YnX" kind="show" id="ykz-dk-IB6"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TJN-YV-vEN">
-                                                    <rect key="frame" x="10" y="282" width="155" height="40"/>
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TJN-YV-vEN">
+                                                    <rect key="frame" x="6" y="290" width="161" height="40"/>
                                                     <color key="backgroundColor" red="0.57248467209999998" green="0.57258617879999996" blue="0.57247823480000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="40" id="QrH-BX-dUI"/>
@@ -1009,8 +1000,8 @@
                                                         <segue destination="0GH-Aj-Xec" kind="show" id="Fe2-vE-IMT"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fcD-fc-YxA">
-                                                    <rect key="frame" x="10" y="330" width="155" height="40"/>
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fcD-fc-YxA">
+                                                    <rect key="frame" x="6" y="338" width="161" height="40"/>
                                                     <color key="backgroundColor" red="0.57248467209999998" green="0.57258617879999996" blue="0.57247823480000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="40" id="NSI-d2-TSM"/>
@@ -1023,8 +1014,8 @@
                                                         <action selector="schedling:" destination="edF-9K-KxK" eventType="touchUpInside" id="NFP-Ay-Cua"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9vR-yv-42a">
-                                                    <rect key="frame" x="10" y="378" width="155" height="40"/>
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9vR-yv-42a">
+                                                    <rect key="frame" x="6" y="386" width="161" height="40"/>
                                                     <color key="backgroundColor" red="0.57248467209999998" green="0.57258617879999996" blue="0.57247823480000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="40" id="AY0-DE-u8x"/>
@@ -1037,8 +1028,8 @@
                                                         <segue destination="0Pm-RK-Csh" kind="show" id="jIh-RO-8dT"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Mz-ao-FyR">
-                                                    <rect key="frame" x="10" y="570" width="155" height="40"/>
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Mz-ao-FyR">
+                                                    <rect key="frame" x="6" y="578" width="161" height="40"/>
                                                     <color key="backgroundColor" red="0.57248467209999998" green="0.57258617879999996" blue="0.57247823480000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="40" id="Hzh-cn-jWY"/>
@@ -1051,8 +1042,8 @@
                                                         <segue destination="9TU-Ao-LtU" kind="show" id="dzk-NU-SZh"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LHr-B8-Lua">
-                                                    <rect key="frame" x="10" y="234" width="155" height="40"/>
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LHr-B8-Lua">
+                                                    <rect key="frame" x="6" y="242" width="161" height="40"/>
                                                     <color key="backgroundColor" red="0.57248467209999998" green="0.57258617879999996" blue="0.57247823480000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="40" id="Gvy-aM-oxR"/>
@@ -1065,22 +1056,8 @@
                                                         <segue destination="Nul-dp-ttg" kind="show" id="buy-hV-6kG"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v8K-wp-gZZ">
-                                                    <rect key="frame" x="10" y="426" width="155" height="40"/>
-                                                    <color key="backgroundColor" red="0.57248467209999998" green="0.57258617879999996" blue="0.57247823480000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="40" id="LiA-y5-bPv"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                                    <state key="normal" title="Talk To Maya">
-                                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </state>
-                                                    <connections>
-                                                        <segue destination="re7-So-Q9K" kind="show" id="Vja-Pr-wzv"/>
-                                                    </connections>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m9d-WE-qWD">
-                                                    <rect key="frame" x="10" y="618" width="155" height="40"/>
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m9d-WE-qWD">
+                                                    <rect key="frame" x="6" y="626" width="161" height="40"/>
                                                     <color key="backgroundColor" red="0.57248467209999998" green="0.57258617879999996" blue="0.57247823480000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="40" id="yKl-ma-YRG"/>
@@ -1112,8 +1089,8 @@
                                                         <constraint firstItem="Wuu-cU-5R6" firstAttribute="centerX" secondItem="2TT-Md-urJ" secondAttribute="centerX" id="aca-bv-9iw"/>
                                                     </constraints>
                                                 </view>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y5o-8E-Hhm">
-                                                    <rect key="frame" x="8" y="138" width="159" height="40"/>
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y5o-8E-Hhm">
+                                                    <rect key="frame" x="6" y="146" width="159" height="40"/>
                                                     <color key="backgroundColor" red="0.57248467209999998" green="0.57258617879999996" blue="0.57247823480000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="40" id="GnE-r0-Es0"/>
@@ -1138,6 +1115,20 @@
                                                     </state>
                                                     <connections>
                                                         <action selector="Homebuttonpressed:" destination="edF-9K-KxK" eventType="touchUpInside" id="qdd-1h-d2g"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v8K-wp-gZZ">
+                                                    <rect key="frame" x="6" y="434" width="161" height="40"/>
+                                                    <color key="backgroundColor" red="0.57248467209999998" green="0.57258617879999996" blue="0.57247823480000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="LiA-y5-bPv"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                    <state key="normal" title="Talk To Maya">
+                                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <segue destination="re7-So-Q9K" kind="show" id="Vja-Pr-wzv"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -1170,9 +1161,9 @@
                                                 <constraint firstAttribute="trailing" secondItem="m9d-WE-qWD" secondAttribute="trailing" constant="10" id="gGc-nh-pcs"/>
                                                 <constraint firstItem="5Mz-ao-FyR" firstAttribute="top" secondItem="g2m-uv-Uus" secondAttribute="bottom" constant="8" id="gkv-TI-Hel"/>
                                                 <constraint firstAttribute="trailing" secondItem="o7j-Y0-dt2" secondAttribute="trailing" constant="10" id="h4f-gA-834"/>
-                                                <constraint firstAttribute="trailing" secondItem="y5o-8E-Hhm" secondAttribute="trailing" constant="8" id="hZs-uA-E5U"/>
+                                                <constraint firstAttribute="trailing" secondItem="y5o-8E-Hhm" secondAttribute="trailing" constant="10" id="hZs-uA-E5U"/>
                                                 <constraint firstItem="pww-zO-4wC" firstAttribute="top" secondItem="v8K-wp-gZZ" secondAttribute="bottom" constant="8" id="iKD-W5-1gN"/>
-                                                <constraint firstItem="y5o-8E-Hhm" firstAttribute="leading" secondItem="hug-Jn-9DY" secondAttribute="leading" constant="8" id="kv4-6I-TVb"/>
+                                                <constraint firstItem="y5o-8E-Hhm" firstAttribute="leading" secondItem="hug-Jn-9DY" secondAttribute="leading" constant="10" id="kv4-6I-TVb"/>
                                                 <constraint firstItem="v8K-wp-gZZ" firstAttribute="leading" secondItem="hug-Jn-9DY" secondAttribute="leading" constant="10" id="npV-5b-wTM"/>
                                                 <constraint firstItem="o7j-Y0-dt2" firstAttribute="top" secondItem="2TT-Md-urJ" secondAttribute="bottom" constant="10" id="pmr-ps-KWS"/>
                                                 <constraint firstItem="pww-zO-4wC" firstAttribute="leading" secondItem="hug-Jn-9DY" secondAttribute="leading" constant="10" id="puZ-RN-tmg"/>
@@ -1956,53 +1947,6 @@
                 </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2993" y="135"/>
-        </scene>
-        <!--Google Calender-->
-        <scene sceneID="BEx-Lt-XFR">
-            <objects>
-                <viewController id="Gcn-FH-YMR" customClass="GoogleCalender" customModule="Personal_Assistant" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="93y-c6-o68">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="6db0e8" translatesAutoresizingMaskIntoConstraints="NO" id="vdG-D9-Xn8">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jch-7N-bkn">
-                                <rect key="frame" x="10" y="30" width="60" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="eIZ-Z7-R8K"/>
-                                    <constraint firstAttribute="width" constant="60" id="tWa-Kq-Rp4"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                <state key="normal" title="Home"/>
-                                <connections>
-                                    <action selector="homebuttonpressed:" destination="Gcn-FH-YMR" eventType="touchUpInside" id="F5O-G0-CFZ"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="vdG-D9-Xn8" firstAttribute="top" secondItem="93y-c6-o68" secondAttribute="top" id="3BW-gp-K4d"/>
-                            <constraint firstItem="vdG-D9-Xn8" firstAttribute="bottom" secondItem="JjL-vM-XBY" secondAttribute="bottom" id="4yz-2q-D1n"/>
-                            <constraint firstItem="Jch-7N-bkn" firstAttribute="top" secondItem="JjL-vM-XBY" secondAttribute="top" constant="10" id="6pM-Jl-hPj"/>
-                            <constraint firstItem="Jch-7N-bkn" firstAttribute="leading" secondItem="JjL-vM-XBY" secondAttribute="leading" constant="10" id="8xe-gQ-odq"/>
-                            <constraint firstItem="vdG-D9-Xn8" firstAttribute="trailing" secondItem="JjL-vM-XBY" secondAttribute="trailing" id="INo-NK-0VT"/>
-                            <constraint firstItem="vdG-D9-Xn8" firstAttribute="leading" secondItem="JjL-vM-XBY" secondAttribute="leading" id="Pij-DS-gVV"/>
-                            <constraint firstItem="vdG-D9-Xn8" firstAttribute="leading" secondItem="JjL-vM-XBY" secondAttribute="leading" id="WOU-iN-Z5P"/>
-                            <constraint firstItem="vdG-D9-Xn8" firstAttribute="trailing" secondItem="JjL-vM-XBY" secondAttribute="trailing" id="ZgI-vx-cjf"/>
-                            <constraint firstItem="vdG-D9-Xn8" firstAttribute="bottom" secondItem="JjL-vM-XBY" secondAttribute="bottom" id="d0w-Gj-viP"/>
-                            <constraint firstItem="vdG-D9-Xn8" firstAttribute="top" secondItem="93y-c6-o68" secondAttribute="top" id="vwZ-d2-EpT"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="JjL-vM-XBY"/>
-                    </view>
-                    <connections>
-                        <outlet property="Homebutton" destination="Jch-7N-bkn" id="Nzk-rk-3OF"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cbD-TL-NdQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3772" y="134"/>
         </scene>
     </scenes>
     <resources>
@@ -3099,7 +3043,7 @@ Hv0r/S79O/1A/Uj9S/1Q/Vj9W/1t/XD9dQAAAAAAAAIBAAAAAAAAAFkAAAAAAAAAAAAAAAAAAP13A
         </image>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="3Wm-wk-pE0"/>
+        <segue reference="jfY-Qu-qy2"/>
         <segue reference="buy-hV-6kG"/>
         <segue reference="Fe2-vE-IMT"/>
     </inferredMetricsTieBreakers>

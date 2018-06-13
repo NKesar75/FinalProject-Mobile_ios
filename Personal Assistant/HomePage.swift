@@ -49,29 +49,29 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
     //WatchConnectivity session variable
     var session: WCSession!
     var resuestfromwatch: String!
- 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(HomePage.navagitiongone))
         tap.cancelsTouchesInView = true
         speechRecognizer.delegate = self
         SFSpeechRecognizer.requestAuthorization { authStatus in
-           
-                switch authStatus {
-                case .authorized:
-                    print("authorized")
-                case .denied:
-                     print("not authorized")
-                case .restricted:
-                    print("limted authorizion")
-                case .notDetermined:
-                     print("no choice yet authorizion")
+            
+            switch authStatus {
+            case .authorized:
+                print("authorized")
+            case .denied:
+                print("not authorized")
+            case .restricted:
+                print("limted authorizion")
+            case .notDetermined:
+                print("no choice yet authorizion")
             }
         }
         
         HomePage.diditcomefromrember = false
         view.addGestureRecognizer(tap)
-        
+        self.voice_button.setTitle("Make a request! \u{1F3A4}", for: .normal)
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
@@ -80,7 +80,7 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
         voicequestion = false
         isfirsttimecall = true
         AVAudioSession.sharedInstance().requestRecordPermission () {
-             [unowned self] allowed in
+            [unowned self] allowed in
             if allowed {
                 // Microphone allowed, do what you like!
                 
@@ -114,7 +114,7 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
             })
         }
     }
-
+    
     @IBAction func menubuttonpressed(_ sender: UIButton) {
         if viewconstraint.constant < 20 {
             UIView.animate(withDuration: 0.2, animations: {
@@ -136,7 +136,7 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
         }
     }
     
-
+    
     @IBAction func weatherbuttonpressed(_ sender: UIButton) {
         
         activityindactor.center = self.view.center
@@ -145,8 +145,7 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
         view.addSubview(activityindactor)
         self.activityindactor.startAnimating()
         UIApplication.shared.beginIgnoringInteractionEvents()
-       // let server = Servercalls()
-       // server.apicall(city: city!, state: state!, voicecall: "Weather")
+        
         let urlString = "https://personalassistant-ec554.appspot.com/recognize/Weather" + "/" + self.state! + "/" + self.city!
         guard let url = URL(string: urlString) else { return }
         URLSession.shared.dataTask(with: url) { (data, reponse, err) in
@@ -162,11 +161,11 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
         
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(10), execute: {
             if self.serverjson["key"].string != nil && self.serverjson["key"] == "weather" {
-                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "Weather_ID") as! Weather
-                    vc.serverjson = self.serverjson
-                    UIApplication.shared.endIgnoringInteractionEvents()
-                    self.activityindactor.removeFromSuperview()
-                    self.present(vc, animated: true, completion: nil)
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: "Weather_ID") as! Weather
+                vc.serverjson = self.serverjson
+                UIApplication.shared.endIgnoringInteractionEvents()
+                self.activityindactor.removeFromSuperview()
+                self.present(vc, animated: true, completion: nil)
                 
             }else{
                 UIApplication.shared.endIgnoringInteractionEvents()
@@ -178,7 +177,7 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
     
     
     @IBAction func panguesture(_ sender: UIPanGestureRecognizer) {
-      
+        
         if sender.state == .began || sender.state == .changed{
             let translation = sender.translation(in: self.view).x
             if translation > 0 { // swipe right
@@ -203,7 +202,7 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
                     self.viewconstraint.constant = -175
                     self.view.layoutIfNeeded()
                 })
-                 self.menu.isHidden = false
+                self.menu.isHidden = false
             }else{
                 UIView.animate(withDuration: 0.2, animations: {
                     self.viewconstraint.constant = 0
@@ -215,50 +214,30 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
     
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        var location = locations[0]
-
+        let location = locations[0]
+        
         geocoder.reverseGeocodeLocation(location, completionHandler: { (placemarks, error) in
-            // always good to check if no error
-            // also we have to unwrap the placemark because it's optional
-            // I have done all in a single if but you check them separately
             if error == nil, let placemark = placemarks, !placemark.isEmpty {
                 self.placemark = placemark.last
             }
-            // a new function where you start to parse placemarks to get the information you need
-            // here we check if location manager is not nil using a _ wild card
             if let _:CLLocation = location {
-                // unwrap the placemark
                 if let placemark = self.placemark {
-                    // wow now you can get the city name. remember that apple refers to city name as locality not city
-                    // again we have to unwrap the locality remember optionalllls also some times there is no text so we check that it should not be empty
                     if let city = placemark.locality, !city.isEmpty {
-                        // here you have the city name
-                        // assign city name to our iVar
                         self.city = city
                     }
-                    // the same story optionalllls also they are not empty
                     if let state = placemark.administrativeArea, !state.isEmpty {
                         
                         self.state = state
                     }
-                    
                 }
                 if self.city != nil && self.state != nil {
-                self.city = self.city!.replacingOccurrences(of: " ", with: "_", options: .literal, range: nil)
-                print(self.city)
-                print(self.state)
-                print(self.stringtoserver)
+                    self.city = self.city!.replacingOccurrences(of: " ", with: "_", options: .literal, range: nil)
                 }
-                
-            } else {
-                // add some more check's if for some reason location manager is nil
             }
         })
     }
     
-     func FetchJSON() {
-       // let server = Servercalls()
-       // server.apicall(city: city!, state: state!, voicecall: self.stringtoserver!.lowercased())
+    func FetchJSON() {
         let urlString = "https://personalassistant-ec554.appspot.com/recognize/" + self.stringtoserver!.lowercased() + "/" + self.state! + "/" + self.city!
         guard let url = URL(string: urlString) else { return }
         URLSession.shared.dataTask(with: url) { (data, reponse, err) in
@@ -307,25 +286,22 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
     }
     
     @IBAction func voicebutton(_ sender: UIButton) {
-       
+        
         if audioEngine.isRunning {
             audioEngine.stop()
-            self.voice_button.setTitle("Make a request!", for: .normal)
+            self.voice_button.setTitle("Make a request! \u{1F3A4}", for: .normal)
             recognitionRequest?.endAudio()
             if (self.stringtoserver != nil){
-            self.stringtoserver = self.stringtoserver!.replacingOccurrences(of: " ", with: "_", options: .literal, range: nil)
-            print(stringtoserver)
-            voicequestion = true
-            activityindactor.center = self.view.center
-            activityindactor.hidesWhenStopped = true
-            activityindactor.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
-            self.activityindactor.startAnimating()
-            view.addSubview(activityindactor)
-            UIApplication.shared.beginIgnoringInteractionEvents()
-            //self.activityindactor.startAnimating()
-            //UIApplication.shared.beginIgnoringInteractionEvents()
-            self.FetchJSON()
-            
+                self.stringtoserver = self.stringtoserver!.replacingOccurrences(of: " ", with: "_", options: .literal, range: nil)
+                print(stringtoserver)
+                voicequestion = true
+                activityindactor.center = self.view.center
+                activityindactor.hidesWhenStopped = true
+                activityindactor.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
+                self.activityindactor.startAnimating()
+                view.addSubview(activityindactor)
+                UIApplication.shared.beginIgnoringInteractionEvents()
+                self.FetchJSON()
             }
         } else {
             startRecording()
@@ -352,22 +328,10 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
             try session.setCategory(AVAudioSessionCategoryPlayAndRecord, with: .defaultToSpeaker)
             try session.setActive(true)
             // 3. set up a high-quality recording session
-          
-//            let settings = [
-//                AVFormatIDKey : kAudioFormatLinearPCM,
-//                AVEncoderAudioQualityKey : AVAudioQuality.high.rawValue,
-//                AVEncoderBitRateKey: 8000,
-//                AVNumberOfChannelsKey : 1,
-//                AVSampleRateKey : 8000
-//            ] as [String : Any]
-            // 4. create the audio recording, and assign ourselves as the delegate
-//            audioRecorder = try AVAudioRecorder(url: getAudioFileUrl(), settings: settings)
-//            audioRecorder?.delegate = self
-//            audioRecorder?.record()
             
             recognitionRequest = SFSpeechAudioBufferRecognitionRequest()
             
-             let inputNode = audioEngine.inputNode
+            let inputNode = audioEngine.inputNode
             
             guard let recognitionRequest = recognitionRequest else {
                 fatalError("Unable to create an SFSpeechAudioBufferRecognitionRequest object")
@@ -402,7 +366,7 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
             
             do {
                 try audioEngine.start()
-                self.voice_button.setTitle("Press me again After You Finsh Talking!", for: .normal)
+                self.voice_button.setTitle("\u{1F5E3}Press me again After You Finsh Talking!", for: .normal)
             } catch {
                 print("audioEngine couldn't start because of an error.")
             }
@@ -415,146 +379,86 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
         }
     }
     
-    // Stop recording
-    func finishRecording() {
-//        audioRecorder?.stop()
-//        isRecording = false
-//        let url = getAudioFileUrl()
-//        
-//        do {
-//            // AVAudioPlayer setting up with the saved file URL
-//            let sound = try AVAudioPlayer(contentsOf: url)
-//            self.player = sound
-//            
-//            // Here conforming to AVAudioPlayerDelegate
-//            sound.delegate = self
-//            sound.prepareToPlay()
-//            sound.play()
-//        } catch {
-//            print("error loading file")
-//            // couldn't load file :(
-//        }
-//        let storage = Storage.storage()
-//        let storageRef = storage.reference()
-//
-//        storageRef.child("ios_voice.amr")
-//
-    }
-    
-    // Path for saving/retreiving the audio file
-    func getAudioFileUrl() -> URL{
-        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        let docsDirect = paths[0]
-        let audioUrl = docsDirect.appendingPathComponent("recording.caf")
-        return audioUrl
-    }
-    
-    func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
-        if flag {
-            finishRecording()
-        }else {
-            // Recording interrupted by other reasons like call coming, reached time limit.
-        }
-            }
-    
-    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
-        if flag {
-            
-        }else {
-            // Playing interrupted by other reasons like call coming, the sound has not finished playing.
-        }
-       
-    }
-
     
     @IBAction func schedling(_ sender: UIButton) {
-    
-        let dateFormatter : DateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd-HH-mm-ss"
-        let date = Date()
-        let dateString = dateFormatter.string(from: date)
-
-        if let url = URL(string: "calshow:\(dateString)") {
-            UIApplication.shared.open(url, options: [:], completionHandler: nil)
-        }
         
+        let url = URL(string: "calshow://")
+        UIApplication.shared.open(url!, options: [:], completionHandler: nil)
     }
     
     
     @IBAction func Signout(_ sender: UIButton) {
         do {
-                try Auth.auth().signOut()
+            try Auth.auth().signOut()
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "Login_ID") as! Login
             self.present(vc, animated: true, completion: nil)
-                    } catch {
-                        print(error)
-                    }
-            }
+        } catch {
+            print(error)
+        }
+    }
     func session(_ session: WCSession, didReceiveMessage message: [String : Any])
     {
-        //recieve messages from watch
-        //self.msgLabel.text = message["wTp"]! as? String
-
+        
         DispatchQueue.main.async
             {
                 
                 
                 if message["Request"] != nil {
-                //request
-                self.resuestfromwatch = message["Request"]! as? String
-                let urlString = "https://personalassistant-ec554.appspot.com/recognize/" + self.resuestfromwatch + "/" + self.state! + "/" + self.city!
-                guard let url = URL(string: urlString) else { return }
-                URLSession.shared.dataTask(with: url) { (data, reponse, err) in
-                    guard let data = data else { return }
-                    do {
-                        self.serverjson = try JSON(data: data)
-                    } catch let jsonErr {
-                        print("Error serializing json:", jsonErr)
-                    }
-                    }.resume()
-                var sendtowatch: String = ""
-                print(self.serverjson)
-                DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(10), execute: {
-                    if self.serverjson["key"].string != nil {
-                        switch (self.serverjson["key"].string!){
-                        case "weather":
-                            //0 key //1 city //2 state //3 condition //4 url //5 rain //6 temp low //7 temp high //8 month/date/year //9 repeat condition
-                       sendtowatch = self.serverjson["key"].string! + "\u{1D6FF}" + self.serverjson["city"].string! + "\u{1D6FF}" + self.serverjson["state"].string!
-                       var index:Int = 0
-                       while true {
-                        if  self.serverjson["city"].string != nil && self.serverjson["state"].string != nil && self.serverjson["results"][index]["condition"].string != nil && self.serverjson["results"][index]["url"].string != nil && self.serverjson["results"][index]["precip"].double != nil && self.serverjson["results"][index]["temp_lowf"].string != nil && self.serverjson["results"][index]["temp_highf"].string != nil && self.serverjson["results"][index]["humidity"].double != nil && self.serverjson["results"][index]["month"].int != nil &&  self.serverjson["results"][index]["day"].int != nil && self.serverjson["results"][index]["year"].int != nil {
-                            
-                            sendtowatch += "\u{1D6FF}" + self.serverjson["results"][index]["condition"].string! + "\u{1D6FF}" +  self.serverjson["results"][index]["url"].string! + "\u{1D6FF}" + String(self.serverjson["results"][index]["precip"].double!) + "%" + "\u{1D6FF}" + self.serverjson["results"][index]["temp_lowf"].string! + "°F" + "\u{1D6FF}" + self.serverjson["results"][index]["temp_highf"].string! + "°F" + "\u{1D6FF}" + String(self.serverjson["results"][index]["month"].int!) + "/" + String(self.serverjson["results"][index]["day"].int!) + "/" + String(self.serverjson["results"][index]["year"].int!)
-                        }else{
-                            break
+                    //request
+                    self.resuestfromwatch = message["Request"]! as? String
+                    let urlString = "https://personalassistant-ec554.appspot.com/recognize/" + self.resuestfromwatch + "/" + self.state! + "/" + self.city!
+                    guard let url = URL(string: urlString) else { return }
+                    URLSession.shared.dataTask(with: url) { (data, reponse, err) in
+                        guard let data = data else { return }
+                        do {
+                            self.serverjson = try JSON(data: data)
+                        } catch let jsonErr {
+                            print("Error serializing json:", jsonErr)
                         }
-                        index += 1
-                       }
-                        case "youtube":
-                            let vc = self.storyboard?.instantiateViewController(withIdentifier: "Youtube_ID") as! Youtube
-                            vc.serverjson = self.serverjson
-                            self.present(vc, animated: true, completion: nil)
-                            sendtowatch = "youtube"
-                            break
-                        case "google":
-                            // 0 key // 1 title // 2 snippet // 3 url
-                            sendtowatch = self.serverjson["key"].string!
-                            var index:Int = 0
-                            while true {
-                                if self.serverjson["results"][index]["title"].string != nil && self.serverjson["results"][index]["snippet"].string != nil && self.serverjson["results"][index]["url"].string != nil {
-                                  sendtowatch += "\u{1D6FF}" + self.serverjson["results"][index]["title"].string! + "\u{1D6FF}" + self.serverjson["results"][index]["snippet"].string! + "\u{1D6FF}" +  self.serverjson["results"][index]["url"].string!
-                                }else{
-                                    break
+                        }.resume()
+                    var sendtowatch: String = ""
+                    print(self.serverjson)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(10), execute: {
+                        if self.serverjson["key"].string != nil {
+                            switch (self.serverjson["key"].string!){
+                            case "weather":
+                                //0 key //1 city //2 state //3 condition //4 url //5 rain //6 temp low //7 temp high //8 month/date/year //9 repeat condition
+                                sendtowatch = self.serverjson["key"].string! + "\u{1D6FF}" + self.serverjson["city"].string! + "\u{1D6FF}" + self.serverjson["state"].string!
+                                var index:Int = 0
+                                while true {
+                                    if  self.serverjson["city"].string != nil && self.serverjson["state"].string != nil && self.serverjson["results"][index]["condition"].string != nil && self.serverjson["results"][index]["url"].string != nil && self.serverjson["results"][index]["precip"].double != nil && self.serverjson["results"][index]["temp_lowf"].string != nil && self.serverjson["results"][index]["temp_highf"].string != nil && self.serverjson["results"][index]["humidity"].double != nil && self.serverjson["results"][index]["month"].int != nil &&  self.serverjson["results"][index]["day"].int != nil && self.serverjson["results"][index]["year"].int != nil {
+                                        
+                                        sendtowatch += "\u{1D6FF}" + self.serverjson["results"][index]["condition"].string! + "\u{1D6FF}" +  self.serverjson["results"][index]["url"].string! + "\u{1D6FF}" + String(self.serverjson["results"][index]["precip"].double!) + "%" + "\u{1D6FF}" + self.serverjson["results"][index]["temp_lowf"].string! + "°F" + "\u{1D6FF}" + self.serverjson["results"][index]["temp_highf"].string! + "°F" + "\u{1D6FF}" + String(self.serverjson["results"][index]["month"].int!) + "/" + String(self.serverjson["results"][index]["day"].int!) + "/" + String(self.serverjson["results"][index]["year"].int!)
+                                    }else{
+                                        break
+                                    }
+                                    index += 1
                                 }
-                                index += 1
+                            case "youtube":
+                                let vc = self.storyboard?.instantiateViewController(withIdentifier: "Youtube_ID") as! Youtube
+                                vc.serverjson = self.serverjson
+                                self.present(vc, animated: true, completion: nil)
+                                sendtowatch = "youtube"
+                                break
+                            case "google":
+                                // 0 key // 1 title // 2 snippet // 3 url
+                                sendtowatch = self.serverjson["key"].string!
+                                var index:Int = 0
+                                while true {
+                                    if self.serverjson["results"][index]["title"].string != nil && self.serverjson["results"][index]["snippet"].string != nil && self.serverjson["results"][index]["url"].string != nil {
+                                        sendtowatch += "\u{1D6FF}" + self.serverjson["results"][index]["title"].string! + "\u{1D6FF}" + self.serverjson["results"][index]["snippet"].string! + "\u{1D6FF}" +  self.serverjson["results"][index]["url"].string!
+                                    }else{
+                                        break
+                                    }
+                                    index += 1
+                                }
+                            default: sendtowatch = "error"
                             }
-                        default: sendtowatch = "error"
+                        }else{
+                            sendtowatch = "error"
                         }
-                    }else{
-                        sendtowatch = "error"
-                    }
-                      session.sendMessage(["key": sendtowatch], replyHandler: nil, errorHandler: nil)
-                     })
+                        session.sendMessage(["key": sendtowatch], replyHandler: nil, errorHandler: nil)
+                    })
                 }else if message["chatBotQuestion"] != nil {
                     let chatQuestion = message["chatBotQuestion"]! as? String
                     var sendtowatch : String = ""
@@ -620,7 +524,6 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
                                     case "SNE":
                                         nameofcompany = "Sony Corp"
                                         imageofcompany = "Sony"
-                                        
                                     case "HMC":
                                         nameofcompany = "Honda Motor Co Ltd"
                                         imageofcompany = "Honda"
@@ -633,7 +536,6 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
                                     case "BAC":
                                         nameofcompany = "Bank of America Corp"
                                         imageofcompany = "Bank"
-                                        
                                     case "CCF":
                                         nameofcompany = "Chase Corporation"
                                         imageofcompany = "Chase"
@@ -646,7 +548,6 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
                                     case "WEN":
                                         nameofcompany = "Wendys Co"
                                         imageofcompany = "Wendys"
-                                        
                                     case "WMT":
                                         nameofcompany = "Walmart Inc"
                                         imageofcompany = "Walmart"
@@ -659,7 +560,6 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
                                     case "FRSH":
                                         nameofcompany = "Papa Murphy's Holdings Inc"
                                         imageofcompany = "Papa"
-                                        
                                     case "VZ":
                                         nameofcompany = "Verizon Communications Inc."
                                         imageofcompany = "Verizon"
@@ -688,18 +588,18 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
                             }
                             
                         }else{
-                           sendtowatch = "error"
+                            sendtowatch = "error"
                         }
                         // 0 name of company //1 price //2 size //3 name of image
                         session.sendMessage(["StockInfo": sendtowatch], replyHandler: nil, errorHandler: nil)
                     })
                     
                 }else if message["NewsRequest"] != nil{
-                   
+                    
                     self.resuestfromwatch = message["NewsRequest"]! as? String
                     var newsjson = JSON()
                     var sendtowatch : String = ""
-                     var urlString = ""
+                    var urlString = ""
                     sendtowatch += "News"
                     switch  self.resuestfromwatch {
                     case "ABC News":
@@ -825,8 +725,8 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
                             sendtowatch = "error"
                         }
                         
-                      session.sendMessage(["NewsInfo": sendtowatch], replyHandler: nil, errorHandler: nil)
-                       
+                        session.sendMessage(["NewsInfo": sendtowatch], replyHandler: nil, errorHandler: nil)
+                        
                     })
                 }else if message["More"] != nil {
                     

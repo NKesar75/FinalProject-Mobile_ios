@@ -12,7 +12,7 @@ import AVFoundation
 import WatchConnectivity
 
 class apitest: UIViewController {
-
+    
     @IBOutlet weak var usermessage: UILabel!
     @IBOutlet weak var sendbuttonframe: UIButton!
     @IBOutlet weak var apiresponse: UILabel!
@@ -23,10 +23,10 @@ class apitest: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardShown), name:NSNotification.Name.UIKeyboardWillShow, object: nil);
-        // Do any additional setup after loading the view.
-        
+        self.usertext.frame = CGRect(x: 0, y: self.view.frame.maxY - 50, width: self.view.frame.maxX - 85, height: 50)
+        self.sendbuttonframe.frame = CGRect(x: self.usertext.frame.maxX, y: self.usertext.frame.minY, width: 85, height: 50)
     }
-
+    
     let speechSynthesizer = AVSpeechSynthesizer()
     
     func speechAndText(text: String) {
@@ -44,7 +44,7 @@ class apitest: UIViewController {
         } else {
             return
         }
-
+        
         request?.setMappedCompletionBlockSuccess({ (request, response) in
             let response = response as! AIResponse
             if let textResponse = response.result.fulfillment.speech {
@@ -65,8 +65,10 @@ class apitest: UIViewController {
     @objc func keyboardShown(notification: NSNotification) {
         let info = notification.userInfo!
         let keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
-        usertext.frame = CGRect(x: keyboardFrame.minX, y: keyboardFrame.minY - 50, width: self.view.frame.maxX - 85, height: 50)
-        sendbuttonframe.frame = CGRect(x: usertext.frame.maxX, y: usertext.frame.minY, width: 85, height: 50)
+        
+        self.usertext.frame = CGRect(x: keyboardFrame.minX, y: keyboardFrame.minY - 50, width: self.view.frame.maxX - 85, height: 50)
+        self.sendbuttonframe.frame = CGRect(x: self.usertext.frame.maxX, y: self.usertext.frame.minY, width: 85, height: 50)
+        
         print("keyboardFrame: \(keyboardFrame)")
     }
     

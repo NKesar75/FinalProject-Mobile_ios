@@ -47,17 +47,15 @@ class Make_a_list: UIViewController, UITableViewDataSource, UITableViewDelegate 
         listtitles.removeAll()
         listtitles.append(listitems(key: "New List", value: "null"))
         
-    
+        
         
         ref.observe(.childAdded, with: { (snapshot) -> Void in
-                let key = snapshot.key
-                let value = snapshot.value
-                //print("key = \(key)  value = \(value!)")
-                // print(key)
-                self.listtitles.append(listitems(key: String(describing: key), value: String(describing: value!)))
+            let key = snapshot.key
+            let value = snapshot.value
+            self.listtitles.append(listitems(key: String(describing: key), value: String(describing: value!)))
             
             print(snapshot)
-             self.tablelist.reloadData()
+            self.tablelist.reloadData()
         })
         
         UIApplication.shared.endIgnoringInteractionEvents()
@@ -67,7 +65,7 @@ class Make_a_list: UIViewController, UITableViewDataSource, UITableViewDelegate 
         // Listen for deleted comments in the Firebase database
         ref.observe(.childRemoved, with: { (snapshot) -> Void in
             
-        
+            
             self.listtitles.remove(at: self.listtitles.index(where: { $0.key == snapshot.key })!)
             self.tablelist.reloadData()
         })
@@ -127,24 +125,4 @@ class Make_a_list: UIViewController, UITableViewDataSource, UITableViewDelegate 
             }
         }
     }
-    
-//    func pullfromfirebase(){
-//        listtitles.removeAll()
-//        print(listtitles.count)
-//        listtitles.append(listitems(key: "New List", value: "null"))
-//        let userID = Auth.auth().currentUser?.uid
-//        let ref: DatabaseReference! = Database.database().reference().child("users").child(userID!).child("list")
-//        ref.observeSingleEvent(of: .value, with: { (snapshot) in
-//            for child in snapshot.children {
-//                let snap = child as! DataSnapshot
-//                let key = snap.key
-//                let value = snap.value
-//                //print("key = \(key)  value = \(value!)")
-//               // print(key)
-//                self.listtitles.append(listitems(key: String(describing: key), value: String(describing: value!)))
-//                print(self.listtitles.count)
-//            }
-//            self.tablelist.reloadData()
-//        })
-//    }
 }

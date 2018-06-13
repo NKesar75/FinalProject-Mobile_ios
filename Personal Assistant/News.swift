@@ -10,7 +10,7 @@ import UIKit
 import SwiftyJSON
 
 class News: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
+    
     @IBOutlet weak var newstable: UITableView!
     var newsjson = JSON()
     struct Newsinfo{
@@ -41,7 +41,7 @@ class News: UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       return newsarray.count
+        return newsarray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -96,7 +96,7 @@ class News: UIViewController, UITableViewDataSource, UITableViewDelegate {
                 
                 if  self.newsjson["articles"][index]["title"].string != nil && self.newsjson["articles"][index]["description"].string != nil && self.newsjson["articles"][index]["urlToImage"].string != nil && self.newsjson["articles"][index]["url"].string != nil {
                     
-                      newsarray.append(Newsinfo(Title: self.newsjson["articles"][index]["title"].string!, Desc: self.newsjson["articles"][index]["description"].string!, image: self.newsjson["articles"][index]["urlToImage"].string!, URL: self.newsjson["articles"][index]["url"].string!))
+                    newsarray.append(Newsinfo(Title: self.newsjson["articles"][index]["title"].string!, Desc: self.newsjson["articles"][index]["description"].string!, image: self.newsjson["articles"][index]["urlToImage"].string!, URL: self.newsjson["articles"][index]["url"].string!))
                 }else{
                     break
                 }
@@ -105,6 +105,5 @@ class News: UIViewController, UITableViewDataSource, UITableViewDelegate {
         }
         print(newsarray)
         newstable.reloadData()
-        
     }
 }

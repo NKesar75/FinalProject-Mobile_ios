@@ -13,7 +13,7 @@ import CoreLocation
 import Speech
 import SwiftyJSON
 class Youtube: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate, CLLocationManagerDelegate, SFSpeechRecognizerDelegate {
-
+    
     @IBOutlet weak var Titleofvideo: UILabel!
     @IBOutlet weak var Searchfortext: UITextField!
     
@@ -50,8 +50,6 @@ class Youtube: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate,
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(Youtube.dismissKeyboard))
-        
-        //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
         tap.cancelsTouchesInView = false
         
         view.addGestureRecognizer(tap)
@@ -59,9 +57,9 @@ class Youtube: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate,
     
     func setvideo (videoid:String, videotitle:String){
         if videoid != video_id {
-        video_id = videoid
-        video_title = videotitle
-        remberbutton.setTitle("Remember",for: .normal)
+            video_id = videoid
+            video_title = videotitle
+            remberbutton.setTitle("Remember",for: .normal)
         }
         let url = URL(string: "https://www.youtube.com/embed/\(videoid)")
         youtubeview.load(URLRequest(url: url!))
@@ -71,35 +69,30 @@ class Youtube: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate,
     
     @IBAction func voicebuttonpressed(_ sender: UIButton) {
         if remberbutton.titleLabel?.text != "Remembered" && video_id != "" && video_id != " "{
-        let helper: Remberfirebasehelperclass = Remberfirebasehelperclass()
+            let helper: Remberfirebasehelperclass = Remberfirebasehelperclass()
             
-        video_title = video_title.replacingOccurrences(of: ".", with: " ", options: .literal, range: nil)
-        video_title = video_title.replacingOccurrences(of: "$", with: " ", options: .literal, range: nil)
-        video_title = video_title.replacingOccurrences(of: "[", with: " ", options: .literal, range: nil)
-        video_title = video_title.replacingOccurrences(of: "]", with: " ", options: .literal, range: nil)
-        video_title = video_title.replacingOccurrences(of: "#", with: " ", options: .literal, range: nil)
-        video_title = video_title.replacingOccurrences(of: "/", with: " ", options: .literal, range: nil)
-           
-        helper.pushtofirebase(link: video_title, type: ("Youtube," + video_id))
-        remberbutton.setTitle("Remembered",for: .normal)
+            video_title = video_title.replacingOccurrences(of: ".", with: " ", options: .literal, range: nil)
+            video_title = video_title.replacingOccurrences(of: "$", with: " ", options: .literal, range: nil)
+            video_title = video_title.replacingOccurrences(of: "[", with: " ", options: .literal, range: nil)
+            video_title = video_title.replacingOccurrences(of: "]", with: " ", options: .literal, range: nil)
+            video_title = video_title.replacingOccurrences(of: "#", with: " ", options: .literal, range: nil)
+            video_title = video_title.replacingOccurrences(of: "/", with: " ", options: .literal, range: nil)
+            
+            helper.pushtofirebase(link: video_title, type: ("Youtube," + video_id))
+            remberbutton.setTitle("Remembered",for: .normal)
         }
         
     }
     @IBAction func Searchfortextyoutube(_ sender: UIButton) {
         if Searchfortext.text != "" && Searchfortext.text != " "{
-       // activityindactor.center = self.view.center
-        activityindactor.frame.origin = CGPoint(x: self.view.center.x , y: self.view.center.y + 125 )
-        activityindactor.hidesWhenStopped = true
-        activityindactor.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
-        view.addSubview(activityindactor)
-        self.activityindactor.startAnimating()
-        UIApplication.shared.beginIgnoringInteractionEvents()
-        let server = Servercalls()
-        var servermetod = "play " + Searchfortext.text!
-        servermetod = servermetod.replacingOccurrences(of: " ", with: "_", options: .literal, range: nil)
-//        server.apicall(city: city!, state: state!, voicecall: servermetod)
-//        print(self.serverjson)
-            
+            activityindactor.frame.origin = CGPoint(x: self.view.center.x , y: self.view.center.y + 125 )
+            activityindactor.hidesWhenStopped = true
+            activityindactor.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
+            view.addSubview(activityindactor)
+            self.activityindactor.startAnimating()
+            UIApplication.shared.beginIgnoringInteractionEvents()
+            var servermetod = "play " + Searchfortext.text!
+            servermetod = servermetod.replacingOccurrences(of: " ", with: "_", options: .literal, range: nil)
             
             let urlString = "https://personalassistant-ec554.appspot.com/recognize/" + servermetod + "/" + self.state! + "/" + self.city!
             guard let url = URL(string: urlString) else { return }
@@ -128,7 +121,7 @@ class Youtube: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate,
                 }
             })
             
-      
+            
         }
     }
     
@@ -139,39 +132,25 @@ class Youtube: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate,
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        var location = locations[0]
+        let location = locations[0]
         
         geocoder.reverseGeocodeLocation(location, completionHandler: { (placemarks, error) in
-            // always good to check if no error
-            // also we have to unwrap the placemark because it's optional
-            // I have done all in a single if but you check them separately
             if error == nil, let placemark = placemarks, !placemark.isEmpty {
                 self.placemark = placemark.last
             }
-            // a new function where you start to parse placemarks to get the information you need
-            // here we check if location manager is not nil using a _ wild card
             if let _:CLLocation = location {
-                // unwrap the placemark
                 if let placemark = self.placemark {
-                    // wow now you can get the city name. remember that apple refers to city name as locality not city
-                    // again we have to unwrap the locality remember optionalllls also some times there is no text so we check that it should not be empty
                     if let city = placemark.locality, !city.isEmpty {
-                        // here you have the city name
-                        // assign city name to our iVar
                         self.city = city
                     }
-                    // the same story optionalllls also they are not empty
                     if let state = placemark.administrativeArea, !state.isEmpty {
                         
                         self.state = state
                     }
                 }
-                self.city = self.city!.replacingOccurrences(of: " ", with: "_", options: .literal, range: nil)
-                print(self.city)
-                print(self.state)
-                
-            } else {
-                // add some more check's if for some reason location manager is nil
+                if self.city != nil && self.state != nil {
+                    self.city = self.city!.replacingOccurrences(of: " ", with: "_", options: .literal, range: nil)
+                }
             }
         })
     }
@@ -181,9 +160,9 @@ class Youtube: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate,
             setvideo(videoid: self.serverjson["id"].string!, videotitle: self.serverjson["title"].string!)
         }
     }
-   
-}
     
+}
+
 
 
 

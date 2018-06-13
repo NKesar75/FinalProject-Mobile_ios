@@ -27,7 +27,6 @@
 		C4539E2620C1AA4A00DDC43C /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4539E2520C1AA4A00DDC43C /* News.swift */; };
 		C4539E2820C1AA7F00DDC43C /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4539E2720C1AA7F00DDC43C /* Stock.swift */; };
 		C45426E0208781550052B531 /* Youtube.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45426DF208781550052B531 /* Youtube.swift */; };
-		C46A259C20B453D2007A944F /* GoogleCalender.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46A259B20B453D2007A944F /* GoogleCalender.swift */; };
 		C46A259D20B45C7B007A944F /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C41A045420AF26F800D49E4E /* SwiftyJSON.framework */; };
 		C46A25A120B45FFF007A944F /* GoogleAPIClientForREST.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C46A25A020B45FFF007A944F /* GoogleAPIClientForREST.framework */; };
 		C4764E4720921C120000E8E3 /* CustomCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4764E4620921C120000E8E3 /* CustomCellTableViewCell.swift */; };
@@ -46,7 +45,6 @@
 		C4AF462E2049C2F700B9093F /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AF462D2049C2F700B9093F /* HomePage.swift */; };
 		C4CAD9592049E3A7007CC517 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CAD9582049E3A7007CC517 /* AlertController.swift */; };
 		C4DABCD0208F780700ED146C /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DABCCF208F780700ED146C /* Search.swift */; };
-		C4DABCD2208FA42500ED146C /* Servercalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DABCD1208FA42500ED146C /* Servercalls.swift */; };
 		ED03308F20C9CC3D00B03094 /* newsInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED03308E20C9CC3D00B03094 /* newsInfo.swift */; };
 		ED03309120CA15A900B03094 /* googleSearchInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED03309020CA15A900B03094 /* googleSearchInfo.swift */; };
 		ED03309320CAF08B00B03094 /* googleReadMoreIC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED03309220CAF08B00B03094 /* googleReadMoreIC.swift */; };
@@ -156,7 +154,6 @@
 		C4539E2520C1AA4A00DDC43C /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		C4539E2720C1AA7F00DDC43C /* Stock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stock.swift; sourceTree = "<group>"; };
 		C45426DF208781550052B531 /* Youtube.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Youtube.swift; sourceTree = "<group>"; };
-		C46A259B20B453D2007A944F /* GoogleCalender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleCalender.swift; sourceTree = "<group>"; };
 		C46A259E20B45E93007A944F /* GTLRService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = GTLRService.m; path = Pods/GoogleAPIClientForREST/Source/Objects/GTLRService.m; sourceTree = "<group>"; };
 		C46A25A020B45FFF007A944F /* GoogleAPIClientForREST.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GoogleAPIClientForREST.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C46A25A220B4606A007A944F /* PersonalAssistant-Briding-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PersonalAssistant-Briding-Header.h"; sourceTree = "<group>"; };
@@ -182,7 +179,6 @@
 		C4AF462D2049C2F700B9093F /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
 		C4CAD9582049E3A7007CC517 /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		C4DABCCF208F780700ED146C /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
-		C4DABCD1208FA42500ED146C /* Servercalls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Servercalls.swift; sourceTree = "<group>"; };
 		ED03308E20C9CC3D00B03094 /* newsInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newsInfo.swift; sourceTree = "<group>"; };
 		ED03309020CA15A900B03094 /* googleSearchInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = googleSearchInfo.swift; sourceTree = "<group>"; };
 		ED03309220CAF08B00B03094 /* googleReadMoreIC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = googleReadMoreIC.swift; sourceTree = "<group>"; };
@@ -316,12 +312,10 @@
 				C4254B03207E97F500807AF4 /* Weather.swift */,
 				C4254B052084E4E500807AF4 /* Map.swift */,
 				C4DABCCF208F780700ED146C /* Search.swift */,
-				C4DABCD1208FA42500ED146C /* Servercalls.swift */,
 				C4764E4620921C120000E8E3 /* CustomCellTableViewCell.swift */,
 				C42BF3412097664300E02910 /* WeatherTableViewCell.swift */,
 				C481A5C22099FBE7004DEFA5 /* Make_a_list.swift */,
 				C481A5C4209A0D34004DEFA5 /* Listdata.swift */,
-				C46A259B20B453D2007A944F /* GoogleCalender.swift */,
 				C4539E1B20BF05B200DDC43C /* Rember.swift */,
 				C4539E1D20BF085600DDC43C /* Remberfirebasehelperclass.swift */,
 				C45426DF208781550052B531 /* Youtube.swift */,
@@ -731,7 +725,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C481A5C5209A0D34004DEFA5 /* Listdata.swift in Sources */,
-				C4DABCD2208FA42500ED146C /* Servercalls.swift in Sources */,
 				C4522BE620C859CB00A661BA /* StockCell.swift in Sources */,
 				C483FBBF20C5B553008ECE74 /* NewsTableViewCell.swift in Sources */,
 				C4CAD9592049E3A7007CC517 /* AlertController.swift in Sources */,
@@ -745,7 +738,6 @@
 				C4AF45FA2049BE1500B9093F /* AppDelegate.swift in Sources */,
 				C45426E0208781550052B531 /* Youtube.swift in Sources */,
 				C4539E1E20BF085600DDC43C /* Remberfirebasehelperclass.swift in Sources */,
-				C46A259C20B453D2007A944F /* GoogleCalender.swift in Sources */,
 				C4DABCD0208F780700ED146C /* Search.swift in Sources */,
 				C4254B062084E4E500807AF4 /* Map.swift in Sources */,
 				C4764E4720921C120000E8E3 /* CustomCellTableViewCell.swift in Sources */,
@@ -1031,6 +1023,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 279LK4S6S3;
 				INFOPLIST_FILE = "Personal AssistantTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "PA-Personal-Assistant.Personal-AssistantTests";
@@ -1048,6 +1041,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 279LK4S6S3;
 				INFOPLIST_FILE = "Personal AssistantTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "PA-Personal-Assistant.Personal-AssistantTests";
@@ -1064,6 +1058,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 279LK4S6S3;
 				INFOPLIST_FILE = "Personal AssistantUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "PA-Personal-Assistant.Personal-AssistantUITests";
@@ -1080,6 +1075,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 279LK4S6S3;
 				INFOPLIST_FILE = "Personal AssistantUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "PA-Personal-Assistant.Personal-AssistantUITests";
@@ -1096,6 +1092,7 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 279LK4S6S3;
 				INFOPLIST_FILE = "PersonalAssistantWatch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "PA-Personal-Assistant.Personal-Assistant.watchkitapp.watchkitextension";
@@ -1115,6 +1112,7 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 279LK4S6S3;
 				INFOPLIST_FILE = "PersonalAssistantWatch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "PA-Personal-Assistant.Personal-Assistant.watchkitapp.watchkitextension";

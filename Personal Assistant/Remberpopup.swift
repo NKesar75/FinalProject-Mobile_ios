@@ -9,7 +9,7 @@
 import UIKit
 
 class Remberpopup: UIViewController {
-
+    
     @IBOutlet weak var rembertitle: UILabel!
     
     override func viewDidLoad() {
@@ -19,12 +19,6 @@ class Remberpopup: UIViewController {
         rembertitle.text = Rember.titleofrember
         
         self.showAnimate()
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func Deletebuttonpressed(_ sender: Any) {
@@ -45,11 +39,10 @@ class Remberpopup: UIViewController {
             self.removeAnimate()
             
         }
-        
     }
     
     @IBAction func cancelbuttonpressed(_ sender: Any) {
-         self.removeAnimate()
+        self.removeAnimate()
     }
     
     func showAnimate()
@@ -74,5 +67,4 @@ class Remberpopup: UIViewController {
             }
         });
     }
-
 }

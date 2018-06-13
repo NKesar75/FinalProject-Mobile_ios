@@ -20,7 +20,7 @@ class Rember: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     static var titleofrember = ""
     static var typeurlofrember = ""
-   
+    
     
     @IBOutlet weak var rembertable: UITableView!
     
@@ -40,22 +40,19 @@ class Rember: UIViewController, UITableViewDataSource, UITableViewDelegate {
         ref.observe(.childAdded, with: { (snapshot) -> Void in
             let key = snapshot.key
             let value = snapshot.value
-            //print("key = \(key)  value = \(value!)")
-            // print(key)
             self.listtitles.append(listitems(link: key , type: String(describing: value!)))
             self.rembertable.reloadData()
         })
         
-        // Listen for deleted comments in the Firebase database
         ref.observe(.childRemoved, with: { (snapshot) -> Void in
-        
+            
             self.listtitles.remove(at: self.listtitles.index(where: { $0.link == snapshot.key })!)
             self.rembertable.reloadData()
         })
     }
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       return listtitles.count
+        return listtitles.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -65,16 +62,16 @@ class Rember: UIViewController, UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let Lcell = rembertable.dequeueReusableCell(withIdentifier: "RemberCell") as! UITableViewCell
-
+        
         Lcell.textLabel?.text = self.listtitles[indexPath.row].link
         Lcell.detailTextLabel?.text = self.listtitles[indexPath.row].type
         
         let colorcode = self.listtitles[indexPath.row].type.split(separator: ",")
         switch colorcode[0] {
         case "Youtube":
-             Lcell.textLabel?.textColor = UIColor.red
+            Lcell.textLabel?.textColor = UIColor.red
         case "Google":
-             Lcell.textLabel?.textColor = UIColor.green
+            Lcell.textLabel?.textColor = UIColor.green
         case "List":
             Lcell.textLabel?.textColor = UIColor.white
         case "News":
@@ -86,7 +83,7 @@ class Rember: UIViewController, UITableViewDataSource, UITableViewDelegate {
         
         return Lcell
     }
-
+    
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
@@ -94,7 +91,7 @@ class Rember: UIViewController, UITableViewDataSource, UITableViewDelegate {
         if typeofcontent != nil {
             Rember.titleofrember = listtitles[indexPath.row].link
             Rember.typeurlofrember = listtitles[indexPath.row].type
-        
+            
             switch typeofcontent[0] {
             case "Youtube":
                 let vc = self.storyboard?.instantiateViewController(withIdentifier: "RemberWeb_ID") as! RemberWebview
@@ -136,5 +133,5 @@ class Rember: UIViewController, UITableViewDataSource, UITableViewDelegate {
             }
         }
     }
-
+    
 }
