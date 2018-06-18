@@ -99,7 +99,8 @@ class Search: UIViewController, CLLocationManagerDelegate, UITableViewDataSource
         })
     }
     
-    @IBAction func searchbuttonpressed(_ sender: UIButton) {
+    func searchmanual(){
+        view.endEditing(true)
         if SearchText.text != "" && SearchText.text != " "{
             activityindactor.center = self.view.center
             
@@ -137,6 +138,15 @@ class Search: UIViewController, CLLocationManagerDelegate, UITableViewDataSource
                 }
             })
         }
+    }
+    
+    @IBAction func searchtextfeildpressed(_ sender: Any) {
+        searchmanual()
+    }
+    
+    
+    @IBAction func searchbuttonpressed(_ sender: UIButton) {
+        searchmanual()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

@@ -33,10 +33,11 @@ class apitest: UIViewController {
         let speechUtterance = AVSpeechUtterance(string: text)
         speechSynthesizer.speak(speechUtterance)
         UIView.animate(withDuration: 1.0, delay: 0.0, options: .curveEaseInOut, animations: {
-            self.apiresponse.text = text
+            self.apiresponse.text = "Maya: " + text
         }, completion: nil)
     }
-    @IBAction func sendbutton(_ sender: Any) {
+    
+    func askmaya(){
         let request = ApiAI.shared().textRequest()
         
         if let text = self.usertext.text, text != "" {
@@ -56,19 +57,25 @@ class apitest: UIViewController {
         })
         
         ApiAI.shared().enqueue(request)
-        usermessage.text = usertext.text
+        if self.usertext.text != "" && self.usertext.text != " " && self.usertext.text != nil {
+            usermessage.text = "You: " + self.usertext.text!
+        }
         usertext.text = ""
-        
     }
     
+    @IBAction func userquestionenterpressed(_ sender: Any) {
+        askmaya()
+    }
+    
+    @IBAction func sendbutton(_ sender: Any) {
+        askmaya()
+    }
     
     @objc func keyboardShown(notification: NSNotification) {
         let info = notification.userInfo!
         let keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
-        
         self.usertext.frame = CGRect(x: keyboardFrame.minX, y: keyboardFrame.minY - 50, width: self.view.frame.maxX - 85, height: 50)
         self.sendbuttonframe.frame = CGRect(x: self.usertext.frame.maxX, y: self.usertext.frame.minY, width: 85, height: 50)
-        
         print("keyboardFrame: \(keyboardFrame)")
     }
     

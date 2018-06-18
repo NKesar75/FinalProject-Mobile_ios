@@ -83,7 +83,8 @@ class Youtube: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate,
         }
         
     }
-    @IBAction func Searchfortextyoutube(_ sender: UIButton) {
+    
+    func youtubesearchmanual(){
         if Searchfortext.text != "" && Searchfortext.text != " "{
             activityindactor.frame.origin = CGPoint(x: self.view.center.x , y: self.view.center.y + 125 )
             activityindactor.hidesWhenStopped = true
@@ -120,9 +121,18 @@ class Youtube: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate,
                     self.activityindactor.removeFromSuperview()
                 }
             })
-            
-            
         }
+    }
+    
+    @IBAction func youtubetextfeildenter(_ sender: Any) {
+        dismissKeyboard()
+        youtubesearchmanual()
+    }
+    
+    
+    @IBAction func Searchfortextyoutube(_ sender: UIButton) {
+        dismissKeyboard()
+        youtubesearchmanual()
     }
     
     //Calls this function when the tap is recognized.

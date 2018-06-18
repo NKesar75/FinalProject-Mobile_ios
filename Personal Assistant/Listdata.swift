@@ -57,6 +57,11 @@
             }
         }
         
+        @IBAction func listtextfeildenter(_ sender: Any) {
+            self.listcontent.becomeFirstResponder()
+        }
+        
+        
         @IBAction func savebuttonpressed(_ sender: UIButton) {
             activityindactor.center = self.view.center
             activityindactor.hidesWhenStopped = true

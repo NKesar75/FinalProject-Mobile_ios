@@ -66,6 +66,11 @@ class Weather: UIViewController, CLLocationManagerDelegate, UITableViewDataSourc
     }
     
     @IBAction func SearchForWeather(_ sender: UIButton) {
+        dismissKeyboard()
+        weathersearchmanual()
+    }
+    
+    func weathersearchmanual(){
         if Searchweathertext.text != "" && Searchweathertext.text != " "{
             activityindactor.center = self.view.center
             activityindactor.hidesWhenStopped = true
@@ -106,6 +111,13 @@ class Weather: UIViewController, CLLocationManagerDelegate, UITableViewDataSourc
             })
         }
     }
+    
+    
+    @IBAction func weathersearchtextfeild(_ sender: Any) {
+        dismissKeyboard()
+        weathersearchmanual()
+    }
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return weatherforcasts.count

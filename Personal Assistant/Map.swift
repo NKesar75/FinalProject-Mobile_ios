@@ -48,12 +48,8 @@ class Map: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
         
     }
     
-    
-    
-    
-    
-    @IBAction func Search(_ sender: UIButton) {
-        
+    func mapssearchmanual(){
+        view.endEditing(true)
         if addresstext.text != nil && addresstext.text != "" && addresstext.text != " "{
             
             let localSearchRequest = MKLocalSearchRequest()
@@ -113,6 +109,13 @@ class Map: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
         }
     }
     
+    @IBAction func Search(_ sender: UIButton) {
+        mapssearchmanual()
+    }
+    
+    @IBAction func maptextfeildpressed(_ sender: Any) {
+        mapssearchmanual()
+    }
     
     @objc func centerMapOnUserButtonClicked() {
         let region = MKCoordinateRegion(center: Mapkitview.userLocation.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005) )

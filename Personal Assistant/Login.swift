@@ -57,11 +57,12 @@ class Login: UIViewController {
         view.endEditing(true)
     }
     
-    @IBAction func Signinbuttonclicked(_ sender: Any) {
+    func login(){
+        
         if loginlabelbool {
-            
+        
             guard let email = Emailvalue.text, email != "", let password = Passwordvalue.text, password != ""
-            else
+                else
             {
                 AlertController.showAlert(self, title: "Missing Info", message: "Please fill out all required fields")
                 return
@@ -94,6 +95,19 @@ class Login: UIViewController {
                 }
             })
         }
+    }
+    
+    @IBAction func emailtextfiledtriger(_ sender: UITextField) {
+        Passwordvalue.becomeFirstResponder()
+    }
+    
+    @IBAction func passwordtextfielddidenter(_ sender: UITextField) {
+        dismissKeyboard()
+        login()
+    }
+    
+    @IBAction func Signinbuttonclicked(_ sender: Any) {
+        login()
     }
 }
 

@@ -41,7 +41,6 @@ class Stock: UIViewController, UITableViewDataSource, UITableViewDelegate {
         view.addSubview(activityindactor)
         self.activityindactor.startAnimating()
         UIApplication.shared.beginIgnoringInteractionEvents()
-        
     }
     
     func pullstock(){
