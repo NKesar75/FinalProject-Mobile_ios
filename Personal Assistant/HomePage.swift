@@ -71,7 +71,7 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
         
         HomePage.diditcomefromrember = false
         view.addGestureRecognizer(tap)
-        self.voice_button.setTitle("Make a request! \u{1F3A4}", for: .normal)
+        self.voice_button.setTitle("\u{1F3A4} Make a request!", for: .normal)
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
@@ -289,7 +289,7 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
         
         if audioEngine.isRunning {
             audioEngine.stop()
-            self.voice_button.setTitle("Make a request! \u{1F3A4}", for: .normal)
+            self.voice_button.setTitle("\u{1F3A4} Make a request!", for: .normal)
             recognitionRequest?.endAudio()
             if (self.stringtoserver != nil){
                 self.stringtoserver = self.stringtoserver!.replacingOccurrences(of: " ", with: "_", options: .literal, range: nil)
@@ -366,7 +366,7 @@ class HomePage: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate
             
             do {
                 try audioEngine.start()
-                self.voice_button.setTitle("\u{1F5E3}Press me again After You Finsh Talking!", for: .normal)
+                self.voice_button.setTitle("\u{1F5E3} Press me again After You Finsh Talking!", for: .normal)
             } catch {
                 print("audioEngine couldn't start because of an error.")
             }

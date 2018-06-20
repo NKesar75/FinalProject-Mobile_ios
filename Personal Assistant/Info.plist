@@ -29,6 +29,11 @@
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>uber</string>
+		<string>uberauth</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -36,15 +41,6 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
-    <key>UberClientID</key>
-    <string>22LI3sqhTJFtDvecVdiA-IQXNknAkp44</string>
-    <key>UberDisplayName</key>
-    <string>Personal Assistant</string>
-    <key>LSApplicationQueriesSchemes</key>
-    <array>
-        <string>uber</string>
-        <string>uberauth</string>
-    </array>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>For making the app work</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
@@ -63,9 +59,8 @@
 	</array>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
@@ -74,5 +69,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UberClientID</key>
+	<string>22LI3sqhTJFtDvecVdiA-IQXNknAkp44</string>
+	<key>UberDisplayName</key>
+	<string>Personal Assistant</string>
 </dict>
 </plist>
