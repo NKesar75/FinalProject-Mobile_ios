@@ -8,7 +8,7 @@
 
 import WatchKit
 import Foundation
-
+import AVFoundation
 
 class WeatherInfoIC: WKInterfaceController {
 
@@ -19,6 +19,11 @@ class WeatherInfoIC: WKInterfaceController {
     @IBOutlet var weatherInfoRain: WKInterfaceLabel!
     @IBOutlet var weatherInfoLocation: WKInterfaceLabel!
     @IBOutlet var weatherInfoDate: WKInterfaceLabel!
+    
+    var sayDate: String = ""
+    var sayForecast: String = ""
+    var sayTemp_high: String = ""
+    var sayTemp_Low: String = ""
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
@@ -45,7 +50,19 @@ class WeatherInfoIC: WKInterfaceController {
                     print("Error : \(error.localizedDescription)")
                 }
             }
+            sayDate = weatherInfoData.date
+            sayForecast = weatherInfoData.forcast
+            sayTemp_high = weatherInfoData.temphigh
+            sayTemp_Low = weatherInfoData.templow
         }
+        
+        let textTospeech = AVSpeechUtterance(string: "The weather for " + sayDate + " is " + sayForecast + " with temperatures from " + sayTemp_Low + " to " + sayTemp_high)
+        textTospeech.voice = AVSpeechSynthesisVoice(language: "en-US")
+        textTospeech.rate = 0.5
+        
+        let synthersizer = AVSpeechSynthesizer()
+        synthersizer.speak(textTospeech)
+        
     }
 
     override func willActivate() {

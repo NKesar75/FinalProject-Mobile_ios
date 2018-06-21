@@ -8,7 +8,7 @@
 
 import WatchKit
 import Foundation
-
+import AVFoundation
 
 class stockIC: WKInterfaceController {
 
@@ -29,6 +29,13 @@ class stockIC: WKInterfaceController {
         
         // Configure interface objects here.
         loadDataintoTable()
+        
+        let textTospeech = AVSpeechUtterance(string: "The price of some of the leading companies are as follows")
+        textTospeech.voice = AVSpeechSynthesisVoice(language: "en-US")
+        textTospeech.rate = 0.5
+        
+        let synthersizer = AVSpeechSynthesizer()
+        synthersizer.speak(textTospeech)
     }
 
     override func willActivate() {

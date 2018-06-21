@@ -9,7 +9,7 @@
 import WatchKit
 import Foundation
 import WatchConnectivity
-
+import AVFoundation
 
 class googleinfoIC: WKInterfaceController, WCSessionDelegate {
 
@@ -36,6 +36,13 @@ class googleinfoIC: WKInterfaceController, WCSessionDelegate {
             self.session.delegate = self
             self.session.activate()
         }
+        
+        let textTospeech = AVSpeechUtterance(string: "If you wish to read more information about your search please press read more")
+        textTospeech.voice = AVSpeechSynthesisVoice(language: "en-US")
+        textTospeech.rate = 0.5
+        
+        let synthersizer = AVSpeechSynthesizer()
+        synthersizer.speak(textTospeech)
     }
 
     override func willActivate() {
