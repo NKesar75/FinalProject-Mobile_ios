@@ -9,7 +9,7 @@
 import WatchKit
 import Foundation
 import WatchConnectivity
-
+import AVFoundation
 
 class newsIC: WKInterfaceController, WCSessionDelegate {
     
@@ -26,6 +26,13 @@ class newsIC: WKInterfaceController, WCSessionDelegate {
         
         // Configure interface objects here.
         loadDataintoTable()
+        
+        let textTospeech = AVSpeechUtterance(string: "Here are some of the leading news channels for you to keep updated with the current affairs.")
+        textTospeech.voice = AVSpeechSynthesisVoice(language: "en-US")
+        textTospeech.rate = 0.5
+        
+        let synthersizer = AVSpeechSynthesizer()
+        synthersizer.speak(textTospeech)
     }
 
     override func willActivate() {

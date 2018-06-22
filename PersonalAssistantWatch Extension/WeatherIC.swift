@@ -8,7 +8,7 @@
 
 import WatchKit
 import Foundation
-
+import AVFoundation
 
 class WeatherIC: WKInterfaceController {
     
@@ -22,6 +22,13 @@ class WeatherIC: WKInterfaceController {
         // Configure interface objects here.
        
         loadDataintoTable()
+        
+        let textTospeech = AVSpeechUtterance(string: "The weather forecast for the week is as follows")
+        textTospeech.voice = AVSpeechSynthesisVoice(language: "en-US")
+        textTospeech.rate = 0.5
+        
+        let synthersizer = AVSpeechSynthesizer()
+        synthersizer.speak(textTospeech)
     }
 
     override func willActivate() {
